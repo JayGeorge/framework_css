@@ -1,0 +1,73 @@
+/* GROUP MOLECULES / NAV / MOBILE / BUTTON
+=================================================== */
+/* button*/.c-nav-mobile-button {
+  width: 100%;
+  
+  /* =JFG. Cancel any default button value */
+  margin-right: 0;
+}
+/* - 1024 */
+@media (max-width: 63.9375em){
+  /* Used for pages where we have multiple items on the fixed nav */
+  /* button*/.c-nav-mobile-button--right-mq-1024-down {
+    float: right;
+    /* Fixed dimensions needed because of floating. Bear in mind dimensions for touch targets */
+    width: 80px;
+    height: 70px;
+    /* Cancel default button padding */
+    padding: 0;
+  }
+}
+/* 1024 + */
+@media (min-width: 64em) {
+  .c-nav-mobile-button--absolute-mq-1024-up {
+    position: absolute;
+    /* Center vertically and horizontally (requires position:relative; on parent element) */
+    width: 100vw;
+    height: 100%;
+    /* Needed for Firefox and IE */
+    top: 0;
+  }
+}
+/* GROUP MOLECULES / NAV / MOBILE / CLOSED STATE
+=================================================== */
+/* =JFG. If we have JS then this is hidden until toggled open. The menu appears on larger screens when we use a nav-horizontal... class */
+.js /*nav*/.js__collapsedUntilNavOpened,
+/* =JFG. Hide the 'x' until it's toggled on with JS */
+/*.c-nav-mobile-button*/ .nav-x {
+  display: none;
+}
+
+/* - 1024 */
+@media (max-width: 63.9375em){
+  .js .js__collapsedUntilNavOpened-mq-1024-down {
+    display: none;
+  }
+}
+/* GROUP MOLECULES / NAV / MOBILE / OPEN STATE
+=================================================== */
+/* (Optional) if you are using an icon that toggles between state */
+.js--is-open .nav-x,
+.js--is-open .menu-header {
+  /* =JFG. Menu appears */
+  display: inline-block;
+}
+.js--is-open .js__collapsedUntilNavOpened {
+  display: block;
+}
+/* - 1024 */
+@media (max-width: 63.9375em){
+  .js--is-open .js__collapsedUntilNavOpened-mq-1024-down {
+    display: block;
+  }
+  .no-js .js__collapsedUntilNavOpened-mq-1024-down {
+    /* Make sure all elements e.g. phone number are aligned left */
+    display: block;
+  }
+}
+
+/* (Optional) if you are using an icon that toggles between state */
+.js--is-open .c-nav-icon {
+  /* =JFG. c-nav-icon is hidden, ready for the x to appear in its place */
+  display: none;
+}

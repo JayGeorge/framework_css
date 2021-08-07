@@ -1,0 +1,947 @@
+/* GROUP UTILITIES / FRAMEWORK / LAYOUT / SPACING
+=================================================== */
+.u-spacing-s-x-x {
+    padding-inline-start: var(--spacing-s-x-x);
+    padding-inline-end: var(--spacing-s-x-x);
+}
+
+.u-spacing-s-x-x-alt {
+    margin-left: var(--spacing-s-x-x);
+    margin-right: var(--spacing-s-x-x);
+}
+
+.u-spacing-s {
+    @apply --o-layout-width-s;
+}
+
+.u-spacing-l {
+    @apply --o-layout-width-l;
+}
+
+.u-spacing--r {
+    @apply --o-layout-width--r;
+}
+
+.u-spacing--l {
+    @apply --o-layout-width--l;
+}
+
+.u-spacing-n {
+    @apply --o-layout-width-n;
+}
+
+
+
+
+/* GROUP UTILITIES / FRAMEWORK / LAYOUT / CONSTRAINTS / MAX
+=================================================== */
+.u-width-max-reading,
+.u-width-max-1,
+.u-width-max-2 {
+    max-width: var(--max-width-reading);
+    margin-inline: auto;
+}
+
+.u-width-max-1 {
+    max-width: var(--max-width-1);
+}
+
+.u-width-max-2 {
+    max-width: var(--max-width-2);
+}
+
+.u-width-max--uncentered {
+    margin-left: 0;
+}
+
+
+
+
+/* GROUP OBJECTS / FRAMEWORK / LAYOUT / GRID / PSEDUO GRID / FLEX
+=================================================== */
+/* Notes...
+
+    - Use CSS Grid unless you need to center any orphans on the last row, in which case you'll need to use Flexbox
+
+*/
+
+/* Tutorial...
+
+    For a basic grid you need to at least add a container with a class of .o-grid-flex then adding .o-grid-flex__item to the children.
+    The .o-grid-flex__item class denotes a child of the flexbox container.
+
+    HTML Example...
+    
+    <div class="o-layout-grid-flex">
+        <div class="o-layout-grid-flex__item">
+            Some content
+        </div>
+    </div>
+
+    HTML Abstraction Example...
+
+    <div class="someparentwrapper"> <-- not always needed
+        <div class="someparent">
+            <div class="someparent__child">
+                Some content
+            </div>
+        </div>
+    </div>
+
+    .someparentwrapper {
+        o-layout-grid-flex--gutters-s
+    }
+
+    .someparent {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        START FLEXBOX GRID - GUTTERS
+        -------------------------------------
+        margin-left: var(--gutters-m-pull);
+        margin-right: var(--gutters-m-pull);
+        END FLEXBOX GRID - GUTTERS
+        -------------------------------------
+        max-width: var(--max-width-reading);
+        padding-inline-start: var(--spacing-l);
+        padding-inline-end: var(--spacing-l);
+    }
+
+    .someparent__child {
+        flex: 0 0 50%;
+        START FLEXBOX GRID - GUTTER ITEM
+        -------------------------------------
+        padding-inline-start: var(--gutters-m);
+        padding-inline-end: var(--gutters-m);
+        margin-bottom: calc(var(--gutters-m) * 2);
+        END FLEXBOX GRID - GUTTER ITEM
+        -------------------------------------
+    }
+
+    CSS...
+    The .layout-grid-container class has minimal but sensible defaults.
+    .o-grid-flex {
+        [1] It initiates flexbox.
+        display: flex;
+        
+        [2] It wraps items because we almost always want this with a grid. / it respects the natural width of child items. With wrapping on, a new row is begun every time you exceed the number of children you set e.g. 25% = 4 children.
+        flex-wrap: wrap;
+        
+        [3] It centers items e.g. orphans.
+        justify-content: center;
+    }
+
+    We add modifier classes to the parent container to control how many columns are used.
+    In the following example we have a grid that reaches a maximum of 4 columns.
+
+    HTML Example...
+
+    <div class="o-layout-grid-flex o-layout-grid-flex--gutters-m o-layout-grid-flex--cols-3-mq-768-up o-layout-grid-flex--cols-4-mq-1024-up">
+        <div class="o-layout-grid-flex__item">
+            Some content
+        </div>
+        <div class="o-layout-grid-flex__item">
+            Some content
+        </div>
+        <div class="o-layout-grid-flex__item">
+            Some content
+        </div>
+        <div class="o-layout-grid-flex__item">
+            Some content
+        </div>
+     </div>
+
+    .o-grid-flex--cols-2 > .o-grid-flex__item {
+        [1] Items should take up 25% of the width i.e. 4 columns
+        flex: 0 0 25%;
+        
+        [2] Trigger elements to only grow at this "breakpoint".
+        Source https://medium.com/@Heydon/flexbox-grid-finesse-4d22b80bfee1#.vr78g3qo8
+        min-width: 15rem;
+    }
+
+    If you experience horizontal overflow it's probably because there is no left or right padding on the containing element.
+    To fix this you can wrap .o-grid-flex-wrapper around the grid, which will hide horizontal overflow.
+
+    HTML Example...
+
+    <div class="o-layout-grid-flex-wrapper">
+        <div class="o-layout-grid-flex">
+            <div class="o-layout-grid-flex__item">
+                Some content
+            </div>
+        </div>
+    </div>
+
+*/
+/* GROUP OBJECTS / FRAMEWORK / LAYOUT / GRID / PSEUDO GRID / FLEX / COLUMN SIZE / SELF ADJUSTING
+=================================================== */
+/* Notes...
+
+    - Min widths for grid items.
+    - Although this is less code it's not always desirable e.g. if you want to stretch items across the whole container
+    
+    Do not use in production if you need to support Safari 9 (fixed in 10.1) because of the min-width Safari bug. Instead use media queries with Flexbox to force columns.
+    https://github.com/philipwalton/flexbugs#11-min-and-max-size-declarations-are-ignored-when-wrapping-flex-items
+
+*/
+
+/* Default */
+/* .o-grid-flex .o-grid-flex__item {
+    flex: 1 0 50%;
+    min-width: 15rem;
+} */
+
+/* Large */
+/* .o-grid-flex--cols-l .o-grid-flex__item {
+    min-width: 18rem;
+} */
+/* GROUP OBJECTS / FRAMEWORK / LAYOUT / GRID / PSEUDO GRID / FLEX / COLUMNS (FORCED) / CONTAINERS
+=================================================== */
+/* Notes...
+
+    - Use Media queries with Flexbox to force columns when it would be detrimental to grow the whole container
+    - You can remove the -ms-high-contrast media queries if you don't need to support IE10 or IE11
+    - For examples of using these within other modules (rather than cross pollinating), see WordPress >> Widgets >> Footer >> Genesis
+
+*/
+
+/* HTML Example...
+    
+    <div class="o-layout-width-l-0">
+        <div class="o-layout-grid-flex o-layout-grid-flex--space-between o-layout-grid-flex--cols-2">
+            <div class="o-layout-grid-flex__item">
+                <img/>
+            </div>
+            <div class="o-layout-grid-flex__item">
+                <div>something here</div>
+            </div>
+        </div>
+     </div>
+
+*/
+/* 500 + */
+@media (min-width: 31.25em) {
+    .o-grid-flex--cols-2-mq-500-up,
+    /* Organisms > WordPress > Woocommerce > Shop > Products > Layout */
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .o-grid-flex--cols-2-mq-500-up > .o-grid-flex__item,
+    /* Organisms > WordPress > Woocommerce > Shop > Products > Layout */
+    .products li {
+        flex: 0 0 50%;
+    }
+}
+@media screen and (min-width: 31.25em) and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .o-grid-flex--cols-2-mq-500-up > .o-grid-flex__item,
+    /* Organisms > WordPress > Woocommerce > Shop > Products > Layout */
+    .products > li {
+        flex-basis: auto;
+        /* border-box is ignored for flex-basis https://github.com/philipwalton/flexbugs#7-flex-basis-doesnt-account-for-box-sizingborder-box */
+        width: 50%;
+    }
+}
+/* 600 + / --mq-nav-switches-to-grid-after */
+@media (min-width: 37.5em) {
+    .o-grid-flex--cols-2-mq-600-up > .o-grid-flex__item {
+        flex: 0 0 50%;
+    }
+}
+/* 600 + / --mq-nav-switches-to-grid-after */
+@media (min-width: 37.5em) and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .o-grid-flex--cols-2-mq-600-up > .o-grid-flex__item {
+        flex-basis: auto;
+        /* border-box is ignored for flex-basis https://github.com/philipwalton/flexbugs#7-flex-basis-doesnt-account-for-box-sizingborder-box */
+        width: 50%;
+    }
+}
+/* 768 + */
+@media (min-width: 48em) {
+    .o-grid-flex--cols-2-mq-768-up,
+    /* Organisms > WordPress > Woocommerce > Shop > Products > Layout */
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .o-grid-flex--cols-3-mq-768-up > .o-grid-flex__item,
+    /* Organisms > WordPress > Woocommerce > Shop > Products > Layout */
+    .products > li {
+        flex: 0 0 33.33%;
+    }
+}
+/* 768 + */
+@media screen and (min-width: 48em) and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .o-grid-flex--cols-3-mq-768-up,
+    /* Organisms > WordPress > Woocommerce > Shop > Products > Layout */
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .o-grid-flex--cols-3-mq-768-up > .o-grid-flex__item,
+    /* Organisms > WordPress > Woocommerce > Shop > Products > Layout */
+    .products > li {
+        flex-basis: auto;
+        /* border-box is ignored for flex-basis https://github.com/philipwalton/flexbugs#7-flex-basis-doesnt-account-for-box-sizingborder-box */
+        width: 33.33%;
+    }
+}
+/* 1024 + */
+@media (min-width: 64em) {
+    .o-grid-flex--cols-2-mq-1024-up {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .o-grid-flex--cols-2-mq-1024-up > .o-grid-flex__item {
+        flex: 0 0 50%;
+    }
+
+    
+    .o-grid-flex--cols-3-mq-1024-up {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .o-grid-flex--cols-3-mq-1024-up > .o-grid-flex__item {
+        flex: 0 1 33.333%;
+    }
+
+    
+    .o-grid-flex--cols-4-mq-1024-up {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .o-grid-flex--cols-4-mq-1024-up > .o-grid-flex__item {
+        flex: 0 0 25%;
+    }
+}
+/* 1024 + */
+@media screen and (min-width: 64em) and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .o-grid-flex--cols-2-mq-1024-up > .o-grid-flex__item {
+        flex-basis: auto;
+        /* border-box is ignored for flex-basis https://github.com/philipwalton/flexbugs#7-flex-basis-doesnt-account-for-box-sizingborder-box */
+        width: 50%;
+    }
+
+    .o-grid-flex--cols-3-mq-1024-up > .o-grid-flex__item {
+        flex-basis: auto;
+        /* border-box is ignored for flex-basis https://github.com/philipwalton/flexbugs#7-flex-basis-doesnt-account-for-box-sizingborder-box */
+        width: 33.333%;
+    }
+
+    .o-grid-flex--cols-4-mq-1024-up > .o-grid-flex__item {
+        flex-basis: auto;
+        /* border-box is ignored for flex-basis https://github.com/philipwalton/flexbugs#7-flex-basis-doesnt-account-for-box-sizingborder-box */
+        width: 25%;
+    }
+}
+/* 1750 + */
+@media (min-width: 109.375em) {
+    .o-grid-flex--cols-4-mq-1750-up {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .o-grid-flex--cols-4-mq-1750-up > .o-grid-flex__item {
+        flex: 0 1 25%;
+    }
+}
+/* 1750 + */
+@media screen and (min-width: 109.375em) and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .o-grid-flex--cols-4-mq-1750-up > .o-grid-flex__item {
+        flex-basis: auto;
+        /* border-box is ignored for flex-basis https://github.com/philipwalton/flexbugs#7-flex-basis-doesnt-account-for-box-sizingborder-box */
+        width: 25%;
+    }
+}
+/* GROUP OBJECTS / FRAMEWORK / LAYOUT / GRID / PSEUDO GRID / FLEX / COLUMNS (FORCED) / ITEMS
+=================================================== */
+/* Notes...
+
+    Images will bust out of containers by default (workaround below) - http://stackoverflow.com/questions/28710379/firefox-flexbox-image-width
+
+*/
+.o-grid-flex__item {
+    /* Prevent images from busting out of flex containers */
+    min-width: 0;
+}
+/* IE10 and IE11 fixes
+https://github.com/philipwalton/flexbugs#2-column-flex-items-set-to-align-itemscenter-overflow-their-container */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .o-grid-flex__item {
+        max-width: 100%;
+    }
+}
+/* GROUP OBJECTS / FRAMEWORK / LAYOUT / GRID / PSEUDO GRID / FLEX / COLUMNS (FORCED) / CONTAINERS / MODIFIERS
+=================================================== */
+.o-grid-flex--dont-grow > .o-grid-flex__item {
+    flex-grow: 0;
+}
+
+.o-grid-flex--start {
+    justify-content: flex-start;
+}
+
+.o-grid-flex--space-between {
+    justify-content: space-between;
+}
+
+.o-grid-flex--column {
+    flex-direction: column;
+}
+/* Target only IE10 and IE11 */
+@media (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    /* Fix for IE11 which sometimes messes this up with overflow */
+    .o-grid-flex--column-ie-fix {
+        flex-direction: row;
+    }
+}
+
+.o-grid-flex--grow {
+    flex-grow: 1;
+}
+/* GROUP OBJECTS / FRAMEWORK / LAYOUT / GRID / PSEDUO GRID / FLEX / CONTAINERS
+=================================================== */
+.o-grid-flex-wrapper {
+    /* Used to prevent overflowing negative margins */
+    overflow-x: hidden;
+}
+
+.o-grid-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* GROUP OBJECTS / FRAMEWORK / LAYOUT / GRID / PSEUDO GRID / FLEX / CONTAINERS / MODIFIERS / GUTTERS
+=================================================== */
+/* Notes...
+
+    - Amount of space between each grid item.
+    - Margin and Padding % do not work on Flex items (so don't use %) - http://stackoverflow.com/questions/23717953/padding-bottom-top-not-working-in-flexbox-layout-firefox
+    - Gutters cannot have o-layout-width-l on the same o-layout-grid-flex container. This will cause overflow because of negative margins.
+
+*/
+
+/* Small */
+.o-grid-flex--gutters-s {
+    /* START FLEXBOX GRID - GUTTER CONTAINER
+    ------------------------------------- */
+    margin-left: var(--gutters-s-pull);
+    margin-right: var(--gutters-s-pull);
+    /* END FLEXBOX GRID - GUTTER CONTAINER
+    ------------------------------------- */
+}
+
+.o-grid-flex--gutters-s > .o-grid-flex__item {
+    /* START FLEXBOX GRID - GUTTER ITEM
+    ------------------------------------- */
+    padding-inline-start: var(--gutters-s);
+    padding-inline-end: var(--gutters-s);
+    margin-bottom: calc(var(--gutters-s) * 2);
+    /* END FLEXBOX GRID - GUTTER ITEM
+    ------------------------------------- */
+}
+
+/* Medium */
+.o-grid-flex--gutters-m {
+    /* START FLEXBOX GRID - GUTTER CONTAINER
+    ------------------------------------- */
+    margin-left: var(--gutters-m-pull);
+    margin-right: var(--gutters-m-pull);
+    /* END FLEXBOX GRID - GUTTER CONTAINER
+    ------------------------------------- */
+}
+
+.o-grid-flex--gutters-m > .o-grid-flex__item {
+    /* START FLEXBOX GRID - GUTTER ITEM
+    ------------------------------------- */
+    padding-inline-start: var(--gutters-m);
+    padding-inline-end: var(--gutters-m);
+    margin-bottom: calc(var(--gutters-m) * 2);
+    /* END FLEXBOX GRID - GUTTER ITEM
+    ------------------------------------- */
+}
+
+/* Large */
+.o-grid-flex--gutters-l {
+    /* START FLEXBOX GRID - GUTTER CONTAINER
+    ------------------------------------- */
+    margin-left: var(--gutters-l-pull);
+    margin-right: var(--gutters-l-pull);
+    /* END FLEXBOX GRID - GUTTER CONTAINER
+    ------------------------------------- */
+}
+
+.o-grid-flex--gutters-l > .o-grid-flex__item {
+    padding-inline-start: var(--gutters-l);
+    padding-inline-end: var(--gutters-l);
+    margin-bottom: calc(var(--gutters-l) * 2);
+}
+
+/* Large 1 */
+.o-grid-flex--gutters-m {
+    margin-left: var(--gutters-l-1-pull);
+    margin-right: var(--gutters-l-1-pull);
+}
+
+.o-grid-flex--gutters-l-1 > .o-grid-flex__item {
+    padding-inline-start: var(--gutters-l-1);
+    padding-inline-end: var(--gutters-l-1);
+    margin-bottom: calc(var(--gutters-l-1) * 2);
+}
+
+/* -- */
+.o-grid-flex--gutters-l-tight > .o-grid-flex__item {
+    margin-bottom: 0;
+}
+/* GROUP OBJECTS / FRAMEWORK / LAYOUT / GRID / PSEUDO GRID / FLEX / ITEMS / MODIFIERS
+=================================================== */
+.o-grid-flex__item--fit {
+    flex: 1;
+}
+/* HTML Example...
+    
+    <div class="o-layout-width-l-0">
+        <div class="o-layout-grid-flex o-layout-grid-flex--space-between-mq-1024-up o-layout-grid-flex--cols-2 o-layout-width-l-0-children-direct u-padding-bottom-s-1-children-direct">
+            <div class="o-layout-grid-flex__item o-layout-grid-flex__item--fit">
+                <img/>
+            </div>
+            <div class="o-layout-grid-flex__item">
+                <div>something here</div>
+            </div>
+        </div>
+     </div>
+
+*/
+.o-grid-flex__item--order-1 {
+    order: 1;
+}
+
+.o-grid-flex__item--order-2 {
+    order: 2;
+}
+
+.o-grid-flex__item--order-3 {
+    order: 3;
+}
+/* - 1280 */
+@media (max-width: 79.9375em){
+    .o-grid-flex__item--order-1-mq-1280-down {
+        order: 1;
+    }
+
+    .o-grid-flex__item--order-2-mq-1280-down {
+        order: 2;
+    }
+
+    .o-grid-flex__item--order-3-mq-1280-down {
+        order: 3;
+    }
+}
+
+
+
+
+/* GROUP OBJECTS / FRAMEWORK / LAYOUT / GRID / PSEUDO GRID / ROWS
+=================================================== */
+/* Clearfix for IE8 above */
+.u-layout-row::after,
+/* Organisms > Nav */
+nav::after,
+/* Organisms > Nav > Logo And CTA Distributed */
+.o-logo-nav-cta-distributed::after,
+/* Organisms > WordPress > Genesis > Site Container */
+/* o-*/.site-container::after,
+/* Page > WordPress > Blog > Archive > Genesis */
+/* s-*/.blog /* o-*/.content article::after,
+/* Page > WordPress > Sidebar > Genesis > Layout */
+/* o-*/.content-sidebar-wrap::after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+/* GROUP OBJECTS / FRAMEWORK / LAYOUT / GRID / PSEUDO GRID / COLUMNS / MIXED
+=================================================== */
+/* Mixed Columns */
+.o-col {
+    @apply --o-layout-col;
+}
+
+.o-col-33 {
+    @apply --o-layout-col-33;
+}
+
+.o-col-100 {
+    @apply --o-layout-col-100;
+}
+
+.o-col--alt {
+    @apply --o-layout-col-alt;
+}
+/* GROUP OBJECTS / FRAMEWORK / LAYOUT / GRID / PSEUDO GRID / COLUMNS / EQUAL
+=================================================== */
+/* 300 + / sensible minimum width for 2 columns */
+@media (min-width: 18.75em) {
+    .o-cols-2 > .o-cols__col {
+        float: left;
+        width: 48%;
+    }
+
+    .o-cols-2 > .o-cols__col:nth-child(1n) {
+        /* Delete any clears that might have been in previous equal column classes */
+        clear: none;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    /* Bigger spacing */
+    .o-cols-2--spacing-1 > .o-cols__col {
+        width: 44%;
+    }
+
+    .o-cols-2--spacing-1 > .o-cols__col:nth-child(1n) {
+        margin-left: 6%;
+        margin-right: 6%;
+    }
+
+
+    .o-cols-2 > .o-cols__col:nth-child(1),
+    .o-cols-2 > .o-cols__col:nth-child(2n + 1) {
+        margin-left: 0;
+    }
+
+    .o-cols-2 > .o-cols__col:nth-child(2),
+    .o-cols-2 > .o-cols__col:nth-child(2n) {
+        margin-right: 0;
+    }
+
+    .o-cols-2 > .o-cols__col:nth-child(2n+1) {
+        clear: left;
+    }
+}
+
+
+/* 450 + / sensible minimum width for 3 columns */
+@media (min-width: 28.125em) {
+    .o-cols-3 > .o-cols__col {
+        float: left;
+        width: 32%;
+    }
+
+    .o-cols-3 > .o-cols__col:nth-child(1n) {
+        /* Delete any clears that might have been in previous equal column classes */
+        clear: none;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    /* Bigger spacing */
+    .o-cols-3-mq-650-up--spacing-1 > .o-cols__col {
+        width: 28%;
+    }
+
+    .o-cols-3-mq-650-up--spacing-1 > .o-cols__col:nth-child(1n) {
+        margin-left: 4%;
+        margin-right: 4%;
+    }
+
+
+    .o-cols-3 > .o-cols__col:nth-child(1),
+    .o-cols-3 > .o-cols__col:nth-child(3n + 1) {
+        margin-left: 0;
+    }
+
+    .o-cols-3 > .o-cols__col:nth-child(3),
+    .o-cols-3 > .o-cols__col:nth-child(3n) {
+        margin-right: 0;
+    }
+
+    .o-cols-3 > .o-cols__col:nth-child(3n + 1) {
+        clear: left;
+    }
+}
+
+/* 1024 + */
+@media screen and (min-width: 64em) {
+    .o-cols-4 > .o-cols__col {
+        float: left;
+        width: 24%;
+    }
+
+    .o-cols-4 > .o-cols__col:nth-child(1n) {
+        clear: none;
+        /* Reset all margins first, in case you're adding to a previous col */
+        margin-left: 0.667%;
+        margin-right: 0.667%;
+    }
+
+    .o-cols-4 > .o-cols__col:nth-child(1),
+    .o-cols-4 > .o-cols__col:nth-child(4n + 1) {
+        margin-left: 0;
+    }
+
+    .o-cols-4 > .o-cols__col:nth-child(4),
+    .o-cols-4 > .o-cols__col:nth-child(4n) {
+        margin-right: 0;
+    }
+
+    .o-cols-4 > .o-cols__col:nth-child(4n+1) {
+        clear: left;
+    }
+
+    .o-cols-5-mq-1024-up > .o-cols__col {
+        float: left;
+        width: 19%;
+    }
+
+    .o-cols-5-mq-1024-up > .o-cols__col:nth-child(1n) {
+        /* Reset first, in case you're adding to a previous col */
+        clear: none;
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+    }
+
+    .o-cols-5-mq-1024-up > .o-cols__col:nth-child(1),
+    .o-cols-5-mq-1024-up > .o-cols__col:nth-child(5n + 1) {
+        margin-left: 0;
+    }
+
+    .o-cols-5-mq-1024-up > .o-cols__col:nth-child(5),
+    .o-cols-5-mq-1024-up > .o-cols__col:nth-child(5n) {
+        margin-right: 0;
+    }
+
+    .o-cols-5-mq-1024-up > .o-cols__col:nth-child(5n+1) {
+        clear: left;
+    }
+}
+
+
+
+
+/* GROUP OBJECTS / FRAMEWORK / LAYOUT / VERTICAL SPACING
+=================================================== */
+.u-padding-bottom-s-x-x {
+    padding-bottom: var(--spacing-s-x-x)!important;
+}
+
+.u-padding-bottom-s-x-x {
+    padding-bottom: var(--spacing-s-x-x)!important;
+}
+
+.u-padding-block-start-s-x-x {
+    padding-block-start: var(--spacing-s-x-x)!important;
+}
+
+.u-margin-bottom-s-x-x {
+    margin-bottom: var(--spacing-s-x-x)!important;
+}
+
+.u-margin-top-s-x-x {
+    margin-top: var(--spacing-s-x-x)!important;
+}
+
+
+
+.u-padding-bottom-s-x {
+    padding-bottom: var(--spacing-s-x)!important;
+}
+
+.u-padding-bottom-s-x {
+    padding-bottom: var(--spacing-s-x)!important;
+}
+
+.u-padding-block-start-s-x {
+    padding-block-start: var(--spacing-s-x)!important;
+}
+
+.u-padding-block-start-s-x {
+    padding-block-start: var(--spacing-s-x)!important;
+}
+
+
+
+.u-padding-bottom-s {
+    padding-bottom: var(--spacing-s)!important;
+}
+
+.u-padding-block-start-s {
+    padding-block-start: var(--spacing-s)!important;
+}
+
+.u-padding-block-start-s {
+    padding-block-start: var(--spacing-s)!important;
+}
+
+.u-margin-bottom-s {
+    margin-bottom: var(--spacing-s)!important;
+}
+
+.u-margin-top-s {
+    margin-top: var(--spacing-s)!important;
+}
+
+
+
+.u-padding-bottom-s-1 {
+    padding-bottom: var(--spacing-s-1)!important;
+}
+
+.u-padding-block-start-s-1 {
+    padding-block-start: var(--spacing-s-1)!important;
+}
+
+.u-margin-bottom-s-1 {
+    margin-bottom: var(--spacing-s-1)!important;
+}
+
+.u-margin-top-s-1 {
+    margin-top: var(--spacing-s-1)!important;
+}
+
+
+
+.u-padding-bottom-s-2 {
+    padding-bottom: var(--spacing-s-2)!important;
+}
+
+.u-padding-block-start-s-2 {
+    padding-block-start: var(--spacing-s-2)!important;
+}
+
+.u-margin-bottom-s-2 {
+    margin-bottom: var(--spacing-s-2)!important;
+}
+
+.u-margin-top-s-2 {
+    margin-top: var(--spacing-s-2)!important;
+}
+
+
+
+.u-padding-bottom-m {
+    padding-bottom: var(--spacing-m)!important;
+}
+
+.u-padding-block-start-m {
+    padding-block-start: var(--spacing-m)!important;
+}
+
+.u-margin-bottom-m {
+    margin-bottom: var(--spacing-m)!important;
+}
+
+.u-margin-top-m {
+    margin-top: var(--spacing-m)!important;
+}
+
+
+
+.u-padding-bottom-l {
+    padding-bottom: var(--spacing-l)!important;
+}
+
+.u-padding-block-start-l {
+    padding-block-start: var(--spacing-l)!important;
+}
+
+.u-margin-bottom-l {
+    margin-bottom: var(--spacing-l)!important;
+}
+
+.u-margin-top-l {
+    margin-top: var(--spacing-l)!important;
+}
+
+
+
+.u-padding-bottom-l-1 {
+    padding-bottom: var(--spacing-l-1)!important;
+}
+
+.u-padding-block-start-l-1 {
+    padding-block-start: var(--spacing-l-1)!important;
+}
+
+.u-margin-bottom-l-1 {
+    margin-bottom: var(--spacing-l-1)!important;
+}
+
+.u-margin-top-l-1 {
+    margin-top: var(--spacing-l-1)!important;
+}
+
+
+
+.u-padding-bottom-l-2 {
+    padding-bottom: var(--spacing-l-2)!important;
+}
+
+.u-padding-block-start-l-2 {
+    padding-block-start: var(--spacing-l-2)!important;
+}
+
+.u-margin-top-l-2 {
+    margin-top: var(--spacing-l-2)!important;
+}
+
+.u-margin-bottom-l-2 {
+    margin-bottom: var(--spacing-l-2)!important;
+}
+
+
+
+.u-margin-top-l-2-1 {
+    margin-top: var(--spacing-l-2-1)!important;
+}
+
+
+
+.u-padding-block-start-l-3 {
+    padding-block-start: var(--spacing-l-3)!important;
+}
+
+.u-margin-top-l-3 {
+    margin-top: var(--spacing-l-3)!important;
+}
+
+
+
+.u-padding-bottom-n {
+    padding-bottom: 0!important;
+}
+
+.u-margin-bottom-n {
+    margin-bottom: 0!important;
+}
+
+.u-padding-block-start-n {
+    padding-block-start: 0!important;
+}
+
+.u-margin-top-n {
+    margin-top: 0!important;
+}
+
+
+
+/* GROUP OBJECTS / FRAMEWORK / LAYOUT / VERTICAL SPACING / PRINT
+=================================================== */
+@media print {
+    .u-print-padding-bottom-n {
+        padding-bottom: 0!important;
+    }
+}

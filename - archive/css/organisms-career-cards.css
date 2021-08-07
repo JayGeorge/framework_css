@@ -1,0 +1,59 @@
+/* GROUP ORGANISMS / CAREERS CARD / (CROSS POLLINATED)
+=================================================== */
+/* HTML example...
+
+	<!-- Grid -->
+	<div class="o-layout-grid-flex o-layout-grid-flex--cols-2 o-layout-grid-flex--start o-layout-grid-flex--gutters-m">
+		<div class="o-layout-grid-flex__item">
+
+			<!-- Card -->
+			<div class="c-careers-card">
+				<div class="c-careers-card__meta">
+					<div class="c-careers-card__meta__description"></div>
+					<div class="c-careers-card__meta__location"></div>
+					etc.
+				</div>
+				<div class="c-careers-card__footer">
+					<div class="c-careers-card__footer__item">
+						<div class="btn">
+							<a href="">View this job</a>
+						</div>
+					</div>
+					<div class="c-careers-card__footer__item">
+						<span class="c-jg-icon-computer c-icon-m-2 c-icon-left-0 u-text-size-s-x"></span> Telecommuting<span class="c-jg-icon-checkmark3 c-icon-right"></span>
+					</div>
+				</div>
+			</div> <!-- Card -->
+
+		</div>
+	</div> <!-- Grid -->
+
+*/
+/* GROUP ORGANISMS / CAREERS CARD / LAYOUT
+=================================================== */
+.c-careers-card__footer__item {
+	align-self: baseline;
+}
+/* GROUP ORGANISMS / CAREERS CARD / LAYOUT / VERTICAL SPACING
+=================================================== */
+.c-careers-card__footer__item:not(:last-child) {
+	/* e.g. space out Telecommuting label */
+	margin-right: var(--r-s-x);
+}
+/* GROUP ORGANISMS / CAREERS CARD / OTHER
+=================================================== */
+.c-careers-card {
+	width: 100%;
+	padding-inline-end: var(--r-m-2);
+	padding-inline-start: var(--r-m-2);
+}
+.c-careers-card__meta__description,
+.c-careers-card__meta__description *,
+.c-careers-card__meta__location,
+.c-careers-card__meta__location * {
+	color: var(--c-blue-faded-3)!important;
+}
+.c-careers-card .btn a {
+	padding-inline-end: var(--r-m);
+	padding-inline-start: var(--r-m);
+}

@@ -1,0 +1,38 @@
+/* GROUP ATOMS / (NON CORE) / FIXED BAR CTA
+=================================================== */
+/* Notes...
+
+	- Use to hide a fixed scrolling CTA
+	- No JS required
+
+*/
+
+/* HTML Example...
+
+	<div class="u-fixed-above">
+		E.g. content above the fold
+	</div>
+	<div class="u-fixed-below">
+		Put your content e.g. CTA here
+	</div>
+
+*/
+
+.u-fixed-above {
+	position: relative;
+	z-index: 2;
+}
+
+.u-fixed-below {
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	width: 100%;
+}
+
+
+
+/* For illustration purposes */
+body {
+	height: 200vh;
+}

@@ -1,0 +1,18 @@
+.cms_scroll_container {
+	min-height: 80vh;
+}
+
+.cms_scroll_post {
+	border: 1px solid red!important;
+}
+
+.site-footer {
+	min-height: 30vh;
+}
+
+.c-jg-icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}

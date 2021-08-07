@@ -1,0 +1,34 @@
+#map_canvas,
+#map_canvas2 {
+	position: relative;
+	z-index: 1;
+	height: 180px;
+	border-radius: 10px;
+}
+
+/* =JFG. Cancel default img width constraints */
+#map_canvas img,
+#map_canvas2 img {
+	max-width: none;
+}
+
+.gm-style-cc,
+img[src*="google_white5.png"] {
+	display: none;
+}
+
+/* 400 + */
+@media screen and (min-width: 25em) {
+		#map_canvas,
+		#map_canvas2 {
+				height: 250px;
+		}
+}
+
+/* 768 + */
+@media screen and (min-width: 48em) {
+		#map_canvas,
+		#map_canvas2 {
+				height: 350px;
+		}
+}

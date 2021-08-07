@@ -1,0 +1,183 @@
+/* GROUP ATOMS / FONT ICONS / ICOMOON
+=================================================== */
+/* Normally put here for production */
+
+
+/* GROUP ATOMS / FONT ICONS
+=================================================== */
+/* =JFG. Notes...
+
+  We apply padding to :before or :after so we can apply the icon class directly
+  to WordPress menu optional CSS Classes, rather than WordPress menu Navigation Labels
+
+  For this to be effective make sure you set li a { display: inline-block; }
+  So that Navigation Labels float next to icons
+
+  e.g. we don't need to do this...
+
+  Navigation Label
+  ------------
+  <span class="icon c-icon-left c-icon-someicon"></span> Some menu name
+
+
+  Instead we can do this...
+
+
+  Navigation Label
+  ------------
+  Some menu name
+
+  CSS Classes (Optional)
+  ------------
+  icon c-icon-left c-icon-someicon
+
+*/
+
+[class*="c-jg-icon"],
+[class*="c-jg-icon"]:before,
+[class*="c-jg-icon"]:after {
+  /* Cancelled carpet-bombing with position: relative; because it
+  affects .icon--background:before */
+  /* =JFG. so that padding is effective */
+  display: inline-block;
+}
+
+
+.c-icon-left-0:before {
+  padding-inline-end: 0.2em;
+}
+.c-icon-left:before {
+  padding-inline-end: 0.6em;
+}
+
+
+.c-icon-right:before {
+  padding-inline-start: 0.6em;
+}
+
+
+.c-icon-s:before {
+  font-size: 1.35em;
+}
+.c-icon-m:before {
+  font-size: 1.5em;
+}
+.c-icon-m-2:before,
+.c-icon-m-2:after {
+  font-size: 1.8em;
+}
+.c-icon-l:before {
+  font-size: 3em;
+}
+.c-icon-l-2:before {
+  font-size: 5em;
+}
+
+
+/* icon-no-underline */
+/* =JFG. Specifically .entry-content so we do not nudge hover positions on nav icons, which we do normally get rid of text-decoration on anyway */
+.entry-content a:hover .c-jg-icon {
+  /* Clear the text-decoration property from the parent element so we can have text-decoration: none;
+  http://stackoverflow.com/questions/1823341/how-do-i-get-this-css-text-decoration-override-to-work */
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* GROUP ATOMS / FONT ICONS / CSS (RATHER THAN HTML)
+=================================================== */
+/* For Using icons within CSS as a group selector rather than an HTML class. You should prioritise using an HTML class, it makes our CSS more manageable, but this isn't always convenient / possible */
+/* Not .icon, because the base icomoon class would target this (since it begins with "icon") */
+.icon-css:after,
+.js-added-i-css:after,
+.example:before,
+.example:after,
+.example-1:before,
+.example-2:after,
+/* Organisms > Testimonials */
+.review:after {
+  font-family: 'icomoon-brewpixel';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* HTML Example...
+
+[1] Specify all the selectors that will be using icomoon icon fonts
+
+.example:before,
+.example-2:after {
+font-family: 'icomoon';
+speak: none;
+font-style: normal;
+font-weight: normal;
+font-variant: normal;
+text-transform: none;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+
+[2] now specificy the unicode for each selector. You can find these in downloaded icomoon files
+
+.example:before {
+content: "\e60a\00a0"; // Stack icon
+}
+.example-2:after {
+content: "\e60b\00a0"; // Tag icon
+}
+
+*/
+
+
+/* GROUP ATOMS / FONT ICONS / BACKGROUNDS
+=================================================== */
+/* Notes...
+
+  1.  Add the modifier .icon--background to the .icon class
+  2.  Add position values using a location-based selector or alternatively use
+      a modifier class for easy repition
+
+*/
+/* HTML Example...
+
+  <div class="entry-content">
+    <div id="some-wrapper" class="icon icon--background icon--background--2 c-icon-logomark c-icon-l">
+      <p>Lorem ipsum ius kasd cibo utroque an, eum eu populo percipitur, his in equidem posidonium concludaturque. No eam deserunt salutatus, fastidii conceptam consectetuer no vim, sea paulo takimata ei. Tation sadipscing nec ei, cum graeci ancillae et. Modus dicit altera nec ad, nostro civibus epicurei et pro. Errem numquam interesset mel at, cu unum illum vim, ius quot splendide disputando in.</p>
+    </div>
+  </div>
+
+*/
+.icon--background:before {
+  position: absolute;
+}
+
+/* some selector here */ .icon--background:before {
+  left: 20px;
+}
+/* OR use some arbitrary modifier number */
+.icon--background/*--2*/:before {
+  left: 50px;
+}
+/* GROUP ATOMS / FONT ICONS / BACKGROUNDS / GENESIS
+=================================================== */
+/* Molecules > Forms > Search > Genesis */
+.search-form:before,
+.widget_search {
+  /* Lock in absolute positioning */
+  position: relative;
+}
+/* Molecules > Forms > Search > Genesis */
+.search-form:before ,
+.widget_search:before {
+  position: absolute;
+  left: 50px;
+}

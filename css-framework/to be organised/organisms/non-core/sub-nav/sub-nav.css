@@ -1,0 +1,147 @@
+/* GROUP ORGANISMS / NAV / SUB MENUS
+=================================================== */
+/* Need this selector */
+ul/*o-*/.sub-menu {
+    font-size: 0.95em;
+    background: white;
+}
+
+.js--nav-submenu-dropdown {
+    cursor: pointer;
+}
+
+.menu-item-has-children /* button*/.js--nav-submenu-dropdown {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: var(--spacing-s-x-x) var(--spacing-s);
+    padding-inline-end: var(--spacing-l-static);
+    margin-top: var(--spacing-s-1);
+    font-size: 1.1em;
+    color: var(--colour-grey-reading);
+}
+
+.menu-item-has-children /* button*/.js--nav-submenu-dropdown:focus {
+    color: black;
+    border-color: black;
+}
+
+.menu-item-has-children /* button*/.js--nav-submenu-dropdown {
+    border-left: 1px dashed #ccc;
+}
+
+/* Disable linter because we need this specificity */
+/* 600 + / --mq-nav-switches-to-grid-after */
+@media (min-width: 37.5em) {
+    .s-nav-grid-mq-600-up .menu-item-has-children /* button*/.js--nav-submenu-dropdown {
+        /* Pull above other buttons */
+        z-index: 1;
+        right: -0.5rem;
+        padding: var(--spacing-s-x-x) var(--spacing-s-x);
+        margin-top: var(--spacing-s);
+    }
+
+    /* Match specificity of earlier border color selector */
+    .s-nav-grid-mq-600-up .menu-item-has-children /* button*/.js--nav-submenu-dropdown {
+        border-color: #ddd;
+    }
+
+    /* Second Submenu */
+    .s-nav-grid-mq-600-up .sub-menu /* button*/.js--nav-submenu-dropdown {
+        right: var(--spacing-s);
+    }
+
+    /* Third Submenu */
+    .s-nav-grid-mq-600-up .sub-menu ul ul {
+        border: 3px solid white;
+        border-right: none;
+    }
+}
+/* GROUP ORGANISMS / NAV / SUB MENUS / GRID
+=================================================== */
+/* --mq-nav-switches-to-grid-after */
+@media (min-width: 600px) {
+    /* Disable linter for now until we can test consequences of removing qualifier */
+    .s-nav-grid-mq-600-up ul/*o-*/.sub-menu {
+        /* =JFG. Remove indent because we can already easily understand hierarchy */
+        padding-inline-start: 0;
+    }
+
+    .s-nav-grid-mq-600-up nav li {
+        display: inline-block;
+        text-align: left;
+    }
+
+    /* ...not sub menus. Cancel display: inline-block; for sub menus */
+    .s-nav-grid-mq-600-up nav li li {
+        display: block;
+    }
+
+    .s-nav-grid-mq-600-up ul ul {
+        z-index: 99999;
+        float: left;
+        left: 0;
+        /* Override u-screen-reader-text-show width */
+        width: 238px!important;
+    }
+
+    /* =JFG. Safety measure in case we're clicking last sub on a horizontal menu. We don't want it to go off screen to the right */
+    .s-nav-grid-mq-600-up ul li:last-child ul {
+        left: auto;
+        right: 0;
+    }
+
+    /* Hide submenus by default */
+    .no-js .s-nav-grid-mq-600-up ul ul {
+        /* START SCREEN READER TEXT
+        --------------------------- */
+        clip: rect(1px, 1px, 1px, 1px);
+
+        position: absolute!important;
+        overflow: hidden;
+        width: 1px;
+        height: 1px;
+        /* END SCREEN READER TEXT
+        ------------------------- */
+    }
+
+    .no-js .s-nav-grid-mq-600-up ul li:hover > ul {
+        /* START SCREEN READER TEXT SHOW
+        --------------------------- */
+        clip: auto;
+
+        position: static!important;
+        overflow: visible;
+        width: auto;
+        height: auto;
+        /* END SCREEN READER TEXT SHOW
+        ------------------------- */
+        /* Override screen-reader-text-show */
+        position: absolute!important;
+    }
+
+    .s-nav-grid-mq-600-up .nav-menu ul {
+        position: absolute;
+    }
+
+    .s-nav-grid-mq-600-up ul ul li {
+        /* =JFG. Prevent short sub nav items from floating next to each other */
+        float: none;
+    }
+}
+/* GROUP ORGANISMS / NAV / SUB MENUS / SPACING / VERTICAL
+=================================================== */
+/* nav */.sub-menu {
+    padding-block-end: 0;
+}
+/* GROUP ORGANISMS / NAV / SUB MENUS / CURRENT PAGE
+=================================================== */
+/* Sub Categories */
+/* nav */.current-menu-item > a span {
+    color: var(--colour-turquoise);
+}
+/* GROUP ORGANISMS / NAV / SUB MENUS / DECORATION
+=================================================== */
+/* o-*/.sub-menu {
+    box-shadow: var(--box-shadow-s-light-s);
+}

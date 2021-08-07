@@ -1,0 +1,89 @@
+/* GROUP ATOMS / (NON CORE) / COOKIE CONSENT
+=================================================== */
+/* Notes...
+
+    - copy the script from this group in script.js
+    - Make sure you have .u-animated--fade-out and .u-animated in your CSS
+    - If condition ensures that this does not show up on my portfolio
+    - Display the consent banner in the footer something like this:
+
+    <?php if (PERCH_PRODUCTION_MODE !== 'PERCH_PORTFOLIO') { ?>
+        <script>
+            if (localStorage.getItem('cookie_consent') !== 'yes') {
+                window.onload = function() {
+                    document.getElementById('js__site-footer').innerHTML = '<dialog class="c-cookie-consent"><div class="c-cookie-consent__message">By continuing to use our website, you agree to our <a href="/privacy-policy">cookies policy</a></div> <button id="js__cookie-dismiss" class="btn--s">Dismiss</button></dialog>';
+                }
+            }
+        </script>
+    <?php } ?>
+
+    - Activate things when consent is given e.g. check out my Perch framework head.php
+
+*/
+
+/* HTML Example...
+
+    dialg.c-cookie-consent
+        .c-cookie-consent__message
+        button
+
+*/
+/* GROUP ATOMS / (NON CORE) / COOKIE CONSENT / LAYOUT
+=================================================== */
+.c-cookie-consent {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    bottom: var(--spacing-s);
+}
+
+.c-cookie-consent__message {
+    text-align: left;
+}
+/* GROUP ATOMS / (NON CORE) / COOKIE CONSENT / SPACING
+=================================================== */
+.c-cookie-consent {
+    padding: var(--spacing-s-1) var(--spacing-l);
+    /* Need to use max-width rather than margin to keep this container centered */
+    max-width: calc(100% - var(--spacing-s) * 2);
+}
+
+.c-cookie-consent button {
+    margin-left: var(--spacing-m);
+    /* Cancel default */
+    margin-right: 0;
+}
+/* GROUP ATOMS / (NON CORE) / COOKIE CONSENT / DECORATION
+=================================================== */
+.c-cookie-consent {
+    font-size: var(--font-size-s-x-x);
+    text-align: center;
+    background: white;
+    border: none;
+    border-radius: var(--border-radius-l);
+    box-shadow: var(--box-shadow-s-light-b-3);
+}
+
+.c-cookie-consent button {
+    font-size: 0.95em;
+    background: var(--colour-grey-light-4);
+    border-radius: var(--border-radius-l);
+    font-weight: var(--font-family-main-weight-strong);
+    cursor: pointer;
+}
+
+.c-cookie-consent a {
+    font-weight: var(--font-family-main-weight-strong);
+}
+
+.c-cookie-consent,
+.c-cookie-consent * {
+    color: #666;
+}
+
+.c-cookie-consent a {
+    /* Explicit, just in case we need to override default link style */
+    text-decoration-style: underline;
+}

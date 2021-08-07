@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset=utf-8 />
+		<title>Sandbox</title>
+
+		<link rel="stylesheet" type="text/css" media="all" href="style.css" />
+
+</head>
+<body>
+
+
+<div id="map_canvas"></div>
+
+<script type="text/javascript">
+
+	function initMap() {
+
+		/* GROUP MAP STYLE
+		=================================================== */
+		/* Create an array of styles e.g. from http://snazzymaps.com/ */
+		var styles = [
+		{
+				stylers: [
+				{ hue: "#00ffe6" },
+				{ saturation: -20 }
+				]
+		},{
+				featureType: "road",
+				elementType: "geometry",
+				stylers: [
+				{ lightness: 100 },
+				{ visibility: "simplified" }
+				]
+		},{
+				featureType: "road",
+				elementType: "labels",
+				stylers: [
+				/* =JFG. Street name visibility */
+				{ visibility: "on" }
+				]
+		}
+		];
+
+		/* Create a new StyledMapType object, passing it the array of styles,
+		as well as the name to be displayed on the map type control. */
+		var styledMap = new google.maps.StyledMapType(styles,
+		{name: "Styled Map"});
+
+		/* GROUP MAP OPTIONS
+		=================================================== */
+
+		/* Create a map object, and include the MapTypeId to add
+		 to the map type control. */
+		var mapOptions = {
+				zoom: 16,
+				center: new google.maps.LatLng(51.51491, -0.1310),
+				disableDefaultUI: false,
+				navigationControl: true,
+				scrollwheel: false,
+				mapTypeControlOptions: {
+						mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+				}
+			};
+
+		var map = new google.maps.Map(document.getElementById('map_canvas'),
+				mapOptions);
+
+		/* Associate the styled map with the MapTypeId and set it to display. */
+		map.mapTypes.set('map_style', styledMap);
+		map.setMapTypeId('map_style');
+
+		/* Custom marker */
+		setMarkers(map, mapmarkers); 
+	}
+
+	/* GROUP MAP MARKERS
+	=================================================== */
+	/*
+
+	Data for the markers consisting of a name, a LatLng and a zIndex for
+	the order in which these markers should display on top of each
+	other.
+
+	*/
+
+	var mapmarkers = [
+	['Address', 51.51393, -0.13089, 4]
+	];
+
+	function setMarkers(map,locations) {
+			/*
+
+			Add markers to the map
+
+			Marker sizes are expressed as a Size of X,Y
+			where the origin of the image (0,0) is located
+			in the top left of the image.
+
+			Origins, anchor positions and coordinates of the marker
+			increase in the X direction to the right and in
+			the Y direction down.
+
+			*/
+			
+			var image = new google.maps.MarkerImage("map-icon.png",
+			/* This marker is 169 pixels wide by 166 pixels tall. */
+			new google.maps.Size(200, 140),
+			/* The origin for this image is 0,0. =JFG. These numbers should ideally be the image dimensions. */
+			new google.maps.Point(0,0),
+			/* The anchor for this image is the base of the Icon. =JFG e.g. if the icon origin has a bottom arrow tip in the middle, these coordinates should be that point. Keep in mind this is measured from the top left of the icon. */
+			new google.maps.Point(60,140));
+
+			/* Info Window */
+			var contentString = '<p style= "line-height: 22px;"> Floor B, Radley House<br />17, Park Road <br /> London NW1 6DN <br /></p>';
+
+		var infowindow = new google.maps.InfoWindow({
+				content: contentString
+		});
+
+			/*
+			Shapes define the clickable region of the icon.
+			The type defines an HTML <area> element 'poly' which
+			traces out a polygon as a series of X,Y points. The final
+			coordinate closes the poly by connecting to the first coordinate.
+			=JFG. the easiest method to plot these out is by using xScope guides. Put extra spaces between coordinate pairs to improve readability.
+			*/
+
+			var shape = {
+					coord: [1, 1, 91, 1, 91, 89, 1 , 89],
+					type: 'poly'
+			};
+
+			for (var i = 0; i < locations.length; i++) {
+					var mapmarker = locations[i];
+					var myLatLng = new google.maps.LatLng(mapmarker[1], mapmarker[2]);
+					var marker = new google.maps.Marker({
+							position: myLatLng,
+							map: map,
+							icon: image,
+							shape: shape,
+							title: mapmarker[0],
+							zIndex: mapmarker[3]
+					});
+			}
+
+			/* GROUP MAP / STAGE / POLYGON
+			=================================================== */
+			// Define the LatLng coordinates for the polygon's path.
+			var main_stage_coords = [
+				{lat: 51.419904, lng: -0.065080},
+				{lat: 51.421389, lng: -0.064415},
+				{lat: 51.422433, lng: -0.064114},
+				{lat: 51.420974, lng: -0.062763},
+				{lat: 51.419208, lng: -0.062891}
+			];
+
+			// Construct the polygon.
+			var main_stage = new google.maps.Polygon({
+				paths: main_stage_coords,
+				strokeColor: '#9c0058',
+				strokeOpacity: 0.8,
+				strokeWeight: 2,
+				fillColor: '#eb4498',
+				fillOpacity: 0.8
+			});
+			main_stage.setMap(map);
+
+			/* GROUP MAP LABELS
+			=================================================== */
+			/* Source: https://github.com/googlemaps/js-map-label */
+			/* Notes:
+
+				- Changed appendPane to floatPane to force text to appear above canvas, as per http://stackoverflow.com/questions/25488419/google-maps-how-to-add-maplabel-above-maps
+				- I added some code to make the canvas retina-proof. Source: https://coderwall.com/p/vmkk6a/how-to-make-the-canvas-not-look-like-crap-on-retina. The code I addded was `a.width=500;a.height=500;a.style.width="250px";a.style.height="250px";a.getContext('2d').scale(2,2);`
+
+			*/
+			(function(){/*
+			 Copyright 2011 Google Inc.
+
+			 Licensed under the Apache License, Version 2.0 (the "License");
+			 you may not use this file except in compliance with the License.
+			 You may obtain a copy of the License at
+
+			 http://www.apache.org/licenses/LICENSE-2.0
+
+			 Unless required by applicable law or agreed to in writing, software
+			 distributed under the License is distributed on an "AS IS" BASIS,
+			 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+			 See the License for the specific language governing permissions and
+			 limitations under the License.
+			*/
+			var d="prototype";function e(a){this.set("fontFamily","sans-serif");this.set("fontSize",12);this.set("fontColor","#000000");this.set("strokeWeight",4);this.set("strokeColor","#ffffff");this.set("align","center");this.set("zIndex",1E3);this.setValues(a)}e.prototype=new google.maps.OverlayView;window.MapLabel=e;e[d].changed=function(a){switch(a){case "fontFamily":case "fontSize":case "fontColor":case "strokeWeight":case "strokeColor":case "align":case "text":return h(this);case "maxZoom":case "minZoom":case "position":return this.draw()}};
+			function h(a){var b=a.a;if(b){var f=b.style;f.zIndex=a.get("zIndex");var c=b.getContext("2d");c.clearRect(0,0,b.width,b.height);c.strokeStyle=a.get("strokeColor");c.fillStyle=a.get("fontColor");c.font=a.get("fontSize")+"px "+a.get("fontFamily");var b=Number(a.get("strokeWeight")),g=a.get("text");if(g){if(b)c.lineWidth=b,c.strokeText(g,b,b);c.fillText(g,b,b);a:{c=c.measureText(g).width+b;switch(a.get("align")){case "left":a=0;break a;case "right":a=-c;break a}a=c/-2}f.marginLeft=a+"px";f.marginTop=
+			"-0.4em"}}}e[d].onAdd=function(){var a=this.a=document.createElement("canvas");a.width=500;a.height=500;a.style.width="250px";a.style.height="250px";a.getContext('2d').scale(2,2);a.style.position="absolute";var b=a.getContext("2d");b.lineJoin="round";b.textBaseline="top";h(this);(b=this.getPanes())&&b.floatPane.appendChild(a)};e[d].onAdd=e[d].onAdd;
+			e[d].draw=function(){var a=this.getProjection();if(a&&this.a){var b=this.get("position");if(b){b=a.fromLatLngToDivPixel(b);a=this.a.style;a.top=b.y+"px";a.left=b.x+"px";var b=this.get("minZoom"),f=this.get("maxZoom");if(b===void 0&&f===void 0)b="";else{var c=this.getMap();c?(c=c.getZoom(),b=c<b||c>f?"hidden":""):b=""}a.visibility=b}}};e[d].draw=e[d].draw;e[d].onRemove=function(){var a=this.a;a&&a.parentNode&&a.parentNode.removeChild(a)};e[d].onRemove=e[d].onRemove;})()
+
+			/* GROUP MAP / STAGE / MAP LABEL
+			=================================================== */
+			/* Reference: https://googlemaps.github.io/js-map-label/docs/reference.html */
+			var mapLabel = new MapLabel({
+				text: 'Main Stage',
+				position: new google.maps.LatLng(51.420118, -0.064973),
+				map: map,
+				fontSize: 15,
+				fontColor: "#9c0058",
+				align: 'left'
+			});
+			mapLabel.set('position', new google.maps.LatLng(51.420118, -0.064973));
+
+			/* Only needed if you are using the Info Window */
+			google.maps.event.addListener(marker, 'click', function() {
+			infowindow.open(map,marker);
+		});
+	}
+
+	/* Initialise The Map */
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+<!-- =Jay. This goes in PHP template. Get your API key from https://developers.google.com/maps/documentation/javascript/adding-a-google-map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCspNZ5kwpmQ2ayjWBVD6JzOA2mf3cCFmI&callback=initMap" async defer></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+/* GROUP ATOMS / LAYOUT / CONSTRAINTS / (PROJECT MODIFICATIONS / NOT YET MODIFIED)
+=================================================== */
+/* Notes...
+
+	- ".l-w-" is short for "layout width constraints"
+
+*/
+
+.o-layout-width-s-x-x-alt,
+/* Organisms > Testimonials */
+.testimonial img {
+	margin-right: var(--r-s-x-x);
+	margin-left: var(--r-s-x-x);
+}
+
+
+.o-layout-width-s,
+.o-layout-width-s-children-direct > *,
+/* Molecules > (Non Core) > Price Label */
+.c-price-label__price,
+/* Organisms > Blog > Single > (Wordpress) */
+.single .entry-footer .entry-categories a:first-child,
+.single .entry-footer .entry-tags a:first-child,
+/* Organisms > Testimonials */
+.testimonial .o-layout-grid-flex__item .c-testimonial__meta {
+  /* =JFG. Same value as half the small VERTICAL SPACING property */
+  padding-inline-end: var(--r-s);
+  padding-inline-start: var(--r-s);
+}
+.o-layout-width-s-alt,
+/* Organisms > Testimonials */
+.testimonial img {
+	margin-right: var(--r-s);
+	margin-left: var(--r-s);
+}
+
+
+.l-w-m,
+.l-w-m-children-direct > *,
+/* Molecules > (Non Core) > Price Label */
+.c-price-label__price {
+  /* =JFG. Same value as small VERTICAL SPACING property.
+  Value should also be half .o-layout-width-l to aid with flexbox wrapping. See demo for example. */
+  @apply --l-w-m;
+}
+.l-w-m-alt {
+  /* =JFG. Same value as small VERTICAL SPACING property */
+  margin-left: var(--r-m);
+  margin-right: var(--r-m);
+}
+
+
+.o-layout-width-l,
+.o-layout-width-l-children-direct > *,
+/* Standard Classes > Wordpress */
+.post-edit-link,
+/* Atoms > Elements */
+pre,
+/* Molecules > Nav */
+/* Tweak; using anchor tags for padding instead so we have bigger targets */
+.nav-base li a,
+/* Molecules > (Non Core) > Pagination */
+.pagination,
+.page-numbers,
+/* Molecules > Post Navigation > WordPress */
+.post-navigation,
+/* Molecules > (Non Core) > Pagination > Genesis Pagination Archive */
+.pagination,
+/* Organisms > Testimonials */
+.testimonial,
+/* Page Templates > Blog > Archive > (Wordpress) */
+.archive-description,
+
+/* Organisms > Sidebar */
+.sidebar {
+  /* =JFG. Same value as medium VERTICAL SPACING property */
+  padding-inline-end: var(--r-l);
+  padding-inline-start: var(--r-l);
+}
+.o-layout-width-l-alt {
+	margin-right: var(--r-l);
+	margin-left: var(--r-l);
+}
+
+
+.o-layout-width-l-1 {
+  padding-inline-end: var(--r-l-1);
+  padding-inline-start: var(--r-l-1);
+}
+
+
+.o-layout-width-l-2 {
+  padding-inline-end: 4rem;
+  padding-inline-start: 4rem;
+}
+
+
+.o-layout-width--r,
+/* Molecules > Pagination */
+.page-numbers,
+/* Organisms > Testimonials */
+.testimonial img {
+  padding-inline-start: 0!important;
+  margin-left: 0!important;
+}
+.o-layout-width--l,
+/* Organisms > Blog > Single > (Wordpress) */
+.single .entry-footer .entry-categories a:first-child,
+.single .entry-footer .entry-tags a:first-child,
+/* Organisms > Testimonials */
+.testimonial .o-layout-grid-flex__item:last-child .c-testimonial__meta {
+  padding-inline-end: 0!important;
+  margin-right: 0!important;
+}
+.o-layout-width-n,
+/* Organisms > Entry Content */
+.entry [class*="entry-"] {
+  padding-inline-end: 0!important;
+  padding-inline-start: 0!important;
+}
+/* GROUP ATOMS / LAYOUT / CONSTRAINTS / MAX
+=================================================== */
+/*
+
+Notes...
+
+  Dynamic max-width constraints...
+
+  .o-layout-width-max-custom
+  ------------
+  Custom (not object-orientated), intended for use with a descendant selector e.g.
+
+  @media (min-width: 81.25em) {
+    .page-template-page-livestores-php .o-layout-width-max-custom {
+        max-width: somecustomvalue;
+    }
+  }
+
+  HERE ARE SOME EXAMPLES OF ARBITRARY MAX-WIDTH CONSTRAINTS...
+
+  .o-layout-width-max-reading
+  ------------
+  Based on ease of reading
+
+  .o-layout-width-max-5
+  ------------
+  Larger than reading
+
+  .o-layout-width-max-1
+  ------------
+  Expands much larger at 1240px
+
+  .o-layout-width-max-2
+  ------------
+  Expands out at 1300px
+
+  .o-layout-width-max-3
+  ------------
+  The largest. Has the same constraints as o-layout-width-max-2 up until 1700px
+
+*/
+
+.o-layout-width-max-custom {
+  /* max-width property set in another group e.g. .someclass .o-layout-width-max-custom{max-width: somevalue;} */
+  /* -- */
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+.o-layout-width-max-reading,
+/* Standard Classes > Wordpress */
+.post-edit-link,
+/* Atoms > Base */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+/* Molecules > Pagination */
+.pagination,
+/* Molecules > Post Navigation > Wordpress */
+.post-navigation,
+/* Organisms > Entry Content */
+.entry,
+/* Page Templates > Wordpress > Genesis > Blog > Archive */
+.blog .main article,
+.search .main article {
+  max-width: 54rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.o-layout-width-max-5 {
+	max-width: 65rem;
+	/* -- */
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.o-layout-width-max-4 {
+  max-width: 35rem;
+  /* -- */
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.o-layout-width-max-1 {
+  max-width: 60rem;
+  /* -- */
+  margin-right: auto;
+  margin-left: auto;
+}
+.o-layout-width-max-2,
+.o-layout-width-max-3 {
+  max-width: 70rem;
+  /* -- */
+  margin-right: auto;
+  margin-left: auto;
+}
+/* 1240 + */
+@media (min-width: 77.5em) {
+  .o-layout-width-max-1 {
+ 
+    max-width: 70rem;
+  }
+}
+/* 1300 + */
+@media (min-width: 81.25em) {
+  .o-layout-width-max-2 {
+ 
+    max-width: 80rem;
+  }
+}
+/* 1400 + */
+@media (min-width: 87.5em) {
+ .o-layout-width-max-3 {
+ 
+    max-width: 90rem;
+  }
+}

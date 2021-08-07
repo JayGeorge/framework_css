@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+
+    RewriteEngine on
+    Options +FollowSymlinks
+
+    # CORE / General PHP rewrites - need to come before other rules to first enforce no-trailing slash policy
+    # -------------------------------------------------------------------------------------------------------
+    # Redirect to PHP if it exists.
+    # e.g. example.com/foo will display the contents of example.com/foo.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.+)$ $1.php [L,QSA]
+
+    # CORE / Cache Busting
+    # --------------------
+    # https://rubular.com/r/CZQvV8xoUAbJ8U
+    RewriteRule (css/)([^.]*).min.+.(css)$ $1$2.min.$3
+    RewriteRule (js/)([^.]*).min.+.(js)$ $1$2.min.$3
+
+</IfModule>

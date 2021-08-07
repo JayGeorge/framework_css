@@ -1,0 +1,1 @@
+See `GROUP COMPONENTS / FRAMEWORK / HERO IMAGE` in `non-core.css`

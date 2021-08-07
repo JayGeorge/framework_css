@@ -1,0 +1,33 @@
+#map_canvas,
+#map_canvas2 {
+    position: relative;
+    z-index: 1;
+    height: 180px;
+    border-radius: 10px;
+}
+
+/* =JFG. Cancel default img width constraints */
+#map_canvas img,
+#map_canvas2 img {
+    max-width: none;
+}
+
+.gm-style-cc,
+img[src*="google_white"] {
+    display: none;
+}
+
+/* Custom */
+@media (min-width: 400px) {
+    #map_canvas,
+    #map_canvas2 {
+        height: 250px;
+    }
+}
+
+/* Custom */
+@media (min-width: 768px) {
+    #map_canvas {
+        height: 50vh;
+    }
+}

@@ -1,0 +1,53 @@
+/* GROUP CUSTOM POST TYPE / CLIENTS / ARCHIVE
+=================================================== */
+/* HTML example...
+
+	<div class="image-background image-background--finance">
+		<div class="image-background__content">
+			Content here that is pulled above the background colour
+		</div>
+	</div>
+
+*/
+.image-background {
+	position: relative;
+}
+.image-background:before {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+}
+.image-background__content {
+	position: relative;
+}
+/* GROUP CUSTOM POST TYPE / CLIENTS / ARCHIVE / FINANCE
+=================================================== */
+.image-background--finance {
+	/* https://unsplash.com/photos/ZKBQmgMyf8s */
+	background-image: url(img/standard/cpt/clients/finance.jpg);
+}
+.image-background--finance:before {
+	background: #000;
+	background: #111;
+}
+/* GROUP CUSTOM POST TYPE / CLIENTS / ARCHIVE / POWER
+=================================================== */
+.image-background--power {
+	/* https://unsplash.com/photos/ZKBQmgMyf8s */
+	background-image: url(img/standard/cpt/clients/power.jpg);
+}
+.image-background--power:before {
+	background: #0077b5;
+}
+/* GROUP CUSTOM POST TYPE / CLIENTS / ARCHIVE / POWER
+=================================================== */
+.image-background--healthcare {
+	/* https://unsplash.com/photos/ZKBQmgMyf8s */
+	background-image: url(img/standard/cpt/clients/healthcare.jpg);
+}
+.image-background--healthcare:before {
+	/* Red - dark */
+	background: #CC2035;
+}

@@ -1,0 +1,116 @@
+/* GROUP ELEMENTS / IFRAMES / RESPONSIVE VIDEO
+=================================================== */
+/* Notes...
+
+    - Responsive video wrapper
+    - Source - https://css-tricks.com/fluid-width-video/
+
+*/
+/* HTML Example...
+
+    <div class="o-responsive-video"> <-- Used to handle max-width
+        <div class="o-responsive-video__inner-wrapper">
+            iframe or video element
+
+*/
+.o-responsive-video {
+    max-width: var(--max-width-1);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--spacing-l-1);
+}
+
+.o-responsive-video__inner-wrapper {
+    position:relative;
+    
+    margin-left: auto;
+    margin-right: auto;
+    padding-block-start: 56.25%;
+}
+
+.o-responsive-video__inner-wrapper iframe,
+.o-responsive-video__inner-wrapper video {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.o-responsive-video + .s-entry-content {
+    /* e.g. put some space between the introductory h2 that comes after the video */
+    padding-block-start: var(--spacing-s);
+}
+
+/* Custom */
+@media (min-width: 768px) {
+    .o-responsive-video {
+        padding-inline-start: var(--spacing-m);
+        padding-inline-end: var(--spacing-m);
+    }
+}
+
+/* Custom */
+@media (min-width: 1400px) {
+    .o-responsive-video {
+        /* Increase */
+        margin-bottom: var(--spacing-l-2);
+    }
+}
+
+
+
+
+/* GROUP ELEMENTS / IFRAMES / TWEAKS
+=================================================== */
+/* Setup and Dependencies...
+
+    - If you're using the FitVids module in script.js then uncomment the .js--video selectors below
+    - If you're NOT using the FitVids module in script.js e.g. you're using the lazy load video module instead then remove the .js--video selectors below
+
+*/
+
+/* Stop iframe possibly busting out of body container on mobile before fitvids kicks in */
+iframe {
+    max-width: 100%;
+    border-radius: var(--border-radius-l);
+    border: none;
+    /* Sometimes needed */
+    /* -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%); */
+}
+
+/* Needed if you want to mask the naked image. */
+.js__videoLazyLoad__placeholder,
+.js__videoLazyLoad__video-container {
+    border-radius: var(--border-radius-l);
+    -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+}
+
+/* Based on videos for test content */
+/* p + .js--video, */
+p + .js__videoLazyLoad {
+    margin-top: var(--spacing-s);
+}
+
+/* .js--video, */
+.js__videoLazyLoad {
+    margin-bottom: var(--spacing-s);
+}
+
+/* .js--video + p + .js--video, */
+.js__videoLazyLoad + p + .js__videoLazyLoad {
+    margin-top: var(--spacing-m);
+}
+
+.no-js iframe {
+    /* Where we don't have JS hook for padding */
+    margin-bottom: var(--spacing-l-1);
+}
+
+.js--video {
+    margin-bottom: var(--spacing-l);
+}
+
+p + .js--video,
+.js--video + p {
+    margin-top: var(--spacing-s-1);
+}

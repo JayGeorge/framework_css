@@ -1,0 +1,15 @@
+/* GROUP MOLECULES / FADE ON HOVER / (NON CORE) / (CROSS POLLINATED)
+=================================================== */
+.fade-on-hover-wrapper__target {
+  opacity: 0.2;
+  @apply --transitioned;
+}
+.fade-on-hover-wrapper:hover .fade-on-hover-wrapper__target {
+  opacity: 1;
+}
+/* GROUP MOLECULES / FADE ON HOVER / (NON CORE) / MODIFIERS (CROSS POLLINATED)
+=================================================== */
+.fade-on-hover-wrapper__target--1 {
+  opacity: 0.9;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}

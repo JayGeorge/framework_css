@@ -1,0 +1,37 @@
+/* GROUP RESET / (NON CORE) / JAY GEORGE / PRINT
+=================================================== */
+/* Source http://davidwalsh.name/css-page-breaks */
+/* used to enforce manual page breaks,
+much in the same way you can insert page breaks in a word processor */
+@media all {
+    .u-page-break {
+        display: none;
+    }
+}
+@media print {
+    :root {
+        /* GROUP VARIABLES -- LAYOUT -- CONSTRAINTS -- MAX
+        =================================================== */
+        /* Decrease */
+        --max-width-reading: 45rem;
+    }
+
+    .u-page-break { display: block; page-break-before: always; }
+
+    .u-page-break + * {
+        /* =JFG. So content on the next page isn't flush withe the top edge.
+        Margin rather than padding to take account of absolutely positioned
+        elements e.g. c-price-label__price */
+        margin-top: 3rem;
+    }
+
+    /* Use this class to tag elements you do not want to display in print */
+    .u-no-print {
+        display: none;
+    }
+}
+/* HTML Example...
+
+<div class="page-break"></div>
+
+*/

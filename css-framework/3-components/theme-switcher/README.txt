@@ -1,0 +1,1 @@
+Used in my Memorial site to switch themes, replacing text in the body and adding a theme class

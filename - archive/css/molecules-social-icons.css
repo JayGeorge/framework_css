@@ -1,0 +1,43 @@
+/* GROUP MOLECULES / SOCIAL ICONS
+=================================================== */
+/* 	Notes...
+
+ .c-social-icons deals with spacing between icons
+
+*/
+/* HTML Example...
+  <div class="o-layout-col-mq-600-up u-margin-b-s-2 u-link-style-none">
+    <div class="o-layout-width-l u-padding-t-s-x c-social-icons">
+      <a href="" class="u-link-style-none u-link-style-none--2"><span class="c-jg-icon-twitter c-icon-m-2 d-color-4"></span></a>
+      <a href="" class="u-link-style-none u-link-style-none--2"><span class="c-jg-icon-linkedin2 c-icon-m-2 d-color-4"></span></a>
+      <a href="" class="u-link-style-none u-link-style-none--2"><span class="c-jg-icon-googleplus c-icon-m-2 d-color-4"></span></a>
+      <a href="" class="u-link-style-none u-link-style-none--2"><span class="c-jg-icon-facebook c-icon-m-2 d-color-4"></span></a>
+      <a href="" class="u-link-style-none u-link-style-none--2"><span class="c-jg-icon-feed c-icon-m-2 d-color-4"></span></a>
+    </div><!-- .l-w- -->
+  </div>
+*/
+.c-social-icons > *:not(:last-child) {
+  padding-inline-end: 0.5rem;
+}
+.c-social-icons [class*="c-jg-icon"] {
+  padding-block-start: var(--r-s);
+}
+/* GROUP MOLECULES / SOCIAL ICONS / FOCUS/HOVER
+=================================================== */
+.c-social-icons a:focus {
+	outline: none;
+	/* Cancel default focus state */
+	border: 0;
+}
+.c-social-icons a:focus span,
+.c-social-icons a:hover span {
+	/* Blue */
+	color: #1975BC;
+}
+/* GROUP MOLECULES / SOCIAL ICONS / (OPTIONAL)
+=================================================== */
+.c-social-icons * {
+	/* Override any flexbox specifications */
+	display: inline-block!important;
+	width: auto;
+}

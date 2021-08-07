@@ -1,0 +1,7 @@
+/* GROUP ATOMS / DECORATION / COLOURS / THEME
+=================================================== */
+.u-background-1 {
+	background: var(--c-turquoise);
+	/* e.g. Molecules > (Non Core) > Steps */
+	color: #fff;
+}

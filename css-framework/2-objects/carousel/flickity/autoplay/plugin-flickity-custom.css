@@ -1,0 +1,48 @@
+/* external css: flickity.css */
+
+
+/* GROUP OBJECTS / PLUGINS / FLICKITY
+=================================================== */
+/* Notes...
+
+	- 
+
+*/
+/* HTML Example...
+
+*/
+/* Modifiers...
+
+*/
+/* GROUP OBJECTS / PLUGINS / FLICKITY / LAYOUT
+=================================================== */
+.carousel-cell {
+    width: 66%;
+    height: 200px;
+    counter-increment: gallery-cell;
+}
+/* GROUP OBJECTS / PLUGINS / FLICKITY / SPACING
+=================================================== */
+.carousel-cell {
+    margin-right: 10px;
+}
+/* GROUP OBJECTS / PLUGINS / FLICKITY / DECORATION
+=================================================== */
+.carousel {
+    background: #EEE;
+}
+
+.carousel-cell {
+    background: #8C8;
+    border-radius: 5px;
+}
+
+/* cell number */
+.carousel-cell:before {
+    display: block;
+    text-align: center;
+    content: counter(gallery-cell);
+    line-height: 200px;
+    font-size: 80px;
+    color: white;
+}

@@ -1,0 +1,12 @@
+/* GROUP PLUGINS / (NON CORE) / HUBSPOT / (CROSS POLLINATED)
+=================================================== */
+.hs-form {
+	font-size: 0.9em;
+}
+.hs-error-msgs {
+	font-size: 0.9em;
+}
+.hs-error-msgs * {
+	font-weight: 400;
+	color: var(--c-black-faded-3);
+}

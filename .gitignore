@@ -1,0 +1,22 @@
+# OS or Editor folders
+.DS_Store
+.dropbox
+
+# Sublime Text added files
+*.sublime-project
+*.sublime-workspace
+
+# Static development
+config.environment.php
+
+# Gulp, Grunt, etc.
+# Ignore node_modules, we already have the install information from package.js
+node_modules/
+# The Codekit config file repeatedly causes issues with git. I know you're supposed to keep pausing the watch all the time but this is a PITA. Instead commit a file called config.codekit3_local which can be duplicated/renamed when the repo is downloaded
+config.codekit3
+
+## SSL
+*.crt
+*.key
+
+# Temporary Ignored Files

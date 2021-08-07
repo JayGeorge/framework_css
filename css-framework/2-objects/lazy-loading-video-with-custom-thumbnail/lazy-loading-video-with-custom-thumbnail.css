@@ -1,0 +1,143 @@
+/* GROUP OBJECTS / VIDEO / LAZY LOAD / { / ASPECT RATIO }
+=================================================== */
+/* CONSIDER USING HTML 5 INSTEAD - SEE 'VIDEO' IN MY PERFORMANCE DOCUMENT FOR CONSIDERATIONS */
+
+/* Notes...
+
+    Source: https://webdesign.tutsplus.com/tutorials/how-to-lazy-load-embedded-youtube-videos--cms-26743
+    See comments for modified version we're using which allows Vimeo as well as YouTube
+
+    - Remove FitVids if you're using this script; the CSS in this module contains aspect ratio formatting
+
+*/
+/* Setup and Dependencies...
+
+    - Dependent on Javascript to load the video as a progressive enhancement. Without JS a Vimeo iframe will not load anyway
+    - Without JS just the image loads without the play button
+    - Make sure you add the script from this module
+
+*/
+
+/* Perch setup...
+   1. Add these files to the Perch Feathers folder
+
+   2. Markup will be something like this
+
+        <perch:if exists="video_embed_code">
+            <perch:layout path="stylesheet" name="lazy-loading-video" />
+            <perch:layout path="script" name="lazy-loading-video" />
+            <div data-vidhost="vimeo" class="js__videoLazyLoad js__focus-on-click o-video" itemscope itemtype="http://schema.org/Clip" data-embed="<perch:content id="video_embed_code" type="text" label="Video Embed Code" order="4" help="e.g. https://vimeo.com/259411563. You can also just paste the reference e.g. 259411563" filter="remove-video-prefixes" />">
+                <div class="js__only js__focus-on-click play-button"></div>
+                <picture>
+                    <source media="(min-width: 1250px)" srcset="/perch/resources/something.jpg 3840w, /perch/resources/something@2x.jpg 3360w, /perch/resources/something.jpg 1920w" sizes="100vw">
+                    <source media="(min-width: 768px)" srcset="/perch/resources/something.jpg 2520w, /perch/resources/something.jpg 1536w" sizes="100vw">
+                    <img src="/perch/resources/something.jpg" srcset="/perch/resources/something@2x.jpg 1200w, /perch/resources/something.jpg 828w, /perch/resources/something.jpg 750w, /perch/resources/something.jpg 640w" sizes="100vw" alt="">
+                </picture>
+            </div>
+        <perch:if />
+
+*/
+/* GROUP OBJECTS / VIDEO / LAZY LOAD / { / ASPECT RATIO }
+=================================================== */
+/* Notes...
+
+    Source: https://webdesign.tutsplus.com/tutorials/how-to-lazy-load-embedded-youtube-videos--cms-26743
+    See comments for modified version we're using which allows Vimeo as well as YouTube
+
+    - Remove FitVids if you're using this script; the CSS in this module contains aspect ratio formatting
+
+*/
+/* Setup and Dependencies...
+
+    - Dependent on Javascript to load the video as a progressive enhancement. Without JS the iframe should just load as normal
+    
+    [] 1. Make sure you add the script from script.js
+    [] 2. The function is called by default for every page/video but alternatively you can call the function to activate it on a page i.e. <script>loadLazyVideos();</script>
+        N.B. the function will need to be called _after_ the script, see instructions in scripts.js for more info.
+
+*/
+/* GROUP OBJECTS / VIDEO / LAZY LOAD / LAYOUT
+=================================================== */
+.js__videoLazyLoad {
+    position: relative;
+}
+
+/* .js__videoLazyLoad*/.js--videoLoaded {
+    overflow: hidden;
+    width: 100%;
+    /* Aspect ratio manipulation */
+    padding-block-start: 56.25%;
+}
+
+/* .js__videoLazyLoad*/
+.js--videoLoaded img,
+/* .js__videoLazyLoad*/
+.js--videoLoaded picture {
+    /* Aspect ratio manipulation */
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.js__videoLazyLoad .play-button {
+    z-index: 1;
+}
+
+/* .js__videoLazyLoad*/
+.js--videoLoaded img,
+.js__videoLazyLoad iframe,
+.js__videoLazyLoad .play-button,
+.js__videoLazyLoad .play-button::before {
+    position: absolute;
+}
+
+.js__videoLazyLoad .play-button,
+.js__videoLazyLoad .play-button::before {
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.js__videoLazyLoad iframe {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* GROUP OBJECTS / VIDEO / LAZY LOAD / DECORATION
+=================================================== */
+.js .js__videoLazyLoad {
+    background-color: black;
+    cursor: pointer;
+}
+
+/* .js__videoLazyLoad img {
+    opacity: 0.7;
+} */
+
+.js .js__videoLazyLoad img,
+.js .js__videoLazyLoad .play-button {
+    cursor: pointer;
+}
+/* GROUP OBJECTS / VIDEO / LAZY LOAD / (OPTIONAL) / PLAYER BUTTON / YOUTUBE
+=================================================== */
+.js .js__videoLazyLoad .play-button {
+    width: 90px;
+    height: 60px;
+    background-color: #333;
+    border-radius: 6px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    opacity: 0.8;
+}
+
+/* Triangle */
+/* stylelint-disable selector-max-specificity */
+/* Min specificity needed */
+.js .js__videoLazyLoad .play-button::before {
+    content: "";
+    margin-left: 3px;
+    border-style: solid;
+    border-width: 15px 0 15px 26px;
+    border-color: transparent transparent transparent white;
+}
+/* stylelint-enable */

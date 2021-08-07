@@ -1,0 +1,14 @@
+/* GROUP ATOMS / (NON CORE) / JS HIDE ON FOCUS
+=================================================== */
+.js-focus-target {
+  -webkit-transition: all 0.5s ease-in 0s;
+  transition: all 0.5s ease-in 0s;
+}
+
+.js-focus-target--is-hidden * {
+  display: none;
+}
+
+.js-focus-target--faded {
+  opacity: 0;
+}

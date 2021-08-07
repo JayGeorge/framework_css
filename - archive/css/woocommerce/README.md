@@ -1,0 +1,1 @@
+=JFG. I added a media query to woocommerce-smallscreen-2-6-0 to simulate that it's only loaded 768px and downloaded on the Woocommerce platform

@@ -1,0 +1,92 @@
+/* GROUP ATOMS / (NON CORE) / SHAPES / CIRCLE
+=================================================== */
+/* Most ideal e.g. where WordPress outputs as square dimension */
+.u-shape-circle-1,
+/* Organisms > Testimonials */
+.testimonial img,
+/* Organisms > Comments > Wordpress */
+.avatar,
+/* Organisms > (Not Part Of Framework) > Picture and Description Grid */
+.picture-and-description-grid img {
+  border-radius: 50%;
+}
+
+/* HTML Example...
+
+  <div class="u-shape-circle-2 d-background-2">
+    <span class="c-jg-icon-linkedin c-icon-m-2 u-center-horizontal-and-vertical-3"></span>
+  </div>
+  
+*/
+.u-shape-circle-2 {
+  /* =JFG. Lock things in place */
+  position: relative;
+  display: inline-block;
+  /* (Project Modifications > Not Yet Modified) */
+  width: 8rem;
+  height: 8rem;
+  /* -- */
+  border-radius: 50%;
+}
+/* =JFG. For more shapes see http://css-tricks.com/examples/ShapesOfCSS/ */
+
+
+
+/* GROUP ATOMS / (NON CORE) / SQUARE
+=================================================== */
+/* Notes...
+	Based on aspect ratio module
+*/
+
+/* HTML Example...
+
+  <div class="shape-square">
+      <div class="u-center-horizontal-and-vertical">
+        <p class="u-center-horizontal">Another awesome project</p>
+      </div>
+  </div>
+
+*/
+
+.shape-square {
+  position: relative;
+  background: #ff0;
+}
+.shape-square:after {
+  display: block;
+  content: '';
+  padding-block-start: 100%;
+}
+
+
+/* GROUP ATOMS / (NON CORE) / ROMBUS
+=================================================== */
+/* Notes...
+	Based on aspect ratio module
+*/
+
+/* HTML Example...
+
+	<div class="shape-rombus">
+	  <div class="shape-rombus__inner">
+		<div class="u-center-horizontal-and-vertical">
+		  <p class="u-center-horizontal">Another awesome project Lorem ipsum ius kasd cibo utroque an, eum eu populo percipitur, his in equidem posidonium concludaturque. No eam deserunt salutatus, fastidii</p>
+		</div>
+	  </div>
+	</div>
+
+*/
+
+.shape-rombus {
+  position: relative;
+  background: #ff0;
+  /* Needs fixed width and height */
+  width: 200px;
+  height: 200px;
+  transform: rotate(45deg);
+}
+.shape-rombus__inner {
+	transform: rotate(-45deg);
+	position: relative;
+	height: 100%;
+}

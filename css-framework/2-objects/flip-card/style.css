@@ -1,0 +1,70 @@
+/* GROUP FLIP CARDS
+=================================================== */
+/* Notes...
+
+	- Based on https://codepen.io/Aoyue/pen/pLJqgE
+	- Improved usability to activate via click rather than hover via .js__o-flip
+
+*/
+/* HTML Example...
+
+    .o-flip.js__o-flip.c-flip
+        .o-flip__front
+            content here
+        .o-flip__back
+            content here
+
+*/
+/* GROUP FLIP CARDS / DEMO
+=================================================== */
+.o-flip,
+.o-flip > * {
+    width: 20rem;
+    height: 20rem;
+}
+
+
+
+
+/* GROUP FLIP CARDS / LAYOUT
+=================================================== */
+.o-flip {
+    position: relative;
+}
+
+.o-flip__back {
+    position: absolute;
+    opacity: 0;
+    top: 0px;
+    left: 0px;
+    transform: rotateY(-180deg);
+}
+/* GROUP FLIP CARDS / SPACING
+=================================================== */
+/* GROUP FLIP CARDS / DECORATION
+=================================================== */
+/* GROUP FLIP CARDS / ANIMATION
+=================================================== */
+.o-flip__front,
+.o-flip__back {
+    /* transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); */
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-duration: .5s;
+    transition-property: transform, opacity;
+}
+
+.o-flip__front {
+    transform: rotateY(0deg);
+}
+/* GROUP FLIP CARDS / ANIMATION / FLIPPED
+=================================================== */
+.no-js .o-flip:hover .o-flip__back,
+.js--flipped .o-flip__back {
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+.no-js .o-flip:hover .o-flip__front,
+.js--flipped .o-flip__front {
+    transform: rotateY(180deg);
+}

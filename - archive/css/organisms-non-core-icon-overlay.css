@@ -1,0 +1,52 @@
+/* GROUP ORGANISMS / (NON CORE) / ICON OVERLAY
+=================================================== */
+.icon-overlay-container {
+  position: relative;
+}
+.icon-overlay-container__target {
+  position: absolute;
+  /* Pull above overlays */
+  z-index: 1;
+  bottom: 13px;
+  right: 13px;
+}
+.icon-overlay-container__target--alt {
+  right: auto;
+  left: 13px;
+}
+.icon-overlay-container__target--alt-2 {
+  right: auto;
+  left: 23px;
+}
+/* GROUP ORGANISMS / (NON CORE) / ICON OVERLAY / SPACING
+=================================================== */
+.icon-overlay-container__target {
+	@apply --o-layout-width-s-x-x-alt;
+}
+.icon-overlay-container * {
+	padding-block-end: 0;
+}
+/* GROUP ORGANISMS / (NON CORE) / ICON OVERLAY / ICONS
+=================================================== */
+.icon-overlay-container__target {
+  @apply --u-center-horizontal-3;
+}
+.icon-overlay-container [class*="c-jg-icon"] {
+  font-size: 2em;
+}
+/* GROUP ORGANISMS / (NON CORE) / ICON OVERLAY / DECORATION
+=================================================== */
+.icon-overlay-container * {
+  color: white;
+}
+/* GROUP ORGANISMS / (NON CORE) / ICON OVERLAY / (OPTIONAL)
+=================================================== */
+.icon-overlay-container .u-shape-circle-2 {
+  width: 3rem;
+  height: 3rem;
+
+  background: rgba(var(--c-turquoise-rgb),0.7);
+}
+
+/* GROUP ORGANISMS / (NON CORE) / ICON OVERLAY / ICONS
+=================================================== */

@@ -1,0 +1,96 @@
+/* GROUP OBJECTS / CSS SNAP POINTS
+=================================================== */
+/* Notes...
+
+    - Good reference - https://newinweb.com/2018/09/06/css-scroll-snap/
+    - Use with js__snapScrollItemFocus to focus in the middle of a horizontal scroll
+        - Add this to your script.js `document.querySelector('.js__snapScrollItemFocus').scrollIntoView({block: "nearest", inline: "center"});`
+
+*/
+/* HTML Example...
+
+    <div class="o-snap-scroll">
+        <div class="o-snap-scroll__item">
+            <h1>1</h1>
+        </div>
+        <div class="o-snap-scroll__item">
+            <h1>2</h1>
+        </div>
+        <div class="o-snap-scroll__item">
+            <h1>3</h1>
+        </div>
+        <div class="o-snap-scroll__item o-snap-scroll__item--thin">
+            <h1>4</h1>
+        </div>
+        <div class="o-snap-scroll__item">
+            <h1>5</h1>
+        </div>
+    </div>
+
+*/
+/* GROUP OBJECTS / CSS SNAP POINTS / LAYOUT
+=================================================== */
+.o-snap-scroll {
+    display: flex;
+    /* Don't think this is needed */
+    /* overflow-x: auto; */
+    /* -- */
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+}
+
+.o-snap-scroll__item {
+    /* Override the parent value */
+    white-space: normal;
+    /* width: 400px; */
+    scroll-snap-align: center;
+}
+
+/* 
+    --- OR ---
+    without flexbox...
+*/
+
+.o-snap-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+}
+
+.o-snap-scroll__item {
+    /* Override the parent value */
+    white-space: normal;
+    display: inline-block;
+
+    scroll-snap-align: center;
+}
+
+.o-snap-scroll__item--thin {
+    width: 300px;
+}
+/* GROUP OBJECTS / CSS SNAP POINTS / LAYOUT -- OPTIONAL
+=================================================== */
+.o-snap-scroll {
+    margin: 10vh auto 0;
+    scroll-snap-points-x: repeat(100%);
+    -webkit-scroll-snap-destination: 50% 50%;
+}
+
+.o-snap-scroll__item {
+    position: relative;
+    /* scroll-snap-coordinate: 50% 50%; */
+
+    scroll-snap-align: start;
+    /* or */
+    scroll-snap-align: center;
+}
+/* GROUP OBJECTS / CSS SNAP POINTS / DECORATION
+=================================================== */
+.o-snap-scroll__item {
+    background-color: #f0f0f0;
+    border: 1px solid black;
+}

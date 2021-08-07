@@ -1,0 +1,136 @@
+/* GROUP ATOMS / ELEMENTS / TABLES
+=================================================== */
+table + h2 {
+    padding-block-start: var(--spacing-s-1);
+}
+
+.js--table-wrapper {
+    margin-bottom: var(--spacing-m-2);
+}
+/* GROUP PLUGIN / BOOTSTRAP / TABLES
+=================================================== */
+/*!
+* Bootstrap v3.1.1 (http://getbootstrap.com)
+* Copyright 2011-2014 Twitter, Inc.
+* Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+*/
+
+table {
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th {
+    text-align: left;
+}
+
+table {
+    width: 100%;
+}
+
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+    padding: 11px;
+    /* =JFG Added */
+    padding-inline-end: 20px;
+    /* -- */
+    line-height: 1.43;
+    vertical-align: top;
+    border-top: 1px solid #eee;
+}
+
+table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #eee;
+}
+
+table > caption + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > th,
+table > thead:first-child > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > td {
+    border-top: 0;
+}
+
+table > tbody + tbody {
+    border-top: 2px solid #eee;
+}
+
+table table {
+    background: white;
+}
+
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+    border: 1px solid #eee;
+}
+
+table > thead > tr > th,
+table > thead > tr > td {
+    border-bottom-width: 2px;
+}
+/* GROUP PLUGIN / BOOTSTRAP / TABLES / (JAY ADDED)
+=================================================== */
+/* - 768 */
+@media (max-width: 47.9375em){
+    /* =JFG. Need to wrap something around tables for overflow.
+    Without JS tables just behave as normal i.e. you wouldn't be able to see big tables. */
+    .js--table-wrapper {
+        overflow-y: hidden;
+        overflow-x: scroll;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        box-shadow: var(--box-shadow-s-inset-right);
+    }
+
+    table {
+        margin-bottom: 0;
+    }
+
+    table > thead > tr > th,
+    table > tbody > tr > th,
+    table > tfoot > tr > th,
+    table > thead > tr > td,
+    table > tbody > tr > td,
+    table > tfoot > tr > td {
+        white-space: nowrap;
+    }
+}
+/* GROUP PLUGIN / BOOTSTRAP / TABLES / (MODIFICATIONS) / STRIPED
+=================================================== */
+table > tbody > tr:nth-child(odd) > td,
+table > tbody > tr:nth-child(odd) > th {
+    background-color: #f8f8f8;
+}
+/* GROUP PLUGIN / BOOTSTRAP / TABLES / (MODIFICATIONS) / BORDERED
+=================================================== */
+table {
+    border: 1px solid #eee;
+}
+/* GROUP PLUGIN / BOOTSTRAP / TABLES / (JAY ADDED) / (CROSS POLLINATED)
+=================================================== */
+/* =JFG. Fix it so tabular info is easier to digest */
+table {
+    font-size: 16px;
+}
+
+table + h2 {
+    padding-block-start: var(--spacing-s-1);
+}
+/* GROUP MOLECULES / TABLES / BOOTSTRAP / (JAY ADDED) / HIGHLIGHT TODAYS DATE
+=================================================== */
+.js__highlight-today /* tr*/.js--today {
+    border: 2px solid var(--colour-turquoise);
+}

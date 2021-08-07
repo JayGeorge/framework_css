@@ -1,0 +1,37 @@
+/* GROUP MOLECULES / (NON CORE) / OBFUSCATE
+=================================================== */
+/* Notes...
+
+	- Used as an ellipsis substitute when we want to truncate things
+
+*/
+/* HTML Example...
+
+	<p>Some text that we want to truncate</p>
+	<div class="c-obfuscate">
+		<a>more</a>
+	</div>
+
+*/
+.c-obfuscate {
+	position: relative;
+	text-align: center;
+}
+.c-obfuscate * {
+	/* Full width target e.g. "more" */
+	display: block;
+}
+.c-obfuscate a:after {
+	content: " +";
+}
+.c-obfuscate:after {
+	content:"";
+	position: absolute;
+	left: 0;
+	bottom: 2rem;
+
+	width: 100%;
+	height: 3rem;
+
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.9) 50%, #fff 100%);
+}

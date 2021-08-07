@@ -1,0 +1,250 @@
+/* GROUP MOLECULES / BEFORE AFTER IMAGE
+=================================================== */
+/* Notes...
+
+- Before/after slider
+- e.g. https://codepen.io/mrnathan8/pen/MyBypR
+
+*/
+/* HTML Example...
+
+*/
+/* Modifiers...
+
+    .c-before-after--with-screen <- Used to overlay a colour on top
+    .c-before-after--skewed <- Used to give a diagonal split between before/after. You'll need to change the input element (see the commented out line in the HTML file)
+
+*/
+/* GROUP MOLECULES / BEFORE AFTER IMAGE / LAYOUT
+=================================================== */
+/* wrapper that holds both of the images */
+.c-before-after {
+    position: relative;
+    overflow: hidden;
+    /* Use vw units with width and height to effectively create an aspect ratio */
+    max-width: 50rem;
+    height: 75vw;
+    max-height: 37rem;
+    /* START CENTER HORIZONTAL - METHOD 2
+    ------------------------------------------------ */
+    margin-left: auto;
+    margin-right: auto;
+    /* END CENTER HORIZONTAL - METHOD 2
+    ---------------------------------------------- */
+}
+
+.c-before-after__before {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.c-before-after__before h1 {
+    position: absolute;
+    z-index: auto;
+    top: 0;
+    bottom: 0;
+    right: 20vw;
+    height: 1em;
+}
+
+/*The left image container which holds the left image*/
+.c-before-after__after {
+    display: inline-block;
+    overflow: hidden;
+    /* Set the starting position of the angle */
+    width: 10%;
+    height: 100%;
+    transform: translate(0vw);
+}
+
+.c-before-after__after__image-container {
+    width: 100%;
+    height: 100%;
+    /* Make the image square and translate it back so that it matchs the right image */
+    transform: translate(0vw);
+}
+
+.c-before-after__after h1 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20vw;
+    height: 1em;
+}
+/* GROUP MOLECULES / BEFORE AFTER IMAGE / SPACING
+=================================================== */
+.c-before-after__before,
+.c-before-after__after {
+    margin: 0;
+}
+
+.c-before-after__before h1,
+.c-before-after__after h1 {
+    margin: auto 0;
+}
+/* GROUP MOLECULES / BEFORE AFTER IMAGE / DECORATION
+=================================================== */
+.c-before-after__before,
+.c-before-after__after__image-container {
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+}
+
+.c-before-after__before h1,
+.c-before-after__after h1 {
+    color: #9BB3D7;
+    font-size: 10em;
+}
+
+/*The left image container which holds the left image*/
+.js .c-before-after__after {
+    border-right: 20px solid #B5482A;
+    position: relative;
+    right: 25px;
+}
+
+.c-before-after__title {
+    position: absolute;
+    top: 0;
+    padding: var(--spacing-s-x) var(--spacing-m);
+    font-size: var(--font-size-s-x-x);
+    letter-spacing: var(--letter-spacing-l);
+    font-weight: var(--font-family-main-weight-strong);
+    background: hsla(var(--colour-sepia-hsl),0.5);
+}
+
+.c-before-after__after .c-before-after__title {
+    left: 0;
+}
+
+.c-before-after__before .c-before-after__title {
+    right: 0;
+}
+
+
+
+
+/* GROUP MOLECULES / BEFORE AFTER IMAGE / RANGE STYLE / LAYOUT
+=================================================== */
+.c-before-after__slider {
+    position: relative;
+    top: calc(-50% - 44px / 2);
+    width: 100%;
+}
+
+.c-before-after__slider::-moz-range-track {
+    position: relative;
+    width: 98%;
+    height: 55px;
+}
+
+.c-before-after__slider::-webkit-slider-thumb {
+    /* As per Apple interface guidelines */
+    width: 44px;
+    height: 44px;
+}
+
+.c-before-after__slider::-moz-range-thumb {
+    -moz-appearance: none;
+    width: 50px;
+    height: 50px;
+}
+
+.no-js .c-before-after__slider {
+    display: none;
+}
+/* GROUP MOLECULES / BEFORE AFTER IMAGE / RANGE STYLE / DECORATION
+=================================================== */
+.c-before-after__slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    cursor: col-resize;
+}
+
+.c-before-after__slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: white;
+    background: radial-gradient(circle at center, orange 0%, orange 7%, white 7%, white 100%);
+    /* Otherwise iOS adds a hairline black border */
+    border: none;
+    /* -- */
+    border-radius: 50%;
+}
+
+.c-before-after__slider::-moz-range-thumb {
+    -moz-appearance: none;
+    background: white;
+    background: radial-gradient(circle at center, orange 0%, orange 7%, white 7%, white 100%);
+    /* Otherwise iOS adds a hairline black border */
+    border: none;
+    /* -- */
+    border-radius: 50%;
+}
+
+/* https://stackoverflow.com/questions/18794026/remove-dotted-outline-from-range-input-element-in-firefox */
+.c-before-after__slider::-moz-focus-outer {
+    /* Remove thin dotted line from firefox track */
+    border: 0;
+}
+
+.c-before-after__slider::-ms-thumb {
+    /* Edge doesn't seem to support CSS variables here? */
+    background: hsl(38, 31%, 93%);
+}
+
+.c-before-after__slider::-ms-track {
+    /* Needed to enable it being circular */
+    border-width: 16px 0;
+}
+
+.c-before-after {
+    border: var(--photo-border-width) solid white;
+    box-shadow: var(--box-shadow);
+}
+/* GROUP MOLECULES / BEFORE AFTER IMAGE / RANGE STYLE / ACCESSIBILITY / NO JS
+=================================================== */
+.no-js .c-before-after__after {
+    width: 100%;
+}
+/* GROUP MOLECULES / BEFORE AFTER IMAGE / RANGE STYLE / ACCESSIBILITY / FOCUS
+=================================================== */
+.c-before-after__slider:focus {
+    outline: none;
+}
+
+.c-before-after__slider:focus::-webkit-slider-thumb {
+    border: 4px solid orange;
+}
+
+.c-before-after__slider:focus::-moz-range-thumb {
+    border: 4px solid orange;
+    outline: none;
+}
+
+
+
+/* GROUP MOLECULES / BEFORE AFTER IMAGE / (MODIFIERS)
+=================================================== */
+.c-before-after--with-screen .c-before-after__after__image-container {
+    mix-blend-mode: screen;
+}
+
+.c-before-after--with-screen .c-before-after__after {
+    background: #A79020;
+}
+
+/* Skewed */
+.c-before-after--skewed .c-before-after__after {
+    /* Set the starting position of the angle */
+    width: 90%;
+    transform: skewX(-30deg) translate(-35vw);
+}
+
+.c-before-after--skewed .c-before-after__after__image-container {
+    /* Make the image square and translate it back so that it matchs the right image */
+    transform: skewX(30deg) translate(35vw);
+}

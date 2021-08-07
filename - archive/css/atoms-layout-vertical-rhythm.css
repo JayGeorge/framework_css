@@ -1,0 +1,502 @@
+/* GROUP ATOMS / VERTICAL SPACING / RESET
+=================================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* GROUP ATOMS / VERTICAL SPACING / (PROJECT MODIFICATIONS / NOT YET MODIFIED)
+=================================================== */
+/* .u-padding-b-s-x-x, */
+/* Atoms > Elements */
+h4,
+h5,
+h6,
+/* Organisms > Comments > WordPress */
+.comment-author,
+/* Organisms > Entry Content */
+/* e.g. >> /?s= */
+.entry-header .entry-meta,
+/* Organisms > (Not Part Of Framework) > Careers Card */
+.c-careers-card__meta__description {
+  padding-block-end: var(--r-s-x-x);
+}
+.u-padding-b-s-x-x {
+	padding-block-end: var(--r-s-x-x)!important;
+}
+.u-padding-t-s-x-x {
+  padding-block-start: var(--r-s-x-x)!important;
+}
+.u-margin-b-s-x-x {
+  margin-bottom: var(--r-s-x-x)!important;
+}
+.u-margin-t-s-x-x {
+  margin-top: var(--r-s-x-x)!important;
+}
+
+
+
+/* .u-padding-b-s-x, */
+/* Molecules > (Non Core) > Notification > fixed */
+.c-notification-fixed,
+/* Molecules > (Non Core) > Price Label */
+.c-price-label__price,
+/* Organisms > Entry Header */
+.entry-header h1,
+h3,
+/* Organisms > Entry Content */
+.entry-content li,
+.entry-content code,
+.entry-content pre,
+/* Organisms > Footer > Nav */
+.menu-footer-menu-container a,
+/* Organisms > Comments */
+.comment-meta {
+  padding-block-end: var(--r-s-x);
+}
+.u-padding-b-s-x {
+	padding-block-end: var(--r-s-x)!important;
+}
+/* .u-padding-t-s-x, */
+/* Molecules > (Non Core) > Notification > fixed */
+.c-notification-fixed,
+/* Molecules > (Non Core) > Price Label */
+.c-price-label__price,
+/* Organisms > Footer > Nav */
+.menu-footer-menu-container a,
+/* Organisms > Entry Content */
+.entry-content code,
+.entry-content pre,
+/* Organisms > Widgets > (Wordpress) */
+.widget-title {
+  padding-block-start: var(--r-s-x);
+}
+.u-padding-t-s-x {
+	padding-block-start: var(--r-s-x)!important;
+}
+
+
+
+.u-padding-b-s-x-1 {
+}
+
+
+
+/* .u-padding-b-s, */
+/* Standard Classes > Wordpress > Widgets */
+.widget ul,
+/* Atoms > Elements */
+dl,
+dt,dd,
+th,
+td,
+.js-added__video,
+/* Molecules > Steps */
+.c-steps-container__heading,
+/* Molecules > Article Layout */
+.c-article-layout__thumbnail,
+/* Organisms > Blog > Single > (Wordpress) */
+.single .entry-footer [class*="entry"],
+/* Organisms > Comments > WordPress */
+.comment-reply-link,
+/* Organisms > (Not Part Of Framework) > Careers Card */
+.c-careers-card__meta,
+/* Organisms > Testimonials */
+.c-testimonial__inner {
+  /* =JFG. Same value as o-layout-width-l-0 property */
+  padding-block-end: var(--r-s);
+}
+.u-padding-b-s,
+.u-padding-b-s-children-direct > * {
+	padding-block-end: var(--r-s)!important;
+}
+/* .u-padding-t-s, */
+/* Atoms > Elements */
+dl,
+* + h3,
+/* =JFG. e.g. p followed by a div followed by an h3 */
+* > h3,
+* + h4,
+/* =JFG. e.g. p followed by a div followed by an h4 */
+* > h4,
+/* =JFG. e.g. h4 followed by an ul. If you run into problems with this try h4 + ul */
+.entry-content ul,
+.entry-content ol,
+/* e.g. Blog */
+.entry-header + .entry-content,
+/* Organisms > Comments > WordPress */
+#cancel-comment-reply-link,
+/* Organisms > Banner > Nav */
+.menu-header-menu-container a,
+/* Organisms > (Not Part Of Framework) > Careers Card */
+.c-careers-card {
+  /* =JFG. Same value as o-layout-width-l-0 property */
+  padding-block-start: var(--r-s);
+}
+.u-padding-t-s {
+	padding-block-start: var(--r-s)!important;
+}
+/* .u-margin-b-s, */
+/* Organisms > Comments > WordPress */
+.avatar,
+.comment-author,
+/* Organisms > (Not Part Of Framework) > Careers Card */
+.c-careers-card__footer__item {
+  /* =JFG. Same value as o-layout-width-l-0 property */
+  margin-bottom: var(--r-s);
+}
+.u-margin-b-s {
+	margin-bottom: var(--r-s)!important;
+}
+/* .u-margin-t-s, */
+/* Molecules > Forms */
+input[type="submit"],
+/* Molecules > Article Layout */
+.c-article-layout__content,
+/* Organisms > (Not Part Of Framework) > Careers Card */
+.c-careers-card__footer {
+  /* =JFG. Same value as o-layout-width-l-0 property */
+  margin-top: var(--r-s);
+}
+.u-margin-t-s {
+	margin-top: var(--r-s)!important;
+}
+
+
+
+/* .u-padding-b-s-1, */
+/* Atoms > Elements */
+h1,
+.h1,
+h2,
+p,
+/* Molecules > Forms > Plugins > Mailchimp */
+#mc_embed_signup .mc-field-group,
+/* Organisms > Entry Content */
+.entry-header,
+/* Organisms > Banner > Nav */
+.menu-header-menu-container a,
+/* Organisms > (Not Part Of Framework) > Careers Card */
+.c-careers-card {
+  padding-block-end: var(--r-s-1);
+}
+.u-padding-b-s-1,
+.u-padding-b-s-1-children-direct > * {
+	padding-block-end: var(--r-s-1)!important;
+}
+/* .u-padding-t-s-1, */
+/* Molecules > Steps */
+.c-steps-container__heading,
+/* Molecules > Tables */
+table + h2,
+/* Organisms > Banner > Nav */
+.menu-header-menu-container a,
+/* Organisms > Comments > Wordpress */
+/* Reply to an existing comment */
+.comment-respond,
+/* Organisms > Comments > Children > WordPress */
+.comments-area .children {
+  padding-block-start: var(--r-s-1);
+}
+.u-padding-t-s-1 {
+	padding-block-start: var(--r-s-1)!important;
+}
+.u-margin-b-s-1 {
+  margin-bottom: var(--r-s-1)!important;
+}
+.u-margin-t-s-1 {
+  margin-top: var(--r-s-1)!important;
+}
+
+
+
+.u-padding-b-s-2 {
+  padding-block-end: var(--r-s-2)!important;
+}
+.u-padding-t-s-2 {
+  padding-block-start: var(--r-s-2)!important;
+}
+.u-margin-b-s-2 {
+  margin-bottom: var(--r-s-2)!important;
+}
+.u-margin-t-s-2 {
+  margin-top: var(--r-s-2)!important;
+}
+
+
+
+/* .u-padding-b-m, */
+/* Molecules > Post Navigation > Wordpress */
+.nav-previous,
+/* Organisms > Entry Content */
+.entry,
+/* Organisms > Wordpress > Entry Content > Gallery */
+.gallery,
+/* Organisms > Testimonials */
+.testimonial,
+/* Page Templates > Search Results */
+.search .main article,
+/* e.g. >> /blog/author/polecat/ */
+/* Don't affect normal blog archive */
+.author .archive-description {
+  /* =JFG. Same value as o-layout-width-l property */
+  padding-block-end: var(--r-m);
+}
+.u-padding-b-m,
+.u-padding-b-m-children-direct > * {
+	padding-block-end: var(--r-m)!important;
+}
+/* .u-padding-t-m, */
+/* Molecules > (Non Core) > Pagination > Genesis Pagination Archive */
+.pagination,
+/* Organisms > Entry Content */
+.entry-content ul + p,
+/* Organisms > Testimonials */
+.testimonial {
+  /* =JFG. Same value as o-layout-width-l property */
+  padding-block-start: var(--r-m);
+}
+.u-padding-t-m {
+	padding-block-start: var(--r-m)!important;
+}
+/* .u-margin-b-m, */
+.js-added-table-wrapper,
+/* Molecules > (Non Core) > Pagination > Genesis Pagination Archive */
+.pagination li {
+  /* =JFG. Same value as o-layout-width-l property */
+  margin-bottom: var(--r-m);
+}
+.u-margin-b-m {
+	margin-bottom: var(--r-m)!important;
+}
+/* .u-margin-t-m, */
+/* Atoms > Elements */
+hr,
+/* Molecules > (Non Core) > Price Label */
+p + .c-price-label {
+  /* =JFG. Same value as o-layout-width-l property */
+  margin-top: var(--r-m);
+}
+.u-margin-t-m {
+	margin-top: var(--r-m)!important;
+}
+
+
+
+/* .u-padding-b-l, */
+/* Organisms > Comments > Wordpress */
+/* E.g. "Your email address will not be published" */
+.comment-notes,
+/* e.g. >> /?s=test */
+/* Don't affect CPT archive */
+.search .archive-title,
+/* e.g. >> /blog/2016/ */
+.date .archive-title ,
+/* Organisms > Entry Content */
+.entry,
+.entry-content {
+  padding-block-end: var(--r-l);
+}
+.u-padding-b-l {
+	padding-block-end: var(--r-l)!important;
+}
+/* .u-padding-t-l, */
+/* Atoms > Elements */
+/* Test this out, not sure if it is carpet bombing */
+* + h1,
+/* =JFG. e.g. Molecules > Counters */
+* > h1,
+* + h2,
+/* Organisms > Comments > Children > Wordpress */
+.children .comment + .comment,
+/* Organisms > (Non Core) > Overlay */
+.overlay__preview__main-heading,
+/* Organisms > (Non Core) > Overlay > Modifiers */
+.overlay__preview--2 {
+  padding-block-start: var(--r-l);
+}
+.u-padding-t-l {
+	padding-block-start: var(--r-l)!important;
+}
+/* .u-margin-b-l, */
+/* Atoms > Elements > Blockquote */
+blockquote,
+/* Atoms > Elements */
+hr,
+/* Standard Classes > Wordpress > Widgets */
+.widget {
+  margin-bottom: var(--r-l);
+}
+.u-margin-b-l {
+	margin-bottom: var(--r-l)!important;
+}
+/* .u-margin-t-l, */
+/* Atoms > Elements */
+hr {
+  margin-top: var(--r-l);
+}
+.u-margin-t-l {
+	margin-top: var(--r-l)!important;
+}
+
+
+
+/* .u-padding-b-l-1, */
+/* Organisms > Comments > WordPress */
+.entry-content .comment,
+/* Molecules > Article Layout */
+.c-article-layout,
+/* Molecules > (Non Core) > Pagination > Genesis Pagination Archive */
+.pagination {
+  padding-block-end: var(--r-l-1);
+}
+.u-padding-b-l-1 {
+	padding-block-end: var(--r-l-1)!important;
+}
+.u-padding-t-l-1,
+/* Organisms > Entry Content */
+.entry-content,
+.entry {
+  padding-block-start: var(--r-l-1)!important;
+}
+.u-margin-b-l-1 {
+  margin-bottom: var(--r-l-1)!important;
+}
+.u-margin-t-l-1 {
+  margin-top: var(--r-l-1)!important;
+}
+
+
+
+.u-padding-b-l-1-1 {
+}
+
+
+
+.u-padding-b-l-2,
+/* Organisms > Main */
+/* e.g. >> /?s=tsts */
+/* e.g. >> /blog/category/uncategorized/ */
+.main {
+  padding-block-end: var(--r-l-2)!important;
+}
+.u-padding-t-l-2 {
+  padding-block-start: var(--r-l-2)!important;
+}
+.u-margin-t-l-2 {
+  margin-top: var(--r-l-2)!important;
+}
+.u-margin-b-l-2 {
+  margin-bottom: var(--r-l-2)!important;
+}
+
+
+
+.u-margin-t-l-2-1 {
+	margin-top: var(--r-l-2-1)!important;
+}
+
+
+
+.u-padding-t-l-3 {
+	padding-block-start: var(--r-l-3)!important;
+}
+.u-margin-t-l-3 {
+	margin-top: var(--r-l-3)!important;
+}
+
+
+
+/* - 1024 */
+@media (max-width: 63.9375em){
+  .u-padding-b-s-1-mq-1024-down {
+    padding-block-end: var(--r-s-1)!important;
+  }
+  .u-padding-t-s-1-mq-1024-down {
+    padding-block-start: var(--r-s-1)!important;
+  }
+  .u-padding-t-m-mq-1024-down {
+    padding-block-start: var(--r-m);
+  }
+}
+/* 525 + */
+@media (min-width: 32.8125em) {
+  .u-padding-b-s-mq-525-up {
+    padding-block-end: 0.7rem!important;
+  }
+  .u-padding-t-s-mq-525-up {
+    padding-block-start: 0.7rem!important;
+  }
+
+
+  .u-padding-t-m-mq-525-up {
+    padding-block-start: var(--r-s-1)!important;
+  }
+}
+/* 768 + */
+@media (min-width: 48em) {
+  .u-margin-b-s-1-mq-768-up {
+    margin-bottom: var(--r-s-1)!important;
+  }
+}
+/* 1280 + */
+@media (min-width: 80em) {
+	/* .u-padding-b-l-mq-1280-up, */
+	/* Molecules > Article Layout */
+	.c-article-layout {
+		padding-block-start: var(--r-l);
+	}
+}
+
+
+
+/* .u-padding-b-n, */
+/* Organisms > Comments > Children > WordPress */
+.entry-content .children .comment,
+/* Organisms > Comments > WordPress */
+.comment-form-comment,
+.comments-area,
+/* Organisms > Entry Content */
+.entry .entry-content {
+  padding-block-end: 0;
+}
+.u-padding-b-n {
+	padding-block-end: 0!important;
+}
+/* .u-margin-b-n, */
+/* Organisms > (Not Part Of Framework) > Careers Card */
+.c-careers-card__footer .btn {
+	margin-bottom: 0;
+}
+/* .u-padding-t-n, */
+/* Atoms > Elements */
+h1 + h2,
+hr + *,
+/* Organisms > Entry Content */
+.entry-title ,
+/* e.g. blog archive */
+.entry .entry-content {
+  padding-block-start: 0;
+}
+.u-padding-t-n,
+/* Organisms > Entry Content */
+.wp-caption-text {
+	padding-block-start: 0!important;
+}
+
+
+
+/* GROUP ATOMS / VERTICAL SPACING / PRINT
+=================================================== */
+@media print {
+  .u-print-padding-b-n {
+    padding-block-end: 0!important;
+  }
+}

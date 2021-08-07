@@ -1,0 +1,125 @@
+/* GROUP ORGANISMS / WORDPRESS / GENESIS / SITE CONTAINER / (CROSS POLLINATED)
+=================================================== */
+.site-container > *:last-child {
+	padding-bottom: var(--r-l-1);
+}
+
+
+
+
+/* GROUP ORGANISMS / WORDPRESS / GENESIS / WIDGETS / FEATURE POSTS
+=================================================== */
+/* Notes...
+
+	Based on blog archive pattern
+
+*/
+.featured-content article {
+	padding-bottom: var(--r-m);
+}
+
+.featured-content /* article*/.has-post-thumbnail .entry-content {
+	/* Needed to prevent floated text running into elements e.g. paragraph should not run under featured image */
+	overflow: hidden;
+}
+
+.featured-content /* article*/.has-post-thumbnail > a:first-child img {
+	position: relative;
+	z-index: 1;
+	/* Override default .align classes */
+	max-width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: var(--r-s);
+	float: none;
+}
+/* GROUP ORGANISMS / WORDPRESS / GENESIS / WIDGETS / FEATURE POSTS / FLOATS
+=================================================== */
+.featured-content /* article*/.has-post-thumbnail .entry-content {
+	padding-right: 0;
+	padding-left: 0;
+}
+.featured-content /* article*/.has-post-thumbnail > a:first-child img {
+	width: 38.2%;
+	max-width: 400px;
+}
+
+.featured-content /* article*/.has-post-thumbnail > a:first-child /* img*/.alignleft {
+	float: left;
+	/* Decrease */
+	margin-right: 0.5rem;
+	padding-right: var(--r-m);
+}
+
+.featured-content /* article*/.has-post-thumbnail > a:first-child /* img*/.alignright {
+	float: right;
+	/* Decrease */
+	margin-left: 0.5rem;
+	padding-left: var(--r-m);
+}
+
+
+
+
+
+/* GROUP ORGANISMS / WORDPRESS / GENESIS / FOOTER WIDGETS / (CROSS POLLINATED)
+=================================================== */
+.footer-widgets a {
+	/* Don't use default link style */
+	color: inherit;
+}
+/* 1024 + */
+@media (min-width: 64em) {
+	.footer-widgets {
+		/* Stop footer widgets from becoming too dominating */
+		font-size: 0.93em;
+	}
+}
+/* GROUP ORGANISMS / WORDPRESS / GENESIS / FOOTER WIDGETS / SPACING / HEADINGS
+=================================================== */
+/* Tighten spacing */
+.footer-widgets h4:first-child {
+	padding-block-start: 0;
+	padding-bottom: var(--r-s);
+}
+/* GROUP ORGANISMS / WORDPRESS / GENESIS / FOOTER WIDGETS / SPACING
+=================================================== */
+.footer-widgets {
+	padding-bottom: var(--r-l);
+}
+.footer-widgets .widget {
+	padding-right: var(--r-l-static);
+	padding-left: var(--r-l-static);
+	padding-block-start: var(--r-m-2);
+}
+.footer-widgets .widget:first-child {
+	padding-block-start: var(--r-l-static);
+}
+.footer-widgets .widget:last-child {
+	padding-bottom: var(--r-l-1-static);
+}
+/* 1440 + */
+@media (min-width: 90em) {
+	.footer-widgets {
+		padding-left: var(--r-l);
+		padding-right: var(--r-l);
+	}
+}
+/* GROUP ORGANISMS / WORDPRESS / GENESIS / FOOTER WIDGETS / DECORATION
+=================================================== */
+.footer-widgets .widget {
+	background: var(--c-white);
+}
+.footer-widgets .widget ul,
+.footer-widgets .widget p,
+.footer-widgets .widget .textwidget {
+	color: var(--c-black-faded-2);
+}
+.footer-widgets .widget:first-child {
+	border-top-left-radius: var(--br-m);
+	border-top-right-radius: var(--br-m);
+}
+.footer-widgets .widget:last-child {
+	border-bottom-left-radius: var(--br-m);
+	border-bottom-right-radius: var(--br-m);
+}

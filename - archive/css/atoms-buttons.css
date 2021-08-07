@@ -1,0 +1,82 @@
+/* GROUP ATOMS / BUTTONS
+=================================================== */
+/* Notes...
+
+Wrap the .btn around the a href instead of the other way around because this is the most valid HTML.
+http://stackoverflow.com/questions/5320404/wrap-link-a-around-div
+
+  <div class="btn">
+    <a href>
+    </a>
+  </div>
+
+*/
+
+/* anchor instead of just .btn because the browser focusses on the a element, which is the background colour we want to change 
+should be...
+*/
+.btn a,
+button,
+input[type="submit"],
+/* Molecules > (Non Core) > Pagination > Genesis Pagination Archive */
+.pagination li {
+  display: inline-block;
+  /* I've found it more stable to use pxls rather than ems. */
+  padding: 16px 24px;
+  /* margin-right: 1rem; Don't do this because if the button is centered it will not be centered correctly */
+  text-decoration: none;
+  /* =JFG. Hover states with a slight delay, but focus without any because keyboard users want quick feedback */
+  transition: background-color 0.5s ease 0s;
+}
+.btn + .btn,
+button + button,
+/* Molecules > (Non Core) > Pagination > Genesis Pagination Archive */
+.pagination li + li {
+	margin-left: 1rem;
+}
+.btn a {
+	/* e.g. icons in buttons */
+	@apply --u-center-vertical;
+}
+.btn [class*="c-jg-icon"] {
+	padding-inline-start: 0.6rem;
+}
+/* Exceptions */
+/* Organisms > (Non Core) > Overlay */
+.overlay__preview .btn a {
+	margin-left: 0;
+}
+button,
+input[type="search"],
+input[type="submit"] {
+  /* =JFG. Cancel default button appearance */
+  -webkit-appearance: none!important;
+  border: none;
+}
+button {
+  /* =JFG. Cancel default button appearance */
+  background: none;
+}
+
+/* 1 */
+
+
+/* 2 */
+.btn--2 a,
+/* Organisms > Career Cards */
+.c-careers-card a {
+	background: var(--c-turquoise);
+	color: #fff;
+}
+
+
+/* 3 */
+
+
+/* Small */
+/* GROUP ATOMS / BUTTONS / HOVER STATES
+=================================================== */
+/* =JFG. I think these should be slightly different to focus states.
+Default focus state handled by Atoms > Decoration > Text > Link Styles > Focus.
+If you would like to override this then create a group called Atoms > Buttons > Focus States. */
+/* 1 */

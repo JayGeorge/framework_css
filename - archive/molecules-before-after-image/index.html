@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="UTF-8">
+        <title>Before & After Image</title>
+        <!-- <link rel="stylesheet" href="../core-dev.css"> -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <script>
+            /* Tell the html ASAP (without JS) to prevent a flicker of DOM changes e.g. nav collapsed. */
+            var no_js_target = document.querySelectorAll("html");
+
+            [].forEach.call(no_js_target, function(el) {
+                el.classList.remove("no-js");
+                el.classList.add("js");
+            });
+        </script>
+        <div class="js__before-after c-before-after">
+            <figure class="c-before-after__before" style="background-image: url(before.jpg)">
+                <h1 class="c-before-after__title">Before</h1>
+            </figure>
+            <figure class="js__after c-before-after__after">
+                <div class="c-before-after__after__image-container"  style="background-image: url(after.jpg)">
+                    <h1 class="c-before-after__title">After</h1>
+                </div>
+            </figure>
+            <!-- <input type="range" min="0" max="155" value="75" oninput="moveDivisor()" class="js__slider c-before-after__slider"> -->
+            <input type="range" min="0" max="100" value="50" oninput="moveDivisor()" class="js__slider c-before-after__slider">
+        </div>
+        <script defer src="js/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,1268 @@
+/*! Notes...
+
+    Author: Jay George
+    Author URI: https://jaygeorge.co.uk
+
+    ABOUT THIS CSS
+    ===================================================
+    - Only edit filename.css, then process with Codekit to output into prod/
+    - Class name prefixes are influenced by Namespaces article - http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+    - Other class name prefixes are based on microformats
+    - Class relationships are based on BEM structure
+    - Order of CSS influenced by ITCSS - https://twitter.com/itcss_io
+    - Layout snippets inspired by https://smolcss.dev/
+    - Where CSS groups include framework names such as WordPress or Genesis it means HTML/CSS in this group is based on these solid frameworks
+
+*/
+:root {
+    /* GROUP VARIABLES -- DECORATION -- COLOURS
+    =================================================== */
+    /*
+        - Use HSL. More info here - https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/
+        - Complimentary colour = Hue - 180
+        - Triad colours = Hue - or + 120
+        - Analogous color combinations = 30° separating the hues.
+        - You can also create monochromatic harmonies easily, with one main hue and then tweaking the lightness to get different tints and shades of that hue.
+    */
+    --colour-purple: hsl(254deg 66% 67%);
+    --colour-pink: hsl(333deg 100% 50%);
+    --colour-purple-alpha-1: hsl(254deg 66% 67% / 9%);
+    --colour-navy: hsl(226deg 25% 14%);
+    /* e.g. for icons on colour-navy background */
+    --colour-navy-reversed: hsl(226deg 14% 25%);
+    --colour-navy-hsl: 226deg 25% 14%;
+    --colour-navy-overlay: hsl(var(--colour-navy-hsl) / 20%);
+
+    --colour-orange: hsl(25, 100%, 53%);
+    --colour-turquoise: hsl(184, 65%, 47%);
+    --colour-turquoise-rgb: 42,186,197;
+    /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME -- BRANDS
+    =================================================== */
+    /* https://about.twitter.com/company/brand-assets */
+    --colour-brand-twitter: hsl(206, 82%, 63%);
+    --colour-brand-facebook: hsl(221, 44%, 41%);
+    --colour-brand-google-plus: hsl(7, 71%, 55%);
+    /* https://www.youtube.com/yt/brand/en-GB/color.HTML */
+    --colour-brand-youtube: hsl(0, 74%, 46%);
+    /* https://business.pinterest.com/en/brand-guidelines */
+    --colour-brand-pinterest: hsl(353, 92%, 39%);
+    /* https://brand.linkedin.com/visual-identity/color-palettes */
+    --colour-brand-linkedin: hsl(201, 100%, 35%);
+    --colour-brand-rss: hsl(36, 65%, 59%);
+    /* GROUP VARIABLES -- DECORATION -- COLOURS -- PRESET - SOFT {LIGHT COLOURS}
+    =================================================== */
+    /* background: antiquewhite; */
+    /* background: floralwhite; */
+    /* background: ghostwhite; */
+    /* background: lavenderblush; */
+    /* background: linen; */
+    /* background: mintcream; */
+    /* background: mistyrose; */
+    /* background: oldlace; */
+    /* background: papayawhip; */
+    /* background: seashell; */
+    /* background: snow; */
+    /* GROUP VARIABLES -- DECORATION -- COLOURS -- GRAYSCALE
+    =================================================== */
+    /* If you want to use a hue base for the grey... otherwise set to 0deg */
+    --colour-grey-hue: 225deg, 10%;
+
+    /* Dark to light */
+    /* --colour-black-off: hsl(0, 0%, 20%); */
+    /* https://twitter.com/AustinTByrd/status/1105822085362925568 */
+    /* --colour-black-off: hsl(240, 14%, 10%); */
+    --colour-black-off: hsl(var(--colour-grey-hue), 10%);
+    /* AA compliant as grey text on hsl(0, 0%, 98%) background. */
+    --colour-grey-reading-fa: hsl(var(--colour-grey-hue) 45%);
+    /* AA compliant as grey text on white background. AAA is 595959 */
+    --colour-grey-reading: hsl(var(--colour-grey-hue) 46%);
+    /* Not quite AA as grey text on white background, but you could use for less critical text such as meta or for 18pt and above text. Do not use it for a sentence. */
+    --colour-grey-reading-18pt: hsl(var(--colour-grey-hue) 58%);
+    /* For `text-decoration-color` of `color-grey-light` text */
+    --colour-grey-light-focus: hsl(var(--colour-grey-hue) 67%);
+    --colour-grey-light-1: hsl(var(--colour-grey-hue) 80%);
+    --colour-grey-light-2: hsl(var(--colour-grey-hue) 90%);
+    --colour-grey-light-3: hsl(var(--colour-grey-hue) 93%);
+    --colour-grey-light-4: whitesmoke;
+    --colour-grey-light-5: hsl(var(--colour-grey-hue) 97%);
+    --colour-grey-light-6: hsl(var(--colour-grey-hue) 99%);
+    /* GROUP VARIABLES -- SPACING
+    =================================================== */
+    --spacing-m-2: 1.65rem;
+    /* GROUP VARIABLES -- SPACING -- ICONS
+    =================================================== */
+    --spacing-icon-s: 0.2rem;
+    --spacing-icon-m: 0.3rem;
+    --spacing-icon-l: 0.6rem;
+    /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
+    =================================================== */
+    /* Based on Perfect Fifth - https://type-scale.com/ */
+    --font-size-s-x-x: 0.667rem;
+
+    /* Outside type scale */
+    --font-size-s: clamp(calc(1.3em * 0.85), 4vw, 1.3em);
+    --font-size-s-line-height: 1.4;
+    /* -- */
+
+    --font-size-s-1: clamp(1.4em, 4vw, 1.5em);
+    --font-size-s-1-line-height: 1.4;
+
+    --font-size-m: 2.25em;
+    --font-size-m-line-height: 1.35;
+    
+    --font-size-l: 3.375em;
+    --font-size-l-line-height: 1.15;
+
+    --font-size-l-1: 5.063em;
+    --font-size-l-1-line-height: 1.05;
+
+    --font-size-l-2: clamp(calc(7.594em * 0.7), 15vw, 7.594em);
+    --font-size-l-2-line-height: 1;
+    /* Based on Golden Ratio - https://type-scale.com/ */
+    --font-size-s-x-x: 0.618em;
+    --font-size-s-x-x-custom: 0.73em;
+    --font-size-s-x-x-rem: 0.618rem;
+
+    /* Custom, 0.8rem is too small */
+    --font-size-s-x: 0.85em;
+
+    --font-size-m: 1.618em;
+    --font-size-m-line-height: 1.4;
+
+    --font-size-l: 2.618em;
+
+    --font-size-l-1: 4.236em;
+
+    --font-size-l-2: 6.854em;
+
+    --font-size-l-3: 11.089rem;
+    /* GROUP VARIABLES -- DECORATION -- ICONS -- SIZES
+    =================================================== */
+    --icon-size-s: 1.35rem;
+    --icon-size-m: 1.5rem;
+    --icon-size-m-2: 1.8rem;
+    --icon-size-l: 3rem;
+    --icon-size-l-2: 5rem;
+    /* GROUP VARIABLES -- DECORATION -- TEXT SHADOWS - ordered from light to dark variants
+    =================================================== */
+    --text-shadow-light: 1px 2px 5px hsla(0, 98%, 16%, 0.3);
+    /* GROUP VARIABLES -- DECORATION -- SEPARATORS -- BORDERS - ordered from light to dark variants
+    =================================================== */
+    --border-grey-s: 3px solid grey;
+    --border-grey-m: 5px solid grey;
+    /* GROUP VARIABLES -- DECORATION -- SEPARATORS -- BOX SHADOWS - ordered from light to dark variants
+    =================================================== */
+    --box-shadow-clean:
+        0 2px 5px rgba(0, 0, 0, 0.02),
+        0 2px 3px rgba(0, 0, 0, 0.05),
+        0 1px 0 rgba(0, 0, 0, 0.06);
+    --box-shadow-s-light: 0 1px 8px hsla(0, 0%, 0%, 0.09);
+    --box-shadow-s-light-s: 0 0 5px hsla(0, 0%, 0%, 0.1);
+    --box-shadow-s-light-t: 0 -7px 7px -7px hsla(0, 0%, 0%, 0.09);
+    --box-shadow-s-light-b: 0 10px 9px -8px hsla(0, 0%, 0%, 0.09);
+    --box-shadow-s-light-b-2: 0 10px 9px -8px hsla(0, 0%, 0%, 0.05);
+    --box-shadow-s-light-b-3: 0 10px 9px hsla(0, 0%, 0%, 0.06);
+    --box-shadow-light-r: 10px 0 8px -8px hsla(0, 0%, 0%, 0.03);
+    --box-shadow-s-light-inset: inset 0 0 6px hsla(0, 0%, 0%, 0.1);
+    --box-shadow-s-light-t-inset: inset 0 7px 7px 0 hsla(0, 0%, 0%, 0.09);
+    --box-shadow-s-light-b-inset: inset 0 -10px 9px -8px hsla(0, 0%, 0%, 0.09);
+    --box-shadow-s: 0 1px 8px hsla(0, 0%, 0%, 0.2);
+    --box-shadow-s-focus: 7px 15px 40px hsla(0, 0%, 0%, 0.06), -7px 15px 40px hsla(0, 0%, 0%, 0.06);
+    --box-shadow-s-focus-hue: 7px 15px 40px hsla(200, 100%, 30%, 0.06), -7px 15px 40px hsla(200, 100%, 30%, 0.15);
+    --box-shadow-s-t: 0 -7px 15px -7px hsla(0, 0%, 0%, 0.1);
+    --box-shadow-s-b: 0 10px 9px -8px hsla(0, 0%, 0%, 0.2);
+    --box-shadow-s-left: -10px 0 9px -8px hsla(0, 0%, 0%, 0.2);
+    --box-shadow-s-inset: 0 0 9px hsla(0, 0%, 0%, 0.2);
+    --box-shadow-s-inset-right: inset -11px 0 7px -5px hsla(0, 0%, 0%, 0.09);
+    --box-shadow-s-dark: 0 2px 4px hsla(0, 0%, 0%, 0.4);
+    --box-shadow-s-dark-right: 10px 0 6px -6px hsla(0, 0%, 0%, 0.05);
+    --box-shadow-b-1: 0 5px hsla(0, 0%, 0%, 0.1);
+
+    --box-shadow-focus: 0 0 15px var(--colour-orange);
+    --box-shadow-focus: 0 0 0 3px var(--colour-blue);
+    /* GROUP VARIABLES -- DECORATION -- OTHER
+    =================================================== */
+    --filter-image-boost: contrast(105%) saturate(1.08);
+    --filter-image-boost-1: contrast(105%) saturate(1.25);
+
+    /* GROUP VARIABLES -- OTHER
+    =================================================== */
+    /* Used to push down the columns for the overlay */
+    --overlay-height-push: 11vh;
+
+    /* After standard variables you can add variables that are not part of the framework e.g. */
+    /* GROUP VARIABLES -- NOT PART OF FRAMEWORK -- PLUGINS -- FREE TO BOOK
+    =================================================== */
+    /* GROUP VARIABLES -- NOT PART OF FRAMEWORK -- OTHER
+    =================================================== */
+}
+/* Fallback for browsers that don't support clamp e.g. my iPad Mini */
+/* @supports not (font-size: clamp(calc(3.052em * 0.8), 11vw, 3.052em)) {
+    :root {
+        --font-size-l: 2.441em;
+        --font-size-l-1: 3.052em;
+        --font-size-l-2-entry: 3.4em;
+    }
+} */
+/* --mq-root-variable-adjustments-1 */
+@media (min-width: 450px) {
+    :root {
+        /* GROUP VARIABLES -- SPACING
+        ===================================================  */
+        --spacing-m-2: 2rem;
+    }
+}
+
+
+
+
+/* GROUP RESET / FRAMEWORK / (NON CORE) / SCROLLBARS
+=================================================== */
+/* To hide search bars in general, enable the below. Source: https://stackoverflow.com/questions/3296644/hiding-the-scrollbar-on-an-html-page; */
+/* html { */
+/* Firefox */
+/* scrollbar-width: none; */
+/* IE and Edge */
+/* -ms-overflow-style: none; */
+/* } */
+
+/* Chrome, Safari, and Opera */
+/* html::-webkit-scrollbar {
+    width: 0px;
+} */
+
+
+
+
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE)
+=================================================== */
+html {
+    /* Consider disabling this if you have pages that require lots of cmd + f https://css-tricks.com/downsides-of-smooth-scrolling/ */
+    scroll-behavior: smooth;
+    /*
+    h2 {
+        scroll-margin-top: 2em;
+    }
+    */
+}
+
+body {
+    /* So scroll bars hide like in Safari */
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+pre,
+code {
+    /* e.g. try <code><?php bloginfo('stylesheet_url'); ?></code> and you'll see that it overflows on smaller screens */
+    overflow-x: scroll;
+    padding-block-end: var(--spacing-s-x);
+    padding-block-start: var(--spacing-s-x);
+    margin-bottom: var(--spacing-m);
+    color: var(--colour-grey-reading);
+}
+
+/* Notes...
+
+    Source - http://html5doctor.com/cite-and-blockquote-reloaded/
+
+*/
+/* HTML Example...
+
+    <blockquote>
+        <p>As my fellow HTML5 Doctor, Oli Studholme has showed, citations almost always appear as part of the quotation – it’s highly conventional.</p>
+        <footer>
+            — <cite><a href="http://www.brucelawson.co.uk/2013/on-citing-quotations-again/">Bruce Lawson</a></cite>
+        </footer>
+    </blockquote>
+
+*/
+blockquote {
+    position: relative;
+    padding-inline-start: var(--spacing-m-2);
+    /* margin-bottom: var(--spacing-l); */
+    margin-inline-start: var(--spacing-s-x-x);
+    border-left: 4px solid turquoise;
+}
+
+blockquote p,
+blockquote cite {
+    color: var(--colour-grey-reading);
+}
+
+blockquote p {
+    quotes: "“" "”" "‘" "’";
+}
+
+blockquote p::before {
+    content: open-quote;
+}
+blockquote p::after {
+    content: close-quote;
+}
+
+blockquote::before {
+    position: absolute;
+    top: -0.3em;
+    left: 0.4em;
+    font-size: var(--font-size-m);
+    color: var(--colour-grey-light-1);
+}
+
+blockquote p:last-child {
+    /* e.g. prevent the decorative left border from extending beyond the text */
+    padding-block-end: 0;
+}
+
+/* figure {
+    Cancelled based on e.g. >> /page-wordpress-blog-archive-genesis.php
+    padding-block-end: var(--spacing-l-1);
+} */
+
+cite {
+    font-size: 0.75em;
+}
+
+hr {
+    height: 2px;
+    margin-bottom: var(--spacing-l);
+    margin-top: var(--spacing-l);
+    background: var(--colour-grey-light-1);
+    border: 0;
+}
+
+/*audio {
+    box-shadow: 0 0 10px rgba(255,255,255,0.25);
+}*/
+
+/* Aspect ratio */
+@supports (aspect-ratio: 16/9) {
+    iframe[src*="youtube"],
+    iframe[src*="vimeo"] {
+        /* Need supports otherwise height: auto; causes issues with the width */
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+}
+
+iframe {
+    width: 100%;
+    border: none;
+}
+
+
+
+
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS }
+=================================================== */
+/* Notes...
+
+    - Link styles are stored as group selectors rather than scattered, since we have multiple properties here.
+    - Do not put transitions on all links, it makes keyboard navigation feel slower. Instead, use transition animations on an individual basis e.g. skip-to-content
+
+*/
+
+/* Default */
+a {
+    text-decoration-color: red;
+
+    /* https://css-tricks.com/almanac/properties/t/text-decoration-style */
+    text-decoration-style: dashed;
+    text-decoration-style: wavy;
+    text-decoration-style: dotted;
+    text-decoration-style: solid;
+    text-decoration-style: double;
+
+    /* https://css-tricks.com/almanac/properties/t/text-underline-position */
+    text-underline-position: left;
+    text-underline-position: right;
+    text-underline-position: under;
+    /* https://webkit.org/blog/8718/new-webkit-features-in-safari-12-1/ */
+    /* You can also specify from-font to both of these properties which will pull the relevant metric from the used font file itself. */
+    text-underline-offset: 0.5em;
+    text-decoration-thickness: 1px;
+}
+
+/* Example taken from Typewolf. This should probably only be used for entry content because it might negatively affect elements such as nav */
+.u-link-style-2 a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--colour-green-light);
+    box-shadow: inset 0 -7px 0 var(--colour-green-light);
+    transition: background 0.3s ease-out;
+}
+
+.u-link-style-2 a:hover {
+    background: #f5f1f2;
+}
+
+/* Notes...
+
+    - Use "u-link-style-custom" prefix then these are pretty much rare/1 off
+    - Still include them in this group so we can see all link styles for easy maintenance
+
+*/
+.u-link-style-custom-1 {
+    color: var(--colour-grey-reading);
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS } / BLOCK
+=================================================== */
+/* Notes...
+
+     If you wrap a link around everything you need to clear it.
+
+*/
+
+/* HTML example...
+
+ <a href="">
+        <div>
+            Some content
+        </div>
+    </a>
+
+*/
+.u-link-style-block {
+    /* Notes...
+        e.g. >> /what-we-do-static
+        
+        Not display: inline-block; because this allows
+        images to bust out of their containers on Firefox and Internet Explorer
+    */
+    display: block;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS
+=================================================== */
+/* Notes...
+
+    Rian Rietveld, Twitter, on 2018-03-08:
+    - keep a good color contrast for text/borders against the background
+    - not by color alone, so don't only change the color (for color blind users)
+    - in WCAG 2.1 the borders also need to comply to a good contrast
+
+    For focusing on images you could also consider using box-shadow so you can get border radius e.g. box-shadow: var(--box-shadow-focus);
+
+    Other tips:
+    - **https://www.gov.uk/ is a great example of how to handle focus styles**
+    - Do not make colors faint; make them obvious
+    - Try to keep focus colors consistent where possible. You may want to avoid changing colors on buttons though, because it's gross
+    - Use box shadow if you'd like to use border-radius
+
+*/
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS} / EXTERNAL
+=================================================== */
+/* Source http://css-tricks.com/snippets/jquery/target-only-external-links/ */
+/* a:not([href^="http://brewpixel.com"]):not([href^="#"]):not([href^="/"]) {
+
+} */
+
+
+
+
+/* GROUP OBJECTS / FRAMEWORK / (NON CORE) / SLIDE
+=================================================== */
+/* Notes...
+
+	- Used to introduce hero-like text, occupying most of the screen vertically
+	- Use an additional component class to handle the decoration
+
+*/
+/* HTML Example...
+
+    .o-slide.c-slide
+        .o-slide__inner
+
+*/
+/* GROUP OBJECTS / FRAMEWORK / (NON CORE) / SLIDE / LAYOUT
+=================================================== */
+.o-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    /* min-height: 90vh; <-- Careful using this as it could cause spacing inconsistencies */
+}
+
+.o-slide__inner {
+    /* Instead define with individual elements e.g. c-marketing-text */
+    /* max-width: var(--max-width-reading); */
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+}
+/* GROUP OBJECTS / FRAMEWORK / (NON CORE) / SLIDE / SPACING
+=================================================== */
+.o-slide {
+    padding-block: var(--spacing-vh-s);
+}
+
+.o-slide .o-hero-buttons {
+    /* So everything is still centered */
+    padding-block-end: 0;
+}
+
+.o-slide__inner > *:last-child {
+    /* e.g. when marketing-text is at the bottom of a slide */
+    padding-block-end: 0;
+}
+
+
+
+
+/* GROUP OBJECTS / FRAMEWORK / (NON CORE) / HERO BUTTONS { / BUTTON HERO}
+=================================================== */
+/* Notes...
+
+    - Used to separate buttons in a blocked space
+
+*/
+
+/* Modifiers...
+
+    .o-hero-buttons--left <- align left e.g. you might use this for hero buttons below a map
+
+*/
+
+/* HTML Example...
+
+    <div class="o-hero-buttons">
+        <div class="btn">
+            <a href="">
+                Some button
+            </a>
+        </div>
+    </div>
+
+*/
+/* Ideally, once gap is supported */
+.o-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: var(--spacing-l-2);
+}
+
+.o-hero-buttons {
+    padding: var(--spacing-l-1);
+    text-align: center;
+}
+
+.o-hero-buttons--left {
+    justify-content: flex-start;
+}
+
+/* --mq-max-width-reading-before */
+@media (max-width: 37em) {
+    .o-hero-buttons {
+        text-align: left;
+        padding-inline-start: var(--spacing-l);
+    }
+}
+/* GROUP OBJECTS / FRAMEWORK / (NON CORE) / HERO BUTTONS { / BUTTON HERO} / SPACING MODIFICATIONS
+=================================================== */
+.o-slide .o-hero-buttons {
+    padding-inline: 0;
+}
+
+.o-hero-buttons + h2 {
+    padding-block-start: var(--spacing-s);
+}
+
+h2 + .o-hero-buttons {
+    padding-block-start: var(--spacing-s-1);
+}
+
+
+
+
+/* GROUP OBJECT / FRAMEWORK / (NON CORE) / LAYOUT / FULL WIDTH {BUST OUT OF CONTAINER}
+=================================================== */
+/* Notes...
+    
+    - When you need to bust out of containers such as .s-entry-content
+    - Based on https://css-tricks.com/full-width-containers-limited-width-parents/
+
+*/
+
+/* HTML Example...
+
+    <div class="o-full-width-wrapper">
+        e.g. <img/>
+    </div>
+
+*/
+
+.o-full-width-wrapper {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-inline: -50vw;
+}
+
+
+
+
+/* GROUP DECORATION / FRAMEWORK / (NON CORE) / OTHER
+=================================================== */
+/* Utility-like classes that are tied to a specific piece of UI */
+/* e.g.
+.c-subtext {
+    color: var(--colour-grey);
+    border-bottom; 1px solid grey;
+}
+
+.c-eyebrow-headline {
+    text-transform: uppercase;
+}
+
+.c-separator {
+    position: relative;
+}
+
+.c-separator::before {
+    --width: 20%;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: var(--width);
+    left: calc((100% - var(--width)) / 2);
+    border-bottom: 1px solid var(--colour-black-off-2);
+}
+*/
+
+
+
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / BUTTONS / TYPES
+=================================================== */
+/* Left and Right Arrows */
+/* HTML Example...
+
+    <a href="<perch:blog id="prev_url" encode="false" />" class="btn__left"><svg class="c-jg-icon c-jg-icon--chevron-thin-left c-icon-left"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--chevron-thin-left"></use></svg> Previous</a>
+
+*/
+/* Molecules > Pagination > Perch > (Cross Pollinated) */
+/* a*/
+.btn__left svg,
+/* a*/
+.btn__right svg {
+    position: relative;
+    /* Pagination Button e.g. right arrow inside button moves forward */
+    font-size: 1.5em;
+    transition: var(--animation-transition-fast);
+}
+
+/* Molecules > Pagination > Perch > (Cross Pollinated) */
+/* a*/
+.btn__left svg {
+    right: 0;
+}
+
+/* Molecules > Pagination > Perch > (Cross Pollinated) */
+/* a*/
+.btn__left:hover svg {
+    right: 5px;
+}
+
+/* Molecules > Pagination > Perch > (Cross Pollinated) */
+/* a*/
+.btn__right svg {
+    left: 0;
+}
+
+/* Molecules > Pagination > Perch > (Cross Pollinated) */
+/* a*/
+.btn__right:hover svg {
+    left: 5px;
+}
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / BUTTONS / SIZES
+=================================================== */
+/* Small */
+.btn--s a {
+    padding: 0.6rem var(--spacing-m);
+}
+
+
+
+
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / HERO BLOCK
+=================================================== */
+/* Notes...
+
+    - Can contain anything e.g. Clients
+
+*/
+
+/* HTML Example...
+
+    .c-hero-block
+        .c-hero-block__text
+            h2.c-hero-block__title
+            div.c-hero-block__strapline
+                From world-class airlines to cruise lines. From start-ups to renowned brands.
+
+*/
+
+/* Modifiers...
+
+    .c-hero-block--compressed
+
+*/
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / HERO BLOCK / LAYOUT
+=================================================== */
+.c-hero-block {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.c-hero-block > * {
+    flex-basis: 100%;
+}
+
+.c-hero-block__text {
+    max-width: 46rem;
+}
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / HERO BLOCK / SPACING / (CROSS POLLINATED)
+=================================================== */
+.c-hero-block {
+    padding-block-end: var(--spacing-l-3-horizontal);
+    padding-inline-end: var(--spacing-l-3-horizontal);
+}
+
+.c-hero-block__title {
+    padding-block-start: 0;
+}
+
+/* .c-hero-title--with-strapline { */
+    /* Decrease */
+/*     padding-block-end: var(--spacing-m-2);
+} */
+
+/* e.g. div*/.c-hero-block__strapline {
+    padding-block-end: var(--spacing-l-1);
+}
+
+.c-hero-block + .c-hero-block {
+    /* e.g. client logos AJAX'd in */
+    padding-block-start: var(--spacing-m-2);
+}
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / HERO BLOCK / DECORATION / (CROSS POLLINATED)
+=================================================== */
+/* Notes...
+
+    - Cross pollinated with core.css e.g. .c-hero-block__strapline
+
+*/
+
+.c-hero-block__strapline {
+    font-size: var(--font-size-s-1);
+    color: var(--colour-grey-reading);
+}
+
+.c-hero-block__title {
+    font-size: var(--font-size-l-1);
+    line-height: var(--font-size-l-1-line-height);
+}
+
+.c-hero-block img {
+    filter: var(--image-boost);
+}
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / HERO BLOCK / (MODIFIERS)
+=================================================== */
+.c-hero-block--compressed .c-hero-block__text {
+    /* e.g. >> /projects */
+    padding-block-end: var(--spacing-l-1);
+    padding-block-start: 0;
+}
+
+
+
+
+
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV
+=================================================== */
+/*
+
+    Setup and Dependencies...
+
+    [] 1. Decide whether you'd like to use any modifier classes/groups shown below. Remove any MODIFIER groups that are not needed.
+        Modifier groups include choosing "when the grid breaks into further columns" (I suggest at 600px)
+    [] 2. Add the JS found in script-non-core.js.
+    [] 3. Remember how to comment out the nav template in header.php for Perch, and check the nav element there for further instructions
+
+*/
+
+/* HTML Example...
+
+    The nav is flexible and derivative so it's best to view various examples rather than a specific
+    markup example here.
+    See one of the various demos in the CSS Framework
+
+*/
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MODIFIER CLASSES
+=================================================== */
+/* Notes...
+
+    Examples of nav modifier classes
+    ------------
+    .nav--centered
+    The nav will be centered once it is horizontal
+
+    .js__collapsedUntilNavOpened
+    You almost always want this. If we have JS then the nav is hidden until toggled open.
+    The menu appears on larger screens
+
+*/
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / SPACING
+=================================================== */
+.js--navIsOpen .c-nav-mobile-button {
+    margin-bottom: 0;
+}
+
+/* e.g. Components > Framework > Nav > Header > Closed */
+nav {
+    padding-block-start: var(--spacing-s-1);
+}
+
+.c-nav-mobile-button,
+/* e.g. Components > Framework > Nav > Header > Closed */
+nav {
+    margin-block-end: var(--spacing-l);
+}
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / CURRENT PAGE
+=================================================== */
+/* Ancestors and Parents of Current Page */
+/* nav */
+.current-menu-ancestor > a span {
+    color: rgba(var(--colour-turquoise-rgb),0.5);
+}
+
+
+
+
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / (CROSS POLLINATED)
+=================================================== */
+/* HTML Example...
+
+    <button class="c-nav-mobile-button u-js-only">
+        <span class="c-nav-icon">
+            <!-- Animate this when closed -->
+            include 'img/svg/nav.php';
+        </span>
+    </button>
+
+*/
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / BUTTON
+=================================================== */
+/* button*/
+.c-nav-mobile-button {
+    width: 100%;
+    
+    /* =JFG. Cancel any default button value */
+    margin-inline-end: 0;
+
+    font-size: 1.7em;
+    /* Make sure it's dead center */
+    line-height: 0;
+}
+
+/* Optional, if you want to include both an icon and text */
+/* HTML Example...
+
+    <button class="c-nav-mobile-button u-js-only">
+        <span class="c-nav-mobile-button__inner"> <-- this gets wrapped around the text and icon
+            <span class="c-nav-icon">Menu</span>
+            <svg class="c-jg-icon c-jg-icon--menu c-nav-icon"><use xlink:href="#c-jg-icon--menu"></use></svg>
+            <svg class="c-jg-icon c-jg-icon--close c-nav-icon-closed"><use xlink:href="#c-jg-icon--close"></use></svg>
+        </span>
+    </button>
+
+*/
+.c-nav-mobile-button__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / CLOSED STATE
+=================================================== */
+/* If we have JS then this is hidden until toggled open. The menu appears on larger screens */
+/* for nav.js__collapsedUntilNavOpened */
+.js .js__collapsedUntilNavOpened {
+    display: none;
+}
+/* Using animation rather than transitions means we're not affected by the parent element going from display: none; to display: block; (transitions are affected by this though) */
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / OPEN STATE
+=================================================== */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+/* Since we're initially setting an opacity we should make sure animation is supported before doing this */
+@supports (animation-name: fade-in) {
+    /* --mq-nav-opens-before */
+    @media (max-width: 1299px) {
+        .site-header__nav li {
+            opacity: 0;
+        }
+
+        .js--navIsOpen .site-header__nav li {
+            animation-name: fade-in;
+            animation-duration: 0.9s;
+            animation-fill-mode: forwards;
+        }
+        /* Staggered animation */
+        .site-header__nav li {
+            /* Default i.e. after 4th */
+            animation-delay: calc(0.025s * 8);
+        }
+        .site-header__nav li:nth-child(1) {
+            animation-delay: 0s;
+        }
+        .site-header__nav li:nth-child(2) {
+            animation-delay: calc(0.025s * 2);
+        }
+        .site-header__nav li:nth-child(3) {
+            animation-delay: calc(0.025s * 4);
+        }
+        .site-header__nav li:nth-child(4) {
+            animation-delay: calc(0.025s * 6);
+        }
+    }
+}
+
+.js--navIsOpen .js__collapsedUntilNavOpened {
+    display: block;
+}
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / OPEN STATE / SVG ANIMATIONS
+=================================================== */
+.c-nav-line {
+    transition: 0.25s ease-in-out;
+    transform-origin: center;
+}
+
+.js--navIsOpen .c-nav-line--1 {
+    opacity: 0;
+    transition: 0.1s;
+}
+
+.js--navIsOpen .c-nav-line--2 {
+    transform: rotate(45deg) translate(0.5px);
+}
+
+.c-nav-line--3 {
+    opacity: 0;
+}
+
+.js--navIsOpen .c-nav-line--3 {
+    opacity: 1;
+}
+
+.js--navIsOpen .c-nav-line--3 {
+    transform: rotate(-45deg) translate(-0.5px);
+}
+
+.js--navIsOpen .c-nav-line--4 {
+    opacity: 0;
+}
+
+
+
+
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / GRID
+=================================================== */
+/* Notes...
+
+    Transforms the nav menu into a grid of items
+    i.e. an inline list.
+     
+*/
+/* --mq-nav-switches-to-grid-after */
+@media (min-width: 600px) {
+    .s-nav-grid-mq-600-up nav li {
+        display: inline-block;
+        text-align: left;
+    }
+
+    /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / GRID / ACCESSIBILITY
+    =================================================== */
+    .s-nav-grid-mq-600-up .js__u-js-hide {
+        /* Cancel hiding of Skip to Content when we reach full nav break point,
+        because now it's not possible to jump past the collapsed full nav */
+        display: inline-block;
+    }
+
+    .s-nav-grid-mq-600-up .js__u-js-hide:focus {
+        position: relative;
+    }
+}
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / OPEN
+=================================================== */
+/* Optional force the nav to open */
+/* --mq-nav-opens-after */
+@media (min-width: 1024px) {
+    /* div*/
+    .s-nav-open-mq-1024-up .c-nav-mobile-button {
+        /* =JFG. Hide the toggle button now that nav is always visible */
+        display: none;
+    }
+
+    /* Need .js to trump .js .js__collapsedUntilNavOpened selector */
+    .js .s-nav-open-mq-1024-up nav {
+        /* =JFG. Ensure nav is above elements when sub-menus are positioned absolutely */
+        position: relative;
+        z-index: 2;
+        /* =JFG. Cancel display: none; */
+        display: block;
+    }
+}
+
+
+
+
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / SITE TITLE
+=================================================== */
+/* */.site-title,
+/* */.site-description {
+    /* START SCREEN READER TEXT
+    --------------------------- */
+    clip: rect(1px, 1px, 1px, 1px);
+
+    position: absolute!important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    /* END SCREEN READER TEXT
+    ------------------------- */
+}
+
+
+
+
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY HEADER
+=================================================== */
+.s-entry-header {
+    max-width: var(--max-width-reading);
+    padding-inline-start: var(--spacing-l);
+    padding-block-end: var(--spacing-s-1);
+    padding-inline-end: var(--spacing-l);
+    clear: both;
+}
+
+/* Notes...
+
+    e.g. <header class="entry-header s-entry-header{{ title | length > 40 ?= ' s-entry-header--with-long-title' }}">
+
+*/
+/* .s-entry-header--with-long-title {
+
+} */
+
+.s-entry-header h1 {
+    padding-block-end: var(--spacing-m);
+}
+
+.s-entry-header .entry-time {
+    font-size: var(--font-size-s-x);
+}
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY TITLE
+=================================================== */
+/* Notes...
+
+    - Used to control titles, especially when you have different elements e.g. h2, h3, that all need to look the same
+
+*/
+.s-single .entry-title {
+    max-width: var(--max-width-title);
+    padding-inline-start: var(--spacing-l);
+    padding-block-end: var(--spacing-s-1);
+    padding-inline-end: var(--spacing-l);
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    clear: both;
+    text-align: center;
+    /* e.g. >> 404.php */
+    font-size: var(--font-size-l);
+    line-height: var(--font-size-l-line-height);
+}
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY TITLE / (NON CORE) / INTRO
+=================================================== */
+.c-entry-title--with-intro {
+    padding-block-end: var(--spacing-s-x-x);
+}
+
+.c-entry-title-intro {
+    padding-block-end: var(--spacing-l);
+    text-align: center;
+    /*line-height: var(--font-size-reading-line-height);*/
+    /*font-size: 1.3em;*/
+    /*color: var(--colour-pink);*/
+    /*@apply --t-text-style-1-strong;*/
+}
+
+.c-entry-title-intro--s {
+    padding-block-end: var(--spacing-s);
+    padding-block-start: var(--spacing-s);
+    /*padding-inline-start: var(--spacing-s);*/
+    /*padding-inline-end: var(--spacing-s);*/
+    /*margin-bottom: var(--spacing-l-1);*/
+    /*margin-top: var(--spacing-s-1);*/
+    /*font-size: 1em;*/
+}
+
+
+
+
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY CONTENT / (MODIFIERS)
+=================================================== */
+/*.s-entry-content--hero,*/
+.s-entry-content--intro {
+    /* e.g. Gallery page intro 
+        Do not apply to all .s-entry-content because it has undesirable consequences like making iframes disappear
+    */
+    /* Horizontal text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.s-entry-content--with-lead > p:first-child {
+    font-weight: var(--font-family-main-weight-strong);
+}
+
+.s-entry-content--hero {
+    padding-block-end: var(--spacing-l);
+}
+
+.s-entry-content--compressed {
+    padding-block-end: var(--spacing-m-1);
+}
+
+.s-entry-content--compressed-totally {
+    /* e.g. a Perch block, where we have lots of `.s-entry-content`s stacked on top of each other */
+    padding-block-end: 0;
+}
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY CONTENT / (MODIFIERS) / VIDEO
+=================================================== */
+.s-entry-content--video .js--video {
+    margin-bottom: 0;
+}
+
+.s-entry-content--video .js--video + p {
+    margin-top: var(--spacing-s-1);
+}
+
+
+
+
+/* GROUP UTILTIES / FRAMEWORK / (NON CORE)
+=================================================== */
+/* For when something is revealed with JS, but if JS is not available show it */
+.js .js__u-js-hide {
+    display: none;
+}
+
+/* Hide visually and from screen readers */
+.u-hidden {
+    display: none!important;
+}
+
+.u-link-style-none,
+.u-link-style-none * {
+    /* --u-link-style-none */
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 0;
+}
+
+/* Needed for when you declare width and height attributes to improve loading lazy images */
+/* picture*/
+.u-full-width-image img {
+    width: 100%;
+}
+
+/* Use this class when you're intentionally not adding an alt tag e.g. it's a decorational image */
+img.no-alt {
+    border: initial;
+}
+
+/* Notes...
+
+    - See also https://css-tricks.com/almanac/properties/l/line-clamp/ {/ LINE CLAMP}
+*/
+.u-ellipsis {
+    display: block;
+    /* =JFG. Need to be inline-block or block to enable ellipsis */
+    white-space: nowrap;
+    /* 'overflow' value must be different from 'visible' */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Optional */
+    max-width: 95%;
+}
+/* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ICONS / SIZING
+=================================================== */
+/* These is explicit, so override any automatic rules above with !important */
+.u-icon-right-x-x {
+    margin-inline-start: var(--spacing-icon-s)!important;
+}
+
+.u-icon-right-x {
+    margin-inline-start: var(--spacing-icon-m)!important;
+}
+
+.u-icon-left-x {
+    margin-inline-end: var(--spacing-icon-m)!important;
+}
+
+.u-icon-left {
+    margin-inline-end: var(--spacing-icon-l)!important;
+}
+
+.u-icon-right {
+    margin-inline-start: var(--spacing-icon-l)!important;
+}
+
+.u-icon-s {
+    font-size: var(--icon-size-s);
+}
+
+.u-icon-m {
+    font-size: var(--icon-size-m);
+}
+/* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / ANIMATION / FADE IN
+=================================================== */
+/* Components > Framework > Nav */
+/* Atoms > JS Toggle Content */
+/* Molecules > (Non Core) > Image > Lazy Load > {/ Lozad} */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.u-animated--fade-in {
+    animation-name: fade-in;
+    animation-duration: 1.2s;
+    /* Out quadratic */
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+/* GROUP UTILITIES / DECORATION
+=================================================== */
+.u-texture {
+    background-image: url(/img/textures/something.jpg);
+}
+
+.u-panel-dark-to-light {
+    --stop: 25%;
+    background: linear-gradient(to bottom, var(--colour-black-off) 0%, var(--colour-black-off) var(--stop), var(--colour-grey) var(--stop));
+}

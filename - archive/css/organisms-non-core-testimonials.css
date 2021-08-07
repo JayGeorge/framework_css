@@ -1,0 +1,32 @@
+/* GROUP ORGANISMS / TESTIMONIALS / (CROSS POLLINATED)
+=================================================== */
+/* HTML...
+	<div class="testimonial">
+		<div class="c-testimonial__inner">
+			<div class="c-testimonial__inner__item">
+				<img/>
+			</div>
+			<div class="c-testimonial__inner__item">
+				<div class="c-testimonial__meta">
+					<span>Kath Rowe</span>
+				</div>
+			</div>
+			<span class="screen-reader-text">2014/04/01</span>
+		</div>
+		<p>“Testimonial content heree e.g. Company x always have someone at the other end of the phone to help and assist with any problems or questions you may have”</p>
+	</div>
+
+*/
+.testimonial img {
+  width: 45px;
+}
+
+.c-testimonial__meta {
+	font-weight: 700;
+}
+
+.c-testimonial__inner__item {
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+}

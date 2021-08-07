@@ -1,0 +1,317 @@
+/* GROUP MOLECULES / FORMS / (CROSS POLLINATED) / (PROJECT MODIFICATIONS / NOT YET MODIFIED)
+=================================================== */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="url"],
+input[type="tel"],
+[type="search"],
+textarea,
+.entry-content textarea,
+/* Plugin > Gravity Forms */
+body .gform_wrapper input:not(.gform_button),
+.gfield_select,
+body .gform_wrapper form textarea {
+  vertical-align: top;
+/*   box-shadow: inset 0px -1px 0px rgba(0,0,0,0.1); */
+  /* =JFG. e.g. search box >> blog or newsletter signup email address */
+  padding: 10px;
+  margin-bottom: 1.5rem;
+  /* e.g. fields next to each other */
+  margin-right: 0.5rem;
+  /* Project Modifications > (Not Yet Modified) */
+  /* =JFG. Need line height; IE9 bug. Source http://stackoverflow.com/questions/7797103/text-indent-for-a-text-box-in-ie */
+  line-height: 1.45;
+  border-radius: 2px;
+}
+/* Plugins > (Non Core) > Hubspot */
+.hs-error-msgs {
+	position: relative;
+	/* To counter margin-bottom of inputs */
+	top: -1rem;
+}
+label {
+	/* Fixed */
+	font-size: 16px;
+	@apply --u-text-style-strong;
+}
+textarea {
+	width: 100%;
+	/* e.g. Hubspot is a bit short */
+	min-height: 200px;
+}
+/* Organisms > Comments > Wordpress */
+/* e.g. do not affect hubspot comment, which is the last field. We do not want to create a big gap between the Hubspot comment and the submit button */
+.comment-form-comment textarea {
+	margin-bottom: 2.4rem;
+}
+input[type="email"],
+input[type="text"],
+input[type="url"] {
+	width: 100%;
+	max-width: 275px;
+}
+.btn {
+  position: relative;
+  display: inline-block;
+  /* =JFG. e.g. Mailchimp Plugin code > Rugby League Business site */
+  margin-bottom: 1.25rem;
+}
+/* Exceptions */
+/* =JFG. Need high specificity e.g. "Preferred Appointment Time" xx HH, xx MM */
+input[type="text"] + label {
+  position: relative;
+  /* =JFG. Counter margin-bottom */
+  top: -.25rem;
+}
+/* GROUP MOLECULES / FORMS / VERTICAL SPACING
+=================================================== */
+/* form */ label {
+  padding-block-end: 0.2em;
+}
+/* GROUP MOLECULES / FORMS / BUTTONS
+=================================================== */
+[type="submit"] {
+  /* Always on a separate line */
+  display: block!important;
+  /* =JFG. e.g. Subscribe button for Mailchimp */
+  font-size: 1em;
+  /* Remove user agent style */
+	background: transparent;
+	/* Same as HTML, overriding the default of 1 in the reset */
+	line-height: 1.5;
+}
+body [type="submit"] {
+	/* e.g. Hubspot Subscribe Now form */
+	margin-top: 0;
+}
+/* GROUP MOLECULES / FORMS / EXPLICIT BLOCK
+=================================================== */
+/* Notes...
+
+  Where we want labels to always be on a separate line e.g. Comment forms
+
+*/
+
+/* HTML Example...
+
+  <div class="s-forms-block">
+    <form/>
+  </div>
+
+*/
+.s-forms-block label,
+/* Organisms > Comments > Wordpress > Genesis */
+.comment-respond label {
+  display: block;
+}
+/* GROUP MOLECULES / FORMS / MOBILE (INLINE)
+=================================================== */
+/* Input Box */
+.search-form [type="search"] {
+  text-align: left;
+  float: left;
+  max-width: 170px;
+  margin-right: 10px;
+}
+/* Search Button */
+.search-form [type="submit"] {
+  margin-top: 0;
+  /* Fixed height for Firefox inputs */
+  height: 50px;
+}
+/* GROUP MOLECULES / FORMS / DECORATION / BORDERS / (PROJECT MODIFICATIONS / NOT YET MODIFIED)
+=================================================== */
+/* Plugin > Gravity Forms */
+body .gform_wrapper:not(.jg-gravity-form-quick-contact_wrapper) input:not(.gform_button),
+body .gform_wrapper:not(.jg-gravity-form-quick-contact_wrapper) textarea,
+input:not([type="submit"]) {
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  /* =JFG. Cancel default button appearance */
+  -webkit-appearance: none;
+}
+
+textarea {
+  width: 100%;
+}
+/* GROUP MOLECULES / FORMS / INPUT TYPES
+=================================================== */
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  /* =JFG. So they always line up */
+  float: left;
+}
+
+/* The \9 is correct apparently. https://www.google.co.uk/search?q=input%5Btype%3Dradio%5D%2C+input%5Btype%3Dcheckbox%5D+%7B+margin%3A+4px+0+0%3B+margin-top%3A+1px+%5C9%3B+line-height%3A+normal%3B+%7D&oq=input%5Btype%3Dradio%5D%2C+input%5Btype%3Dcheckbox%5D+%7B+margin%3A+4px+0+0%3B+margin-top%3A+1px+%5C9%3B+line-height%3A+normal%3B+%7D&aqs=chrome..69i57.552j0j7&sourceid=chrome&es_sm=91&ie=UTF-8 */
+input[type="radio"],
+input[type="checkbox"] {
+  /* margin: 4px 0 0; */
+  margin-top: 1px \9;
+  line-height: normal;
+}
+
+
+::selection {
+/*   color: white;  */
+}
+/* GROUP MOLECULES / FORMS / INPUT TYPES / DECORATION / (PROJECT MODIFICATIONS / NOT YET MODIFIED)
+=================================================== */
+input[type="search"] {
+  border-radius: 5px;
+}
+
+
+
+
+/* GROUP MOLECULES / FORMS / SEARCH / (CROSS POLLINATED)
+=================================================== */
+/* Setup and Dependencies...
+
+  [] 1. Make sure you have the group Atoms > Font Icons > Backgrounds
+  [] 2. If you are not using Genesis delete the Genesis group selectors, and vice versa
+  [] 3. If you are using Genesis search for cross pollinated classes
+
+  The Genesis setup depends on the following HTML structure...
+
+	<form class="search-form c-search-expandable c-search-expandable--2" role="search">
+	  <input type="search">
+	  <input type="submit" value="Go">
+	</form>
+
+*/
+/* Webkit overrides. */
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+  display: none; 
+}
+input:-moz-placeholder {
+  color: #999;
+}
+input::-webkit-input-placeholder {
+  color: #999;
+}
+
+/* input */.c-search-expandable,
+/* Molecules > Forms > Search > Genesis */
+.c-search-expandable input[type="search"] {
+  outline: none;
+  height: 45px;
+}
+
+input.c-search-expandable,
+/* Molecules > Forms > Search > Genesis */
+/* form*/ .c-search-expandable input[type="search"] {
+  box-sizing: border-box;
+/*   background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center; */
+  border: solid 2px #fafafa;
+  padding: 9px 10px 9px 35px;
+  border-radius: 10em;
+  transition: all .5s;
+  background-color: #fafafa;
+}
+input.c-search-expandable:focus,
+/* Molecules > Forms > Search > Genesis */
+/* form*/ .c-search-expandable input[type="search"]:focus {
+  width: 200px;
+  background-color: #fff;
+  /* Blue */
+  border-color: #1e8cbe;
+}
+/* GROUP MOLECULES / FORMS / SEARCH / ICOMOON
+=================================================== */
+form {
+  position: relative;
+}
+.c-search-expandable,
+/* Molecules > Forms > Search > Genesis > Icomoon */
+/* form*/ .c-search-expandable--genesis input[type="search"] {
+  /* Override default [type="search"] form CSS */
+  margin-bottom: 0;
+}
+.c-search-expandable + .icon--background:before,
+/* Molecules > Forms > Search > Genesis > Icomoon */
+.widget_search:before {
+  top: 15px;
+  left: 15px;
+  pointer-events: none;
+}
+.c-search-expandable + .icon--background:before,
+/* Molecules > Forms > Search > Genesis > Icomoon */
+.search-form:before {
+/*   display: none!important; */
+}
+/* GROUP MOLECULES / FORMS / SEARCH / MODIFICATIONS / SMALL
+=================================================== */
+.c-search-expandable--1,
+/* Molecules > Forms > Search > Genesis > Icomoon */
+.c-search-expandable--1.c-search-expandable--genesis input[type="search"] {
+  width: 105px;
+}
+/* GROUP MOLECULES / FORMS / SEARCH / MODIFICATIONS / COMPACT
+=================================================== */
+input.c-search-expandable--2,
+/* Molecules > Forms > Search > Genesis > Icomoon */
+/* form*/ .c-search-expandable--2.c-search-expandable--genesis input[type="search"] {
+  /* Same as height to make round */
+  width: 45px;
+  border-radius: 50px;
+  /* Hide text */
+  color: transparent;
+  cursor: pointer;
+}
+.c-search-expandable--2:hover,
+/* Molecules > Forms > Search > Genesis > Icomoon */
+.c-search-expandable--2.c-search-expandable--genesis input:hover {
+  background-color: #fff;
+}
+.c-search-expandable--2:not(:focus),
+/* Molecules > Forms > Search > Genesis > Icomoon */
+.c-search-expandable--2.c-search-expandable--genesis input:not(:focus) {
+  padding: 0;
+}
+/* Once you click search */
+.c-search-expandable--2:focus,
+/* Molecules > Forms > Search > Genesis > Icomoon */
+.c-search-expandable--2.c-search-expandable--genesis input:focus {
+  width: 130px;
+  color: #000;
+  background-color: #fff;
+  cursor: auto;
+}
+/* GROUP MOLECULES / FORMS / SEARCH / MODIFICATIONS / COMPACT / PLACEHOLDER
+=================================================== */
+/* Hide placeholder text */
+.c-search-expandable--2::-moz-placeholder,
+/* Molecules > Forms > Search > Genesis > Icomoon */
+.c-search-expandable--2.c-search-expandable--genesis input::-moz-placeholder {
+  color: transparent;
+}
+.c-search-expandable--2::-webkit-input-placeholder,
+/* Molecules > Forms > Search > Genesis > Icomoon */
+.c-search-expandable--2.c-search-expandable--genesis input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+
+/* GROUP MOLECULES / FORMS / SEARCH / GENESIS / (CROSS POLLINATED)
+=================================================== */
+.search-form:before {
+  /* Search icon */
+  content: "\1f526";
+}

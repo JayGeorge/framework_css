@@ -1,0 +1,95 @@
+/* GROUP COMPONENTS / LEGALISE / LAYOUT
+=================================================== */
+/* GROUP COMPONENTS / LEGALISE / SPACING
+=================================================== */
+.c-legalise-info,
+/* Override any more complex rules like .s-entry-content:last-child */
+.c-legalise-info:last-child {
+    padding: var(--spacing-l);
+    margin-bottom: var(--spacing-l-2);
+}
+
+.s-content-main-legalise .s-entry-header {
+    padding-block-end: var(--spacing-l-1);
+}
+
+.s-content-main-legalise .s-entry-content:not(.c-legalise-info) {
+    padding-block-end: var(--spacing-l);
+    margin-bottom: var(--spacing-l-1);
+}
+
+.c-legalise-info h2 {
+    padding-block-end: var(--spacing-m);
+}
+
+.c-legalise-info h2:not(:first-child) {
+    padding-block-start: var(--spacing-l-1);
+}
+
+.c-legalise-info h3 {
+    padding-block-end: var(--spacing-s-x-x);
+}
+
+.c-legalise-info h2 + p {
+    padding-block-start: var(--spacing-s-1);
+}
+/* GROUP COMPONENTS / LEGALISE / DECORATION
+=================================================== */
+.c-legalise-info {
+    border: 1px solid var(--colour-grey-light-2);
+}
+
+.s-content-main-legalise .s-entry-content:not(.c-legalise-info) {
+    border-bottom: 1px dashed var(--colour-grey-light-2);
+}
+
+.s-content-main-legalise .s-entry-content:last-child {
+    border-bottom: 0;
+}
+
+.s-content-main-legalise .s-entry-content,
+.s-content-main-legalise .o-entry-title-intro {
+    font-size: var(--font-size-s-x);
+}
+
+.s-content-main-legalise .o-entry-title-intro {
+    /* START CENTER HORIZONTAL - METHOD 2
+    ------------------------------------------------ */
+    margin-left: auto;
+    margin-right: auto;
+    /* END CENTER HORIZONTAL - METHOD 2
+    ---------------------------------------------- */
+}
+
+.s-content-main-legalise .s-entry-content *,
+.s-content-main-legalise .o-entry-title-intro {
+    text-align: left;
+}
+
+.c-legalise-info h2 {
+    font-size: var(--font-size-s-2);
+    border-bottom: 1px solid var(--colour-grey-light-2);
+}
+
+.c-legalise-info h3 {
+    font-size: var(--font-size-s);
+}
+
+.c-legalise-info h3,
+.c-legalise-info h4 {
+    color: var(--colour-grey);
+    font-family: var(--font-family-1);
+    font-weight: var(--font-family-1-weight-strong);
+}
+
+.c-legalise-info * {
+    text-align: left;
+}
+
+/* Custom */
+@media (max-width: 899px) {
+    .c-legalise-info {
+        border-left: none;
+        border-right: none;
+    }
+}

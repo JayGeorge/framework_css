@@ -1,0 +1,30 @@
+/* GROUP MOLECULES / NAV / MODIFICATIONS / CIRCLE
+=================================================== */
+.c-nav-mobile-button--circle {
+  /* =JFG. Lock in positioning */
+  position: relative;
+  width: 60px;
+  height: 40px;
+}
+body .c-nav-mobile-button--circle {
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 0;
+  font-size: 1.5rem;
+}
+/* GROUP MOLECULES / NAV / MODIFICATIONS / EXTRA TARGET
+=================================================== */
+/* - 1024 / MQ mobile nav collapsed */
+@media (max-width: 63.9375em){
+  /* Optional */
+  .c-nav-mobile-button-extra-target {
+    cursor: pointer;
+  }
+  .c-nav-mobile-button-extra-target .c-nav-mobile-button {
+    /* =JFG. Prevent jQuery firing twice from clicking both .c-nav-mobile-button and .c-nav-mobile-button-extra-target */
+    position: relative;
+    z-index: -1;
+  }
+}

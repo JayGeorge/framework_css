@@ -1,0 +1,164 @@
+/* GROUP FRAMEWORK / (NON CORE) / MODAL
+=================================================== */
+/* Notes...
+
+    - Look in the JS file to understand more, where the markup and behaviour are generated    
+
+*/
+/* HTML Example...
+
+    <div class="u-js-only js__showModal">
+        Modal trigger
+    </div>
+
+    Modal content genrated by JS
+
+*/
+/* GROUP FRAMEWORK / (NON CORE) / MODAL / LAYOUT
+=================================================== */
+.js__modal {
+    position: fixed;
+    z-index: 2;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.js__modalBox {
+    position: fixed;
+    z-index: 3;
+    display: none;
+    /* overflow-y: hidden; */
+    /* Inertia scrolling for iOS */
+    -webkit-overflow-scrolling: touch;
+    /* top: 0; */
+    top: 5vh;
+    /* [1] Center */
+    left: 0;
+    /* [2] Center */
+    right: 0;
+    /* max-width: 90%; */
+}
+
+
+.js--modalActive .js__modal,
+.js--modalActive .js__modalBox {
+    display: inline-block;
+}
+
+.js__modalBox,
+.js__modalBox__inner-scroll {
+    /* Needed for scrolling within the modal box */
+    height: 100%;
+}
+
+.js__modalBox__inner-scroll {
+    overflow: scroll;
+    /* Set the initial scroll lock on this container when initially focused */
+    overscroll-behavior-y: contain;
+}
+
+.js__closeModal {
+    position: absolute;
+    /* Needed for iOS */
+    z-index: 3;
+    top: var(--spacing-s-x);
+    right: var(--spacing-s-x);
+}
+
+@media (min-width: 880px) {
+    .js__modalBox {
+        max-width: var(--max-width-reading);
+    }
+}
+/* GROUP FRAMEWORK / (NON CORE) / MODAL / SPACING
+=================================================== */
+.js__modalBox {
+    margin: 20px auto;
+}
+
+/* Modal content */
+.js__modalBox__inner-scroll > *:first-child {
+    padding-block-start: var(--spacing-l);
+    padding-block-end: var(--spacing-l);
+}
+
+.js__closeModal {
+    /* Cancel default button */
+    margin-inline-end: 0;
+}
+/* GROUP FRAMEWORK / (NON CORE) / MODAL / DECORATION
+=================================================== */
+@keyframes background-in {
+    from {
+        background: transparent
+    }
+
+    100% {
+        /* Change this for higher width devices, it's completely black for mob just because I don't want the user to see a fault if they over-scroll the container */
+        background: rgba(0, 0, 0, 0.55);
+    }
+}
+
+.js__modal {
+    animation-name: background-in;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.js__modalBox {
+    background: white;
+    border-radius: 5px;
+    color: white;
+    color: var(--colour-black-off);
+}
+
+/* Pseudo fade out content as you scroll */
+.js__modalBox::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(var(--spacing-l) * 3);
+    background: linear-gradient(to bottom, white 25%,transparent 100%);
+}
+
+.modal-close {
+    font-size: var(--icon-size-m);
+}
+/* GROUP FRAMEWORK / (NON CORE) / MODAL / ANIMATIONS
+=================================================== */
+@keyframes wipe-in-up {
+    from {
+        clip-path: inset(100% 0 0 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.js__modalBox {
+    /* Zoom-in doesn't work well on iOS devices */
+    animation-name: wipe-in-up;
+    animation-duration: 0.5s;
+}
+
+/* Custom */
+@media (min-width: 1025px) {
+    @keyframes zoom-in {
+        from {
+            opacity: 0;
+            transform: scale3d(0.55, 0.55, 0.55);
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+
+    .js__modalBox {
+        animation-name: zoom-in;
+    }
+}

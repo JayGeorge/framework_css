@@ -1,0 +1,166 @@
+/* GROUP ATOMS / ANIMATIONS / TRANSITIONS
+=================================================== */
+/* Transitions will work on the arrow pseudo elements - http://css-tricks.com/transitions-and-animations-on-css-generated-content/, 
+you just need to ensure that if transitions on the actual elements is set to "all" e.g. not just background */
+.transitioned {
+  transition: all 0.05s ease-in 0s; 
+}
+
+
+
+/* GROUP ATOMS / ANIMATIONS / ANIMATION / TIMING
+=================================================== */
+/* =JFG. Lots of animations based on 
+http://daneden.github.io/animate.CSS/ 
+with syntax modified slightly */
+
+/* Notes...
+
+	Try animating content near the bottom of the fold to encourage readers to look down e.g.
+	
+	<div>
+		Some content
+	</div>
+	<div class="animated u-animated--fade-in">
+		Some content to grad their attention
+	</div>
+
+*/
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.animated-2,
+/* Molecules > (Non Core) > Reveal */
+.u-reveal-on-hover__content {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+.u-animated--delayed {
+  animation-delay: 0.2s;
+}
+.u-animated--infinite {
+  animation-iteration-count: infinite;
+}
+/* GROUP ATOMS / ANIMATIONS / ANIMATION / ANIMATE ON LOAD
+=================================================== */
+/* .js-required-u-animated--on-load {
+  CSS added via jQuery.
+  See script.js or our CSS framework demo for implementation details.
+} */
+
+
+/* GROUP ATOMS / ANIMATIONS / ANIMATION
+=================================================== */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to { 
+    transform: rotate(360deg);
+  }
+}
+.u-animated--rotate-infinite {
+  /* =JFG. May / may not be needed */
+  display: inline-block;
+  /* -- */
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 3s;
+}
+/* GROUP ATOMS / ANIMATIONS / ANIMATION / FADE IN
+=================================================== */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.u-animated--fade-in,
+.u-animated--fade-in-all *,
+/* Nav > Mobile */
+/*nav*/.menu-header.js--is-open li {
+  animation-name: fade-in;
+  animation-timing-function: cubic-bezier(.44,.8,.76,.91);
+}
+
+/* Tip: try using animate--delayed too */
+.u-animated--fade-in--slow,
+/* Nav > Mobile */
+/*nav*/.menu-header.js--is-open li {
+	animation-duration: 1.5s;
+}
+/* GROUP ATOMS / ANIMATIONS / ANIMATION / FADE IN UP BIG
+=================================================== */
+@keyframes fade-in-up-big {
+  0% {
+    opacity: 0;
+    /* =JFG. Modified from Dan Eden's 2000px to 100% */
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.u-animated--fade-in-up-big {
+  animation-name: fade-in-up-big;
+}
+/* GROUP ATOMS / ANIMATIONS / ANIMATION / SLIDE IN UP
+=================================================== */
+@keyframes slide-in-up {
+  0% {
+    /* Changed from Dan Eden. Does not use translate3D */
+    transform: translateY(100%);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+.u-animated--slide-in-up,
+/* Molecules > (Non Core) > Reveal */
+.u-reveal-on-hover__target:hover .u-reveal-on-hover__content,
+.u-reveal-on-hover__target:hover .u-reveal-on-hover__preview {
+  animation-name: slide-in-up;
+}
+/* GROUP ATOMS / ANIMATIONS / ANIMATION / SLIDE OUT DOWN
+=================================================== */
+@keyframes slide-out-down {
+  0% {
+    transform: translateY(0%);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+.u-animated--slide-out-down,
+/* Molecules > (Non Core) > Reveal */
+.u-reveal-on-hover__target .u-reveal-on-hover__content,
+.u-reveal-on-hover__target .u-reveal-on-hover__preview {
+  animation-name: slide-out-down;
+}
+/* GROUP ATOMS / ANIMATIONS / ANIMATION / SLIDE IN RIGHT
+=================================================== */
+@keyframes slide-in-right {
+  0% {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.u-animated--slide-in-right {
+  animation-name: slide-in-right;
+}

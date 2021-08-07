@@ -1,0 +1,116 @@
+/* GROUP NOTES
+=================================================== */
+/* Transitions will work on the arrow pseudo elements - http://css-tricks.com/transitions-and-animations-on-css-generated-content/, 
+you just need to ensure that if transitions on the actual elements is set to "all" e.g. not just background */
+
+
+
+
+
+/* GROUP ARROWS
+=================================================== */
+.arrow-box {
+    position: relative;
+    background: #88b7d5;
+    border: 4px solid #c2e1f5;
+    width: 250px; /* =JFG. Added */
+    margin-left: 70px; /* Added for illustration purposes */
+    -webkit-filter: drop-shadow(0 -0px 4px rgba(0,0,0,0.3)); /* =JFG. Optional drop-shadow. Need to use filter rather than box-shadow because box-shadow does not target pseudo elements */
+}
+
+.arrow-box:after, .arrow-box:before {
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow-box:before {
+    border-width: 36px;
+}
+
+.arrow-box:after {
+    border-width: 30px;
+}
+/* GROUP ARROWS / TOP
+=================================================== */
+.arrow-box--t:after, .arrow-box--t:before {
+    left: 50%;
+    bottom: 100%;
+}
+
+.arrow-box--t:after {
+    /*border-bottom-color: #88b7d5;*/
+    border-bottom-color: inherit;
+    /* Inherit from the parent element.
+    e.g. if parent element has a class of .bc-somecolor, 
+    make sure .bc-somecolor also has a border-color property of the same value */
+    margin-left: -30px;
+}
+.arrow-box--t:before {
+    /*border-bottom-color: #c2e1f5;*/
+    border-bottom-color: inherit;
+    margin-left: -36px;
+}
+/* GROUP ARROWS / RIGHT
+=================================================== */
+.arrow-box--right:after, .arrow-box--right:before {
+    top: 50%;
+    left: 100%;
+}
+
+.arrow-box--right:after {
+    /*border-left-color: #88b7d5;*/
+    border-left-color: inherit;
+    /* Inherit from the parent element.
+    e.g. if parent element has a class of .bc-somecolor, 
+    make sure .bc-somecolor also has a border-color property of the same value */
+    margin-top: -30px;
+}
+.arrow-box--right:before {
+    /*border-left-color: #c2e1f5;*/
+    border-left-color: inherit;
+    margin-top: -36px;
+}
+/* GROUP ARROWS / BOTTOM
+=================================================== */
+.arrow-box--b:after, .arrow-box--b:before {
+    top: 100%;
+    left: 50%;
+}
+
+.arrow-box--b:after {
+    /*border-top-color: #88b7d5;*/
+    border-top-color: inherit;
+    /* Inherit from the parent element.
+    e.g. if parent element has a class of .bc-somecolor, 
+    make sure .bc-somecolor also has a border-color property of the same value */
+    margin-left: -30px;
+}
+.arrow-box--b:before {
+    /*border-top-color: #c2e1f5;*/
+    border-top-color: inherit;
+    margin-left: -36px;
+}
+/* GROUP ARROWS / LEFT
+=================================================== */
+.arrow-box--left:after, .arrow-box--left:before {
+    top: 50%;
+    right: 100%;
+}
+
+.arrow-box--left:after {
+    /*border-right-color: #88b7d5;*/
+    border-right-color: inherit;
+    /* Inherit from the parent element.
+    e.g. if parent element has a class of .bc-somecolor, 
+    make sure .bc-somecolor also has a border-color property of the same value */
+    margin-top: -30px;
+}
+.arrow-box--left:before {
+    /*border-right-color: #c2e1f5;*/
+    border-right-color: inherit;
+    margin-top: -36px;
+}

@@ -1,0 +1,522 @@
+/*! Notes...
+
+    Author: Jay George
+    Author URI: https://jaygeorge.co.uk
+
+    ABOUT THIS CSS
+    ===================================================
+    - Only edit filename.css, then process with Codekit to output into prod/
+
+*/
+
+
+
+
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / (CROSS POLLINATED)
+=================================================== */
+/* Notes...
+
+    - You should consider increasing specificity depending on the environment e.g. add .site-container to
+    the selector for WordPress so rules do not affect wp-admin bar
+
+*/
+[type="text"],
+[type="email"],
+[type="tel"],
+[type="password"],
+[type="url"],
+[type="tel"],
+[type="search"],
+textarea {
+    vertical-align: top;
+    /* box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1); */
+    /* =JFG. e.g. search box >> blog or newsletter signup email address */
+    padding: 15px;
+    margin-bottom: 2rem;
+    /* e.g. fields next to each other */
+    margin-right: 0.5rem;
+    /* =JFG. Need line height; IE9 bug. Source http://stackoverflow.com/questions/7797103/text-indent-for-a-text-box-in-ie */
+    line-height: 1.45;
+    border-radius: 2px;
+}
+
+[placeholder],
+::-webkit-input-placeholder {
+    /* =JFG. "search this website". This needs to be rem
+    because sometimes the search form gets embedded in .s-entry-content which could be 1.1em.
+    We don't want the placeholder font size getting too big. */
+    font-size: 0.95rem;
+}
+
+label {
+    /* Fixed */
+    /* e.g. >> /flooring-catalogue filter */
+    font-size: 16px;
+    font-weight: var(--font-family-main-weight-strong);
+    /* Override line-height set on body */
+    line-height: 1;
+}
+
+textarea {
+    width: 100%;
+    /* e.g. something like Hubspot might be a bit short */
+    min-height: 200px;
+}
+
+body [type="checkbox"] {
+    /* Override any input styles */
+    box-shadow: none;
+}
+
+[type="email"],
+[type="text"],
+[type="url"] {
+    width: 100%;
+    max-width: 275px;
+}
+
+/* Exceptions */
+/* =JFG. Need high specificity e.g. "Preferred Appointment Time" xx HH, xx MM */
+[type="text"] + label {
+    position: relative;
+    /* =JFG. Counter margin-bottom */
+    top: -0.25rem;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / (CROSS POLLINATED)
+=================================================== */
+/* HTML Example...
+
+    <form class="form">
+        <div class="form__notes">
+            Your email address will not be published
+        </div>
+
+        <fieldset>
+            <legend>Leave a comment</legend>
+            <div>
+
+            </div>
+        </fieldset>
+    </form>
+
+*/
+.form {
+    /* From lowest to highest value */
+    max-width: var(--max-width-reading);
+    max-width: 50rem;
+    margin-inline-end: auto;
+    margin-inline-start: auto;
+}
+
+input + .form__notes {
+    /* e.g. 'Login' button followed by 'Forgotten your password?' */
+    padding-block-end: 0;
+    padding-block-start: var(--spacing-l);
+}
+
+.form__notes p {
+    color: var(--colour-grey-reading);
+}
+
+.form legend {
+    /* START SCREEN READER TEXT
+    --------------------------- */
+    clip: rect(1px, 1px, 1px, 1px);
+
+    position: absolute!important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    /* END SCREEN READER TEXT
+    ------------------------- */
+}
+
+/* We use a class of fieldset since the `fieldset` element is not always present */
+.form__fieldset {
+    padding: 0 var(--spacing-l);
+    border: 0;
+}
+
+/* Exceptions */
+.form [type="checkbox"],
+.form [type="radio"] {
+    margin-bottom: 0;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / (MODIFIERS)
+=================================================== */
+.form--wide {
+    max-width: 80rem;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / PERCH EXAMPLE
+=================================================== */
+/* HTML Example...
+
+    <form id="form1_comment" class="form" action="/blog/serving-adaptive-images-to-visitors" method="post">
+        <div class="form__notes">
+            <h2>Leave a comment</h2>
+            <p>Your email address will not be published</p>
+        </div>
+
+        <fieldset class="form__fieldset">
+            <legend>Leave a comment</legend>
+            <div class="form-cols form-cols--2">
+                <div class="form-cols__col">
+                    <label for="form1_commentName">Name</label>
+                    <input id="form1_commentName" name="commentName" type="text" required="required">
+                </div>
+                <div class="form-cols__col">
+                    <label for="form1_commentEmail">Email</label>
+                    <input id="form1_commentEmail" name="commentEmail" type="email" required="required">
+                </div>
+            </div>
+            <div>
+                <label for="form1_commentURL">Website</label>
+                <input id="form1_commentURL" name="commentURL" placeholder="http://" type="url">
+            </div>
+            <div>
+                <label for="form1_commentHTML">Comment</label>
+                <textarea id="form1_commentHTML" name="commentHTML" cols="30" rows="4" required="required"></textarea>
+            </div>
+            <div>
+                <input id="form1_postID" name="postID" value="15" type="hidden">
+                <input id="form1_submitComment" name="submitComment" value="Submit" type="submit"><input type="hidden" name="cms-form" value="Y29tbWVudDpwZXJjaF9ibG9nOi90ZW1wbGF0ZXMvYmxvZy9jb21tZW50X2Zvcm0uaHRtbDoxNDk0NDM2MDkw">
+            </div>
+        </fieldset>
+
+    </form>
+
+*/
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / COLUMNS
+=================================================== */
+/* HTML Example...
+
+    <div class="form-wrapper"> <-- (Optional). Used to adding padding on smaller MQs
+        <form>
+            <div class="form-cols form-cols--2">
+                <div class="form-cols__col">
+                    <input/>
+                </div>
+                <div class="form-cols__col">
+                    <input/>
+                </div>
+            </div>
+        </form>
+    </div>
+
+*/
+
+.form-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-column-gap: 1em;
+}
+
+.form-cols--1 {
+    grid-template-columns: 1fr;
+}
+
+/* Custom */
+@media (min-width: 500px) {
+    .form-cols__col input {
+        /* e.g. if we have a shorter form field like a password */
+        width: 100%;
+        max-width: none;
+    }
+
+    /* Exceptions */
+    .form-cols__col [type="checkbox"],
+    .form-cols__col [type="radio"] {
+        width: initial;
+    }
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / SPACING
+=================================================== */
+/* (Optional). Used to adding padding on smaller MQs */
+.form-wrapper {
+    padding-inline-start: var(--spacing-s);
+    padding-inline-end: var(--spacing-s);
+}
+
+.form__notes {
+    padding-inline-start: var(--spacing-l);
+    padding-block-end: var(--spacing-m);
+    padding-inline-end: var(--spacing-l);
+}
+
+/* fieldset*/
+.form__fieldset {
+    /* Override default */
+    margin: 0;
+}
+
+/* form */
+label {
+    /* Make padding effective */
+    display: inline-block;
+    padding-block-end: 0.2em;
+}
+
+[type="checkbox"],
+[type="radio"] {
+    margin-right: var(--spacing-s);
+}
+
+/* Checkbox and Radio labels */
+[type="checkbox"] + label,
+[type="radio"] + label {
+    padding-block-end: var(--spacing-s-2);
+}
+
+[type="submit"] {
+    /* e.g. >> /blog/readability-test/ */
+    margin-top: var(--spacing-s);
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / BUTTONS
+=================================================== */
+/* Notes...
+
+    - You should consider increasing specificity depending on the environment e.g. add .site-container to
+    the selector for WordPress so rules do not affect wp-admin bar
+
+*/
+[type="submit"] {
+    /* Always on a separate line */
+    display: block!important;
+    /* Organisms > Forms > Plugins > Mailchimp */
+    /* =JFG. e.g. Subscribe button for Mailchimp. This needs to be rem
+    because sometimes the form gets embedded in .s-entry-content which could be 1.1em.
+    We don't want the button size getting too big. */
+    font-size: 0.85rem;
+    /* Same as HTML, overriding the default of 1 in the reset */
+    line-height: 1.5;
+    /* Remove user agent style */
+    background: transparent;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / EXPLICIT BLOCK
+=================================================== */
+/* Notes...
+
+    Where we want labels to always be on a separate line e.g. Comment forms
+
+*/
+
+/* HTML Example...
+
+    <div class="s-forms-block">
+        <form/>
+    </div>
+
+*/
+
+/* Need to disable because selector group includes a plugin selector */
+.s-forms-block label,
+/* Organisms > Comments > Perch */
+.form label {
+    display: block;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / MOBILE (INLINE)
+=================================================== */
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / ALERTS
+=================================================== */
+.c-alert {
+    padding-block-end: var(--spacing-l);
+    padding-block-start: var(--spacing-l);
+    padding-inline-start: var(--spacing-l-1);
+    padding-inline-end: var(--spacing-l-1);
+}
+
+.c-alert--success {
+    background: #ebf5eb;
+    background: #00cd8f;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / DECORATION
+=================================================== */
+/* Override normalize */
+::-webkit-input-placeholder,
+input::placeholder {
+    color: inherit;
+    opacity: 0.54;
+}
+/* Optional override of normalize button reset */
+/*button {
+    @apply --t-text-style-1;
+}*/
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / DECORATION
+=================================================== */
+.form-error {
+    display: inline-block;
+    padding-block-end: var(--spacing-s-x);
+    margin-bottom: var(--spacing-s-1);
+    border-bottom: 2px solid red;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / DECORATION / BORDERS
+=================================================== */
+/* There are some hacks here because of bad selector specificity from the plugin maker so we have to go outside the linting rules */
+input:not([type="submit"]) {
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+}
+
+[type="text"],
+[type="email"],
+[type="password"],
+[type="tel"],
+[type="number"],
+[type="date"],
+textarea {
+    /* =JFG. Cancel default button appearance */
+    -webkit-appearance: none;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / INPUT TYPES
+=================================================== */
+[type="checkbox"] {
+    -webkit-appearance: checkbox;
+}
+
+[type="radio"] {
+    -webkit-appearance: radio;
+}
+
+[type="checkbox"],
+[type="radio"] {
+    /* =JFG. So they always line up */
+    float: left;
+}
+
+/* The \9 is correct apparently. https://www.google.co.uk/search?q=input%5Btype%3Dradio%5D%2C+input%5Btype%3Dcheckbox%5D+%7B+margin%3A+4px+0+0%3B+margin-top%3A+1px+%5C9%3B+line-height%3A+normal%3B+%7D&oq=input%5Btype%3Dradio%5D%2C+input%5Btype%3Dcheckbox%5D+%7B+margin%3A+4px+0+0%3B+margin-top%3A+1px+%5C9%3B+line-height%3A+normal%3B+%7D&aqs=chrome..69i57.552j0j7&sourceid=chrome&es_sm=91&ie=UTF-8 */
+[type="radio"],
+[type="checkbox"] {
+    /* margin: 4px 0 0; */
+    margin-top: 1px \9;
+    line-height: normal;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / INPUT TYPES / DECORATION
+=================================================== */
+[type="search"] {
+    border-radius: 5px;
+}
+
+
+
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION
+=================================================== */
+textarea {
+    border: 1px solid #bbb;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION / STYLE 1
+=================================================== */
+[role="search"] input {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 0 0 5px #ddd inset; 
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION / STYLE 1
+=================================================== */
+.s-input-style--1 input {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION / STYLE 2
+=================================================== */
+.s-input-style--2 {
+    background-color: #f3f3f3;
+}
+
+.s-input-style--2 input {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION / STYLE 3
+=================================================== */
+/* =JFG. https://dribbble.com/shots/267632-Personal-Info?list=searches&tag=form_input&offset=6 */
+.s-input-style--3 input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow:
+        4px 4px 0 #f6f6f6,
+        4px -4px 0 #f6f6f6,
+        -4px -4px 0 #f6f6f6,
+        -4px 4px 0 #f6f6f6;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION / STYLE 4
+=================================================== */
+/* =JFG. https://dribbble.com/shots/267632-Personal-Info?list=searches&tag=form_input&offset=6 */
+.s-input-style--4 input {
+    border-radius: 30px;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION / STYLE 5
+=================================================== */
+.s-input-style--5 input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow:
+        inset 4px 4px 0 #f2f2f2,
+        inset 4px -4px 0 #f2f2f2,
+        inset -4px -4px 0 #f2f2f2,
+        inset -4px 4px 0 #f2f2f2;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION / STYLE 6
+=================================================== */
+.s-input-style--6 input {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 5px rgba(0,0,0,0.1);
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION / STYLE 7
+=================================================== */
+.s-input-style--7 input {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 0 0 1px #ddd inset; 
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / WORDPRESS
+=================================================== */
+/* e.g. do not affect hubspot comment, which is the last field. We do not want to create a big gap between the Hubspot comment and the submit button */
+.comment-form-comment textarea {
+    margin-bottom: 2.4rem;
+}
+
+
+
+
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / LABELS HIDDEN UNTIL FOCUSED
+=================================================== */
+/* Notes...
+
+    - Used to provide a more compact experience
+    - Still accessible since labels appear when you start typing
+    - Requires JS becuase we're traversing _up_ the DOM tree
+
+*/
+
+/* Javascript needed...
+
+    Array.from(document.querySelectorAll('.js__form--hide-labels-until-focused input:not([type="submit"]), .js__form--hide-labels-until-focused textarea') || []).forEach(element => {
+        element.addEventListener('focus', (event) => {
+            // The label is targetted as a descendent of the parent with CSS to hide/unhide it
+            event.target.parentElement.classList.add('js__form--hide-labels-until-focused__label-unhidden');
+        });
+        element.addEventListener('blur', (event) => {
+            event.target.parentElement.classList.remove('js__form--hide-labels-until-focused__label-unhidden');
+        });
+    });
+
+*/
+
+.js .js__form--hide-labels-until-focused label {
+    /* Fast out, Slow in */
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    opacity: 0;
+}
+
+.js .js__form--hide-labels-until-focused__label-unhidden label {
+    opacity: 1;
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / LABELS HIDDEN UNTIL FOCUSED / SPACING
+=================================================== */
+.js .js__form--hide-labels-until-focused input {
+    /* Decrease */
+    margin-bottom: var(--spacing-s);
+}

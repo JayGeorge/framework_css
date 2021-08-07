@@ -1,0 +1,100 @@
+/* Notes...
+
+    - Check out the checkbox-image.css for something less complete
+
+*/
+
+
+/* GROUP COMPONENTS / CHECKBOX IMAGE
+=================================================== */
+/* Notes...
+
+	- The trick here is to put the input _inside_ the label so we can style the image using the cascade to style :focus + img _and_ :checked + img
+
+*/
+/* HTML Example...
+
+    <div class="c-question-grid__item">
+        <label for="age_20s" class="c-checkbox-image">
+            <span class="c-checkbox-image__label">20s</span>
+            <input id="age_20s" type="radio" name="age" value="age_20s" />
+            <span class="c-checkbox-image__image-container">
+                <img src="/img/about/age/20s.png" alt="photo of person in their 20s" />
+                <?php include 'img/svg/check.php'; ?>
+            </span>
+        </label>
+    </div>
+
+    Remember you can also use radio buttons. E.g. instead of...
+    <input id="age_20s" type="checkbox" name="age_20s" />
+    and
+    <input id="age_25-35" type="checkbox" name="age_25-35" />
+
+    Do this instead...
+    <input id="age_20s" type="radio" name="age" value="age_20s" />
+    <input id="age_25-35" type="radio" name="age" value="age_25-35" />
+
+*/
+/* Modifiers...
+
+*/
+/* GROUP COMPONENTS / CHECKBOX IMAGE / LAYOUT
+=================================================== */
+.c-checkbox-image__image-container {
+    display: inline-block;
+}
+
+.c-checkbox-image {
+    /* Lock in SVG position */
+    position: relative;
+    display: inline-block;
+}
+
+/* label*/
+.c-checkbox-image__label {
+    position: absolute;
+    left: 50%;
+    z-index: 1;
+}
+
+.c-checkbox-image input {
+    /* START SCREEN READER TEXT
+    --------------------------- */
+    clip: rect(1px, 1px, 1px, 1px);
+
+    position: absolute!important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    /* END SCREEN READER TEXT
+    ------------------------- */
+}
+
+.c-checkbox-image svg {
+    position: absolute;
+    right: var(--spacing-s);
+    bottom: var(--spacing-s);
+}
+/* GROUP COMPONENTS / CHECKBOX IMAGE / SPACING
+=================================================== */
+/* GROUP COMPONENTS / CHECKBOX IMAGE / DECORATION
+=================================================== */
+.c-checkbox-image__label {
+
+}
+
+.c-checkbox-image :focus + .c-checkbox-image__image-container {
+    box-shadow: var(--box-shadow-focus);
+}
+
+.c-checkbox-image svg {
+    display: none;
+}
+
+.c-checkbox-image :checked + .c-checkbox-image__image-container svg {
+    display: initial;
+    background: var(--colour-green-light);
+    color: var(--colour-green-dark);
+    border-radius: 50px;
+    font-size: var(--icon-size-m);
+}

@@ -1,0 +1,47 @@
+/*! Notes...
+
+    Author: Jay George
+    Author URI: https://jaygeorge.co.uk
+
+    ABOUT THIS CSS
+    ===================================================
+    - Only edit filename.css, then process with Codekit to output into prod/
+
+*/
+
+
+/* GROUP COMPONENTS / SITEMAP
+=================================================== */
+/* Notes...
+
+	- 
+
+*/
+/* HTML Example...
+
+*/
+/* Modifiers...
+
+*/
+/* GROUP COMPONENTS / SITEMAP / LAYOUT
+=================================================== */
+/* GROUP COMPONENTS / SITEMAP / SPACING
+=================================================== */
+.c-sitemap {
+    padding-inline-start: var(--spacing-l);
+}
+
+.c-sitemap li ul {
+    padding-inline-start: var(--spacing-s-1);
+}
+
+.c-sitemap li ul {
+    padding-block-start: var(--spacing-s-x);
+    padding-block-end: var(--spacing-s-x);
+}
+/* GROUP COMPONENTS / SITEMAP / DECORATION
+=================================================== */
+.c-sitemap,
+.c-sitemap * {
+    list-style: none;
+}

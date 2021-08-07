@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+/* GROUP MOLECULES / (NON CORE) / ZOOMED IMAGE
+=================================================== */
+.js__magnifying_glass_zoom_container {
+    position: relative;
+}
+
+.js__magnifying_glass_zoom_container__js-added--magnifying-glass {
+    position: absolute;
+    border: 5px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    /* Set the size of the magnifier glass */
+    width: 300px;
+    height: 300px;
+}

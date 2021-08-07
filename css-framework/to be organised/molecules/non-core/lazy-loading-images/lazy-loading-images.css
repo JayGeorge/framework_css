@@ -1,0 +1,172 @@
+/* GROUP MOLECULES / (NON CORE) / IMAGE / LAZY LOAD / {/ LOZAD}
+=================================================== */
+/* Notes...
+
+    - There are two parts to this...
+        + Firstly - just using the native loading="lazy" attribute for browsers that support lazy loading
+        + Secondly - there is a polyfill that tests for lazy load support and then creates a script elemennt to load the lozad library
+    - The polyfill relies on the lozad markup structure to fetch things from data attributes. You need to use the noscript tag because the polyfill grabs that for the picture element
+
+    ---
+
+    - Below is an example of a contained lazy load demo that I downloaded from the codepen in this article: https://css-tricks.com/lozad-js-performant-lazy-loading-images/
+    - See script.js
+
+*/
+
+/* To Do List...
+
+    - [ ] **Add loading="lazy" to all images that should be lazy loaded**
+    - [ ] **Add width and height values to images** - To prevent the surrounding content from reflowing when a lazy-loaded image is downloaded, make sure to add height and width attributes to the <img> element or specify their values directly in an inline style:
+    - [ ] **Test images. You may need to add `width: 100%;` to them if they have new width and height attributes
+    - [ ] **Change the script source in the demo below**, change `const lozad_script_src`
+    - [ ] **Remove lozad from images that are AJAX'd in because Lozad—the polyfill—does not seem to work on AJAX'd content. This is fine since AJAX'd content is effectively lazy loaded anyway. See **post_in_list.html** in the acument project for an example of doing this neatly. You can do this with lozad by calling the initial collection with `'data' => ['ajax_button' => 'yes']`, and parsing the template with `<perch:if exists="ajax_button">`. Subsequent calls with AJAX will not have this data variable remember since they are fetched from the archive page with JS.
+
+*/
+.js .js__lozad {
+    display: block;
+    min-height: 1rem;
+}
+
+div:not([data-aos]) .js__lozad--loaded {
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* GROUP MOLECULES / (NON CORE) / IMAGE / LAZY LOAD / {/ LOZAD} / CONTAINED DEMO
+=================================================== */
+/*
+
+<style>
+    .js__lozad {
+        display: block;
+        min-height: 1rem;
+    }
+
+    // .js__lozad--loaded {
+    //      animation-name: fade;
+    //      animation-duration: 2s;
+    // }
+
+    // @keyframes fade {
+    //     from {
+    //         opacity: 0;
+    //     }
+    //     to {
+    //         opacity: 1;
+    //     }
+    // }
+</style>
+
+<img class="js__lozad" data-src="https://apoorv.pro/lozad.js/demo/images/thumbs/01.jpg" />
+<img class="js__lozad" data-src="https://apoorv.pro/lozad.js/demo/images/thumbs/02.jpg" />
+<img class="js__lozad" data-src="https://apoorv.pro/lozad.js/demo/images/thumbs/03.jpg" />
+<img class="js__lozad" data-src="https://apoorv.pro/lozad.js/demo/images/thumbs/04.jpg" />
+<img class="js__lozad" data-src="https://apoorv.pro/lozad.js/demo/images/thumbs/05.jpg" />
+<img class="js__lozad" data-src="https://apoorv.pro/lozad.js/demo/images/thumbs/06.jpg" />
+<img class="js__lozad" data-src="https://apoorv.pro/lozad.js/demo/images/thumbs/07.jpg" />
+<img class="js__lozad" data-src="https://apoorv.pro/lozad.js/demo/images/thumbs/08.jpg" />
+<img class="js__lozad" data-src="https://apoorv.pro/lozad.js/demo/images/thumbs/09.jpg" />
+<img class="js__lozad" data-src="https://apoorv.pro/lozad.js/demo/images/thumbs/10.jpg" />
+<img class="js__lozad" data-src="https://apoorv.pro/lozad.js/demo/images/thumbs/11.jpg" />
+<img class="js__lozad" data-src="https://apoorv.pro/lozad.js/demo/images/thumbs/12.jpg" />
+
+<!-- srcset responsive image example -->
+<img class="js__lozad" data-src="image.png" data-srcset="image.png 1000w, image-2x.png 2000w" />
+<noscript>
+    <img src="image.png" srcset="image.png 1000w, image-2x.png 2000w" />
+</noscript>
+
+// For an element to be caught, add a block type that is different from the inline and some min-height for correct caught into view
+<picture class="js__lozad" data-alt="">
+    <source srcset="https://picsum.photos/1000/400?image=0" media="(min-width: 1280px)">
+    <source srcset="https://picsum.photos/800/400?image=2" media="(min-width: 760px)">
+    <source srcset="https://picsum.photos/200/200?image=3" media="(min-width: 320px)">
+    <source srcset="https://picsum.photos/200/200?image=4">
+    // NO img element
+    // instead of img element, there will be the last source with the minimum dimensions
+    // for disabled JS you can set <noscript><img src="images/thumbs/04.jpg"></noscript>
+</picture>
+
+<noscript>
+    <picture>
+        <source srcset="https://picsum.photos/1000/400?image=0" media="(min-width: 1280px)">
+        <source srcset="https://picsum.photos/800/400?image=2" media="(min-width: 760px)">
+        <source srcset="https://picsum.photos/200/200?image=3" media="(min-width: 320px)">
+        <source srcset="https://picsum.photos/200/200?image=4">
+        <img src="https://picsum.photos/200/200?image=4" srcset="https://picsum.photos/200/200?image=4 1200w, https://picsum.photos/200/200?image=4 828w" alt="">
+    </picture>
+</noscript>
+
+// For an element to be caught, add a block type that is different from the inline and some min-height for correct caught into view
+<picture class="js__lozad" data-alt="">
+    <source srcset="https://picsum.photos/1000/400?image=3" media="(min-width: 1280px)">
+    <source srcset="https://picsum.photos/800/400?image=4" media="(min-width: 760px)">
+    <source srcset="https://picsum.photos/200/200?image=5" media="(min-width: 320px)">
+     <source srcset="https://picsum.photos/200/200?image=6">
+    // NO img element
+    // instead of img element, there will be the last source with the minimum dimensions
+    // for disabled JS you can set <noscript><img src="images/thumbs/04.jpg" alt=""></noscript>
+</picture>
+
+<noscript>
+    <picture>
+        <source srcset="https://picsum.photos/1000/400?image=3" media="(min-width: 1280px)">
+        <source srcset="https://picsum.photos/800/400?image=4" media="(min-width: 760px)">
+        <source srcset="https://picsum.photos/200/200?image=5" media="(min-width: 320px)">
+        <source srcset="https://picsum.photos/200/200?image=6">
+        <img src="https://picsum.photos/200/200?image=6" srcset="https://picsum.photos/200/200?image=6 1200w, https://picsum.photos/200/200?image=6 828w" alt="">
+    </picture>
+</noscript>
+
+<script src="https://cdn.jsdelivr.net/npm/lozad"></script>
+    
+<script>
+    // Initialize library to lazy load images
+    const observer = lozad('.js__lozad', {
+        loaded: function (el) {
+            // Custom implementation on a loaded element
+            el.classList.add('js__lozad--loaded');
+        }
+    });
+    // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/lozad"></script>
+
+<script>
+    // Initialize library
+    lozad('.lozad', {
+        load: function(el) {
+            el.src = el.dataset.src;
+            el.onload = function() {
+                el.classList.add('fade')
+            }
+        }
+    }).observe()
+</script>
+
+*/

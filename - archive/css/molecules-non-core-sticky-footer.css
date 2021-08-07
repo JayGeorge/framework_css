@@ -1,0 +1,60 @@
+/* GROUP MOLECULES / (NON CORE) / STICKY FOOTER
+=================================================== */
+/* Source:http://codepen.io/astrotim/pen/PwYQOJ */
+
+/* HTML Example...
+
+  <body class="u-layout-sticky-footer-wrapper">
+    <main id="main" role="main" class="u-layout-sticky-footer-wrapper__main-content">
+      main content here
+    </main>
+  </body>
+
+  <footer class="u-layout-sticky-footer-wrapper">
+  </footer>
+
+*/
+
+/* .u-layout-sticky-footer-wrapper, */
+html, body {
+  min-height: 100%;
+  min-height: 100vh;
+  /* Only works in IE with height set to 100vh (min-height doesn't work) */
+}
+.u-layout-sticky-footer-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+/* .u-layout-sticky-footer-wrapper__main-content, */
+[role="main"] {
+  flex-grow: 1;
+}
+/* GROUP MOLECULES / (NON CORE) / STICKY FOOTER 2
+=================================================== */
+/* Notes...
+  
+  Alternative way to stick things to the bottom of a container, without using flex-direction: column;
+
+  HTML Example...
+
+	<div class="o-layout-grid-flex">
+		<div class="u-l-sticky-footer-2-wrapper">
+			<div class="u-l-sticky-footer-2-wrapper__main-content">
+				content here
+			</div>
+		</div>
+	</div>
+
+*/
+/* 600 + */
+/* Set a min height to prevent too much scrolling when used with Molecules > Nav > Sidebar */
+@media (min-height: 37.5em) {
+	.u-l-sticky-footer-2-wrapper {
+		/* Causes issues in IE11 */
+/* 		flex-grow: 1; */
+		display: flex;
+	}
+	.u-l-sticky-footer-2-wrapper__main-content {
+	  align-self: flex-end;
+	}
+}

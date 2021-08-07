@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset=utf-8 />
+		<title>Sandbox</title>
+
+		<link rel="stylesheet" type="text/css" media="all" href="style.css" />
+
+</head>
+<body>
+
+
+<div id="map_canvas"></div>
+
+<script type="text/javascript">
+
+	function initMap() {
+
+		/* GROUP MAP STYLE
+		=================================================== */
+		/* Create an array of styles e.g. from http://snazzymaps.com/ */
+		var styles = [
+		{
+				stylers: [
+				{ hue: "#00ffe6" },
+				{ saturation: -20 }
+				]
+		},{
+				featureType: "road",
+				elementType: "geometry",
+				stylers: [
+				{ lightness: 100 },
+				{ visibility: "simplified" }
+				]
+		},{
+				featureType: "road",
+				elementType: "labels",
+				stylers: [
+				/* =JFG. Street name visibility */
+				{ visibility: "on" }
+				]
+		}
+		];
+
+		/* Create a new StyledMapType object, passing it the array of styles,
+		as well as the name to be displayed on the map type control. */
+		var styledMap = new google.maps.StyledMapType(styles,
+		{name: "Styled Map"});
+
+		/* GROUP MAP OPTIONS
+		=================================================== */
+
+		/* Create a map object, and include the MapTypeId to add
+		 to the map type control. */
+		var mapOptions = {
+				zoom: 16,
+				center: new google.maps.LatLng(51.51491, -0.1310),
+				disableDefaultUI: false,
+				navigationControl: true,
+				scrollwheel: false,
+				mapTypeControlOptions: {
+						mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+				}
+			};
+
+		var map = new google.maps.Map(document.getElementById('map_canvas'),
+				mapOptions);
+
+		/* Associate the styled map with the MapTypeId and set it to display. */
+		map.mapTypes.set('map_style', styledMap);
+		map.setMapTypeId('map_style');
+
+		/* Custom marker */
+		setMarkers(map, mapmarkers); 
+	}
+
+	/* GROUP MAP MARKERS
+	=================================================== */
+	/*
+
+	Data for the markers consisting of a name, a LatLng and a zIndex for
+	the order in which these markers should display on top of each
+	other.
+
+	*/
+
+	var mapmarkers = [
+	['Address', 51.51393, -0.13089, 4]
+	];
+
+	function setMarkers(map,locations) {
+			/*
+
+			Add markers to the map
+
+			Marker sizes are expressed as a Size of X,Y
+			where the origin of the image (0,0) is located
+			in the top left of the image.
+
+			Origins, anchor positions and coordinates of the marker
+			increase in the X direction to the right and in
+			the Y direction down.
+
+			*/
+			
+			var image = new google.maps.MarkerImage("map-icon.png",
+			/* This marker is 169 pixels wide by 166 pixels tall. */
+			new google.maps.Size(200, 140),
+			/* The origin for this image is 0,0. =JFG. These numbers should ideally be the image dimensions. */
+			new google.maps.Point(0,0),
+			/* The anchor for this image is the base of the Icon. =JFG e.g. if the icon origin has a bottom arrow tip in the middle, these coordinates should be that point. Keep in mind this is measured from the top left of the icon. */
+			new google.maps.Point(60,140));
+
+			/* Info Window */
+			var contentString = '<p style= "line-height: 22px;"> Floor B, Radley House<br />17, Park Road <br /> London NW1 6DN <br /></p>';
+
+		var infowindow = new google.maps.InfoWindow({
+				content: contentString
+		});
+
+			/*
+			Shapes define the clickable region of the icon.
+			The type defines an HTML <area> element 'poly' which
+			traces out a polygon as a series of X,Y points. The final
+			coordinate closes the poly by connecting to the first coordinate.
+			=JFG. the easiest method to plot these out is by using xScope guides. Put extra spaces between coordinate pairs to improve readability.
+			*/
+
+			var shape = {
+					coord: [1, 1, 91, 1, 91, 89, 1 , 89],
+					type: 'poly'
+			};
+
+			for (var i = 0; i < locations.length; i++) {
+					var mapmarker = locations[i];
+					var myLatLng = new google.maps.LatLng(mapmarker[1], mapmarker[2]);
+					var marker = new google.maps.Marker({
+							position: myLatLng,
+							map: map,
+                            /* Prevent grid lines from showing on top of SVG icon */
+                            optimized: false,
+							icon: image,
+							shape: shape,
+							title: mapmarker[0],
+							zIndex: mapmarker[3]
+					});
+			}
+
+			/* Only needed if you are using the Info Window */
+			google.maps.event.addListener(marker, 'click', function() {
+			infowindow.open(map,marker);
+		});
+	}
+
+</script>
+
+<!-- =Jay. This goes in PHP template. Get your API key from https://developers.google.com/maps/documentation/javascript/adding-a-google-map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCspNZ5kwpmQ2ayjWBVD6JzOA2mf3cCFmI&callback=initMap" async defer></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</body>
+</html>

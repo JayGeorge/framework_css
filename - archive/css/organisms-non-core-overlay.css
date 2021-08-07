@@ -1,0 +1,152 @@
+/* GROUP ORGANISMS / (NON CORE) / OVERLAY
+=================================================== */
+/* Notes...
+
+	Examples of ovelay modifier classes
+	------------
+	.o-overlay--cropped
+	If the image is abstract i.e. the crop isn't crucial, and it's ratio dominates the screen too much.
+
+	.o-overlay--cropped--bottom
+	Image is cropped from the bottom rather than the top
+
+*/
+
+/* HTML Example...
+
+	<div class="o-overlay o-overlay--cropped">
+		<div class="o-overlay__target">
+			<img src="https://goo.gl/FvN5TR">
+			<div class="o-overlay__preview">
+				<h1 class="o-overlay__preview__main-heading">Our clients</h1>
+			</div>
+			<div class="o-overlay__preview o-overlay__preview--1">
+				<div class="o-overlay__text">Ambitious<br>Professional<br>Successful</div>
+				<div class="btn btn--2">
+					<a href="">Request free IT review</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+*/
+
+.o-overlay .btn {
+	margin-top: var(--r-m);
+	/* Cancel so we can add padding to the .o-overlay organism instead, in case the button is not there */
+	margin-bottom: 0;
+}
+.o-overlay .btn a {
+	margin-right: 0;
+}
+.o-overlay__preview {
+	@apply --o-layout-width-l;
+}
+/* - 700 */
+@media (max-width: 43.6875em){
+	body .o-overlay__preview--1 {
+		padding-block-end: var(--r-l);
+	}
+	.o-overlay__preview__main-heading {
+		font-size: 1.9em;
+	}
+	.o-overlay__text {
+		color: var(--c-black-faded-4);
+		font-size: 1.4em;
+	}
+}
+/* 700 to 849  */
+@media (min-width: 43.75em) and (max-width: 53.0625em) {
+	.o-overlay__text {
+		font-size: 1.2em;
+	}
+}
+/* 700 to 1023  */
+@media (min-width: 43.75em) and (max-width: 63.9375em) {
+	.o-overlay__preview__main-heading {
+		/* Increase */
+		font-size: 2.4em;
+	}
+	.o-overlay .btn {
+		/* Decrease */
+		margin-top: var(--r-s-1);
+	}
+}
+/* 700 + */
+@media (min-width: 43.75em) {
+	img ~ .o-overlay__preview {
+		position: absolute;
+		text-align: right;
+		color: #fff;
+	}
+	.o-overlay__preview {
+		/* 	bottom: 0; */
+		top: 0;
+		/* Pull above the content */
+		z-index: 1;
+	}
+	.o-overlay__preview__main-heading {
+		padding-block-end: var(--r-s-x);
+	}
+	[class*="o-overlay__preview--"] {
+		padding-block-start: var(--r-s-1);
+		padding-block-end: var(--r-s-1);
+	}
+	.o-overlay__target {
+		position: relative;
+	}
+}
+/* Make sure the image height is at least 70vh tall at this min-width breakpoint */
+/* 1360 + */
+@media (min-width: 85em) and (min-height: 44em) and (max-height: 56em) {
+	/* Crop Modifier */
+	.o-overlay--cropped .o-overlay__target {
+		position: absolute;
+		max-height: 70vh;
+		overflow: hidden;
+	}
+	/* Fake aspect ratio because absolutely positioned element has been taken out of the document flow */
+	.o-overlay--cropped:after {
+		display: block;
+		content: '';
+		/* Same as .o-overlay__target max-height above */
+		padding-block-start: 70vh;
+	}
+
+
+	.o-overlay--cropped--bottom {
+		position: relative;
+	}
+	.o-overlay--cropped--bottom .o-overlay__target {
+		height: 100%;
+		width: 100%;
+	}
+	.o-overlay--cropped--bottom img {
+		position: absolute;
+		bottom: 0;
+	}
+}
+/* IE 10 and IE 11 */
+@media (min-width: 85em) and (min-height: 44em) and (max-height: 56em) and (-ms-high-contrast: active), (min-width: 85em) and (min-height: 44em) and (max-height: 56em) and (-ms-high-contrast: none) {
+	.o-overlay--cropped .o-overlay__target {
+		position: relative;
+	}
+	.o-overlay--cropped:after {
+		padding-block-start: 0;
+	}
+}
+/* GROUP ORGANISMS / (NON CORE) / o-overlay / MODIFIERS
+=================================================== */
+img ~ .o-overlay__preview--1 {
+	top: auto;
+	bottom: var(--r-l);
+	right: 0;
+}
+img ~ .o-overlay__preview--2 {
+	bottom: 0;
+	right: 0;
+}
+img ~ .o-overlay__preview--3 {
+	top: auto;
+	bottom: 0;
+}

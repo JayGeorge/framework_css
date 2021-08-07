@@ -1,0 +1,1 @@
+2019-08-23 I've not gone over this so it may need to be cleaned up. See `lazy-loading-video-with-custom-thumbnail` until I've cleaned this up.

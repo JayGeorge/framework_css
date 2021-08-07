@@ -1,0 +1,130 @@
+/* GROUP MOLECULES / ARTICLE LAYOUT / (CROSS POLLINATED)
+=================================================== */
+/* HTML Example...
+
+	<article class="c-article-layout>
+		<div class="c-article-layout__thumbnail">
+			<a href="">
+				<img src="http://placehold.it/200x200/f1f1f1/999?text=Feature">
+			</a>
+		</div>
+		<div class="c-article-layout__content">
+			<header class="entry-header">
+				<h2>Title</h2>
+			</header>
+			<div class="entry-content">
+				<p>Excerpt</p>
+			</div>
+		</div>
+	</article>
+	
+*/
+.c-article-layout__thumbnail {
+	max-width: 160px;
+}
+/* - 520 */
+@media (max-width: 32.4375em){
+	.c-article-layout__content .entry-header,
+	.c-article-layout__content .entry-content {
+		padding-inline-start: 0;
+		padding-inline-end: 0;
+	}
+}
+/* 520 + */
+@media (min-width: 32.5em) {
+	.c-article-layout__thumbnail {
+		float: left;
+		width: 24%;
+		max-width: 200px;
+	}
+	.c-article-layout__content {
+		float: right;
+		width: 72%;
+	}
+}
+/* 1024 + */
+@media (min-width: 64em) {
+	.c-article-layout__thumbnail {
+		width: 18%;
+	}
+	.c-article-layout__content {
+		width: 82%;
+	}
+}
+
+
+
+
+/* GROUP PAGE TEMPLATES / WORDPRESS / GENESIS / BLOG / ARCHIVE / (WORDPRESS) / (CROSS POLLINATED)
+=================================================== */
+.blog .content article,
+/* e.g. >> /blog/2016/ */
+.archive .main article {
+	padding-block-end: var(--r-s);
+}
+
+.blog .content /* article*/.has-post-thumbnail > a:first-child img,
+/* Date Archive e.g. /Blog/2015 */
+.archive .content /* article*/.has-post-thumbnail > a:first-child img,
+/* Page Templates > Search Results */
+.search .content /* article*/.has-post-thumbnail > a:first-child img {
+	position: relative;
+	z-index: 1;
+	/* Override default .align classes */
+	max-width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: var(--r-s);
+	float: none;
+}
+
+.has-post-thumbnail > a:first-child {
+	/* Cancel link style for links wrapped around images */
+	border-bottom: 0;	
+}
+
+/* 740 + */
+@media (min-width: 46.25em) {
+	.blog .content /* article*/.has-post-thumbnail .entry-content,
+	.blog .content /* article*/.has-post-thumbnail .entry-header,
+	/* Date Archive e.g. /Blog/2015 */
+	.archive .content /* article*/.has-post-thumbnail .entry-content,
+	.archive .content /* article*/.has-post-thumbnail .entry-header,
+	/* Page Templates > Search Results */
+	.search .content /* article*/.has-post-thumbnail .entry-content,
+	.search .content /* article*/.has-post-thumbnail .entry-header {
+		padding-inline-end: 0;
+		padding-inline-start: 0;
+	}
+	.blog .content /* article*/.has-post-thumbnail > a:first-child img,
+	/* Date Archive e.g. /Blog/2015 */
+	.archive .content /* article*/.has-post-thumbnail > a:first-child img,
+	/* Page Templates > Search Results */
+	.search .content /* article*/.has-post-thumbnail > a:first-child img {
+		width: 38.2%;
+		max-width: 400px;
+	}
+
+	.blog .content /* article*/.has-post-thumbnail > a:first-child /* img*/.alignleft,
+	/* Date Archive e.g. /Blog/2015 */
+	.archive .content /* article*/.has-post-thumbnail > a:first-child /* img*/.alignleft,
+	/* Page Templates > Search Results */
+	.search .content /* article*/.has-post-thumbnail > a:first-child /* img*/.alignleft,
+	.search .content /* article*/.has-post-thumbnail > a:first-child /* img*/.alignright {
+		float: left;
+		/* Decrease */
+		margin-right: 0.5rem;
+		padding-inline-end: var(--r-m);
+	}
+
+	.blog .content /* article*/.has-post-thumbnail > a:first-child /* img*/.alignright,
+	/* Date Archive e.g. /Blog/2015 */
+	.blog .content /* article*/.has-post-thumbnail > a:first-child /* img*/.alignright,
+	/* Page Templates > Search Results */
+	.search .content /* article*/.has-post-thumbnail > a:first-child /* img*/.alignright {
+		float: right;
+		/* Decrease */
+		margin-left: 0.5rem;
+		padding-inline-start: var(--r-m);
+	}
+}

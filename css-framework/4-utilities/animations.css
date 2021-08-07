@@ -1,0 +1,582 @@
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / TRANSITIONS
+=================================================== */
+/* Transitions will work on the arrow pseudo elements - http://css-tricks.com/transitions-and-animations-on-css-generated-content/, 
+you just need to ensure that if transitions on the actual elements is set to "all" e.g. not just background */
+.u-transitioned,
+/* Molecules > Fade On Hover */
+.o-fade-on-hover-wrapper__target {
+    transition: var(--animation-transition-fast);
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS
+=================================================== */
+/* Notes...
+
+    - All animation needs to be in core.css because of the minification process i.e. nano-css will translate/map animation names to a/b/c, etc.
+    - nano-css is not clever enough to cross reference css files
+
+*/
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / WAIT UNTIL LOAD
+=================================================== */
+/* Notes...
+
+    https://css-tricks.com/making-animations-wait/
+    - Add the following to the top of your script.js
+
+    /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / WAIT UNTIL LOAD
+    ===================================================
+    document.querySelector('body').classList.add('js-loading');
+    window.addEventListener('load', showPage, false);
+    function showPage() {
+      document.body.classList.remove('js-loading');
+    }
+
+*/
+/* The magic here that makes animations wait */ 
+.js-loading *,
+.js-loading *::before,
+.js-loading *::after {
+    animation-play-state: paused!important;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / LENGTH
+=================================================== */
+/* Molecules > (Non Core) > Modal */
+.u-animated-fast {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / ANIMATE UP AND DOWN {STICK}
+=================================================== */
+/* Notes
+
+    - Used on Big Fish Little Fish project, if you have any problems / find that a few more CSS rules are needed.
+    - Look in script.js for JS needed
+    - You need to prevent the reverse animation from firing until the element has been clicked once, otherwise the animation will take place on page load.
+
+*/
+
+/* HTML...
+
+    <button class="js__animate-in-or-out-on-click"> <-- Trigger. Use <button> so it's focusable
+        <span class="js__animate-in-or-out-on-click__element-to-be-animated"> <-- js--has-been-animated is added here
+        </span>
+    </button>
+
+*/
+.js .js__animate-in-or-out-on-click__element-to-be-animated.js--has-been-animated,
+.js /* nav*/.js__animate-in-or-out-on-click__element-to-be-animated {
+    /* Out quadratic */
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.js .js__animate-in-or-out-on-click__element-to-be-animated.js--has-been-animated  {
+    animation-name: slide-up-and-fade-in;
+    animation-duration: 0.45s;
+    transform: translateY(0);
+}
+
+.js /* nav*/.js__animate-in-or-out-on-click__element-to-be-animated {
+    animation-name: slide-down-and-fade-out;
+    /* Needs to be double slide-up-and-fade-in */
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE IN UP
+=================================================== */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Molecules > (Non Core) > Modal */
+.u-animated--fade-in-up {
+    animation-name: fade-in-up;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE IN UP BIG
+=================================================== */
+/* Molecules > (Non Core) > Modal > jQuery (Archive) */
+@keyframes fade-in-up-big {
+    0% {
+        opacity: 0;
+        /* =JFG. Modified from Dan Eden's 2000px to 100% */
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* .u-animated--fade-in-up-big, */
+/* Molecules > (Non Core) > Modal > jQuery (Archive) */
+.o-modal-box--demo {
+    animation-name: fade-in-up-big;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE UP AND FADE IN
+=================================================== */
+@keyframes slide-up-and-fade-in {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 100vh, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE DOWN AND FADE OUT
+=================================================== */
+@keyframes slide-down-and-fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(0, 100vh, 0);
+    }
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE IN UP BIG FROM BOTTOM
+=================================================== */
+@keyframes fade-in-up-big-from-bottom {
+    0% {
+        opacity: 0;
+        /* =JFG. Modified from Dan Eden's 2000px to 100% */
+        transform: translate3d(0, 100vh, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.js--is-open .c-nav-mega-grid {
+    animation-name: fade-in-up-big-from-bottom;
+    animation-duration: 0.5s;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE IN DOWN BIG
+=================================================== */
+/* Molecules > (Non Core) > Modal > jQuery (Archive) */
+@keyframes fade-in-down-big {
+    0% {
+        opacity: 0;
+        /* =JFG. Modified from Dan Eden's 2000px to 100% */
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* .u-animated--fade-in-down-big, */
+/* Molecules > (Non Core) > Modal > jQuery (Archive) */
+.o-modal-box--demo {
+    animation-name: fade-in-down-big;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE OUT
+=================================================== */
+/* Organisms > Nav */
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.u-animated--fade-out {
+    animation-name: fade-out;
+    /* Out quadratic */
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE OUT DOWN
+=================================================== */
+@keyframes slide-out-down {
+    0% {
+        transform: translateY(0%);
+        visibility: visible;
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.u-animated--slide-out-down,
+/* Molecules > (Non Core) > Reveal > Reveal on Click */
+.js .js__reveal-on__target .js__reveal-on__content,
+/* Molecules > (Non Core) > Reveal > Reveal on Hover */
+.u-reveal-on--hover .u-reveal-on__target .u-reveal-on__content,
+.u-reveal-on--hover .u-reveal-on__target .u-reveal-on__preview,
+/* Molecules > (Non Core) > Reveal > Reveal on Click */
+.u-reveal-on__target .u-checkbox-hack ~ .u-reveal-on__content {
+    animation-name: slide-out-down;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE IN UP
+=================================================== */
+@keyframes slide-in-up {
+    0% {
+        /* Changed from Dan Eden. Does not use translate3D */
+        transform: translateY(100%);
+        visibility: visible;
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+/* We have to get a bit more specific to keep this module neat */
+.u-animated--slide-in-up,
+/* Molecules > (Non Core) > Reveal > Reveal on Click */
+.js .js--js__reveal-on__target--clicked .js__reveal-on__content,
+/* Molecules > (Non Core) > Reveal > Reveal on Hover */
+.u-reveal-on--hover .u-reveal-on__target:hover .u-reveal-on__content,
+.u-reveal-on--hover .u-reveal-on__target:hover .u-reveal-on__preview,
+/* Molecules > (Non Core) > Reveal > Reveal on Click */
+.u-reveal-on__target .u-checkbox-hack:checked ~ .u-reveal-on__content {
+    animation-name: slide-in-up;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE DOWN AND FADE IN
+=================================================== */
+/* Organisms > nav > mobile */
+@keyframes slide-down-and-fade-in {
+    0% {
+        /* Changed from Dan Eden. Does not use translate3D */
+        transform: translateY(-100%);
+        visibility: visible;
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+.u-animated--slide-down-and-fade-in {
+    animation-name: slide-down-and-fade-in;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE RIGHT AND FADE IN
+=================================================== */
+/* Organisms > nav > mobile */
+@keyframes slide-right-and-fade-in {
+    0% {
+        /* Changed from Dan Eden. Does not use translate3D */
+        transform: translateX(-100%);
+        visibility: visible;
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+.u-animated--slide-right-and-fade-in {
+    animation-name: slide-right-and-fade-in;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / STRIKE-THROUGH / {STRIKETHROUGH}
+=================================================== */
+@keyframes strike-through {
+    from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}
+
+.u-animated--strike-through {
+    border: 1px solid white;
+
+    transform-origin: center left;
+    animation-timing-function: cubic-bezier(.55, 0, .1, 1);
+    animation-name: strike-through;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+/* To animate a button underline...
+
+@keyframes strike-through {
+    from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}
+
+.btn a span {
+    position: relative;
+}
+
+.btn a span::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+.btn a:hover span::after {
+    border-bottom: 2px solid blue;
+    transform-origin: center left; <-- optional to go from left to right
+    animation-name: strike-through;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+}
+
+*/
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / BOUNCE
+=================================================== */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, to {
+        transform: translateY(0)
+    }
+
+    40% {
+        transform: translateY(-16px)
+    }
+
+    60% {
+        transform: translateY(-8px)
+    }
+}
+
+.u-animated--bounce {
+    animation: bounce 3s infinite;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / BOUNCE IN UP
+=================================================== */
+@keyframes bounce-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(2000px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-30px);
+    }
+
+    80% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.u-animated--bounce-in-up {
+    animation-duration: 0.5s;
+    animation-name: bounce-in-up;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / ZOOM IN
+=================================================== */
+@keyframes zoom-in {
+    from {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.u-animated--zoom-in {
+    animation-name: zoom-in;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / ZOOM OUT
+=================================================== */
+@keyframes zoom-out {
+    from {
+        opacity: 1;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.u-animated--zoom-out {
+    animation-name: zoom-out;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / ROTATE
+=================================================== */
+@keyframes rotate-infinite {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.u-animated-rotate-infinite {
+    animation: rotate-infinite 2s linear infinite;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / ROTATE
+=================================================== */
+@keyframes pulse {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.u-animated-pulse {
+    animation-name: pulse;
+    animation-duration: 0.9s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / MARQUEE
+=================================================== */
+/* HTML Example...
+
+        <div class="o-marquee-animation o-marquee-animation--1">
+            <div class="o-marquee-animation__inner">
+                <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
+            </div>
+        </div>
+
+        <div class="o-marquee-animation o-marquee-animation--2">
+            <div class="o-marquee-animation__inner">
+                <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
+            </div>
+        </div>
+
+        <div class="o-marquee-animation o-marquee-animation--3">
+            <div class="o-marquee-animation__inner">
+                <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
+            </div>
+        </div>
+
+        <div class="o-marquee-animation o-marquee-animation--4">
+            <div class="o-marquee-animation__inner">
+                <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
+            </div>
+        </div>
+
+        <div class="o-marquee-animation o-marquee-animation--5">
+            <div class="o-marquee-animation__inner">
+                <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
+            </div>
+        </div>
+
+*/
+/* Source: https://codepen.io/Mark_Bowley/pen/xEbuI */
+@keyframes marquee-animation {
+    0% {
+        margin-left: -10%;
+    }
+
+    100% {
+        margin-left: 150%;
+    }
+}
+
+.o-marquee-animation {
+    animation-name: marquee-animation;
+    animation-timing-function: linear;
+    /* animation-iteration-count: infinite; <-- This is a nice idea but it would cripple a computer left open so it's best to limit it */
+    animation-iteration-count: 1;
+    /* Prevent marquee items from staying on screen once finished animating. Gives us more artistic control of placement */
+    animation-fill-mode: both;
+}
+
+.o-marquee-animation--1 {
+    animation-duration: 140s;
+    transform: scale(0.35);
+}
+
+.o-marquee-animation--2 {
+    animation-duration: 80s;
+    transform: scale(0.3);
+}
+
+.o-marquee-animation--3 {
+    animation-duration: 120s;
+    transform: scale(0.6);
+}
+
+.o-marquee-animation--4 {
+    animation-duration: 72s;
+    transform: scale(0.4);
+}
+
+.o-marquee-animation--5 {
+    animation-duration: 100s;
+    transform: scale(0.5);
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / MARQUEE / LAYOUT
+=================================================== */
+.o-marquee-animation {
+    position: absolute;
+    height: 100%;
+}
+
+.o-marquee-animation .c-jg-icon {
+    position: absolute;
+}
+
+.o-marquee-animation .o-marquee-animation__inner {
+    position: relative;
+}
+
+.o-marquee-animation--1 .o-marquee-animation__inner {
+    top: 5rem;
+    left: -40rem;
+}
+
+.o-marquee-animation--2 .o-marquee-animation__inner {
+    top: 10rem;
+    left: 100rem;
+}
+
+.o-marquee-animation--3 .o-marquee-animation__inner {
+    top: -3rem;
+    left: -110rem;
+}
+
+.o-marquee-animation--4 .o-marquee-animation__inner {
+    top: -12rem;
+    left: 50rem;
+}
+
+.o-marquee-animation--5 .o-marquee-animation__inner {
+    top: -15rem;
+    left: -20rem;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / MARQUEE / DECORATION
+=================================================== */
+.o-marquee-animation .c-jg-icon {
+    font-size: 20em;
+    color: red;
+}

@@ -1,0 +1,272 @@
+/* GROUP ATOMS / UTILITIES / HTML5 BOILERPLATE
+=================================================== */
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.u-hidden {
+  display: none!important;
+  visibility: hidden;
+}
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.u-visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+  background: #eee;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  outline: 0;
+}
+/* Image Replacement - Add the .ir class to any element you are applying image-replacement to. Optional - When replacing an element's content with an image, you can also set a specific background-image: url(pathtoimage.png);, width, and height so that your replacement image appears. */
+.u-ir {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  line-height: 0; /* =JFG. Added this */
+}
+/* GROUP ATOMS / UTILITIES
+=================================================== */
+/* For when something is revealed with JS, but if JS is not available show it */
+.js .js__u-js-hide {
+  display: none;
+}
+
+.no-js .u-js-only {
+  display: none!important;
+}
+/* GROUP ATOMS / UTILITIES / HIDERS
+=================================================== */
+/* - 768 */
+@media (max-width: 47.9375em){
+  .u-mq-768-up {
+    display: none;
+  }
+}
+/* - 1024 / MQ mobile nav collapsed */
+@media (max-width: 63.9375em){
+  .u-mq-1024-up {
+    display: none;
+  }
+}
+/* 600 + */
+@media (min-width: 37.5em) {
+  .u-mq-600-down {
+    display: none;
+  }
+}
+/* 900 + */
+@media (min-width: 56.25em) {
+  .u-mq-900-down {
+    display: none;
+  }
+}
+/* GROUP ATOMS / UTILITIES / LISTS / FLOATED LIST
+=================================================== */
+/* ul*/.u-list-inline li,
+/* =JFG. e.g. links around icons in the footer so focus state border has height */
+.u-list-inline a,
+/* Molecules > (Non Core) > Pagination > Genesis Pagination Archive */
+.pagination li {
+  display: inline-block;
+}
+/* body { */
+  /* =JFG. You might needed this if the above causes overflow */
+  /*  overflow-x: hidden; */
+  /* } */
+/* 768 + */
+@media (min-width: 48em) {
+  /* ul*/.u-list-inline-mq-768-up li,
+  /* =JFG. e.g. links around icons in the footer so focus state border has height */
+  .u-list-inline-mq-768-up a {
+    display: inline-block;
+  }
+}
+/* GROUP ATOMS / UTILITIES / LISTS / NO LIST
+=================================================== */
+/* ul*/.u-no-list,
+.u-no-list ul,
+/* Molecules > (Non Core) > Pagination > Genesis Pagination Archive */
+.pagination ul,
+/* Organisms > Comments > Wordpress */
+body .entry-comments ol,
+/* Molecules > Forms > (Non Core) > Hubspot */
+body ul.hs-error-msgs,
+/* Molecules > Nav > (Non Core) > Flex > Uneven */
+/* ul*/.nav-flex-uneven__list {
+  padding-inline-start: 0;
+}
+/* ul*/.u-no-list li,
+/* Molecules > (Non Core) > Pagination > Genesis Pagination Archive */
+.pagination li,
+/* Organisms > Comments > Wordpress */
+body .entry-comments li,
+/* Molecules > Forms > (Non Core) > Hubspot */
+.hs-error-msgs li,
+/* Molecules > Nav > (Non Core) > Flex > Uneven */
+.nav-flex-uneven__list li {
+  list-style: none;
+  /* =JFG. Trump .entry-content */
+  margin-left: 0!important;
+}
+/* GROUP ATOMS / UTILITIES / CENTERING
+=================================================== */
+.u-center-horizontal,
+/* Molecules > (Non Core) > Notification > fixed */
+.c-notification-fixed,
+/* Molecules > (Non Core) > Pagination > Genesis Pagination Archive */
+.pagination {
+  text-align: center;
+}
+.u-center-horizontal-text {
+  @apply --u-center-horizontal-text;
+}
+.u-center-horizontal-2 {
+  margin-right: auto;
+  margin-left: auto;
+}
+.u-center-horizontal-2-all * {
+  margin-right: auto;
+  margin-left: auto;
+}
+.u-center-horizontal-3 {
+  @apply --u-center-horizontal-3;
+}
+/* =JFG. Distribute evenly */
+.u-center-horizontal-4 {
+  display: flex;
+  justify-content: space-between;
+  /* =JFG. Like clearing floats */
+  align-items: baseline;
+}
+.u-center-horizontal-absolute {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.u-center-horizontal-absolute-2 {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+.u-center-horizontal-and-vertical-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.u-center-horizontal-and-vertical {
+  position: absolute!important;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+.u-center-horizontal-and-vertical-3 {
+  @apply --u-center-horizontal-and-vertical-3;
+}
+.u-center-vertical {
+  display: flex;
+  align-items: center;
+}
+.u-center-vertical-2,
+/* Molecules > (Non Core) > Steps */
+.c-step-container__step {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.u-center-vertical-3 {
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Blocks */
+/* Notes...
+
+  Useful on items like menus
+
+*/
+.u-center-horizontal-blocks {
+  text-align: center;
+}
+.u-center-horizontal-blocks__block {
+  display: inline-block;
+  float: none;
+}
+/* HTML Example...
+
+  <div class="u-center-horizontal-blocks">
+    <div class="u-center-horizontal-blocks__block">
+      Some block that you want to float in the middle
+    </div>
+    <div class="u-center-horizontal-blocks__block">
+      Another block that you want to float in the middle
+    </div>
+  </div>
+
+*/
+
+
+/* 600 + */
+@media (min-width: 37.5em) {
+  .u-center-horizontal-2-mq-600-up {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .u-center-horizontal-mq-600-up {
+    text-align: center;
+  }
+}
+/* 768 + */
+@media (min-width: 48em) {
+  .u-center-horizontal-mq-768-up {
+    text-align: center;
+  }
+}
+/* 1024 + */
+@media (min-width: 64em) {
+  .u-center-horizontal-and-vertical-2-mq-1024-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/* 1280 + */
+@media (min-width: 80em) {
+  .u-center-vertical-mq-1280-up {
+    display: flex!important;
+    align-items: center;
+  }
+}
+/* GROUP ATOMS / UTILITIES / (NON-CORE)
+=================================================== */
+/* https://justmarkup.com/log/2015/07/31/dealing-with-long-words-in-CSS/ */
+.u-hyphenate,
+/* Atoms > Elements */
+a {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+.u-ellipsis,
+/* Organisms > Comments > WordPress */
+/* Needed to prevent all long URLs in comments
+e.g. http://csswizardry.com/2011/12/measuring-and-sizing-uis-2011-style/.
+I tried using the softer technique of hyphenating but it didn't work on that particular URL example */
+.comments-area a:not(.url) {
+  display: block;
+  /* =JFG. Need to be inline-block or block to enable ellipsis */
+  white-space: nowrap;
+  /* 'overflow' value must be different from 'visible' */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Optional */
+  max-width: 95%;
+}

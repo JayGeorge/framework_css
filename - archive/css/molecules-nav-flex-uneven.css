@@ -1,0 +1,39 @@
+/* GROUP / MOLECULES / NAV / (NON CORE) / FLEX / UNEVEN / LAYOUT
+=================================================== */
+.nav-flex-uneven__list {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+}
+
+/* ul*/.nav-flex-uneven__list li {
+  /* Other items take up 5 x the amount of room as the .nav-flex-uneven__list__small item */
+  flex-grow: 5;
+  flex-basis: 25%;
+}
+/* GROUP / MOLECULES / NAV / (NON CORE) / FLEX / UNEVEN / SPACING
+=================================================== */
+/* ul*/.nav-flex-uneven__list li {
+	padding-block-end: var(--r-m);
+	padding-block-start: var(--r-m);
+}
+/* GROUP / MOLECULES / NAV / (NON CORE) / FLEX / UNEVEN / PROFILE
+=================================================== */
+/* ul*/.nav-flex-uneven__list /* li*/.nav-flex-uneven__list__small {
+  /* The profile item takes 1/5th x the amount of room as the other items */
+  flex-grow: 1;
+  flex-basis: 130px;
+}
+/* GROUP / MOLECULES / NAV / (NON CORE) / FLEX / UNEVEN / DECORATION
+=================================================== */
+/* ul*/.nav-flex-uneven__list li:not(:last-child) {
+	border-right: 1px solid #ddd;
+}
+
+
+/* GROUP / MOLECULES / NAV / (NON CORE) / FLEX / UNEVEN / DEMO
+=================================================== */
+.nav-flex-uneven--demo {
+	box-shadow: 0 10px 9px -8px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,13 @@
+/* GROUP MOLECULES / NAV / (NON CORE) / FLEXBOX DISTRIBUTED
+=================================================== */
+/* 1280 + */
+@media (min-width: 80em) {
+  .nav-flex-distributed-mq-1280-up .o-layout-grid-flex__item {
+    flex-basis: 140px;
+    flex-grow: 1;
+  }
+  /* Nav */
+  .nav-flex-distributed-mq-1280-up nav.o-layout-grid-flex__item {
+    flex-basis: 50%;
+  }
+}

@@ -1,0 +1,15 @@
+/*! Notes...
+
+    Author: Jay George
+    Author URI: https://jaygeorge.co.uk
+
+    ABOUT THIS CSS
+    ===================================================
+    - Only edit filename.css, then process with Codekit to output into prod/
+
+*/
+
+
+* {
+    border: 1px solid red;
+}

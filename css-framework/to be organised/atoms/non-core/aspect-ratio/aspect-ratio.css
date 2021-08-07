@@ -1,0 +1,62 @@
+/* GROUP ATOMS / (NON CORE) / ASPECT RATIO
+=================================================== */
+/* Sources:
+    http://stackoverflow.com/questions/12121090/responsively-change-div-size-keeping-o-aspect-ratio
+    http://jsfiddle.net/5tzk3/10/
+*/
+
+/* HTML Example...
+
+    <div class="o-aspect-ratio o-aspect-ratio--6-10">
+        <div class="o-aspect-ratio__inner">
+            <div class="u-center-horizontal-and-vertical">
+                <p class="u-center-horizontal">Another awesome project</p>
+            </div>
+        </div>
+    </div>
+
+*/
+
+.o-aspect-ratio {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.o-aspect-ratio::after {
+    display: block;
+    content: "";
+}
+
+.o-aspect-ratio--6-10::after {
+    /* 6:10 ratio*/
+    padding-block-start: 60%;
+}
+
+.o-aspect-ratio--1-2::after {
+    /* 1:2 ratio*/
+    padding-block-start: 50%;
+}
+
+.o-aspect-ratio--16-9::after {
+    /* 16:9 ratio */
+    padding-block-start: 56.25%;
+}
+
+.o-aspect-ratio--3-1::after {
+    padding-block-start: 33.33%;
+}
+
+.o-aspect-ratio--1::after {
+    /* 1:1 ratio*/
+    padding-block-start: 100%;
+}
+
+.o-aspect-ratio__inner {
+    position: absolute!important;
+    /* fill parent */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

@@ -1,0 +1,65 @@
+/* Notes...
+
+    - Check out the checkbox-image-complete.css for something more... complete
+
+*/
+
+
+/* GROUP COMPONENTS / CHECKBOX IMAGE
+=================================================== */
+/* Notes...
+
+	- The trick here is to put the input _inside_ the label so we can style the image using the cascade to style :focus + img _and_ :checked + img
+
+*/
+/* HTML Example...
+
+    <label for="age_20s" class="c-checkbox-image">
+        <span>Name</span>
+        <input id="age_20s" type="checkbox" name="age_20s" />
+        <img src="/img/about/age/20s.png" alt="photo of person in their 20s" />
+    </label>
+
+    Remember you can also use radio buttons. E.g. instead of...
+    <input id="age_20s" type="checkbox" name="age_20s" />
+    and
+    <input id="age_25-35" type="checkbox" name="age_25-35" />
+
+    Do this instead...
+    <input id="age_20s" type="radio" name="age" value="age_20s" />
+    <input id="age_25-35" type="radio" name="age" value="age_25-35" />
+
+*/
+/* Modifiers...
+
+*/
+/* GROUP COMPONENTS / CHECKBOX IMAGE / LAYOUT
+=================================================== */
+/* label*/
+.c-checkbox-image span {
+    display: none;
+}
+
+.c-checkbox-image input {
+    /* START SCREEN READER TEXT
+    --------------------------- */
+    clip: rect(1px, 1px, 1px, 1px);
+
+    position: absolute!important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    /* END SCREEN READER TEXT
+    ------------------------- */
+}
+/* GROUP COMPONENTS / CHECKBOX IMAGE / SPACING
+=================================================== */
+/* GROUP COMPONENTS / CHECKBOX IMAGE / DECORATION
+=================================================== */
+.c-checkbox-image :focus + img {
+    box-shadow: var(--box-shadow-focus);
+}
+
+.c-checkbox-image :checked + img {
+    
+}
