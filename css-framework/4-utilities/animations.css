@@ -80,6 +80,21 @@ you just need to ensure that if transitions on the actual elements is set to "al
     animation-duration: 0.9s;
     animation-fill-mode: forwards;
 }
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE IN
+=================================================== */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.u-animated--fade-in-up {
+    animation-name: fade-in;
+}
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE IN UP
 =================================================== */
 @keyframes fade-in-up {
@@ -321,11 +336,11 @@ you just need to ensure that if transitions on the actual elements is set to "al
 	}
 }
 
-.btn a span {
+.c-btn a span {
     position: relative;
 }
 
-.btn a span::after {
+.c-btn a span::after {
     content: "";
     width: 100%;
     position: absolute;
@@ -333,7 +348,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     bottom: -5px;
 }
 
-.btn a:hover span::after {
+.c-btn a:hover span::after {
     border-bottom: 2px solid blue;
     transform-origin: center left; <-- optional to go from left to right
     animation-name: strike-through;

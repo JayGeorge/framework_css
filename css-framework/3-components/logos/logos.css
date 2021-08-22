@@ -9,9 +9,11 @@
 */
 /* HTML Example...
 
-    .c-logos
-        .c-logos__item
-            img
+    <div class="c-logos">
+        <div class="c-logos__item">
+            <img src="img/logos/google.svg" alt="Google" />
+        </div>
+    </div>
 
 */
 /* Modifiers...

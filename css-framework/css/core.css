@@ -7,7 +7,7 @@
     ===================================================
     - Only edit filename.css, then process with Codekit to output into prod/
     - Class name prefixes are influenced by Namespaces article - http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
-        - I don't use the .c- namespace since everything is an inferred component unless prefixed otherwise
+        - I would usually drop the .c- namespace since everything is an inferred component unless prefixed otherwise BUT using the c- namespace makes it much easier to search and replace since classes are more unique. A good example is if you wanted to call a class .article. Replacing that would be a nightmare because you'd also run into article elements.
     - If other class name prefixes are used then they are based on microformats
     - Class relationships are based on BEM structure
     - Order of CSS influenced by ITCSS - https://twitter.com/itcss_io
@@ -536,16 +536,16 @@ a > svg:last-child:not(:first-child) {
     margin-right: 0;
 }
 
-.btn a > svg:first-child:not(:last-child) {
+.c-btn a > svg:first-child:not(:last-child) {
     margin-right: var(--spacing-s);
 }
 
-.btn a > svg:last-child:not(:first-child) {
+.c-btn a > svg:last-child:not(:first-child) {
     margin-left: var(--spacing-s);
     margin-right: 0;
 }
 
-.btn svg {
+.c-btn svg {
     font-size: 1.1em;
 }
 
@@ -579,7 +579,7 @@ a {
 a:focus,
 .c-nav-mobile-button:focus svg,
 summary:focus,
-.btn a:focus,
+.c-btn a:focus,
 button:focus,
 [type="submit"]:focus,
 /* Elements > Framework > Forms */
@@ -672,7 +672,7 @@ a:hover {
 =================================================== */
 /* Notes...
 
-    Wrap the .btn around the a href instead of the other way around because this is the most valid HTML.
+    Wrap the .c-btn around the a href instead of the other way around because this is the most valid HTML.
     http://stackoverflow.com/questions/5320404/wrap-link-a-around-div
 
     <div class="btn">
@@ -682,10 +682,10 @@ a:hover {
 
 */
 
-/* anchor instead of just .btn because the browser focusses on the a element, which is the background color we want to change 
+/* anchor instead of just .c-btn because the browser focusses on the a element, which is the background color we want to change 
 should be...
 */
-.btn a,
+.c-btn a,
 /* For when you add a button with JS and it doesn't have an anchor */
 .js--btn,
 /* Components > Framework > Nav */
@@ -707,24 +707,24 @@ button,
     transition: background-color 0.2s ease 0s;
 }
 
-/* Not .btn + .btn in case a button is next to a different tag such as <p/> */
-.btn,
+/* Not .c-btn + .c-btn in case a button is next to a different tag such as <p/> */
+.c-btn,
 button {
     margin-right: 1rem;
 }
 
-.btn:last-child {
+.c-btn:last-child {
     margin-right: 0;
 }
 
-.btn {
+.c-btn {
     position: relative;
     display: inline-block;
     /* Components > Framework > Forms > Layout */
     margin-block-end: 1.25rem;
 }
 
-.btn a {
+.c-btn a {
     /* e.g. icons in buttons */
     display: flex;
     align-items: center;
@@ -753,8 +753,8 @@ button svg {
 
 
 /* 2 */
-.btn--2 a,
-button.btn--2,
+.c-btn--2 a,
+button.c-btn--2,
 /* e.g. Components > Framework > Forms > Layout */
 .c-form [type="submit"] {
     background: var(--colour-turquoise);
@@ -764,7 +764,7 @@ button.btn--2,
 
 
 /* 3 */
-.btn--3 a {
+.c-btn--3 a {
     background: var(--colour-grey-light-4);
     border-radius: var(--border-radius-s);
 }
@@ -777,18 +777,18 @@ button.btn--2,
     https://material-components.github.io/material-components-web-catalog/#/component/button
 
 */
-.btn a:hover {
+.c-btn a:hover {
     /* Cancel link hover effect */
     border-bottom: 0;
 }
 
 /* 1 */
-/* .btn--background-transition-example a:hover {
+/* .c-btn--background-transition-example a:hover {
     background-color: var(--colour-brown-dark);
 } */
 
 /* 2 */
-/* .btn--2 a:hover {
+/* .c-btn--2 a:hover {
     
 } */
 
@@ -797,7 +797,7 @@ button.btn--2,
 
 /* GROUP COMPONENTS / FRAMEWORK / SITE LOGO
 =================================================== */
-.site-logo svg {
+.c-site-logo svg {
     width: 100%;
     height: 100%;
     max-height: 2.5em;
@@ -811,10 +811,10 @@ button.btn--2,
 =================================================== */
 /* HTML Example...
 
-    .site-header
-        .site-header__logo
-        .site-header__nav
-        .site-header__cta
+    .c-site-header
+        .c-site-header__logo
+        .c-site-header__nav
+        .c-site-header__cta
 
 */
 /* GROUP COMPONENTS / FRAMEWORK / SITE HEADER / LAYOUT
@@ -855,7 +855,7 @@ button.btn--2,
 }
 /* GROUP COMPONENTS / FRAMEWORK / MARKETING CONTENT / SPACING
 =================================================== */
-.marketing-content {
+.c-marketing-content {
     padding: var(--spacing-l-3) var(--spacing-l);
 }
 /* GROUP COMPONENTS / FRAMEWORK / MARKETING CONTENT / DECORATION
@@ -864,19 +864,19 @@ button.btn--2,
 
 
 
-/* GROUP COMPONENTS / FRAMEWORK / ENTRY / ENTRY CONTENT
+/* GROUP SCOPE / FRAMEWORK / ENTRY / ENTRY CONTENT
 =================================================== */
 /* Notes...
 
     - Based on WordPress Genesis Entry Content but tailored for neutral frameworks
 
 */
-/* GROUP COMPONENTS / FRAMEWORK / ENTRY / ENTRY CONTENT / LAYOUT
+/* GROUP SCOPE / FRAMEWORK / ENTRY / ENTRY CONTENT / LAYOUT
 =================================================== */
 .s-entry-content {
     max-width: var(--max-width-reading);
 }
-/* GROUP COMPONENTS / FRAMEWORK / ENTRY / ENTRY CONTENT / SPACING
+/* GROUP SCOPE / FRAMEWORK / ENTRY / ENTRY CONTENT / SPACING
 =================================================== */
 .s-entry-content {
     padding-inline-start: var(--spacing-l);
@@ -931,7 +931,7 @@ button.btn--2,
 .s-entry-content figure {
     margin: 0;
 }
-/* GROUP COMPONENTS / FRAMEWORK / ENTRY / ENTRY CONTENT / DECORATION
+/* GROUP SCOPE / FRAMEWORK / ENTRY / ENTRY CONTENT / DECORATION
 =================================================== */
 /* e.g. an img output wrapped in a figure element */
 /* .s-entry-content figure {

@@ -1,5 +1,5 @@
-<footer id="footer" class="site-footer site-footer--alt">
-    <link rel="stylesheet" href="css/site-footer.css">
+<footer id="footer" class="c-site-footer c-site-footer--alt">
+    <link rel="stylesheet" href="css/c-site-footer.css">
     <link rel="stylesheet" href="css/temp.css">
     <nav class="nav--centered">
         <ul>

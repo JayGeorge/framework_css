@@ -11,7 +11,7 @@
         <script>
             if (localStorage.getItem('cookie_consent') !== 'yes') {
                 window.onload = function() {
-                    document.getElementById('js__site-footer').innerHTML = '<dialog class="c-cookie-consent"><div class="c-cookie-consent__message">By continuing to use our website, you agree to our <a href="/privacy-policy">cookies policy</a></div> <button id="js__cookie-dismiss" class="btn--s">Dismiss</button></dialog>';
+                    document.getElementById('js__c-site-footer').innerHTML = '<dialog class="c-cookie-consent"><div class="c-cookie-consent__message">By continuing to use our website, you agree to our <a href="/privacy-policy">cookies policy</a></div> <button id="js__cookie-dismiss" class="btn--s">Dismiss</button></dialog>';
                 }
             }
         </script>

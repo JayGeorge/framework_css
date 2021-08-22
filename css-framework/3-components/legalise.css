@@ -1,10 +1,10 @@
-/* GROUP COMPONENTS / LEGALISE / LAYOUT
+/* GROUP SCOPE / LEGALISE / LAYOUT
 =================================================== */
-/* GROUP COMPONENTS / LEGALISE / SPACING
+/* GROUP SCOPE / LEGALISE / SPACING
 =================================================== */
-.c-legalise-info,
+.s-legalise,
 /* Override any more complex rules like .s-entry-content:last-child */
-.c-legalise-info:last-child {
+.s-legalise:last-child {
     padding: var(--spacing-l);
     margin-bottom: var(--spacing-l-2);
 }
@@ -13,33 +13,33 @@
     padding-block-end: var(--spacing-l-1);
 }
 
-.s-content-main-legalise .s-entry-content:not(.c-legalise-info) {
+.s-content-main-legalise .s-entry-content:not(.s-legalise) {
     padding-block-end: var(--spacing-l);
     margin-bottom: var(--spacing-l-1);
 }
 
-.c-legalise-info h2 {
+.s-legalise h2 {
     padding-block-end: var(--spacing-m);
 }
 
-.c-legalise-info h2:not(:first-child) {
+.s-legalise h2:not(:first-child) {
     padding-block-start: var(--spacing-l-1);
 }
 
-.c-legalise-info h3 {
+.s-legalise h3 {
     padding-block-end: var(--spacing-s-x-x);
 }
 
-.c-legalise-info h2 + p {
+.s-legalise h2 + p {
     padding-block-start: var(--spacing-s-1);
 }
-/* GROUP COMPONENTS / LEGALISE / DECORATION
+/* GROUP SCOPE / LEGALISE / DECORATION
 =================================================== */
-.c-legalise-info {
+.s-legalise {
     border: 1px solid var(--colour-grey-light-2);
 }
 
-.s-content-main-legalise .s-entry-content:not(.c-legalise-info) {
+.s-content-main-legalise .s-entry-content:not(.s-legalise) {
     border-bottom: 1px dashed var(--colour-grey-light-2);
 }
 
@@ -66,29 +66,29 @@
     text-align: left;
 }
 
-.c-legalise-info h2 {
+.s-legalise h2 {
     font-size: var(--font-size-s-2);
     border-bottom: 1px solid var(--colour-grey-light-2);
 }
 
-.c-legalise-info h3 {
+.s-legalise h3 {
     font-size: var(--font-size-s);
 }
 
-.c-legalise-info h3,
-.c-legalise-info h4 {
+.s-legalise h3,
+.s-legalise h4 {
     color: var(--colour-grey);
     font-family: var(--font-family-1);
     font-weight: var(--font-family-1-weight-strong);
 }
 
-.c-legalise-info * {
+.s-legalise * {
     text-align: left;
 }
 
 /* Custom */
 @media (max-width: 899px) {
-    .c-legalise-info {
+    .s-legalise {
         border-left: none;
         border-right: none;
     }

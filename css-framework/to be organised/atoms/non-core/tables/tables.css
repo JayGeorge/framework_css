@@ -1,4 +1,4 @@
-/* GROUP ATOMS / ELEMENTS / TABLES
+/* GROUP ELEMENTS / TABLES
 =================================================== */
 table + h2 {
     padding-block-start: var(--spacing-s-1);
@@ -131,6 +131,7 @@ table + h2 {
 }
 /* GROUP MOLECULES / TABLES / BOOTSTRAP / (JAY ADDED) / HIGHLIGHT TODAYS DATE
 =================================================== */
-.js__highlight-today /* tr*/.js--today {
+/* e.g. .js__highlight-today tr.js--today */
+.js__highlight-today .js--today {
     border: 2px solid var(--colour-turquoise);
 }

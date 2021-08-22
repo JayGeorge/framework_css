@@ -131,9 +131,10 @@
 
     --font-size-l: 2.618em;
 
-    --font-size-l-1: 4.236em;
+    --font-size-l-1: clamp(calc(4.236em * 0.6), 12vw, 4.236em);
 
-    --font-size-l-2: 6.854em;
+    --font-size-l-2: clamp(calc(6.854em * 0.7), 13.5vw, 6.854em);;
+    --font-size-l-2-line-height: 0.99;
 
     --font-size-l-3: 11.089rem;
     /* GROUP VARIABLES -- DECORATION -- ICONS -- SIZES
@@ -358,12 +359,16 @@ iframe {
 
     - Link styles are stored as group selectors rather than scattered, since we have multiple properties here.
     - Do not put transitions on all links, it makes keyboard navigation feel slower. Instead, use transition animations on an individual basis e.g. skip-to-content
+    https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration
 
 */
 
 /* Default */
 a {
     text-decoration-color: red;
+    text-decoration-line: underline;
+    text-decoration-line: underline overline;
+    text-decoration-line: line-through;
 
     /* https://css-tricks.com/almanac/properties/t/text-decoration-style */
     text-decoration-style: dashed;
@@ -523,7 +528,7 @@ a {
 /* HTML Example...
 
     <div class="o-hero-buttons">
-        <div class="btn">
+        <div class="c-btn">
             <a href="">
                 Some button
             </a>
@@ -640,9 +645,9 @@ h2 + .o-hero-buttons {
 */
 /* Molecules > Pagination > Perch > (Cross Pollinated) */
 /* a*/
-.btn__left svg,
+.c-btn__left svg,
 /* a*/
-.btn__right svg {
+.c-btn__right svg {
     position: relative;
     /* Pagination Button e.g. right arrow inside button moves forward */
     font-size: 1.5em;
@@ -651,31 +656,31 @@ h2 + .o-hero-buttons {
 
 /* Molecules > Pagination > Perch > (Cross Pollinated) */
 /* a*/
-.btn__left svg {
+.c-btn__left svg {
     right: 0;
 }
 
 /* Molecules > Pagination > Perch > (Cross Pollinated) */
 /* a*/
-.btn__left:hover svg {
+.c-btn__left:hover svg {
     right: 5px;
 }
 
 /* Molecules > Pagination > Perch > (Cross Pollinated) */
 /* a*/
-.btn__right svg {
+.c-btn__right svg {
     left: 0;
 }
 
 /* Molecules > Pagination > Perch > (Cross Pollinated) */
 /* a*/
-.btn__right:hover svg {
+.c-btn__right:hover svg {
     left: 5px;
 }
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / BUTTONS / SIZES
 =================================================== */
 /* Small */
-.btn--s a {
+.c-btn--s a {
     padding: 0.6rem var(--spacing-m);
 }
 
@@ -907,30 +912,30 @@ nav {
 @supports (animation-name: fade-in) {
     /* --mq-nav-opens-before */
     @media (max-width: 1299px) {
-        .site-header__nav li {
+        .c-site-header__nav li {
             opacity: 0;
         }
 
-        .js--navIsOpen .site-header__nav li {
+        .js--navIsOpen .c-site-header__nav li {
             animation-name: fade-in;
             animation-duration: 0.9s;
             animation-fill-mode: forwards;
         }
         /* Staggered animation */
-        .site-header__nav li {
+        .c-site-header__nav li {
             /* Default i.e. after 4th */
             animation-delay: calc(0.025s * 8);
         }
-        .site-header__nav li:nth-child(1) {
+        .c-site-header__nav li:nth-child(1) {
             animation-delay: 0s;
         }
-        .site-header__nav li:nth-child(2) {
+        .c-site-header__nav li:nth-child(2) {
             animation-delay: calc(0.025s * 2);
         }
-        .site-header__nav li:nth-child(3) {
+        .c-site-header__nav li:nth-child(3) {
             animation-delay: calc(0.025s * 4);
         }
-        .site-header__nav li:nth-child(4) {
+        .c-site-header__nav li:nth-child(4) {
             animation-delay: calc(0.025s * 6);
         }
     }

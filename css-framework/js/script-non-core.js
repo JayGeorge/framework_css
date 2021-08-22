@@ -36,7 +36,7 @@ document.addEventListener('keydown', (event) => {
 document.addEventListener('click', function (event) {
 
     // If the click happened inside the the container, bail
-    if (event.target.closest('.site-header__nav')) return;
+    if (event.target.closest('.c-site-header__nav')) return;
 
     // Otherwise, run our code...
     document.querySelector('html').classList.contains('js--navIsOpen');

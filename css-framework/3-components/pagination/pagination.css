@@ -12,10 +12,10 @@
         .paging__info
             "Page 1 of 2"
         .paging__buttons
-            .btn.btn--pagination(or .btn--pagination-single for single posts)
+            .c-btn.c-btn--pagination(or .c-btn--pagination-single for single posts)
                 a
                     Newer
-            .btn.btn--pagination(or .btn--pagination-single for single posts)
+            .c-btn.c-btn--pagination(or .c-btn--pagination-single for single posts)
                 a
                     Older
 
@@ -29,7 +29,7 @@
 
 /* Custom */
 @media (max-width: 599px) {
-    .btn--pagination:not(.btn--pagination-single) span {
+    .c-btn--pagination:not(.c-btn--pagination-single) span {
         /* Hide text because there's not enough room */
         /* START SCREEN READER TEXT
         --------------------------- */
@@ -44,14 +44,14 @@
     }
 
     /* Center the icons since there is no text */
-    .btn--pagination:not(.btn--pagination-single) .btn__left svg {
+    .c-btn--pagination:not(.c-btn--pagination-single) .c-btn__left svg {
         position: relative;
         /* Visually center */
         right: -0.3em;
         margin-right: 0;
     }
 
-    .btn--pagination:not(.btn--pagination-single) .btn__right svg {
+    .c-btn--pagination:not(.c-btn--pagination-single) .c-btn__right svg {
         position: relative;
         /* Visually center */
         left: -0.3em;
@@ -65,28 +65,28 @@
     padding-inline-end: var(--spacing-l);
 }
 
-.paging .btn,
-.paging .btn a {
+.paging .c-btn,
+.paging .c-btn a {
     /* Cancel defaults */
     margin-right: 0;
 }
 
-.btn--pagination + .btn--pagination {
+.c-btn--pagination + .c-btn--pagination {
     margin-left: var(--spacing-s);
 }
 
-.paging .btn {
+.paging .c-btn {
     margin-top: var(--spacing-l);
 }
 
-.paging .btn a {
+.paging .c-btn a {
     /* Needed for when previous and next are side by side. This should already be set as flex by the Atoms > Buttons group */
     /* display: flex; */
     margin-bottom: var(--spacing-m);
 }
 
 @media (min-width: 400px) {
-    .btn--pagination + .btn--pagination {
+    .c-btn--pagination + .c-btn--pagination {
         /* Increase */
         margin-left: var(--spacing-m);
     }
