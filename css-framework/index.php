@@ -15,13 +15,13 @@
     $some_variable_to_pass_into_the_include = 'aaaaaaaaaaaaaaaaaaaa';
     // then you just echo $some_variable_to_pass_into_the_include inside the include
     include '_inc/head.php';
-    include '_inc/header.php';
 ?>
 
 <?php /* for modules, use the below to link to your stylesheet */ ?>
 <?php /* <link rel="stylesheet" href="style.css"> */?>
 
 <body>
+    <?php include '_inc/header.php'; ?>
     <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
