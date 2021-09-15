@@ -2812,7 +2812,7 @@ h3.u-heading-counters__skip::before {
 
 .js .c-search--collapsed .js--c-search__input--reveal {
     display: inline-block;
-    animation-name: slide-down-and-fade-in;
+    animation-name: slide-up-and-fade-in;
     animation-duration: 0.4s;
     /* OR */
     /* animation-name: fade-in;

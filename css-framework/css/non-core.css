@@ -65,7 +65,7 @@
     /* GROUP VARIABLES -- DECORATION -- COLOURS -- GRAYSCALE
     =================================================== */
     /* If you want to use a hue base for the grey... otherwise set to 0deg */
-    --colour-grey-hue: 225deg, 10%;
+    --colour-grey-hue: 225deg 10%;
 
     /* Dark to light */
     /* --colour-black-off: hsl(0, 0%, 20%); */
@@ -107,13 +107,13 @@
     --font-size-s-1: clamp(1.4em, 4vw, 1.5em);
     --font-size-s-1-line-height: 1.4;
 
-    --font-size-m: 2.25em;
+    --font-size-m: clamp(2.25em * 0.695, 5.9vw, 2.25em);
     --font-size-m-line-height: 1.35;
     
-    --font-size-l: 3.375em;
+    --font-size-l: clamp(3.375em * 0.8, 5.9vw, 3.375em);
     --font-size-l-line-height: 1.15;
 
-    --font-size-l-1: 5.063em;
+    --font-size-l-1: clamp(5.063em * 0.725, 6vw, 5.063em);
     --font-size-l-1-line-height: 1.05;
 
     --font-size-l-2: clamp(calc(7.594em * 0.7), 15vw, 7.594em);
