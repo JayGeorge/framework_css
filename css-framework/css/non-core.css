@@ -912,6 +912,11 @@ nav {
 @supports (animation-name: fade-in) {
     /* --mq-nav-opens-before */
     @media (max-width: 1299px) {
+        .js:not(.js--navIsOpen) .c-nav-mobile-button + nav {
+            opacity: 0;
+            pointer-events: none;
+        }
+
         .c-site-header__nav li {
             opacity: 0;
         }

@@ -57,6 +57,10 @@
     --max-width-title: 53rem;
     --max-width-1: 75rem;
     --max-width-2: 85rem;
+    /* GROUP VARIABLES -- LAYOUT -- Z-INDEX
+    =================================================== */
+    --z-index-above-body: 1;
+    --z-index-above-nav: 2;
     /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME
     =================================================== */
     /* Dark to light */
@@ -506,8 +510,7 @@ nav li {
 /* GROUP ELEMENTS / FRAMEWORK / SVGs
 =================================================== */
 /* https://twitter.com/andybelldesign/status/1098915626050117633 */
-svg,
-img[src*=".svg"] {
+:is(svg, [src*=".svg"]) {
     width: 1em;
     height: 1em;
     fill: currentColor;
