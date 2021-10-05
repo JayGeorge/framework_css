@@ -86,8 +86,8 @@ body [type="checkbox"] {
 =================================================== */
 /* HTML Example...
 
-    <form class="form">
-        <div class="form__notes">
+    <form class="c-form">
+        <div class="c-form__notes">
             Your email address will not be published
         </div>
 
@@ -100,7 +100,7 @@ body [type="checkbox"] {
     </form>
 
 */
-.form {
+.c-form {
     /* From lowest to highest value */
     max-width: var(--max-width-reading);
     max-width: 50rem;
@@ -108,17 +108,17 @@ body [type="checkbox"] {
     margin-inline-start: auto;
 }
 
-input + .form__notes {
+input + .c-form__notes {
     /* e.g. 'Login' button followed by 'Forgotten your password?' */
     padding-block-end: 0;
     padding-block-start: var(--spacing-l);
 }
 
-.form__notes p {
+.c-form__notes p {
     color: var(--colour-grey-reading);
 }
 
-.form legend {
+.c-form legend {
     /* START SCREEN READER TEXT
     --------------------------- */
     clip: rect(1px, 1px, 1px, 1px);
@@ -132,39 +132,39 @@ input + .form__notes {
 }
 
 /* We use a class of fieldset since the `fieldset` element is not always present */
-.form__fieldset {
+.c-form__fieldset {
     padding: 0 var(--spacing-l);
     border: 0;
 }
 
 /* Exceptions */
-.form [type="checkbox"],
-.form [type="radio"] {
+.c-form [type="checkbox"],
+.c-form [type="radio"] {
     margin-bottom: 0;
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / (MODIFIERS)
 =================================================== */
-.form--wide {
+.c-form--wide {
     max-width: 80rem;
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / PERCH EXAMPLE
 =================================================== */
 /* HTML Example...
 
-    <form id="form1_comment" class="form" action="/blog/serving-adaptive-images-to-visitors" method="post">
-        <div class="form__notes">
+    <form id="form1_comment" class="c-form" action="/blog/serving-adaptive-images-to-visitors" method="post">
+        <div class="c-form__notes">
             <h2>Leave a comment</h2>
             <p>Your email address will not be published</p>
         </div>
 
-        <fieldset class="form__fieldset">
+        <fieldset class="c-form__fieldset">
             <legend>Leave a comment</legend>
-            <div class="form-cols form-cols--2">
-                <div class="form-cols__col">
+            <div class="c-form-cols form-cols--2">
+                <div class="c-form-cols__col">
                     <label for="form1_commentName">Name</label>
                     <input id="form1_commentName" name="commentName" type="text" required="required">
                 </div>
-                <div class="form-cols__col">
+                <div class="c-form-cols__col">
                     <label for="form1_commentEmail">Email</label>
                     <input id="form1_commentEmail" name="commentEmail" type="email" required="required">
                 </div>
@@ -190,13 +190,13 @@ input + .form__notes {
 =================================================== */
 /* HTML Example...
 
-    <div class="form-wrapper"> <-- (Optional). Used to adding padding on smaller MQs
+    <div class="c-form-wrapper"> <-- (Optional). Used to adding padding on smaller MQs
         <form>
-            <div class="form-cols form-cols--2">
-                <div class="form-cols__col">
+            <div class="c-form-cols form-cols--2">
+                <div class="c-form-cols__col">
                     <input/>
                 </div>
-                <div class="form-cols__col">
+                <div class="c-form-cols__col">
                     <input/>
                 </div>
             </div>
@@ -205,46 +205,46 @@ input + .form__notes {
 
 */
 
-.form-cols {
+.c-form-cols {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-column-gap: 1em;
 }
 
-.form-cols--1 {
+.c-form-cols--1 {
     grid-template-columns: 1fr;
 }
 
 /* Custom */
 @media (min-width: 500px) {
-    .form-cols__col input {
+    .c-form-cols__col input {
         /* e.g. if we have a shorter form field like a password */
         width: 100%;
         max-width: none;
     }
 
     /* Exceptions */
-    .form-cols__col [type="checkbox"],
-    .form-cols__col [type="radio"] {
+    .c-form-cols__col [type="checkbox"],
+    .c-form-cols__col [type="radio"] {
         width: initial;
     }
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / SPACING
 =================================================== */
 /* (Optional). Used to adding padding on smaller MQs */
-.form-wrapper {
+.c-form-wrapper {
     padding-inline-start: var(--spacing-s);
     padding-inline-end: var(--spacing-s);
 }
 
-.form__notes {
+.c-form__notes {
     padding-inline-start: var(--spacing-l);
     padding-block-end: var(--spacing-m);
     padding-inline-end: var(--spacing-l);
 }
 
 /* fieldset*/
-.form__fieldset {
+.c-form__fieldset {
     /* Override default */
     margin: 0;
 }
@@ -311,7 +311,7 @@ label {
 /* Need to disable because selector group includes a plugin selector */
 .s-forms-block label,
 /* Organisms > Comments > Perch */
-.form label {
+.c-form label {
     display: block;
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / MOBILE (INLINE)
@@ -343,7 +343,7 @@ input::placeholder {
 }*/
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / DECORATION
 =================================================== */
-.form-error {
+.c-form-error {
     display: inline-block;
     padding-block-end: var(--spacing-s-x);
     margin-bottom: var(--spacing-s-1);
