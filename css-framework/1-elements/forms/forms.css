@@ -104,8 +104,7 @@ body [type="checkbox"] {
     /* From lowest to highest value */
     max-width: var(--max-width-reading);
     max-width: 50rem;
-    margin-inline-end: auto;
-    margin-inline-start: auto;
+    margin: auto;
 }
 
 input + .c-form__notes {
@@ -147,6 +146,40 @@ input + .c-form__notes {
 .c-form--wide {
     max-width: 80rem;
 }
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / STATAMIC EXAMPLE
+=================================================== */
+/* HTML Example...
+
+    <form method="POST" action="https://paradise.wip/!/forms/contact" class="c-form"><input type="hidden" name="_token" value="08dv52uFjXl3JPShnriTrNGc3QUEMRrVWIYRH7Wb">
+        <div class="c-form__notes">
+            <h2>Contact us</h2>
+            <p>Some text here</p>
+        </div>
+        <input type="text" name="maple" class="maple">
+        <fieldset class="c-form__fieldset">
+            <div class="c-form-cols form-cols--2">
+                <div class="c-form-cols__col">
+                    <label>Name</label>
+                    <div class="p-1"><input type="text" name="name">
+                    </div>
+                </div>
+                <div class="c-form-cols__col">
+                    <label>Email Address</label>
+                    <div class="p-1"><input type="email" name="email_address">
+                    </div>
+                </div>
+                <div class="c-form-cols__col c-form-cols__col--full-width">
+                    <label>Message</label>
+                    <div class="p-1"><textarea name="form_message" rows="5"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </fieldset>
+    </form>
+
+*/
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / PERCH EXAMPLE
 =================================================== */
 /* HTML Example...
@@ -159,7 +192,7 @@ input + .c-form__notes {
 
         <fieldset class="c-form__fieldset">
             <legend>Leave a comment</legend>
-            <div class="c-form-cols form-cols--2">
+            <div class="c-form-cols">
                 <div class="c-form-cols__col">
                     <label for="form1_commentName">Name</label>
                     <input id="form1_commentName" name="commentName" type="text" required="required">
@@ -182,7 +215,6 @@ input + .c-form__notes {
                 <input id="form1_submitComment" name="submitComment" value="Submit" type="submit"><input type="hidden" name="cms-form" value="Y29tbWVudDpwZXJjaF9ibG9nOi90ZW1wbGF0ZXMvYmxvZy9jb21tZW50X2Zvcm0uaHRtbDoxNDk0NDM2MDkw">
             </div>
         </fieldset>
-
     </form>
 
 */
@@ -192,16 +224,24 @@ input + .c-form__notes {
 
     <div class="c-form-wrapper"> <-- (Optional). Used to adding padding on smaller MQs
         <form>
-            <div class="c-form-cols form-cols--2">
+            <div class="c-form-cols">
                 <div class="c-form-cols__col">
                     <input/>
                 </div>
                 <div class="c-form-cols__col">
                     <input/>
+                </div>
+                <div class="c-form-cols__col c-form-cols__col--full-width">
+                    <textarea/>
                 </div>
             </div>
         </form>
     </div>
+
+*/
+/* Modifiers...
+
+    .c-form-cols__col--full-width <-- span the whole column e.g. Message
 
 */
 
@@ -213,6 +253,10 @@ input + .c-form__notes {
 
 .c-form-cols--1 {
     grid-template-columns: 1fr;
+}
+
+.c-form-cols__col--full-width {
+    grid-column: 1 / -1;
 }
 
 /* Custom */
@@ -253,7 +297,7 @@ input + .c-form__notes {
 label {
     /* Make padding effective */
     display: inline-block;
-    padding-block-end: 0.2em;
+    padding-block-end: 1rem;
 }
 
 [type="checkbox"],
