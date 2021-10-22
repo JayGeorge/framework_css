@@ -40,8 +40,11 @@
 .c-logos img {
     width: initial;
     max-height: 6rem;
-    min-height: 3rem;
     max-width: 10rem;
+}
+
+.c-logos [src*=".svg"] {
+    min-height: 3rem;
 }
 
 .c-logos div {

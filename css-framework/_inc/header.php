@@ -45,6 +45,8 @@
             */ ?>
             <?php 
                 $nav_name = 'About us'; include '_inc/nav-links.php';
+                $nav_name = 'News'; $url= 'news/index'; include '_inc/nav-links.php';
+                $nav_name = 'Contact'; unset($url); include '_inc/nav-links.php';
             ?>
         </ul>
     </nav>

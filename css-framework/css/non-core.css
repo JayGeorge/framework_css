@@ -54,6 +54,7 @@
     /* background: antiquewhite; */
     /* background: floralwhite; */
     /* background: ghostwhite; */
+    /* background: honeydue; */
     /* background: lavenderblush; */
     /* background: linen; */
     /* background: mintcream; */
@@ -96,6 +97,9 @@
     --spacing-icon-l: 0.6rem;
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
     =================================================== */
+    /* Where you may want to space the line-height slightly e.g. You may want to use -spaced because a paragraph contains short information and links, so you'd like to make it breathe a bit more. Use _sparingly_ since it exceeds the max recommended line-height of 1.5 */
+    --font-size-spaced-line-height: 1.6;
+
     /* Based on Perfect Fifth - https://type-scale.com/ */
     --font-size-s-x-x: 0.667rem;
 
@@ -478,13 +482,14 @@ a {
 */
 /* GROUP OBJECTS / FRAMEWORK / (NON CORE) / SLIDE / LAYOUT
 =================================================== */
-.o-slide {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/* Optional for vertical centering content */
+/* .o-slide { */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
 
     /* min-height: 90vh; <-- Careful using this as it could cause spacing inconsistencies */
-}
+/* } */
 
 .o-slide__inner {
     /* Instead define with individual elements e.g. c-marketing-text */
@@ -547,6 +552,10 @@ a {
 .o-hero-buttons {
     padding: var(--spacing-l-1);
     text-align: center;
+}
+
+.o-hero-buttons .c-btn {
+    margin-inline-end: 0;
 }
 
 .o-hero-buttons--left {
@@ -824,17 +833,6 @@ h2 + .o-hero-buttons {
 .js--navIsOpen .c-nav-mobile-button {
     margin-bottom: 0;
 }
-
-/* e.g. Components > Framework > Nav > Header > Closed */
-nav {
-    padding-block-start: var(--spacing-s-1);
-}
-
-.c-nav-mobile-button,
-/* e.g. Components > Framework > Nav > Header > Closed */
-nav {
-    margin-block-end: var(--spacing-l);
-}
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / CURRENT PAGE
 =================================================== */
 /* Ancestors and Parents of Current Page */
@@ -932,7 +930,8 @@ nav {
             animation-delay: calc(0.025s * 8);
         }
         .c-site-header__nav li:nth-child(1) {
-            animation-delay: 0s;
+            /* Need to give it at least a tiny bit (not 0s) otherwise blips on iOS */
+            animation-delay: calc(0.025s * 1);
         }
         .c-site-header__nav li:nth-child(2) {
             animation-delay: calc(0.025s * 2);
@@ -1270,6 +1269,10 @@ img.no-alt {
 =================================================== */
 .u-texture {
     background-image: url(/img/textures/something.jpg);
+}
+
+.u-panel-white {
+    background: white;
 }
 
 .u-panel-dark-to-light {

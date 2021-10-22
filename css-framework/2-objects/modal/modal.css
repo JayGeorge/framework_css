@@ -1,8 +1,16 @@
+/*! Notes...
+
+    Author: Jay George
+    Author URI: https://jaygeorge.co.uk
+
+*/
+
+
 /* GROUP FRAMEWORK / (NON CORE) / MODAL
 =================================================== */
 /* Notes...
 
-    - Look in the JS file to understand more, where the markup and behaviour are generated    
+    - Look in the JS file to understand more, where the markup and behaviour are generated
 
 */
 /* HTML Example...
@@ -111,8 +119,7 @@
 .js__modalBox {
     background: white;
     border-radius: 5px;
-    color: white;
-    color: var(--colour-black-off);
+    color: black;
 }
 
 /* Pseudo fade out content as you scroll */
@@ -125,7 +132,7 @@
     background: linear-gradient(to bottom, white 25%,transparent 100%);
 }
 
-.modal-close {
+.c-modal-close {
     font-size: var(--icon-size-m);
 }
 /* GROUP FRAMEWORK / (NON CORE) / MODAL / ANIMATIONS

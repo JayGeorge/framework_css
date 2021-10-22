@@ -10,5 +10,5 @@
 */
 ?>
 <li<?php if ($current_nav === $nav_name) { echo ' class="current-menu-item"'; } ?>>
-    <a href="/<?php echo strtolower(str_replace(' ', '-', $nav_name)); if(($GLOBALS['using_laravel']) === true && ($GLOBALS['local']) === true) { echo '.php'; } ?>"><?php echo $nav_name; ?></a>
+    <a href="/<?php if (isset($url)){ echo $url; } else { echo strtolower(str_replace(' ', '-', $nav_name)); } if(($GLOBALS['using_laravel']) === true && ($GLOBALS['local']) === true) { echo '.php'; } ?>"><?php echo $nav_name; ?></a>
 </li>

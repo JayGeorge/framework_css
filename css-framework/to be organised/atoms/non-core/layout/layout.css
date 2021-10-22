@@ -35,9 +35,7 @@
 
 /* GROUP UTILITIES / FRAMEWORK / LAYOUT / CONSTRAINTS / MAX
 =================================================== */
-.u-width-max-reading,
-.u-width-max-1,
-.u-width-max-2 {
+[class*="u-width-max-"] {
     max-width: var(--max-width-reading);
     margin-inline: auto;
 }

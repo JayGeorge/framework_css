@@ -13,8 +13,8 @@
 Array.from(document.querySelectorAll('.js__nav-mobile-button') || []).forEach(element => {
     element.onclick = function(){
         document.querySelector('html').classList.toggle('js--navIsOpen');
-        /* This can be used to prevent animations from firing off before the nav is clicked e.g. a slide-down animation e.g. */
-        // .js:not(.js--navHasBeenOpened) /* nav*/.js__collapsedUntilNavOpened { display: none!important; }
+        /* This can be used to prevent animations from firing off before the nav is clicked e.g. a slide-up animation e.g. */
+        // .js:not(.js--navHasBeenOpened) /* nav*/.js__collapsedUntilNavOpened { display: none; }
         document.querySelector('html').classList.add('js--navHasBeenOpened');
     }
 });

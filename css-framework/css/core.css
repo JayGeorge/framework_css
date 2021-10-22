@@ -47,7 +47,7 @@
     --spacing-vh-s: min(18vw, 15vh);
     --spacing-vh-m: 25vh;
 
-    --button-spacing-vertical: 0.95rem;
+    --button-spacing-vertical: 1rem;
     --button-spacing-horizontal: 1.5rem;
     /* GROUP VARIABLES -- LAYOUT -- CONSTRAINTS -- MAX
     =================================================== */
@@ -70,6 +70,8 @@
 
     --colour-purple-light: hsl(var(--colour-purple-hue) 93%);
     --colour-purple-transparent: hsl(var(--colour-purple-hsl) / 85%);
+
+    --colour-focus: var(--colour-purple);
     /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME -- GRADIENTS
     =================================================== */
     --colour-gradient-orange: radial-gradient(ellipse at bottom right, hsl(41, 100%, 69%) 0%,hsl(25, 100%, 50%) 100%);
@@ -93,8 +95,6 @@
     =================================================== */
     /* Optimise line-height for reading */
     --font-size-reading-line-height: 1.5;
-    /* Where you may want to space the line-height slightly e.g. You may want to use -spaced because a paragraph contains short information and links, so you'd like to make it breathe a bit more. Use _sparingly_ since it exceeds the max recommended line-height of 1.5 */
-    --font-size-spaced-line-height: 1.6;
 
     --font-size-s-x-x: 0.707em;
 
@@ -243,6 +243,8 @@ html {
     font-size: calc(1em + var(--font-bump));
     /* Opinion on this will differ depending on the font you choose. Do not carpet bomb line height with a * selector though */
     line-height: 1.5;
+    /* Https://web.dev/accent-color/ */
+    accent-color: hotpink;
 }
 
 body {
@@ -510,7 +512,8 @@ nav li {
 /* GROUP ELEMENTS / FRAMEWORK / SVGs
 =================================================== */
 /* https://twitter.com/andybelldesign/status/1098915626050117633 */
-:is(svg, [src*=".svg"]) {
+svg,
+[src*=".svg"] {
     width: 1em;
     height: 1em;
     fill: currentColor;
@@ -593,17 +596,14 @@ a:focus,
 summary:focus,
 .c-btn a:focus,
 button:focus,
-[type="submit"]:focus,
 /* Elements > Framework > Forms */
-[type="text"]:focus,
-[type="email"]:focus,
+input:focus,
 textarea:focus {
-    outline: 4px solid var(--colour-blue);
+    outline: 4px solid blue;
 }
 
 /* Elements > Framework > Forms */
-[type="text"]:focus,
-[type="email"]:focus,
+input:focus,
 textarea:focus {
     /* Light colour here */
     background: seashell;
@@ -641,6 +641,15 @@ https://twitter.com/LeaVerou/status/1045836563505188867 */
 .js-focus-visible :focus:not(.focus-visible) {
     outline: none;
 }
+
+/* purgecss start ignore */
+/* Temp until Safari supports focus-visible, targeting touch devices. This is stinky code so don't include it by default, and remove it when Safari supposts focus-visible */
+/* @media (hover: none) {
+    :focus {
+        outline: none!important;
+    }
+} */
+/* purgecss end ignore */
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / HOVER
 =================================================== */
 a:hover {
@@ -754,6 +763,8 @@ button,
 button {
     /* =JFG. Cancel default button appearance */
     background: none;
+    /* To combat -apple-system-blueinput on iOS 15 */
+    color: initial;
 }
 
 button svg {

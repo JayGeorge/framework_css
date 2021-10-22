@@ -3,14 +3,7 @@
     Author: Jay George
     Author URI: https://jaygeorge.co.uk
 
-    ABOUT THIS CSS
-    ===================================================
-    - Only edit filename.css, then process with Codekit to output into prod/
-
 */
-
-
-
 
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / (CROSS POLLINATED)
 =================================================== */
@@ -20,6 +13,7 @@
     the selector for WordPress so rules do not affect wp-admin bar
 
 */
+/* purgecss start ignore */
 [type="text"],
 [type="email"],
 [type="tel"],
@@ -39,40 +33,41 @@ textarea {
     line-height: 1.45;
     border-radius: 2px;
 }
+/* purgecss end ignore */
 
 [placeholder],
 ::-webkit-input-placeholder {
-    /* =JFG. "search this website". This needs to be rem
-    because sometimes the search form gets embedded in .s-entry-content which could be 1.1em.
-    We don't want the placeholder font size getting too big. */
     font-size: 0.95rem;
 }
 
 label {
     /* Fixed */
-    /* e.g. >> /flooring-catalogue filter */
     font-size: 16px;
     font-weight: var(--font-family-main-weight-strong);
     /* Override line-height set on body */
     line-height: 1;
 }
 
+/* purgecss start ignore */
 textarea {
     width: 100%;
     /* e.g. something like Hubspot might be a bit short */
     min-height: 200px;
 }
+/* purgecss end ignore */
 
 body [type="checkbox"] {
     /* Override any input styles */
     box-shadow: none;
 }
 
+/* Don't carpet bomb since we don't want a checkbox 100% width */
 [type="email"],
 [type="text"],
-[type="url"] {
+[type="url"],
+[type="password"] {
     width: 100%;
-    max-width: 275px;
+    /* max-width: 275px; */
 }
 
 /* Exceptions */
@@ -101,10 +96,11 @@ body [type="checkbox"] {
 
 */
 .c-form {
-    /* From lowest to highest value */
+    width: 100%;
     max-width: var(--max-width-reading);
     max-width: 50rem;
-    margin: auto;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
 }
 
 input + .c-form__notes {
@@ -160,18 +156,15 @@ input + .c-form__notes {
             <div class="c-form-cols form-cols--2">
                 <div class="c-form-cols__col">
                     <label>Name</label>
-                    <div class="p-1"><input type="text" name="name">
-                    </div>
+                    <div><input type="text" name="name"></div>
                 </div>
                 <div class="c-form-cols__col">
                     <label>Email Address</label>
-                    <div class="p-1"><input type="email" name="email_address">
-                    </div>
+                    <div><input type="email" name="email_address"></div>
                 </div>
                 <div class="c-form-cols__col c-form-cols__col--full-width">
                     <label>Message</label>
-                    <div class="p-1"><textarea name="form_message" rows="5"></textarea>
-                    </div>
+                    <div><textarea name="form_message" rows="5"></textarea></div>
                 </div>
             </div>
 
@@ -255,9 +248,11 @@ input + .c-form__notes {
     grid-template-columns: 1fr;
 }
 
+/* purgecss start ignore */
 .c-form-cols__col--full-width {
     grid-column: 1 / -1;
 }
+/* purgecss end ignore */
 
 /* Custom */
 @media (min-width: 500px) {
@@ -296,7 +291,7 @@ input + .c-form__notes {
 /* form */
 label {
     /* Make padding effective */
-    display: inline-block;
+    display: block;
     padding-block-end: 1rem;
 }
 
@@ -327,36 +322,11 @@ label {
     /* Always on a separate line */
     display: block!important;
     /* Organisms > Forms > Plugins > Mailchimp */
-    /* =JFG. e.g. Subscribe button for Mailchimp. This needs to be rem
-    because sometimes the form gets embedded in .s-entry-content which could be 1.1em.
-    We don't want the button size getting too big. */
     font-size: 0.85rem;
     /* Same as HTML, overriding the default of 1 in the reset */
     line-height: 1.5;
     /* Remove user agent style */
     background: transparent;
-}
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / EXPLICIT BLOCK
-=================================================== */
-/* Notes...
-
-    Where we want labels to always be on a separate line e.g. Comment forms
-
-*/
-
-/* HTML Example...
-
-    <div class="s-forms-block">
-        <form/>
-    </div>
-
-*/
-
-/* Need to disable because selector group includes a plugin selector */
-.s-forms-block label,
-/* Organisms > Comments > Perch */
-.c-form label {
-    display: block;
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / MOBILE (INLINE)
 =================================================== */
@@ -377,7 +347,7 @@ label {
 =================================================== */
 /* Override normalize */
 ::-webkit-input-placeholder,
-input::placeholder {
+::placeholder {
     color: inherit;
     opacity: 0.54;
 }
@@ -395,9 +365,8 @@ input::placeholder {
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / DECORATION / BORDERS
 =================================================== */
-/* There are some hacks here because of bad selector specificity from the plugin maker so we have to go outside the linting rules */
 input:not([type="submit"]) {
-    border: 1px solid #e6e6e6;
+    border: 1px solid hsl(0deg 0% 90%);
     border-radius: 4px;
 }
 
@@ -441,11 +410,11 @@ textarea {
 }
 
 
-
+/* purgecss start ignore */
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION
 =================================================== */
 textarea {
-    border: 1px solid #bbb;
+    border: 1px solid hsl(0deg 0% 73%);
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION / STYLE 1
 =================================================== */
@@ -515,6 +484,26 @@ textarea {
     border-radius: 3px;
     box-shadow: 0 0 1px #ddd inset; 
 }
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION / STYLE 8
+=================================================== */
+.s-input-style--8 input:not([type="submit"]),
+.s-input-style--8 textarea {
+    /* e.g. https://dribbble.com/shots/13869341/attachments/5476846?mode=media */
+    /* In case you don't have --box-shadow-s-light-b */
+    /* --box-shadow-s-light-b: 0 10px 9px -8px hsla(0, 0%, 0%, 0.09); */
+    box-shadow: var(--box-shadow-s-light-b);
+    border-radius: var(--border-radius-l);
+}
+
+.s-input-style--8 textarea {
+    /* Slightly darker to make up for the fact it's bigger */
+    border: 1px solid hsl(0deg 0% 88%);
+}
+
+.s-input-style--8 [type="submit"] {
+    width: 100%;
+}
+/* purgecss end ignore */
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / WORDPRESS
 =================================================== */
 /* e.g. do not affect hubspot comment, which is the last field. We do not want to create a big gap between the Hubspot comment and the submit button */

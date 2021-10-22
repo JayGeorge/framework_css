@@ -4,7 +4,7 @@
 const jfg_modal = document.createElement('div');
 jfg_modal.classList.add('js__modal');
 document.querySelector('body').appendChild(jfg_modal);
-jfg_modal.insertAdjacentHTML('afterbegin', '<div class="js__modalBox"><button class="js__closeModal"><svg aria-labelledby="title-modal-cancel" role="img" class="modal-close" width="100pt" height="100pt" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="m91.668 19.172l-10.844-10.832-30.828 30.82-30.824-30.82-10.84 10.836 30.824 30.824-30.824 30.824 10.84 10.836 30.824-30.82 30.828 30.82 10.844-10.836-30.828-30.824z"/></svg></button><div class="js__modalBox__inner-scroll">Content that needs to be scrollable</div></div>');
+jfg_modal.insertAdjacentHTML('afterbegin', '<div class="js__modalBox"><button class="js__closeModal"><svg aria-labelledby="title-modal-cancel" role="img" class="c-modal-close" width="100pt" height="100pt" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="m91.668 19.172l-10.844-10.832-30.828 30.82-30.824-30.82-10.84 10.836 30.824 30.824-30.824 30.824 10.84 10.836 30.824-30.82 30.828 30.82 10.844-10.836-30.828-30.824z"/></svg></button><div class="js__modalBox__inner-scroll">Content that needs to be scrollable. Lorem ipsum ius kasd cibo utroque an, eum eu populo percipitur, his in equidem posidonium concludaturque. No eam deserunt salutatus, fastidii conceptam consectetuer no vim, sea paulo takimata ei. Tation sadipscing nec ei, cum graeci ancillae et. Modus dicit altera nec ad, nostro civibus epicurei et pro. Errem numquam interesset mel at, cu unum illum vim, ius quot splendide disputando in.</div></div>');
 
 // [2] Show the modal which creates a background
 // If you're using a button...
