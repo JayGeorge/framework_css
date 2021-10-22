@@ -620,6 +620,7 @@ nav a:focus {
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS -- remove for mouse
 =================================================== */
+/* purgecss start ignore */
 /* Notes...
 
     Remove Focus Styles for Mouse Users
@@ -634,15 +635,7 @@ https://twitter.com/LeaVerou/status/1045836563505188867 */
 :focus:not(:focus-visible) * {
     outline: none!important;
 }
-/*
-  This will hide the focus indicator if the element receives focus via the mouse,
-  but it will still show up on keyboard focus.
-*/
-.js-focus-visible :focus:not(.focus-visible) {
-    outline: none;
-}
 
-/* purgecss start ignore */
 /* Temp until Safari supports focus-visible, targeting touch devices. This is stinky code so don't include it by default, and remove it when Safari supposts focus-visible */
 /* @media (hover: none) {
     :focus {
