@@ -238,6 +238,12 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     box-sizing: border-box;
 }
 
+/* https://twitter.com/bramus/status/1452572001697153029 */
+/* html,
+body {
+    background: ;
+} */
+
 /* =JFG. HTML default e.g. when we are separating lines with <br> like addresses in proposals */
 html {
     font-size: calc(1em + var(--font-bump));
@@ -495,7 +501,8 @@ nav {
     width: 100%;
 }
 
-nav ul {
+/* nav*/
+.o-nav-flex ul {
     list-style: none;
     display: flex;
     flex-direction: column;

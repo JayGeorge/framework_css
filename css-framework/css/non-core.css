@@ -1270,6 +1270,11 @@ img.no-alt {
 .u-texture {
     background-image: url(/img/textures/something.jpg);
 }
+/* GROUP UTILITIES / DECORATION / PANELS
+=================================================== */
+[class*="panel"] {
+    position: relative;
+}
 
 .u-panel-white {
     background: white;

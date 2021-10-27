@@ -35,7 +35,7 @@
         ?>
     </button>
 
-    <nav aria-label="Main navigation" class="c-site-header__nav nav--centered">
+    <nav aria-label="Main navigation" class="c-site-header__nav nav--centered o-nav-flex">
     <!-- <nav aria-label="Main navigation" class="c-site-header__nav nav--centered js__collapsedUntilNavOpened"> <-- use this instead for collapsed nav (most common, you only _don't_ want to use this if you only have a few items that show all the time e.g. jaygeorge.co.uk) *-->
         <ul>
             <?php /* 
