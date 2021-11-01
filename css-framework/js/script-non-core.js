@@ -34,7 +34,6 @@ document.addEventListener('keydown', (event) => {
 // Based on https://gomakethings.com/detecting-clicks-outside-of-an-element-with-vanilla-javascript/
 // Listen for all clicks on the document
 document.addEventListener('click', function (event) {
-
     // If the click happened inside the the container, bail
     if (event.target.closest('.c-site-header__nav')) return;
 
