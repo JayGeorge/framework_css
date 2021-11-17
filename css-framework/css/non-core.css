@@ -1183,7 +1183,7 @@ h2 + .o-hero-buttons {
 
 .u-link-style-none,
 .u-link-style-none * {
-    /* --u-link-style-none */
+    font-weight: inherit;
     text-decoration: none;
     color: inherit;
     border-bottom: 0;

@@ -519,20 +519,13 @@ nav li {
 /* GROUP ELEMENTS / FRAMEWORK / SVGs
 =================================================== */
 /* https://twitter.com/andybelldesign/status/1098915626050117633 */
-svg,
-[src*=".svg"] {
+:is([src*="svg"], svg) {
     width: 1em;
     height: 1em;
     fill: currentColor;
 }
 
-h1 svg,
-h2 svg,
-h3 svg,
-h4 svg,
-h5 svg,
-h6 svg,
-p svg {
+:is(h1, h2, h3, h4, h5, h6, p) svg {
     vertical-align: baseline;
     margin-right: var(--spacing-s-x);
 }
