@@ -8,10 +8,10 @@
 
 /* HTML Example...
 
-    .paging
-        .paging__info
+    .c-paging
+        .c-paging__info
             "Page 1 of 2"
-        .paging__buttons
+        .c-paging__buttons
             .c-btn.c-btn--pagination(or .c-btn--pagination-single for single posts)
                 a
                     Newer
@@ -22,9 +22,10 @@
 */
 /* GROUP COMPONENTS / PAGINATION / LAYOUT
 =================================================== */
-.paging__buttons {
+.c-paging__buttons {
     display: flex;
-    justify-content: center
+    justify-content: center;
+    gap: var(--spacing-m);
 }
 
 /* Custom */
@@ -60,43 +61,32 @@
 }
 /* GROUP COMPONENTS / PAGINATION / SPACING
 =================================================== */
-.paging {
+.c-paging {
     padding-inline-start: var(--spacing-l);
     padding-inline-end: var(--spacing-l);
 }
 
-.paging .c-btn,
-.paging .c-btn a {
+.c-paging .c-btn,
+.c-paging .c-btn a {
     /* Cancel defaults */
     margin-right: 0;
 }
 
-.c-btn--pagination + .c-btn--pagination {
-    margin-left: var(--spacing-s);
-}
-
-.paging .c-btn {
+.c-paging .c-btn {
     margin-top: var(--spacing-l);
 }
 
-.paging .c-btn a {
+.c-paging .c-btn a {
     /* Needed for when previous and next are side by side. This should already be set as flex by the Atoms > Buttons group */
     /* display: flex; */
     margin-bottom: var(--spacing-m);
 }
-
-@media (min-width: 400px) {
-    .c-btn--pagination + .c-btn--pagination {
-        /* Increase */
-        margin-left: var(--spacing-m);
-    }
-}
 /* GROUP COMPONENTS / PAGINATION / DECORATION
 =================================================== */
-.paging {
+.c-paging {
     text-align: center;
 }
 
-/* .paging__info {
+/* .c-paging__info {
     font-weight: strong
 } */
