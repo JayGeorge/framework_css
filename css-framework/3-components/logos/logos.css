@@ -22,9 +22,10 @@
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / LOGOS / LAYOUT
 =================================================== */
 .c-logos {
+    --column-size: 7.5em;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, 6.5em);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--column-size)), 1fr));
     grid-gap: var(--spacing-l-1) var(--spacing-l-2);
     width: 100%;
 }
@@ -55,8 +56,9 @@
 /* Custom */
 @media (min-width: 500px) {
     .c-logos {
+        /* Decrease */
+        --column-size: 6em;
         /* e.g. >> home -> clients */
-        grid-template-columns: repeat(auto-fit, 7em);
         /* grid-gap: var(--spacing-l-1) var(--spacing-l-4); */
         /* Custom so that logos fit all the way across */
         grid-gap: var(--spacing-l) 7.3em;
