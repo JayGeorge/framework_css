@@ -304,6 +304,38 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .u-animated--slide-right-and-fade-in {
     animation-name: slide-right-and-fade-in;
 }
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE IN LEFT
+=================================================== */
+@keyframes slide-in-left {
+    0% {
+        /* Changed from Dan Eden. Does not use translate3D */
+        transform: translateX(100%);
+        visibility: visible;
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+.u-animated--slide-in-left {
+    animation-name: slide-in-left;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE OUT RIGHT
+=================================================== */
+@keyframes slide-out-right {
+    0% {
+        /* Changed from Dan Eden. Does not use translate3D */
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.u-animated--slide-out-right {
+    animation-name: slide-out-right;
+}
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / STRIKE-THROUGH / {STRIKETHROUGH}
 =================================================== */
 @keyframes strike-through {
