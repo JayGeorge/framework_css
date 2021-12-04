@@ -393,7 +393,7 @@ a {
 
 /* Example taken from Typewolf. This should probably only be used for entry content because it might negatively affect elements such as nav */
 .u-link-style-2 a {
-    text-decoration: none;
+    text-decoration-line: none;
     border-bottom: 1px solid var(--colour-green-light);
     box-shadow: inset 0 -7px 0 var(--colour-green-light);
     transition: background 0.3s ease-out;

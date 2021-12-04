@@ -92,7 +92,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     }
 }
 
-.u-animated--fade-in-up {
+.u-animated--fade-in {
     animation-name: fade-in;
 }
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE IN UP
@@ -448,7 +448,9 @@ you just need to ensure that if transitions on the actual elements is set to "al
 }
 
 .u-animated--zoom-in {
+    will-change: transform;
     animation-name: zoom-in;
+    animation-duration: 0.5s;
 }
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / ZOOM OUT
 =================================================== */
@@ -464,7 +466,9 @@ you just need to ensure that if transitions on the actual elements is set to "al
 }
 
 .u-animated--zoom-out {
+    will-change: transform;
     animation-name: zoom-out;
+    animation-duration: 0.5s;
 }
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / ROTATE
 =================================================== */

@@ -22,10 +22,10 @@
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / LOGOS / LAYOUT
 =================================================== */
 .c-logos {
-    --column-size: 7.5em;
+    --column-size: 7.5rem;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--column-size)), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--column-size)), 1fr));
     grid-gap: var(--spacing-l-1) var(--spacing-l-2);
     width: 100%;
 }
@@ -40,6 +40,8 @@
 
 .c-logos img {
     width: initial;
+    /* Override default of min-width: 100%; set on imgs */
+    min-width: unset;
     max-height: 6rem;
     max-width: 10rem;
 }
@@ -48,8 +50,23 @@
     min-height: 3rem;
 }
 
+/* You can test the orientation in Statamic like this:
+{{ image }}
+    {{ if height | multiply:1.5 < width }}this image is overwhelmingly landscape{{/if}}
+{{ /image }}
+*/
+.c-logos .c-logo-orientation-landscape {
+    max-height: 3.35rem;
+}
+
+/* You can then tweak logos like this */
+.c-logos [src*="bbc"] {
+    /* Decrease */
+    max-height: 2.4rem;
+}
+
 .c-logos div {
-    /* Needed to make SVGs appear */
+    /* Needed to make SVGs appear (maybe on Safari?) */
     width: 100%;
 }
 
@@ -69,7 +86,7 @@
 @media (min-width: 2200px) {
     .c-logos {
         max-width: 58rem;
-        grid-gap: 2em 4em;
+        grid-gap: 2rem 4rem;
     }
 
     .c-logos img {
