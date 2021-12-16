@@ -472,6 +472,7 @@ a {
 
 	- Used to introduce hero-like text, occupying most of the screen vertically
 	- Use an additional component class to handle the decoration
+    - Don't use something like .o-slide__inner; instead define this in components, it's less complex
 
 */
 /* HTML Example...
@@ -490,13 +491,6 @@ a {
 
     /* min-height: 90vh; <-- Careful using this as it could cause spacing inconsistencies */
 /* } */
-
-.o-slide__inner {
-    /* Instead define with individual elements e.g. c-marketing-text */
-    /* max-width: var(--max-width-reading); */
-    margin-inline-start: auto;
-    margin-inline-end: auto;
-}
 /* GROUP OBJECTS / FRAMEWORK / (NON CORE) / SLIDE / SPACING
 =================================================== */
 .o-slide {
