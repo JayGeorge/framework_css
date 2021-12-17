@@ -303,7 +303,8 @@ ul {
     padding-inline-start: 0;
 }
 
-li {
+/* Don't affect nav */
+main li {
     padding-block-end: var(--spacing-s-x);
 }
 
@@ -510,6 +511,14 @@ nav {
     padding-inline: 0;
 }
 
+/* --mq-nav-open-after */
+@media (min-width: 768px) {
+    .o-nav-flex ul {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}
+
 nav li {
     position: relative;
 }
@@ -678,6 +687,91 @@ a:hover {
     outline: none;
     /* Looks better on Skip to Content */
     text-underline-position: auto;
+}
+
+
+
+
+/* GROUP COMPONENTS / FRAMEWORK / SLIDE (WITH OPTIONAL BACKGROUND IMAGE)
+=================================================== */
+/* Notes...
+
+    - Use to introduce hero-like text, occupying most of the screen vertically
+	- Uses a background-image rather than absolutely positioning an img with object-fit, which makes it less hacky
+
+*/
+/* HTML Example...
+
+    <div class="c-slide c-slide--with-background" style="background-image: url('/img/'); background-position: bottom;">
+        <div class="c-slide__hero-text">
+            <h2>Headline</h2>
+            <p>Or paragraph</p>
+        </div>
+        some other components
+    </div>
+
+*/
+/* Modifiers...
+
+    .c-slide--with-background
+    .c-slide--with-vertically-centered-first-element <-- e.g. if you want text to appear vertically 'centered'
+
+*/
+/* GROUP COMPONENTS / FRAMEWORK / SLIDE (WITH OPTIONAL BACKGROUND IMAGE) / LAYOUT
+=================================================== */
+.c-slide {
+    position: relative;
+    min-height: 100vh;
+}
+
+.c-slide__hero-text {
+    max-width: var(--max-width-2);
+    margin-inline: auto;
+}
+
+.c-slide__hero-text :where(h1, h2, h3) {
+    max-width: var(--max-width-title);
+}
+/* GROUP COMPONENTS / FRAMEWORK / SLIDE (WITH OPTIONAL BACKGROUND IMAGE) / SPACING
+=================================================== */
+.c-slide__hero-text {
+    padding-inline: var(--spacing-l);
+}
+
+.c-slide > *:last-child {
+    /* e.g. when marketing-text is at the bottom of a slide */
+    padding-block-end: 0;
+}
+
+.c-slide--with-vertically-centered-first-element {
+    padding-block-start: 0;
+}
+
+.c-slide--with-vertically-centered-first-element .c-slide__hero-text {
+    padding-block-start: 50vh;
+    transform: translateY(-25%);
+}
+/* GROUP COMPONENTS / FRAMEWORK / SLIDE (WITH OPTIONAL BACKGROUND IMAGE) / DECORATION
+=================================================== */
+.c-slide__hero-text :where(h1, h2, h3) {
+    font-size: var(--font-size-l-1);
+    line-height: var(--font-size-l-1-line-height);
+}
+
+.c-slide--with-background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: top; */
+    color: white;
+}
+
+.c-slide--with-background::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(110deg, hsl(20 30% 3% / 1) 0%, transparent 100%);
 }
 
 
@@ -1004,6 +1098,25 @@ img:not([alt]) {
 
     width: auto;
     height: auto;
+}
+/* GROUP UTILITIES / FRAMEWORK / LAYOUT / CONSTRAINTS / MAX
+=================================================== */
+[class*="u-width-max-"] {
+    position: relative;
+    max-width: var(--max-width-reading);
+    margin-inline: auto;
+}
+
+.u-width-max-1 {
+    max-width: var(--max-width-1);
+}
+
+.u-width-max-2 {
+    max-width: var(--max-width-2);
+}
+
+.u-width-max--uncentered {
+    margin-left: 0;
 }
 /* GROUP UTILITIES / FRAMEWORK / STATAMIC
 =================================================== */

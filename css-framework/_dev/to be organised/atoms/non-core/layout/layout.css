@@ -32,29 +32,6 @@
 
 
 
-
-/* GROUP UTILITIES / FRAMEWORK / LAYOUT / CONSTRAINTS / MAX
-=================================================== */
-[class*="u-width-max-"] {
-    max-width: var(--max-width-reading);
-    margin-inline: auto;
-}
-
-.u-width-max-1 {
-    max-width: var(--max-width-1);
-}
-
-.u-width-max-2 {
-    max-width: var(--max-width-2);
-}
-
-.u-width-max--uncentered {
-    margin-left: 0;
-}
-
-
-
-
 /* GROUP OBJECTS / FRAMEWORK / LAYOUT / GRID / PSEDUO GRID / FLEX
 =================================================== */
 /* Notes...

@@ -134,8 +134,11 @@
     --font-size-m-line-height: 1.4;
 
     --font-size-l: 2.618em;
+    --font-size-l-line-height: 1.25;
+    --font-size-l-line-height-entry: 1.1;
 
     --font-size-l-1: clamp(calc(4.236em * 0.6), 12vw, 4.236em);
+    --font-size-l-1-line-height: 1.15;
 
     --font-size-l-2: clamp(calc(6.854em * 0.7), 13.5vw, 6.854em);;
     --font-size-l-2-line-height: 0.99;
@@ -478,7 +481,6 @@ a {
 /* HTML Example...
 
     .o-slide.c-slide
-        .o-slide__inner
 
 */
 /* GROUP OBJECTS / FRAMEWORK / (NON CORE) / SLIDE / LAYOUT
@@ -502,7 +504,7 @@ a {
     padding-block-end: 0;
 }
 
-.o-slide__inner > *:last-child {
+.o-slide > *:last-child {
     /* e.g. when marketing-text is at the bottom of a slide */
     padding-block-end: 0;
 }
