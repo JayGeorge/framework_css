@@ -799,7 +799,7 @@ h2 + .o-hero-buttons {
     [] 1. Decide whether you'd like to use any modifier classes/groups shown below. Remove any MODIFIER groups that are not needed.
         Modifier groups include choosing "when the grid breaks into further columns" (I suggest at 600px)
     [] 2. Add the JS found in script-non-core.js.
-    [] 3. Remember how to comment out the nav template in header.php for Perch, and check the nav element there for further instructions
+    [] 3. Remember how to comment out the nav template in header.php, and check the nav element there for further instructions
 
 */
 
@@ -819,8 +819,7 @@ h2 + .o-hero-buttons {
     .nav--centered
     The nav will be centered once it is horizontal
 
-    .js__collapsedUntilNavOpened
-    You almost always want this. If we have JS then the nav is hidden until toggled open.
+    .js__collapsedUntilNavOpened <-- Use this to always hide the nav until toggled open (if we have JS).
     The menu appears on larger screens
 
 */
@@ -883,6 +882,15 @@ h2 + .o-hero-buttons {
     justify-content: center;
     align-items: center
 }
+
+/* --mq-nav-opens-after */
+@media (min-width: 1024px) {
+    /* div*/
+    .c-nav-mobile-button {
+        /* =JFG. Hide the toggle button now that nav is always visible */
+        display: none;
+    }
+}
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / CLOSED STATE
 =================================================== */
 /* If we have JS then this is hidden until toggled open. The menu appears on larger screens */
@@ -938,6 +946,47 @@ h2 + .o-hero-buttons {
         .c-site-header__nav li:nth-child(4) {
             animation-delay: calc(0.025s * 6);
         }
+    }
+}
+
+@keyframes wipe-in-down {
+    from {
+        clip-path: inset(0 0 100% 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+@keyframes wipe-out-up-and-collapse {
+    0% {
+        clip-path: inset(0 0 0 0);
+    }
+    99% {
+        clip-path: inset(0 0 100% 0);
+        /* hide so that it doesn't make the .c-site-header tall, thus preventing anything underneath being clicked, even if it's invisible */
+        height: unset;
+        visibility: hidden;
+        overflow: hidden;
+    }
+    100% {
+        visibility: hidden;
+        overflow: hidden;
+        height: 0;
+    }
+}
+/* --mq-nav-opens-before */
+@media (max-width: 1023px) {
+    .js:not(.js--navIsOpen):not(.js--navHasBeenOpened) .c-nav-mobile-button + nav {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .js--navIsOpen .c-site-header__nav {
+        animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
+    }
+
+    .js:not(.js--navIsOpen) .c-site-header__nav {
+        animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-out-up-and-collapse both;
     }
 }
 
