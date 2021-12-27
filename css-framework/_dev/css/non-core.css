@@ -24,18 +24,14 @@
         - Analogous color combinations = 30° separating the hues.
         - You can also create monochromatic harmonies easily, with one main hue and then tweaking the lightness to get different tints and shades of that hue.
     */
-    --colour-purple: hsl(254deg 66% 67%);
-    --colour-pink: hsl(333deg 100% 50%);
-    --colour-purple-alpha-1: hsl(254deg 66% 67% / 9%);
     --colour-navy: hsl(226deg 25% 14%);
-    /* e.g. for icons on colour-navy background */
-    --colour-navy-reversed: hsl(226deg 14% 25%);
     --colour-navy-hsl: 226deg 25% 14%;
     --colour-navy-overlay: hsl(var(--colour-navy-hsl) / 20%);
+    /* e.g. for icons on colour-navy background */
+    --colour-navy-reversed: hsl(226deg 14% 25%);
 
     --colour-orange: hsl(25, 100%, 53%);
     --colour-turquoise: hsl(184, 65%, 47%);
-    --colour-turquoise-rgb: 42,186,197;
     /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME -- BRANDS
     =================================================== */
     /* https://about.twitter.com/company/brand-assets */
@@ -133,11 +129,11 @@
     --font-size-m: 1.618em;
     --font-size-m-line-height: 1.4;
 
-    --font-size-l: 2.618em;
+    --font-size-l: clamp(2.618em * 0.65, 7vw, 2.618em);
     --font-size-l-line-height: 1.25;
     --font-size-l-line-height-entry: 1.1;
 
-    --font-size-l-1: clamp(calc(4.236em * 0.6), 12vw, 4.236em);
+    --font-size-l-1: clamp(calc(4.236em * 0.6), 10vw, 4.236em);
     --font-size-l-1-line-height: 1.15;
 
     --font-size-l-2: clamp(calc(6.854em * 0.7), 13.5vw, 6.854em);;
@@ -537,7 +533,6 @@ a {
     </div>
 
 */
-/* Ideally, once gap is supported */
 .o-hero-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -565,12 +560,14 @@ a {
         padding-inline-start: var(--spacing-l);
     }
 }
+/* GROUP OBJECTS / FRAMEWORK / (NON CORE) / HERO BUTTONS { / BUTTON HERO} / SPACING
+=================================================== */
+.o-hero-buttons .c-btn {
+    /* Since spacing is now controlled with flex */
+    margin-block-end: 0;
+}
 /* GROUP OBJECTS / FRAMEWORK / (NON CORE) / HERO BUTTONS { / BUTTON HERO} / SPACING MODIFICATIONS
 =================================================== */
-.o-slide .o-hero-buttons {
-    padding-inline: 0;
-}
-
 .o-hero-buttons + h2 {
     padding-block-start: var(--spacing-s);
 }
@@ -1217,7 +1214,7 @@ h2 + .o-hero-buttons {
 /* GROUP UTILTIES / FRAMEWORK / (NON CORE)
 =================================================== */
 /* For when something is revealed with JS, but if JS is not available show it */
-.js .js__u-js-hide {
+.js .u-js-hide {
     display: none;
 }
 

@@ -46,9 +46,26 @@ for(i;i < nav_links.length; i++){
 /* HTML Example...
 
 */
+// Using data attributes
+
+// ```js
+// Array.from(document.querySelectorAll('[data-js="show-more-trigger"]') || []).forEach(element => {
+//     element.onclick = function(){
+//         document.querySelector('[data-js="show-more-target"]').toggleAttribute('data-js-yes');
+//     }
+// });
+// ```
+
+// Then CSS...
+// ```css
+// .js [data-js="show-more-target"][data-js-yes] {
+//     display: block;
+// }
+// ```
+
 // Array.from(document.querySelectorAll('.js__activateSomething') || []).forEach(element => {
 //     element.onclick = function(){
-//         // Maybe this
+//         // Or maybe this
 //         document.querySelector('html').classList.toggle('js--somethingIsOpen');
 //         // Or maybe this
 //         element.classList.toggle('qa-test');

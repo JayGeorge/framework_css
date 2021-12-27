@@ -523,10 +523,16 @@ nav li {
     position: relative;
 }
 
+nav li a {
+    /* Needed to better vertically align */
+    display: flex;
+}
+
 
 
 /* GROUP ELEMENTS / FRAMEWORK / SVGs
 =================================================== */
+/* purgecss start ignore */
 /* https://twitter.com/andybelldesign/status/1098915626050117633 */
 :is([src*="svg"], svg) {
     width: 1em;
@@ -572,7 +578,7 @@ a > svg:last-child:not(:first-child) {
 .c-btn svg {
     font-size: 1.1em;
 }
-
+/* purgecss end ignore */
 
 
 
@@ -698,6 +704,7 @@ a:hover {
 
     - Use to introduce hero-like text, occupying most of the screen vertically
 	- Uses a background-image rather than absolutely positioning an img with object-fit, which makes it less hacky
+    - Disadvantage is that you can't natively lazy-load images
 
 */
 /* HTML Example...
@@ -708,6 +715,35 @@ a:hover {
             <p>Or paragraph</p>
         </div>
         some other components
+    </div>
+
+*/
+/* Statamic Example...
+
+    Here we use the filename to create a CSS ID for the inline stylesheet to target.
+
+    _head.antlers.html...
+
+    {{# Inline dynamic CSS for .c-slide--with-background component #}}
+    {{ background_image }}
+    <style>
+        #{{ background_image:filename }}.c-slide--with-background {
+            background-image: url("{{ glide:url width='375' dpr='2' quality='80' }}");
+        }
+        @media (min-width: 1500px) {
+            #{{ background_image:filename }}.c-slide--with-background {
+                background-image: url("{{ glide:url width='1680' dpr='2' quality='80' }}");
+            }
+        }
+    </style>
+    {{ /background_image }}
+
+    _yourtemplatefile.antlers.html...
+
+    <div id="{{ background_image:filename }}" class="c-slide c-slide--with-background c-slide--with-vertically-centered-first-element">
+        <div class="c-slide__hero-text">
+            <h2>An independent, full-service agency providing strategic consultancy for <em>luxury</em><br/> & premium brands.</h2>
+        </div>
     </div>
 
 */
@@ -727,6 +763,11 @@ a:hover {
 .c-slide__hero-text {
     max-width: var(--max-width-2);
     margin-inline: auto;
+}
+
+.c-slide--with-background > * {
+    position: relative;
+    z-index: var(--z-index-above-body);
 }
 
 .c-slide__hero-text :where(h1, h2, h3) {
@@ -749,7 +790,9 @@ a:hover {
 
 .c-slide--with-vertically-centered-first-element .c-slide__hero-text {
     padding-block-start: 50vh;
-    transform: translateY(-25%);
+}
+.c-slide--with-vertically-centered-first-element .c-slide__hero-text > * {
+    transform: translateY(-50%);
 }
 /* GROUP COMPONENTS / FRAMEWORK / SLIDE (WITH OPTIONAL BACKGROUND IMAGE) / DECORATION
 =================================================== */
@@ -802,7 +845,12 @@ button,
 /* Override form background default */
 /* e.g. Components > Framework > Comments */
 [type="submit"] {
-    display: inline-block;
+    /* display: inline-block; */
+    /* e.g. icons in buttons */
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 1rem;
     /* I've found it more stable to use pxls rather than ems. */
     --button-spacing: var(--button-spacing-vertical) var(--button-spacing-horizontal);
     padding: var(--button-spacing);

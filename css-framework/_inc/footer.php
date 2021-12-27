@@ -3,7 +3,9 @@
     <?php $filename = 'temp'; include '_inc/_stylesheet.php'; ?>
     <nav class="nav--centered o-nav-flex">
         <ul>
-            <?php $nav_name = 'About us'; include '_inc/nav-links.php'; ?>
+            <?php
+                $nav_name = 'About us'; include '_inc/nav-links.php';
+            ?>
         </ul>
     </nav>
 </footer>
