@@ -319,6 +319,10 @@ p {
     padding-block-end: var(--spacing-s-1);
 }
 
+p:last-child {
+    padding-block-end: 0;
+}
+
 p,
 ol,
 ul {
@@ -841,7 +845,7 @@ should be...
 /* For when you add a button with JS and it doesn't have an anchor */
 .js--btn,
 /* Components > Framework > Nav */
-button,
+button.c-btn,
 /* Override form background default */
 /* e.g. Components > Framework > Comments */
 [type="submit"] {
@@ -991,7 +995,7 @@ button.c-btn--2,
 
 /* GROUP COMPONENTS / FRAMEWORK / NAV / CURRENT PAGE
 =================================================== */
-.current-menu-item > a span {
+.c-current-menu-item > a span {
     color: var(--colour-turquoise);
 }
 

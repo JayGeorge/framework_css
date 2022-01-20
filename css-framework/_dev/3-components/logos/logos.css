@@ -59,7 +59,7 @@
     max-height: 3.35rem;
 }
 
-/* You can then tweak logos like this */
+/* You can then target and tweak logos like this */
 .c-logos [src*="bbc"] {
     /* Decrease */
     max-height: 2.4rem;

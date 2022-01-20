@@ -1,0 +1,114 @@
+/* GROUP COMPONENTS / ALPINE / MODAL
+=================================================== */
+/* Notes...
+
+	- https://alpinejs.dev/pattern/modal
+    - You need both core and the Trap plugin - https://alpinejs.dev/plugins/trap
+
+*/
+/* HTML Example...
+
+    <div class="o-hero-buttons">
+        <div x-data="{ open: false }">
+            <!-- Button -->
+            <button @click="open = true" type="button" class="c-btn c-btn--1">
+                <span>+</span> Add to Calendar
+            </button>
+
+            <!-- Modal -->
+            <div
+                x-show="open"
+                @keydown.escape.prevent.stop="open = false"
+                role="dialog"
+                aria-modal="true"
+                x-id="['modal-title']"
+                :aria-labelledby="$id('modal-title')"
+                class="c-alpine-modal"
+            >
+                <!-- Overlay -->
+                <div x-show="open" x-transition.opacity class="c-alpine-modal__overlay"></div>
+
+                <!-- Panel -->
+                <div
+                    x-show="open" x-transition
+                    @click="open = false"
+                    class="c-alpine-modal__panel"
+                >
+                    <div
+                        @click.stop
+                        x-trap.noscroll.inert="open"
+                        class="c-alpine-modal__panel__inner"
+                    >
+                        <!-- Title -->
+                        <h2 :id="$id('modal-title')">Confirm</h2>
+                        <!-- Content -->
+                        <p>Are you sure you want to learn how to create an awesome modal?</p>
+                        <!-- Buttons -->
+                        <div class="c-alpine-modal__buttons">
+                            <button type="button" @click="open = false" class="c-btn">
+                                Confirm
+                            </button>
+                            <button type="button" @click="open = false" class="c-btn">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+*/
+/* GROUP COMPONENTS / ALPINE / MODAL / LAYOUT
+=================================================== */
+.c-alpine-modal {
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+}
+
+.c-alpine-modal__overlay {
+    position: fixed;
+    inset: 0;
+}
+
+.c-alpine-modal__panel {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.c-alpine-modal__panel__inner {
+    position: relative;
+    overflow-y: auto;
+    width: 100%;
+    max-width: var(--max-width-reading);
+}
+
+.c-alpine-modal__buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-m);
+}
+/* GROUP COMPONENTS / ALPINE / MODAL / SPACING
+=================================================== */
+.c-alpine-modal__panel {
+    padding: 1rem;
+}
+
+.c-alpine-modal__panel__inner {
+    padding: 2rem;
+}
+/* GROUP COMPONENTS / ALPINE / MODAL / DECORATION
+=================================================== */
+.c-alpine-modal__overlay {
+    background: hsl(0deg 0% 0% / 50%);
+}
+
+.c-alpine-modal__panel__inner {
+    background: white;
+    border: 1px solid black;
+}

@@ -46,4 +46,18 @@
         // Don't index unless we're in production
         echo '<meta name="robots" content="noindex, nofollow">';
     } ?>
+
+    <?php /* GROUP FAVICONS
+    =================================================== */ ?>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png?v=ng92BNYyPs">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png?v=ng92BNYyPs">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png?v=ng92BNYyPs">
+    <link rel="manifest" href="/favicons/site.webmanifest?v=ng92BNYyPs">
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg?v=ng92BNYyPs" color="#000000">
+    <link rel="shortcut icon" href="/favicons/favicon.ico?v=ng92BNYyPs">
+    <meta name="apple-mobile-web-app-title" content="Jay George Web Design">
+    <meta name="application-name" content="Jay George Web Design">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml?v=ng92BNYyPs">
+    <meta name="theme-color" content="#000000">
 </head>
