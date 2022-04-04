@@ -865,6 +865,8 @@ h2 + .o-hero-buttons {
     font-size: 1.7em;
     /* Make sure it's dead center */
     line-height: 0;
+
+    cursor: pointer;
 }
 
 /* Optional, if you want to include both an icon and text */
@@ -895,6 +897,7 @@ h2 + .o-hero-buttons {
 }
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / CLOSED STATE
 =================================================== */
+/* purgecss start ignore */
 /* If we have JS then this is hidden until toggled open. The menu appears on larger screens */
 /* for nav.js__collapsedUntilNavOpened */
 .js .js__collapsedUntilNavOpened {
@@ -1026,6 +1029,7 @@ h2 + .o-hero-buttons {
 .js--navIsOpen .c-nav-line--4 {
     opacity: 0;
 }
+/* purgecss end ignore */
 
 
 

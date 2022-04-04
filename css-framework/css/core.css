@@ -37,9 +37,9 @@
     --spacing-l-2: min(11.5vw, 4.2rem);
     --spacing-l-2-horizontal: min(7vw, 4.2rem);
     /* Smaller value for mobile */
-    --spacing-l-3: min(13vw, 4.7rem);
+    --spacing-l-3: min(20vw, 4.7rem);
     --spacing-l-3-horizontal: var(--spacing-l-1);
-    --spacing-l-4: min(15vw, 7rem);
+    --spacing-l-4: min(22vw, 7rem);
     --spacing-l-4-static: 7rem;
     /* or */
     /* --spacing-l-4: min(25vw, 9.5rem); */
@@ -67,6 +67,8 @@
     --colour-purple: hsl(254deg 66% 67%);
     --colour-purple-hsl: 254deg 66% 67%;
     --colour-purple-hue: 254deg 66%;
+    --colour-purple-1: hsl(254deg 66% 77%);
+    --colour-purple-2: hsl(254deg 66% 87%);
 
     --colour-purple-light: hsl(var(--colour-purple-hue) 93%);
     --colour-purple-transparent: hsl(var(--colour-purple-hsl) / 85%);
@@ -94,7 +96,9 @@
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
     =================================================== */
     /* Optimise line-height for reading */
+    /* purgecss start ignore */
     --font-size-reading-line-height: 1.5;
+    /* purgecss end ignore */
 
     --font-size-s-x-x: 0.707em;
 
@@ -166,12 +170,15 @@
 - See Targeting DPI in my wiki for more info
 
 */
+/* --mq-root-variable-adjustments-smaller-laptops-after to --mq-root-variable-adjustments-larger-laptops-before */
 @media (min-width: 1025px) and (max-width: 1440px) {
     :root {
+        /* purgecss start ignore */
         /* Decrease */
         --font-bump: -0.09em;
         /* and possibly... */
         /* --font-size-l-4: calc(9.313em + 0.75em)!important; */
+        /* purgecss end ignore */
     }
 }
 /* --mq-text-bump-1-after */
@@ -249,7 +256,7 @@ html {
     font-size: calc(1em + var(--font-bump));
     /* Opinion on this will differ depending on the font you choose. Do not carpet bomb line height with a * selector though */
     line-height: 1.5;
-    /* Https://web.dev/accent-color/ */
+    /* https://web.dev/accent-color/ */
     accent-color: hotpink;
 }
 
@@ -350,24 +357,15 @@ strong {
 
 /* GROUP ELEMENTS / FRAMEWORK / HEADINGS
 =================================================== */
-h1,
-.h1,
-h1 a,
-.h1 a,
-h2,
-.h2,
-h2 a,
-.h2 a,
-h3,
-.h3,
-h3 a,
-.h3 a {
+/* purgecss start ignore */
+:where(h1, .h1, h1 a, .h1 a, h2, .h2, h2 a, .h2 a, h3, .h3, h3 a, .h3 a) {
     font-family: var(--font-family-headline);
     font-style: var(--font-family-headline-style-1);
     font-weight: var(--font-family-headline-weight-normal);
     /* https://app.typographychecklist.com/ 91 - Use discretionary ligatures and swashes in headlines */
     font-feature-settings: "kern", "liga", "clig", "calt", "dlig", "swsh";
 }
+/* purgecss end ignore */
 
 h4,
 .h4,
@@ -380,6 +378,7 @@ h4 a,
 
 /* --- */
 
+/* purgecss start ignore */
 h1,
 .h1 {
     font-size: var(--font-size-l);
@@ -397,6 +396,7 @@ h3,
     font-size: var(--font-size-s-2);
     line-height: var(--font-size-s-2-line-height);
 }
+/* purgecss end ignore */
 
 h4,
 .h4 {
@@ -417,6 +417,7 @@ h6,
 }
 /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / HIGH PRIORITY / VERTICAL SPACING
 =================================================== */
+/* purgecss start ignore */
 h1,
 .h1,
 h2,
@@ -436,9 +437,13 @@ article + article {
 }
 /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / LOW PRIORITY / VERTICAL SPACING
 =================================================== */
-h3,
-.h3 {
+:where(h3, .h3) {
     padding-block-end: var(--spacing-s-x);
+}
+
+* > h2,
+* > .h2 {
+    padding-block-start: var(--spacing-m);
 }
 
 h4,
@@ -453,8 +458,8 @@ h6,
 * + h3,
 * + .h3,
 /* e.g. p followed by a div followed by an h3 */
-* > h3,
-* > .h3,
+* > h3:not(:first-child),
+* > .h3:not(:first-child),
 * + h4,
 * + .h4,
 /* e.g. p followed by a div followed by an h4 */
@@ -476,7 +481,7 @@ h2 + h3,
 hr + * {
     padding-block-start: 0;
 }
-
+/* purgecss end ignore */
 
 
 
@@ -499,7 +504,6 @@ main > *:last-child {
 
 /* GROUP ELEMENTS / FRAMEWORK / NAV
 =================================================== */
-/* Based on default WordPress theme CSS, but modified to improve accessibility */
 nav {
     clear: both;
     display: block;
@@ -561,20 +565,20 @@ nav li a {
     </div>
 
 */
-a > svg:first-child:not(:last-child) {
+a > :is(svg, [src*=".svg"]):first-child:not(:last-child) {
     margin-right: var(--spacing-s-2);
 }
 
-a > svg:last-child:not(:first-child) {
+a > :is(svg, [src*=".svg"]):last-child:not(:first-child) {
     margin-left: var(--spacing-s-2);
     margin-right: 0;
 }
 
-.c-btn a > svg:first-child:not(:last-child) {
+.c-btn a > :is(svg, [src*=".svg"]):first-child:not(:last-child) {
     margin-right: var(--spacing-s);
 }
 
-.c-btn a > svg:last-child:not(:first-child) {
+.c-btn a > :is(svg, [src*=".svg"]):last-child:not(:first-child) {
     margin-left: var(--spacing-s);
     margin-right: 0;
 }
@@ -610,6 +614,7 @@ button {
 }
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS
 =================================================== */
+/* purgecss start ignore */
 /* .u-link-style-custom-1:focus a, */
 a:focus,
 .c-nav-mobile-button:focus svg,
@@ -655,6 +660,7 @@ https://twitter.com/LeaVerou/status/1045836563505188867 */
 :focus:not(:focus-visible) * {
     outline: none!important;
 }
+/* purgecss end ignore */
 
 /* Temp until Safari supports focus-visible, targeting touch devices. This is stinky code so don't include it by default, and remove it when Safari supposts focus-visible */
 /* @media (hover: none) {
@@ -662,7 +668,6 @@ https://twitter.com/LeaVerou/status/1045836563505188867 */
         outline: none!important;
     }
 } */
-/* purgecss end ignore */
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / HOVER
 =================================================== */
 a:hover {
@@ -679,14 +684,16 @@ a:hover {
 .u-link-style-custom-1:hover a {
     color: var(--colour-grey-reading);
 }
+/* purgecss end ignore */
 
 
 
 
 /* GROUP COMPONENTS / FRAMEWORK / SKIP LINKS
 =================================================== */
+/* purgecss start ignore */
 /* .u-screen-reader*/
-.skip-to-content:focus {
+.c-skip-to-content:focus {
     position: fixed!important;
     z-index: 1;
     top: 0;
@@ -698,6 +705,7 @@ a:hover {
     /* Looks better on Skip to Content */
     text-underline-position: auto;
 }
+/* purgecss end ignore */
 
 
 
@@ -826,6 +834,7 @@ a:hover {
 
 /* GROUP COMPONENTS / FRAMEWORK / BUTTONS
 =================================================== */
+/* purgecss start ignore */
 /* Notes...
 
     Wrap the .c-btn around the a href instead of the other way around because this is the most valid HTML.
@@ -913,6 +922,7 @@ button {
 button svg {
     font-size: 1.3em;
 }
+/* purgecss end ignore */
 /* GROUP COMPONENTS / FRAMEWORK / BUTTONS / TYPES
 =================================================== */
 /* 1 */
@@ -1039,6 +1049,7 @@ button.c-btn--2,
 */
 /* GROUP SCOPE / FRAMEWORK / ENTRY / ENTRY CONTENT / LAYOUT
 =================================================== */
+/* purgecss start ignore */
 .s-entry-content {
     max-width: var(--max-width-reading);
 }
@@ -1103,6 +1114,7 @@ button.c-btn--2,
 /* .s-entry-content figure {
     
 } */
+/* purgecss end ignore */
 
 
 

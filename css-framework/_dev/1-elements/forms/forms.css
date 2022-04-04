@@ -21,6 +21,7 @@
 [type="url"],
 [type="tel"],
 [type="search"],
+[type="file"],
 textarea {
     vertical-align: top;
     /* box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1); */
@@ -33,12 +34,12 @@ textarea {
     line-height: 1.45;
     border-radius: 2px;
 }
-/* purgecss end ignore */
 
-[placeholder],
-::-webkit-input-placeholder {
-    font-size: 0.95rem;
+[type="file"] {
+    padding-inline-start: 0;
+    border: 0!important;
 }
+/* purgecss end ignore */
 
 label {
     /* Fixed */
@@ -132,11 +133,24 @@ input + .c-form__notes {
     border: 0;
 }
 
+.c-form__fieldset.js__form--hide-labels-until-focused {
+    /* Decrease to account for hidden labels at the top */
+    padding-block-start: var(--spacing-s-1);
+}
+
 /* Exceptions */
 .c-form [type="checkbox"],
 .c-form [type="radio"] {
     margin-bottom: 0;
 }
+
+/* purgecss start ignore */
+.maple,
+/* The <br/> is inserted by Statamic to break lines. We don't want this to take up extra space */
+.c-form__checkbox-group br {
+    display: none;
+}
+/* purgecss end ignore */
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / (MODIFIERS)
 =================================================== */
 .c-form--wide {
@@ -218,7 +232,7 @@ input + .c-form__notes {
 
     <div class="c-form-wrapper"> <-- (Optional). Used to adding padding on smaller MQs
         <form>
-            <div class="c-form-cols">
+            <div class="c-form-cols"> <-- or just c-form-rows if you just want a vertically stacked form
                 <div class="c-form-cols__col">
                     <input/>
                 </div>
@@ -238,6 +252,23 @@ input + .c-form__notes {
     .c-form-cols__col--full-width <-- span the whole column e.g. Message
 
 */
+
+/* if you just want a vertically stacked form */
+.c-form-rows {
+    display: grid;
+    gap: var(--spacing-l);
+}
+
+.c-form-rows input {
+    margin-block-end: 0;
+}
+
+/* When you want the submit button to span 100% */
+/* <button class="c-btn-row" type="submit">Submit</button> */
+.c-btn-row {
+    width: 100%;
+    text-align: center;
+}
 
 .c-form-cols {
     display: grid;
@@ -271,10 +302,15 @@ input + .c-form__notes {
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / SPACING
 =================================================== */
+/* purgecss start ignore */
 /* (Optional). Used to adding padding on smaller MQs */
 .c-form-wrapper {
     padding-inline-start: var(--spacing-s);
     padding-inline-end: var(--spacing-s);
+}
+
+.c-form-rows {
+    padding-block-end: var(--spacing-l-2);
 }
 
 .c-form__notes {
@@ -311,6 +347,7 @@ label {
     /* e.g. >> /blog/readability-test/ */
     margin-top: var(--spacing-s);
 }
+/* purgecss end ignore */
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / BUTTONS
 =================================================== */
 /* Notes...
@@ -347,17 +384,38 @@ label {
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / DECORATION
 =================================================== */
 /* Override normalize */
+/* purgecss start ignore */
+[placeholder],
 ::-webkit-input-placeholder,
 ::placeholder {
     color: inherit;
     opacity: 0.54;
+    /* =JFG. "search this website". This needs to be rem
+    because sometimes the search form gets embedded in .s-entry-content which could be 1.1em.
+    We don't want the placeholder font size getting too big. */
+    font-size: 1.25rem;
 }
-/* Optional override of normalize button reset */
-/*button {
-    @apply --t-text-style-1;
-}*/
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / DECORATION
-=================================================== */
+
+/* Small is output with instructions e.g.
+
+<label>{{ display }}</label>
+{{ field }}
+{{ instructions ?= '<small>{ instructions }</small>' }}
+{{ if error }}
+    <p class="c-form-error">{{ error }}</p>
+{{ /if }}
+
+*/
+.c-form small {
+    display: block;
+    padding-block-start: var(--spacing-s);
+    font-size: 0.9em;
+    text-transform: uppercase;
+    font-family: var(--font-family-main);
+    color: hsl(0deg 0% 0% / 50%);
+}
+/* purgecss end ignore */
+
 .c-form-error {
     display: inline-block;
     padding-block-end: var(--spacing-s-x);
@@ -444,7 +502,7 @@ textarea {
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION / STYLE 3
 =================================================== */
 /* =JFG. https://dribbble.com/shots/267632-Personal-Info?list=searches&tag=form_input&offset=6 */
-.s-input-style--3 input {
+.s-input-style--3 input:not([type="radio"]) {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow:
@@ -472,7 +530,7 @@ textarea {
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION / STYLE 6
 =================================================== */
-.s-input-style--6 input {
+.s-input-style--6 input:not([type="radio"]) {
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 5px rgba(0,0,0,0.1);
@@ -539,14 +597,27 @@ textarea {
 
 */
 
+/* Alternative classes...
+
+    - Use js__form--hide-labels-until-focused__always-show to always show a label. You probably want to do this on radios and checkboxes since they have multiple labels
+
+*/
+/* purgecss start ignore */
 .js .js__form--hide-labels-until-focused label {
     /* Fast out, Slow in */
     transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
     opacity: 0;
 }
 
-.js .js__form--hide-labels-until-focused__label-unhidden label {
+.js .js__form--hide-labels-until-focused__label-unhidden label,
+.js .js__form--hide-labels-until-focused__always-show label{
     opacity: 1;
+}
+
+.js .js__form--hide-labels-until-focused__always-show label:first-child {
+    /* Make up for the labels which other fields don't have */
+    padding-block-start: var(--spacing-l-1);
+    padding-block-end: var(--spacing-m);
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / LABELS HIDDEN UNTIL FOCUSED / SPACING
 =================================================== */
@@ -554,3 +625,4 @@ textarea {
     /* Decrease */
     margin-bottom: var(--spacing-s);
 }
+/* purgecss end ignore */

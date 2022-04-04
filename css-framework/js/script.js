@@ -71,3 +71,45 @@ for(i;i < nav_links.length; i++){
 //         element.classList.toggle('qa-test');
 //     }
 // });
+
+
+
+
+/* GROUP SCROLL TRIGGER WITH INTERSECTION OBSERVER
+=================================================== */
+/* Simple Intersection Observer to for scroll-triggered animations. See my 'JavaScript.txt > IO Framework' in my wiki for more info */
+/* HTML Example...
+    <div data-io>
+    </div>
+*/
+/* CSS Control using data attributes...
+    <div data-io data-io-delay="0.25">
+    </div>
+
+    [data-io-delay="0.25"] {
+        animation-delay: 0.25s;
+    }
+*/
+function jfg_intersectionObserver() {
+    const observe_target = document.querySelectorAll('[data-io]');
+
+    const options = {
+        threshold: [0.25]
+    }
+
+    var my_observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.intersectionRatio > 0) {
+                entry.target.setAttribute('data-io-seen', '');
+            }
+        });
+    }, {
+        options
+    });
+
+    observe_target.forEach(entry => {
+        my_observer.observe(entry);
+    });
+}
+
+jfg_intersectionObserver();

@@ -1,0 +1,26 @@
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / OPEN STATE / SVG ANIMATIONS
+=================================================== */
+.c-nav-line {
+    transition: 0.25s ease-in-out;
+    transform-origin: center;
+}
+
+.js--navIsOpen .c-nav-line--1 {
+    transform: rotate(45deg);
+}
+
+.js--navIsOpen .c-nav-line--1,
+.js--navIsOpen .c-nav-line--2 {
+    opacity: 1;
+}
+
+.js--navIsOpen .c-nav-line--2 {
+    transform: rotate(-45deg) translate(-0.5px);
+}
+
+.c-nav-line--1,
+.c-nav-line--2,
+.js--navIsOpen .c-nav-line--3,
+.js--navIsOpen .c-nav-line--4 {
+    opacity: 0;
+}
