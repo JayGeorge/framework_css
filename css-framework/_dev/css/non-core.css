@@ -607,7 +607,7 @@ h2 + .o-hero-buttons {
 
 
 
-/* GROUP DECORATION / FRAMEWORK / (NON CORE) / OTHER
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / DECORATIONAL
 =================================================== */
 /* Utility-like classes that are tied to a specific piece of UI */
 /* e.g.
@@ -834,7 +834,7 @@ h2 + .o-hero-buttons {
 =================================================== */
 /* Ancestors and Parents of Current Page */
 /* nav */
-.current-menu-ancestor > a span {
+.c-current-menu-ancestor > a span {
     color: rgba(var(--colour-turquoise-rgb),0.5);
 }
 

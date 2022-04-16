@@ -28,9 +28,10 @@
 
     <?php /* GROUP WEB FONTS
     =================================================== */ ?>
-    <?php /* Highest priority because render blocking. If we put the stylesheet at the very top we do not need to use preload. */ ?>
+    <?php /* Highest priority because render blocking. An additional preload improves the Lighthouse score. */ ?>
     <?php /* Typekit */ ?>
-    <!-- <link rel="stylesheet" href="https://use.typekit.net/dsl0psv.css"> -->
+    <!-- <link rel="preload" href="https://use.typekit.net/orn0fry.css" as="font" crossorigin> -->
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/orn0fry.css"> -->
 
     <!-- OR -->
 
