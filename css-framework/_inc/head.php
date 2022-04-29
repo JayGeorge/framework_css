@@ -21,6 +21,9 @@
         document.querySelector('html').classList.remove('no-js');
         // document.querySelector('html').classList.add('js');
         document.querySelector('html').setAttribute('data-js-enabled', '');
+        window.addEventListener('load', function(){
+            document.querySelector('html').setAttribute('data-js', 'document-loaded');
+        });
     </script>
     <?php
         // $filename = 'script'; include '_inc/_script.php';

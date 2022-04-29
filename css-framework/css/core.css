@@ -691,6 +691,18 @@ a:hover {
 
 
 
+/* GROUP OBJECTS / FRAMEWORK / GSAP
+=================================================== */
+/* Need the JS in the <head> in my framework for this to work */
+/* purgecss ignore */
+.js:not([data-js="document-loaded"]) [data-gsap="split-text"] {
+    /* Hide split text elements until the document is loaded and we can successfully animate them witout any issues as per https://greensock.com/forums/topic/17049-split-text-before-font-render-issue */
+    opacity: 0;
+}
+
+
+
+
 /* GROUP COMPONENTS / FRAMEWORK / SKIP LINKS
 =================================================== */
 /* purgecss start ignore */
