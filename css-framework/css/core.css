@@ -43,9 +43,9 @@
     --spacing-l-4-static: 7rem;
     /* or */
     /* --spacing-l-4: min(25vw, 9.5rem); */
-
-    --spacing-vh-s: min(18vw, 15vh);
-    --spacing-vh-m: 25vh;
+    
+    --spacing-vh-s: min(20vw, 15vh);
+    --spacing-vh-m: min(22vw, 25vh;
 
     --button-spacing-vertical: 1rem;
     --button-spacing-horizontal: 1.5rem;
@@ -360,7 +360,7 @@ strong {
 /* GROUP ELEMENTS / FRAMEWORK / HEADINGS
 =================================================== */
 /* purgecss start ignore */
-:where(h1, .h1, h1 a, .h1 a, h2, .h2, h2 a, .h2 a, h3, .h3, h3 a, .h3 a) {
+h1, .h1, h1 a, .h1 a, h2, .h2, h2 a, .h2 a, h3, .h3, h3 a, .h3 a {
     font-family: var(--font-family-headline);
     font-style: var(--font-family-headline-style-1);
     font-weight: var(--font-family-headline-weight-normal);
@@ -543,7 +543,6 @@ nav li a {
 /* GROUP ELEMENTS / FRAMEWORK / SVGs
 =================================================== */
 /* purgecss start ignore */
-/* https://twitter.com/andybelldesign/status/1098915626050117633 */
 :where([src*="svg"], svg) {
     width: 1em;
     height: 1em;

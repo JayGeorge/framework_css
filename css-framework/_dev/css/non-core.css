@@ -136,7 +136,7 @@
     --font-size-l-1: clamp(calc(4.236em * 0.6), 10vw, 4.236em);
     --font-size-l-1-line-height: 1.15;
 
-    --font-size-l-2: clamp(calc(6.854em * 0.7), 13.5vw, 6.854em);;
+    --font-size-l-2: clamp(calc(6.854em * 0.7), 13.5vw, 6.854em);
     --font-size-l-2-line-height: 0.99;
 
     --font-size-l-3: 11.089rem;
@@ -554,7 +554,7 @@ a {
 }
 
 /* --mq-max-width-reading-before */
-@media (max-width: 37em) {
+@media (max-width: 599px) {
     .o-hero-buttons {
         text-align: left;
         padding-inline-start: var(--spacing-l);

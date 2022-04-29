@@ -37,6 +37,12 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .js-loading *::after {
     animation-play-state: paused!important;
 }
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION
+=================================================== */
+/* Default */
+[class*="u-animated"] {
+    animation-fill-mode: both;
+}
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / LENGTH
 =================================================== */
 /* Molecules > (Non Core) > Modal */
@@ -92,7 +98,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     }
 }
 
-.u-animated--fade-in {
+.u-animated-fade-in {
     animation-name: fade-in;
 }
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE IN UP
@@ -110,7 +116,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 }
 
 /* Molecules > (Non Core) > Modal */
-.u-animated--fade-in-up {
+.u-animated-fade-in-up {
     animation-name: fade-in-up;
 }
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE IN UP BIG
@@ -129,7 +135,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     }
 }
 
-/* .u-animated--fade-in-up-big, */
+/* .u-animated-fade-in-up-big, */
 /* Molecules > (Non Core) > Modal > jQuery (Archive) */
 .o-modal-box--demo {
     animation-name: fade-in-up-big;
@@ -194,7 +200,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     }
 }
 
-/* .u-animated--fade-in-down-big, */
+/* .u-animated-fade-in-down-big, */
 /* Molecules > (Non Core) > Modal > jQuery (Archive) */
 .o-modal-box--demo {
     animation-name: fade-in-down-big;
@@ -212,7 +218,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     }
 }
 
-.u-animated--fade-out {
+.u-animated-fade-out {
     animation-name: fade-out;
     /* Out quadratic */
     animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -230,7 +236,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     }
 }
 
-.u-animated--slide-out-down,
+.u-animated-slide-out-down,
 /* Molecules > (Non Core) > Reveal > Reveal on Click */
 .js .js__reveal-on__target .js__reveal-on__content,
 /* Molecules > (Non Core) > Reveal > Reveal on Hover */
@@ -254,7 +260,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     }
 }
 /* We have to get a bit more specific to keep this module neat */
-.u-animated--slide-in-up,
+.u-animated-slide-in-up,
 /* Molecules > (Non Core) > Reveal > Reveal on Click */
 .js .js--js__reveal-on__target--clicked .js__reveal-on__content,
 /* Molecules > (Non Core) > Reveal > Reveal on Hover */
@@ -281,7 +287,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     }
 }
 
-.u-animated--slide-up-and-fade-in {
+.u-animated-slide-up-and-fade-in {
     animation-name: slide-up-and-fade-in;
 }
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE RIGHT AND FADE IN
@@ -301,7 +307,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     }
 }
 
-.u-animated--slide-right-and-fade-in {
+.u-animated-slide-right-and-fade-in {
     animation-name: slide-right-and-fade-in;
 }
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE IN LEFT
@@ -317,7 +323,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         transform: translateX(0%);
     }
 }
-.u-animated--slide-in-left {
+.u-animated-slide-in-left {
     animation-name: slide-in-left;
 }
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE OUT RIGHT
@@ -333,7 +339,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     }
 }
 
-.u-animated--slide-out-right {
+.u-animated-slide-out-right {
     animation-name: slide-out-right;
 }
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / STRIKE-THROUGH / {STRIKETHROUGH}
@@ -347,7 +353,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 	}
 }
 
-.u-animated--strike-through {
+.u-animated-strike-through {
     border: 1px solid white;
 
     transform-origin: center left;
@@ -405,7 +411,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     }
 }
 
-.u-animated--bounce {
+.u-animated-bounce {
     animation: bounce 3s infinite;
 }
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / BOUNCE IN UP
@@ -430,7 +436,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     }
 }
 
-.u-animated--bounce-in-up {
+.u-animated-bounce-in-up {
     animation-duration: 0.5s;
     animation-name: bounce-in-up;
 }
@@ -447,7 +453,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     }
 }
 
-.u-animated--zoom-in {
+.u-animated-zoom-in {
     will-change: transform;
     animation-name: zoom-in;
     animation-duration: 0.5s;
@@ -465,7 +471,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     }
 }
 
-.u-animated--zoom-out {
+.u-animated-zoom-out {
     will-change: transform;
     animation-name: zoom-out;
     animation-duration: 0.5s;
