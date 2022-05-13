@@ -8,16 +8,24 @@
 
 /* HTML Example...
 
-    .c-paging
-        .c-paging__info
+    <div class="c-paging">
+        <div class="c-paging__info">
             "Page 1 of 2"
-        .c-paging__buttons
-            .c-btn.c-btn--pagination(or .c-btn--pagination-single for single posts)
-                a
+        </div>
+        <div class="c-paging__buttons">
+            {{# (or .c-btn--pagination-single for single posts) #}}
+            <div class="c-btn c-btn--pagination">
+                <a href="">
                     Newer
-            .c-btn.c-btn--pagination(or .c-btn--pagination-single for single posts)
-                a
+                </a>
+            </div>
+            <div class="c-btn c-btn--pagination">
+                <a href="">
                     Older
+                </a>
+            </div>
+        </div>
+    </div>
 
 */
 /* GROUP COMPONENTS / PAGINATION / LAYOUT
@@ -45,14 +53,14 @@
     }
 
     /* Center the icons since there is no text */
-    .c-btn--pagination:not(.c-btn--pagination-single) .c-btn__left svg {
+    .c-btn--pagination:not(.c-btn--pagination-single) .c-btn__left :where([src*="svg"], svg) {
         position: relative;
         /* Visually center */
         right: -0.3em;
         margin-right: 0;
     }
 
-    .c-btn--pagination:not(.c-btn--pagination-single) .c-btn__right svg {
+    .c-btn--pagination:not(.c-btn--pagination-single) .c-btn__right :where([src*="svg"], svg) {
         position: relative;
         /* Visually center */
         left: -0.3em;

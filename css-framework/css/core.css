@@ -45,7 +45,7 @@
     /* --spacing-l-4: min(25vw, 9.5rem); */
     
     --spacing-vh-s: min(20vw, 15vh);
-    --spacing-vh-m: min(22vw, 25vh;
+    --spacing-vh-m: min(22vw, 25vh);
 
     --button-spacing-vertical: 1rem;
     --button-spacing-horizontal: 1.5rem;
@@ -584,7 +584,8 @@ a > :is(svg, [src*=".svg"]):last-child:not(:first-child) {
     margin-right: 0;
 }
 
-.c-btn svg {
+button svg,
+.c-btn :where([src*="svg"], svg) {
     font-size: 1.1em;
 }
 /* purgecss end ignore */
@@ -694,7 +695,7 @@ a:hover {
 =================================================== */
 /* Need the JS in the <head> in my framework for this to work */
 /* purgecss ignore */
-.js:not([data-js="document-loaded"]) [data-gsap="split-text"] {
+.js:not([data-js="document-loaded"]) [data-gsap="split-text-immediately"] {
     /* Hide split text elements until the document is loaded and we can successfully animate them witout any issues as per https://greensock.com/forums/topic/17049-split-text-before-font-render-issue */
     opacity: 0;
 }

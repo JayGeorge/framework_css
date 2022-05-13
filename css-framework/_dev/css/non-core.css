@@ -637,7 +637,7 @@ h2 + .o-hero-buttons {
 
 
 
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / BUTTONS / TYPES
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / BUTTONS / TYPES / ANIMATION
 =================================================== */
 /* Left and Right Arrows */
 /* HTML Example...
@@ -1249,6 +1249,18 @@ h2 + .o-hero-buttons {
 /* Use this class when you're intentionally not adding an alt tag e.g. it's a decorational image */
 img.no-alt {
     border: initial;
+}
+
+/* GROUP UTILITIES / LINE CLAMP
+=================================================== */
+/* e.g. <div class="u-line-clamp" style="--clamp: 3;"> */
+.u-line-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    /* Stop padding ruining the clamp */
+    padding-block-end: 0;
+    -webkit-line-clamp: var(--clamp, 2);
 }
 
 /* Notes...
