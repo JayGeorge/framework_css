@@ -645,7 +645,7 @@ h2 + .o-hero-buttons {
     <a href="<perch:blog id="prev_url" encode="false" />" class="btn__left"><svg class="c-jg-icon c-jg-icon--chevron-thin-left c-icon-left"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--chevron-thin-left"></use></svg> Previous</a>
 
 */
-/* Molecules > Pagination > Perch > (Cross Pollinated) */
+/* Molecules > Pagination > (Cross Pollinated) */
 /* a*/
 .c-btn__left svg,
 /* a*/
@@ -656,25 +656,25 @@ h2 + .o-hero-buttons {
     transition: var(--animation-transition-fast);
 }
 
-/* Molecules > Pagination > Perch > (Cross Pollinated) */
+/* Molecules > Pagination > (Cross Pollinated) */
 /* a*/
 .c-btn__left svg {
     right: 0;
 }
 
-/* Molecules > Pagination > Perch > (Cross Pollinated) */
+/* Molecules > Pagination > (Cross Pollinated) */
 /* a*/
 .c-btn__left:hover svg {
     right: 5px;
 }
 
-/* Molecules > Pagination > Perch > (Cross Pollinated) */
+/* Molecules > Pagination > (Cross Pollinated) */
 /* a*/
 .c-btn__right svg {
     left: 0;
 }
 
-/* Molecules > Pagination > Perch > (Cross Pollinated) */
+/* Molecules > Pagination > (Cross Pollinated) */
 /* a*/
 .c-btn__right:hover svg {
     left: 5px;

@@ -145,7 +145,7 @@
     --border-radius-l: 7px;
     /* GROUP VARIABLES -- ANIMATIONS -- TRANSITIONS
     =================================================== */
-    /* Molecules > Pagination > Perch > (Cross Pollinated) */
+    /* Molecules > Pagination > (Cross Pollinated) */
     --animation-transition-fast: all 0.15s ease-in-out 0s;
 }
 /* --mq-root-variable-adjustments-1 */
