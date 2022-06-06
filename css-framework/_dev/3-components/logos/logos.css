@@ -2,6 +2,7 @@
 =================================================== */
 /* Notes...
 
+    - Update 2022-06-01: May wish to revise this in light of **this article** - https://css-irl.info/aspect-ratio-is-great/
     - Crop tightly around the logo, the crop doesn't really matter; flexbox will center them
         + You could start with a logo canvas size of 188 (about 375px / 2) so that the logo images do not need to be resized by the browser on mobile
     - If you are going to greyscale the logos then make them all black vectors (same shade)
