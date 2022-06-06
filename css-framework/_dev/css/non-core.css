@@ -1334,8 +1334,25 @@ img.no-alt {
     position: relative;
 }
 
-.u-panel-white {
+/* Here we attach the panel class directly to the component so that:
+
+    - We can still make use of adjacent selectors to control spacing such as .component + .component without a panel parent getting in the way
+
+*/
+
+/* some-class*/
+.u-panel-white::before {
+    content: "";
+    position: absolute;
+    height: 100%;
     background: white;
+    z-index: -1;
+
+    /* Object > Framework > (Non Core) > Layout > Full Width {Bust Out Of Container} */
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-inline: -50vw;
 }
 
 .u-panel-dark-to-light {
