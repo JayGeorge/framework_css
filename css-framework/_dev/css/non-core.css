@@ -7,6 +7,7 @@
     ===================================================
     - Only edit filename.css, then process with Codekit to output into prod/
     - Class name prefixes are influenced by Namespaces article - http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+        - I would usually drop the .c- namespace since everything is an inferred component unless prefixed otherwise BUT using the c- namespace makes it much easier to search and replace since classes are more unique. A good example is if you wanted to call a class .article. Replacing that would be a nightmare because you'd also run into article elements.
     - Other class name prefixes are based on microformats
     - Class relationships are based on BEM structure
     - Order of CSS influenced by ITCSS - https://twitter.com/itcss_io
@@ -960,17 +961,12 @@ h2 + .o-hero-buttons {
         0% {
             clip-path: inset(0 0 0 0);
         }
-        99% {
+        100% {
             clip-path: inset(0 0 100% 0);
             /* hide so that it doesn't make the .c-site-header tall, thus preventing anything underneath being clicked, even if it's invisible */
-            height: unset;
-            visibility: hidden;
-            overflow: hidden;
-        }
-        100% {
-            visibility: hidden;
-            overflow: hidden;
             height: 0;
+            visibility: hidden;
+            overflow: hidden;
         }
     }
     /* --mq-nav-opens-before */
