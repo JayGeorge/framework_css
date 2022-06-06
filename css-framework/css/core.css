@@ -163,6 +163,14 @@
         --spacing-l-3-horizontal: var(--spacing-l-3);
     }
 }
+/* --mq-root-variable-adjustments-2-portrait */
+@media (min-width: 730px) and (orientation: portrait) {
+    :root {
+        /* e.g. iPad */
+        --spacing-vh-s: 10vh;
+        --spacing-vh-m: 14vh;
+    }
+}
 /* --mq-text-bump-reduce-for-lower-resolution-displays */
 /* Notes...
 
