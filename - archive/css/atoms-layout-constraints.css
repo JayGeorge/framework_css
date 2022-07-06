@@ -126,49 +126,49 @@ Notes...
 
   Dynamic max-width constraints...
 
-  .o-layout-width-max-custom
+  .o-layout-mx-custom
   ------------
   Custom (not object-orientated), intended for use with a descendant selector e.g.
 
   @media (min-width: 81.25em) {
-    .page-template-page-livestores-php .o-layout-width-max-custom {
+    .page-template-page-livestores-php .o-layout-mx-custom {
         max-width: somecustomvalue;
     }
   }
 
   HERE ARE SOME EXAMPLES OF ARBITRARY MAX-WIDTH CONSTRAINTS...
 
-  .o-layout-width-max-reading
+  .o-layout-mx-reading
   ------------
   Based on ease of reading
 
-  .o-layout-width-max-5
+  .o-layout-mx-5
   ------------
   Larger than reading
 
-  .o-layout-width-max-1
+  .o-layout-mx-1
   ------------
   Expands much larger at 1240px
 
-  .o-layout-width-max-2
+  .o-layout-mx-2
   ------------
   Expands out at 1300px
 
-  .o-layout-width-max-3
+  .o-layout-mx-3
   ------------
-  The largest. Has the same constraints as o-layout-width-max-2 up until 1700px
+  The largest. Has the same constraints as o-layout-mx-2 up until 1700px
 
 */
 
-.o-layout-width-max-custom {
-  /* max-width property set in another group e.g. .someclass .o-layout-width-max-custom{max-width: somevalue;} */
+.o-layout-mx-custom {
+  /* max-width property set in another group e.g. .someclass .o-layout-mx-custom{max-width: somevalue;} */
   /* -- */
   margin-right: auto;
   margin-left: auto;
 }
 
 
-.o-layout-width-max-reading,
+.o-layout-mx-reading,
 /* Standard Classes > Wordpress */
 .post-edit-link,
 /* Atoms > Base */
@@ -194,28 +194,28 @@ p,
   margin-left: auto;
 }
 
-.o-layout-width-max-5 {
+.o-layout-mx-5 {
 	max-width: 65rem;
 	/* -- */
 	margin-right: auto;
 	margin-left: auto;
 }
 
-.o-layout-width-max-4 {
+.o-layout-mx-4 {
   max-width: 35rem;
   /* -- */
   margin-right: auto;
   margin-left: auto;
 }
 
-.o-layout-width-max-1 {
+.o-layout-mx-1 {
   max-width: 60rem;
   /* -- */
   margin-right: auto;
   margin-left: auto;
 }
-.o-layout-width-max-2,
-.o-layout-width-max-3 {
+.o-layout-mx-2,
+.o-layout-mx-3 {
   max-width: 70rem;
   /* -- */
   margin-right: auto;
@@ -223,21 +223,21 @@ p,
 }
 /* 1240 + */
 @media (min-width: 77.5em) {
-  .o-layout-width-max-1 {
+  .o-layout-mx-1 {
  
     max-width: 70rem;
   }
 }
 /* 1300 + */
 @media (min-width: 81.25em) {
-  .o-layout-width-max-2 {
+  .o-layout-mx-2 {
  
     max-width: 80rem;
   }
 }
 /* 1400 + */
 @media (min-width: 87.5em) {
- .o-layout-width-max-3 {
+ .o-layout-mx-3 {
  
     max-width: 90rem;
   }

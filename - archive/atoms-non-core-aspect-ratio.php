@@ -17,7 +17,7 @@
 
 </head>
 <body>
-	<div class="o-layout-width-max-reading u-padding-t-l-3">
+	<div class="o-layout-mx-reading u-padding-t-l-3">
 		<div class="o-aspect-ratio o-aspect-ratio--6-10">
 	    <div class="o-aspect-ratio__inner w-4">
 	      <div class="u-center-horizontal-and-vertical">

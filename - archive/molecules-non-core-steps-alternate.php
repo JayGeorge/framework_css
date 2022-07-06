@@ -18,7 +18,7 @@
 </head>
 <body class="u-padding-t-l">
 	<div class="u-layout-row">
-		<div class="c-steps-container c-steps-container--alternate-mq-768-up c-steps-container--round o-layout-width-max-reading">
+		<div class="c-steps-container c-steps-container--alternate-mq-768-up c-steps-container--round o-layout-mx-reading">
 		    <div class="c-steps-container__line"></div>
 		    <div class="c-step-container">
 		        <div class="c-step-container__step u-background-1">1</div>
@@ -30,7 +30,7 @@
 		        </div>
 		    </div> <!-- .c-steps-container__content -->
 	    </div>
-	    <div class="c-steps-container c-steps-container--alternate-mq-768-up c-steps-container--round o-layout-width-max-reading">
+	    <div class="c-steps-container c-steps-container--alternate-mq-768-up c-steps-container--round o-layout-mx-reading">
 	    	<div class="c-steps-container__line"></div>
 		    <div class="c-step-container">
 		        <div class="c-step-container__step u-background-1">2</div>
@@ -42,7 +42,7 @@
 		        </div>
 		    </div> <!-- .c-steps-container__content -->
 	    </div>
-	    <div class="c-steps-container c-steps-container--alternate-mq-768-up c-steps-container--round o-layout-width-max-reading">
+	    <div class="c-steps-container c-steps-container--alternate-mq-768-up c-steps-container--round o-layout-mx-reading">
 		    <div class="c-steps-container__line"></div>
 		    <div class="c-step-container">
 		        <div class="c-step-container__step u-background-1">3</div>

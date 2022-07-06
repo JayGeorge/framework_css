@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="css/atoms-non-core-shapes.css" media="all">
 	
 </head>
-<body class="o-layout-width-l o-layout-width-max-reading u-padding-t-l">
+<body class="o-layout-width-l o-layout-mx-reading u-padding-t-l">
 	<div class="c-testimonial">
 		<div class="c-testimonial__inner">
 			<div class="c-testimonial__inner__item">

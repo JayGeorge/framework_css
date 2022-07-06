@@ -9,7 +9,9 @@
     =================================================== */ ?>
     <title><?php echo $page_title; ?> &middot; Site Name &middot; Replace me</title>
 
-    <?php /* GROUP JAVASCRIPT
+    <?php /* GROUP JAVASCRIPT FRAMEWORKS
+    =================================================== */ ?>
+    <?php /* GROUP CUSTOM JAVASCRIPT
     ===================================================
         - Place all JS at the top of the head - https://csswizardry.com/2018/11/css-and-network-performance
         - All JS should use either async or defer so we can call it before CSS for best performance - https://twitter.com/csswizardry/status/1078374711044788224

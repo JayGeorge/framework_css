@@ -370,21 +370,34 @@ label {
 =================================================== */
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / ALERTS
 =================================================== */
-.c-alert {
-    padding-block-end: var(--spacing-l);
-    padding-block-start: var(--spacing-l);
-    padding-inline-start: var(--spacing-l-1);
-    padding-inline-end: var(--spacing-l-1);
+/* purgecss start ignore */
+.c-form-message {
+    padding: var(--spacing-s) var(--spacing-s-1);
+    border-radius: var(--border-radius-m);
+    margin-block-end: var(--spacing-s-1);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-s);
+    font-family: var(--font-family-system);
+    font-weight: 600;
+    font-size: var(--font-size-s-x-x);
 }
 
-.c-alert--success {
-    background: #ebf5eb;
-    background: #00cd8f;
+.c-form-message--success {
+    /* https://tailwindui.com/components/application-ui/feedback/alerts */
+    /* AA */
+    background: #ecfdf5;
+    color: #218065;
+}
+
+.c-form-message--fail {
+    /* https://tailwindui.com/components/application-ui/feedback/alerts */
+    /* AA */
+    background: #fef2f2;
+    color: #c03233;
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / DECORATION
 =================================================== */
 /* Override normalize */
-/* purgecss start ignore */
 [placeholder],
 ::-webkit-input-placeholder,
 ::placeholder {
@@ -415,13 +428,6 @@ label {
     color: hsl(0deg 0% 0% / 50%);
 }
 /* purgecss end ignore */
-
-.c-form-error {
-    display: inline-block;
-    padding-block-end: var(--spacing-s-x);
-    margin-bottom: var(--spacing-s-1);
-    border-bottom: 2px solid red;
-}
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / DECORATION / BORDERS
 =================================================== */
 input:not([type="submit"]) {

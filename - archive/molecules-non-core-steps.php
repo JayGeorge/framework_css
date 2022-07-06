@@ -16,7 +16,7 @@
 
 </head>
 <body class="u-padding-t-l">
-<div class="c-steps-container o-layout-width-max-reading">
+<div class="c-steps-container o-layout-mx-reading">
     <div class="c-steps-container__line"></div>
     <div class="c-step-container">
         <div class="c-step-container__step u-background-1">1</div>

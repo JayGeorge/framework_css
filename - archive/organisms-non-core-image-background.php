@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="css/organisms-non-core-image-backgrounds.css" media="all">
 	
 </head>
-<body class="o-layout-width-l o-layout-width-max-reading u-padding-t-l">
+<body class="o-layout-width-l o-layout-mx-reading u-padding-t-l">
 	<div class="clients-background clients-background--finance">
 		<div class="clients-background__content u-padding-b-l u-padding-t-l-1">
 			<div class="o-layout-width-l-3">
@@ -30,8 +30,8 @@
 					major announcements</p>
 			</div>
 			<div class="o-layout-width-l-1">
-				<div class="o-layout-width-max-2">
-					<div class="o-layout-grid-flex o-layout-grid-flex--cols-2 o-layout-grid-flex--cols-3-mq-600-up o-layout-grid-flex--cols-4-mq-740-up o-layout-width-max-3 o-layout-grid-flex--gutters-m o-layout-grid-flex--start">
+				<div class="o-layout-mx-2">
+					<div class="o-layout-grid-flex o-layout-grid-flex--cols-2 o-layout-grid-flex--cols-3-mq-600-up o-layout-grid-flex--cols-4-mq-740-up o-layout-mx-3 o-layout-grid-flex--gutters-m o-layout-grid-flex--start">
 						<div class="o-layout-grid-flex__item">
 							<img src="img/standard/cpt/clients/bank-of-ireland-01.png" class="client-logo client-logo--2">
 						</div>

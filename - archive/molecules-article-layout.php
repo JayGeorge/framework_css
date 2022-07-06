@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="css/molecules-article-layout.css" media="all">
 </head>
 <body>
-	<div class="o-layout-width-max-reading u-padding-t-l-1">
+	<div class="o-layout-mx-reading u-padding-t-l-1">
 		<!-- =JFG. need tabindex="-1" to lock the tab focus here when using Skip to Content -->
 		<div id="main" tabindex="-1" role="main">
 			<div class="o-layout-width-l">

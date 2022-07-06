@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="css/atoms-font-icons.css" media="all">
 
 </head>
-<body class="o-layout-width-l o-layout-width-max-reading u-padding-t-l">
+<body class="o-layout-width-l o-layout-mx-reading u-padding-t-l">
 	<div class="o-layout-grid-flex o-layout-grid-flex--cols-2-mq-1024-up o-layout-grid-flex--start o-layout-grid-flex--gutters-m">
 		<div class="o-layout-grid-flex__item o-layout-col-100">
 			<div class="c-careers-card w-4">

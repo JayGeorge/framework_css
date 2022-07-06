@@ -1355,3 +1355,36 @@ img.no-alt {
     --stop: 25%;
     background: linear-gradient(to bottom, var(--colour-black-off) 0%, var(--colour-black-off) var(--stop), var(--colour-grey) var(--stop));
 }
+
+
+
+
+/* GROUP ALPINE COMPONENTS / DROPDOWN
+=================================================== */
+/* Notes...
+
+    - Get rid of the extra div from the Alpine docs example, so that .o-alpine-dropdown-panel is the direct parent of the items
+
+*/
+/* GROUP ALPINE COMPONENTS / DROPDOWN / LAYOUT
+=================================================== */
+.o-alpine-dropdown-panel {
+    position: absolute;
+    overflow: hidden;
+    right: 0;
+    width: 14rem;
+    background: white;
+
+    display: grid;
+    gap: var(--spacing-s-1);
+}
+
+.o-alpine-dropdown-panel__item {
+    display: block;
+}
+/* GROUP ALPINE COMPONENTS / DROPDOWN / SPACING
+=================================================== */
+.o-alpine-dropdown-panel {
+    padding: var(--spacing-s-2) var(--spacing-m);
+    margin-block-start: var(--spacing-s-x);
+}

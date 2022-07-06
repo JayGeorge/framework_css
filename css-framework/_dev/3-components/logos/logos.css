@@ -1,112 +1,60 @@
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / LOGOS
+/* GROUP COMPONENTS / LOGO GRID
 =================================================== */
 /* Notes...
 
-    - Update 2022-06-01: May wish to revise this in light of **this article** - https://css-irl.info/aspect-ratio-is-great/
-    - Crop tightly around the logo, the crop doesn't really matter; flexbox will center them
-        + You could start with a logo canvas size of 188 (about 375px / 2) so that the logo images do not need to be resized by the browser on mobile
-    - If you are going to greyscale the logos then make them all black vectors (same shade)
+	- Based on https://css-irl.info/aspect-ratio-is-great/
 
 */
 /* HTML Example...
 
-    <div class="c-logos">
-        <div class="c-logos__item">
-            <img src="img/logos/google.svg" alt="Google" />
+    <div class="u-width-max-1 u-px-l">
+        <div class="c-logo-grid">
+            <div class="c-logo-grid__item">
+                <img src="https://assets.codepen.io/85648/logo-made-up-company.svg" />
+            </div>
+            <div class="c-logo-grid__item">
+                <img src="https://assets.codepen.io/85648/logo-pie-club.svg" />
+            </div>
+            <div class="c-logo-grid__item">
+                <img src="https://assets.codepen.io/85648/logo-birdwatchers.svg" />
+            </div>
+            <div class="c-logo-grid__item">
+                <img src="https://assets.codepen.io/85648/logo-vitamins.svg" />
+            </div>
+            <div class="c-logo-grid__item">
+                <img src="https://assets.codepen.io/85648/logo-angry-jelly.svg" />
+            </div>
         </div>
     </div>
 
 */
-/* Modifiers...
-
-*/
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / LOGOS / LAYOUT
+/* GROUP COMPONENTS / LOGO GRID / LAYOUT
 =================================================== */
-.c-logos {
-    --column-size: 7.5rem;
+.c-logo-grid {
     display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--column-size)), 1fr));
-    grid-gap: var(--spacing-l-1) var(--spacing-l-2);
+    /* Prevent overflow on screens less than px value */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12em), 1fr));
+    gap: var(--spacing-m);
+}
+
+.c-logo-grid__item {
+    aspect-ratio: 3 / 2;
+}
+
+.c-logo-grid img {
     width: 100%;
+    height: 100%;
 }
-
-.c-logos > * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-basis: 7rem;
-    min-height: 7em;
-}
-
-.c-logos img {
-    width: initial;
-    /* Override default of min-width: 100%; set on imgs */
-    min-width: unset;
-    max-height: 6rem;
-    max-width: 10rem;
-}
-
-.c-logos [src*=".svg"] {
-    min-height: 3rem;
-}
-
-/* You can test the orientation in Statamic like this:
-{{ image }}
-    {{ if height | multiply:1.5 < width }}this image is overwhelmingly landscape{{/if}}
-{{ /image }}
-*/
-.c-logos .c-logo-orientation-landscape {
-    max-height: 3.35rem;
-}
-
-/* You can then target and tweak logos like this */
-.c-logos [src*="bbc"] {
-    /* Decrease */
-    max-height: 2.4rem;
-}
-
-.c-logos div {
-    /* Needed to make SVGs appear (maybe on Safari?) */
-    width: 100%;
-}
-
-/* Custom */
-@media (min-width: 500px) {
-    .c-logos {
-        /* Decrease */
-        --column-size: 6em;
-        /* e.g. >> home -> clients */
-        /* grid-gap: var(--spacing-l-1) var(--spacing-l-4); */
-        /* Custom so that logos fit all the way across */
-        grid-gap: var(--spacing-l) 7.3em;
-    }
-}
-
-/* --mq-text-bump-4-after */
-@media (min-width: 2200px) {
-    .c-logos {
-        max-width: 58rem;
-        grid-gap: 2rem 4rem;
-    }
-
-    .c-logos img {
-        max-height: 6rem;
-        max-width: 6rem;
-    }
-}
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / LOGOS / SPACING
+/* GROUP COMPONENTS / LOGO GRID / SPACING
 =================================================== */
-.c-logos {
-    padding-block-start: var(--spacing-m-2);
-    padding-block-end: var(--spacing-l-4);
+.c-logo-grid__item {
+    padding: var(--spacing-m);
 }
-
-/* Exceptions... */
-/*.c-hero-block__strapline ~ * {*/
-    /* e.g. >> Home */
-    /*padding-block-start: var(--spacing-s-1);*/
-/*}*/
+/* GROUP COMPONENTS / LOGO GRID / DECORATION
+=================================================== */
+.c-logo-grid__item {
+    box-shadow: 0.1rem 0.1rem 0.5rem rgb(0 0 0 / 0.05), 0.15rem 0.15rem 0.75rem rgb(0 0 0 / 0.1);
+}
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / LOGOS / DECORATION
 =================================================== */
 .c-logos__item img {

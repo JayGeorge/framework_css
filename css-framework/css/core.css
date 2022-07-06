@@ -27,6 +27,7 @@
     --spacing-s-2: 1.35rem;
 
     --spacing-m: 1.5rem;
+    --spacing-m-then-spacing-l-upper-mq: var(--spacing-m);
 
     --spacing-l: 1.8rem;
     --spacing-l-static: 1.8rem;
@@ -34,11 +35,9 @@
     --spacing-l-1: 2.5rem;
     --spacing-l-1-static: 2.5em;
 
+    /* Smaller values for mobile */
     --spacing-l-2: min(11.5vw, 4.2rem);
-    --spacing-l-2-horizontal: min(7vw, 4.2rem);
-    /* Smaller value for mobile */
     --spacing-l-3: min(20vw, 4.7rem);
-    --spacing-l-3-horizontal: var(--spacing-l-1);
     --spacing-l-4: min(22vw, 7rem);
     --spacing-l-4-static: 7rem;
     /* or */
@@ -161,6 +160,7 @@
 @media (min-width: 730px) {
     :root {
         --spacing-l-3-horizontal: var(--spacing-l-3);
+        --spacing-m-then-spacing-l-upper-mq: var(--spacing-l);
     }
 }
 /* --mq-root-variable-adjustments-2-portrait */
@@ -1163,23 +1163,32 @@ img:not([alt]) {
     width: auto;
     height: auto;
 }
+/* GROUP UTILITIES / FRAMEWORK / SPACING
+=================================================== */
+.u-px-l {
+    padding-inline: var(--spacing-l);
+}
+
+.u-px-l-1 {
+    padding-inline: var(--spacing-l-1);
+}
 /* GROUP UTILITIES / FRAMEWORK / LAYOUT / CONSTRAINTS / MAX
 =================================================== */
-[class*="u-width-max-"] {
+[class*="u-mx-"] {
     position: relative;
     max-width: var(--max-width-reading);
     margin-inline: auto;
 }
 
-.u-width-max-1 {
+.u-mx-1 {
     max-width: var(--max-width-1);
 }
 
-.u-width-max-2 {
+.u-mx-2 {
     max-width: var(--max-width-2);
 }
 
-.u-width-max--uncentered {
+.u-mx--uncentered {
     margin-left: 0;
 }
 /* GROUP UTILITIES / FRAMEWORK / STATAMIC
