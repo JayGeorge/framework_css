@@ -25,11 +25,9 @@
     =================================================== */ ?>
     <?php $filename = 'core'; include '_inc/_stylesheet.php'; ?>
 
-    <?php /* GROUP JAVASCRIPT / FRAMEWORKS USING DEFER
+    <?php /* GROUP JAVASCRIPT
     =================================================== */ ?>
-    <?php /* <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script> */ ?>
-    <?php /* GROUP JAVASCRIPT / CUSTOM SCRIPTS USING DEFER 
-    ===================================================
+    <?php /* 
         - Place all JS at the top of the head - https://csswizardry.com/2018/11/css-and-network-performance
         - All JS should use either async or defer for best performance - https://twitter.com/csswizardry/status/1078374711044788224
         - For any other JS, load it inline using defer so we can keep 'modules' together.
@@ -40,6 +38,11 @@
         // document.querySelector('html').classList.add('js');
         document.querySelector('html').setAttribute('data-js-enabled', '');
     </script>
+    <?php /* GROUP JAVASCRIPT / FRAMEWORKS USING DEFER
+    =================================================== */ ?>
+    <?php /* <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script> */ ?>
+    <?php /* GROUP JAVASCRIPT / CUSTOM SCRIPTS USING DEFER
+    =================================================== */ ?>
     <?php
         // $filename = 'script'; include '_inc/_script.php';
     ?>
