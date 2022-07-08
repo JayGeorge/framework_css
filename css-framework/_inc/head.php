@@ -9,28 +9,6 @@
     =================================================== */ ?>
     <title><?php echo $page_title; ?> &middot; Site Name &middot; Replace me</title>
 
-    <?php /* GROUP JAVASCRIPT FRAMEWORKS
-    =================================================== */ ?>
-    <?php /* GROUP CUSTOM JAVASCRIPT
-    ===================================================
-        - Place all JS at the top of the head - https://csswizardry.com/2018/11/css-and-network-performance
-        - All JS should use either async or defer so we can call it before CSS for best performance - https://twitter.com/csswizardry/status/1078374711044788224
-        - script tags that link to external sources should be here too as well since they are synchronous and render-blocking
-        - For any other JS, load it inline using defer so we can keep 'modules' together.
-    */ ?>
-    <script>
-        /* Tell the html ASAP (without JS) to prevent a flicker of DOM changes e.g. nav collapsed. */
-        document.querySelector('html').classList.remove('no-js');
-        // document.querySelector('html').classList.add('js');
-        document.querySelector('html').setAttribute('data-js-enabled', '');
-        window.addEventListener('load', function(){
-            document.querySelector('html').setAttribute('data-js', 'document-loaded');
-        });
-    </script>
-    <?php
-        // $filename = 'script'; include '_inc/_script.php';
-    ?>
-
     <?php /* GROUP WEB FONTS
     =================================================== */ ?>
     <?php /* Highest priority because render blocking. An additional preload improves the Lighthouse score. */ ?>
@@ -47,6 +25,30 @@
     =================================================== */ ?>
     <?php $filename = 'core'; include '_inc/_stylesheet.php'; ?>
 
+    <?php /* GROUP JAVASCRIPT / FRAMEWORKS USING DEFER
+    =================================================== */ ?>
+    <?php /* <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script> */ ?>
+    <?php /* GROUP JAVASCRIPT / CUSTOM SCRIPTS USING DEFER 
+    ===================================================
+        - Place all JS at the top of the head - https://csswizardry.com/2018/11/css-and-network-performance
+        - All JS should use either async or defer for best performance - https://twitter.com/csswizardry/status/1078374711044788224
+        - For any other JS, load it inline using defer so we can keep 'modules' together.
+    */ ?>
+    <script>
+        /* Tell the html ASAP (without JS) to prevent a flicker of DOM changes e.g. nav collapsed. */
+        document.querySelector('html').classList.remove('no-js');
+        // document.querySelector('html').classList.add('js');
+        document.querySelector('html').setAttribute('data-js-enabled', '');
+    </script>
+    <?php
+        // $filename = 'script'; include '_inc/_script.php';
+    ?>
+    <?php /* GROUP JAVASCRIPT / THIRD PARTY ANALYTICS USING DEFER
+    =================================================== */ ?>
+    <?php /* <script src="https://cdn.usefathom.com/script.js" data-site="CVUUZVZT" defer></script> */ ?>
+
+    <?php /* GROUP Everything else ('SEO' meta tags, icons, Open Graph, etc.)
+    =================================================== */ ?>
     <meta name="description" content="">
     <?php if(($GLOBALS['production']) !== true) {
         // Don't index unless we're in production
