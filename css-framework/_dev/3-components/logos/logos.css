@@ -7,7 +7,7 @@
 */
 /* HTML Example...
 
-    <div class="u-width-max-1 u-px-l">
+    <div class="u-mx-1 u-px-l">
         <div class="c-logo-grid">
             <div class="c-logo-grid__item">
                 <img src="https://assets.codepen.io/85648/logo-made-up-company.svg" />
@@ -28,12 +28,38 @@
     </div>
 
 */
+/* Statamic Example...
+
+    {{ logos }}
+        <div class="c-logo-grid__item">
+            <picture>
+                {{# WebP #}}
+                <source
+                    srcset="{{ glide:url width='185' dpr='2' format='webp' }} 2x"
+                    type="image/webp"
+                >
+                {{# JPEG #}}
+                <source
+                    srcset="{{ glide:url width='185' dpr='2' }} 2x"
+                    type="image/jpeg"
+                >
+                {{# Fallback #}}
+                <img src="{{ glide:url width='185' dpr='2' }}"
+                    loading="lazy" width="{{ width | round }}" height="{{ height | round }}"
+                    alt="{{ if alt }}{{ alt ucfirst='true' ensure_right='.' }}{{ else }}{{ filename ucfirst='true' ensure_right='.' replace='-| ' }}{{ /if }}"
+                />
+            </picture>
+        </div>
+    {{ /logos }}
+
+*/
 /* GROUP COMPONENTS / LOGO GRID / LAYOUT
 =================================================== */
 .c-logo-grid {
+    --width: 9rem;
     display: grid;
     /* Prevent overflow on screens less than px value */
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12em), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--width)), 1fr));
     gap: var(--spacing-m);
 }
 
@@ -46,6 +72,25 @@
     height: 100%;
     /* This is needed for rasterised images */
     object-fit: contain;
+
+    max-width: 7.5rem;
+    max-height: 6rem;
+
+    /* Optional to left-align */
+    /* position: relative; */
+    /* right: var(--spacing-m); */
+}
+
+/* Custom */
+@media (min-width: 1024px) {
+    .c-logo-grid {
+        --width: 13rem;
+    }
+
+    .c-logo-grid img {
+        max-width: 7.5rem;
+        max-height: 5rem;
+    }
 }
 /* GROUP COMPONENTS / LOGO GRID / SPACING
 =================================================== */
@@ -59,7 +104,7 @@
 }
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / LOGOS / DECORATION
 =================================================== */
-.c-logos__item img {
+.c-logo-grid__item img {
     /* filter: grayscale(100%) opacity(50%); */
 }
 

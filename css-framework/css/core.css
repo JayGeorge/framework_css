@@ -142,10 +142,6 @@
     --border-radius-s: 3px;
     --border-radius-m: 5px;
     --border-radius-l: 7px;
-    /* GROUP VARIABLES -- ANIMATIONS -- TRANSITIONS
-    =================================================== */
-    /* Molecules > Pagination > (Cross Pollinated) */
-    --animation-transition-fast: all 0.15s ease-in-out 0s;
 }
 /* --mq-root-variable-adjustments-1 */
 @media (min-width: 450px) {
@@ -1053,8 +1049,6 @@ img:not([alt]) {
 /* GROUP UTILITIES / FRAMEWORK / LAYOUT / CONSTRAINTS / MAX
 =================================================== */
 [class*="u-mx-"] {
-    position: relative;
-    max-width: var(--max-width-reading);
     margin-inline: auto;
 }
 

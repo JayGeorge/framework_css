@@ -189,6 +189,10 @@
     =================================================== */
     --filter-image-boost: contrast(105%) saturate(1.08);
     --filter-image-boost-1: contrast(105%) saturate(1.25);
+    /* GROUP VARIABLES -- ANIMATIONS -- TRANSITIONS
+    =================================================== */
+    /* Molecules > Pagination > (Cross Pollinated) */
+    --animation-transition-fast: all 0.15s ease-in-out 0s;
 
     /* GROUP VARIABLES -- OTHER
     =================================================== */
@@ -643,10 +647,10 @@ h2 + .o-hero-buttons {
 /* Left and Right Arrows */
 /* HTML Example...
 
-    <a href="<perch:blog id="prev_url" encode="false" />" class="btn__left"><svg class="c-jg-icon c-jg-icon--chevron-thin-left c-icon-left"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--chevron-thin-left"></use></svg> Previous</a>
+    <a href="{{ url }}" class="btn__left"><svg/> Previous</a>
 
 */
-/* Molecules > Pagination > (Cross Pollinated) */
+/* Components > Pagination > (Cross Pollinated) */
 /* a*/
 .c-btn__left svg,
 /* a*/
@@ -657,25 +661,25 @@ h2 + .o-hero-buttons {
     transition: var(--animation-transition-fast);
 }
 
-/* Molecules > Pagination > (Cross Pollinated) */
+/* Components > Pagination > (Cross Pollinated) */
 /* a*/
 .c-btn__left svg {
     right: 0;
 }
 
-/* Molecules > Pagination > (Cross Pollinated) */
+/* Components > Pagination > (Cross Pollinated) */
 /* a*/
 .c-btn__left:hover svg {
     right: 5px;
 }
 
-/* Molecules > Pagination > (Cross Pollinated) */
+/* Components > Pagination > (Cross Pollinated) */
 /* a*/
 .c-btn__right svg {
     left: 0;
 }
 
-/* Molecules > Pagination > (Cross Pollinated) */
+/* Components > Pagination > (Cross Pollinated) */
 /* a*/
 .c-btn__right:hover svg {
     left: 5px;
@@ -1242,7 +1246,7 @@ img.no-alt {
     border: initial;
 }
 
-/* GROUP UTILITIES / LINE CLAMP
+/* GROUP UTILITIES / FRAMEWORK / (NON CORE) / LINE CLAMP
 =================================================== */
 /* e.g. <div class="u-line-clamp" style="--clamp: 3;"> */
 .u-line-clamp {
@@ -1252,6 +1256,13 @@ img.no-alt {
     /* Stop padding ruining the clamp */
     padding-block-end: 0;
     -webkit-line-clamp: var(--clamp, 2);
+}
+
+/* Custom */
+@media (max-width: 767px) {
+    .u-line-clamp--mq-768-up {
+        -webkit-line-clamp: unset;
+    }
 }
 
 /* Notes...
@@ -1326,7 +1337,7 @@ img.no-alt {
 }
 /* GROUP UTILITIES / DECORATION / PANELS
 =================================================== */
-[class*="panel"] {
+[class*="u-panel"] {
     position: relative;
 }
 
