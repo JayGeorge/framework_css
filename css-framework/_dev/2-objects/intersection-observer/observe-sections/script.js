@@ -1,9 +1,23 @@
-/* GROUP OBSERVE SECTIONS
+/* GROUP / FRAMEWORK / OBSERVE SECTIONS
 =================================================== */
 /* Notes...
 
     Based on Michelle Barker's Intersection Observer script https://www.smashingmagazine.com/2021/07/dynamic-header-intersection-observer/
     and the demo from that article https://codepen.io/michellebarker/pen/QWpzwYN
+
+*/
+/* HTML Example...
+
+    <body>
+        <div data-observe-sections__scroller>
+            <header data-observe-sections__header></header>
+            <main>
+                <section data-observe-sections__section="raspberry"></section>
+                <section data-observe-sections__section="vanilla"></section>
+                <section data-observe-sections__section="chocolate"></section>
+            </main>
+        </div>
+    </body>
 
 */
 function observeSections() {
