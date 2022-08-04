@@ -24,13 +24,13 @@ function observeSections() {
         const index = sections.findIndex((section) => section == entry.target)
 
         if (index >= sections.length - 1) {
-        return entry.target
+            return entry.target
         } else {
-        return sections[index + 1]
+            return sections[index + 1]
         }
     }
 
-    const updateColors = (target) => {
+    const updateTheme = (target) => {
         const theme = target.dataset.observeSections__section
         header.setAttribute('data-observe-sections__theme', theme)
     }
@@ -60,7 +60,7 @@ function observeSections() {
             const target = direction === 'down' ? getTargetSection(entry) : entry.target
 
             if (shouldUpdate(entry)) {
-                updateColors(target)
+                updateTheme(target)
             }
         })
     }
