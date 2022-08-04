@@ -22,7 +22,7 @@ function observeSections() {
 
     const getTargetSection = (entry) => {
         const index = sections.findIndex((section) => section == entry.target)
-        
+
         if (index >= sections.length - 1) {
         return entry.target
         } else {
@@ -43,7 +43,7 @@ function observeSections() {
         if (direction === 'up' && entry.isIntersecting) {
             return true
         }
-        
+
         return false
     }
 
@@ -54,11 +54,11 @@ function observeSections() {
             } else {
                 direction = 'up'
             }
-            
+
             prevYPosition = scrollRoot.scrollTop
-            
+
             const target = direction === 'down' ? getTargetSection(entry) : entry.target
-            
+
             if (shouldUpdate(entry)) {
                 updateColors(target)
             }
