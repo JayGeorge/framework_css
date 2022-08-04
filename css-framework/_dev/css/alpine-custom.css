@@ -1,0 +1,316 @@
+/* GROUP ALPINE COMPONENTS / DROPDOWN
+=================================================== */
+/* Notes...
+
+    - Get rid of the extra div from the Alpine docs example, so that .o-alpine-dropdown-panel is the direct parent of the items
+
+*/
+/* GROUP ALPINE COMPONENTS / DROPDOWN / LAYOUT
+=================================================== */
+.o-alpine-dropdown-panel {
+    position: absolute;
+    overflow: hidden;
+    right: 0;
+    width: 14rem;
+    background: white;
+
+    display: grid;
+    gap: var(--spacing-s-1);
+}
+
+.o-alpine-dropdown-panel__item {
+    display: block;
+}
+/* GROUP ALPINE COMPONENTS / DROPDOWN / SPACING
+=================================================== */
+.o-alpine-dropdown-panel {
+    padding: var(--spacing-s-2) var(--spacing-m);
+    margin-block-start: var(--spacing-s-x);
+}
+
+
+
+
+/* GROUP ALPINE COMPONENTS / MODAL
+=================================================== */
+/* HTML Example...
+
+    <div x-data="{ open: false }">
+        {{# Trigger #}}
+        <span x-on:click="open = true">
+            <button type="button" class="c-btn">
+                Open dialog
+            </button>
+        </span>
+
+        {{# Modal #}}
+        <div
+            x-show="open"
+            style="display: none"
+            x-on:keydown.escape.prevent.stop="open = false"
+            role="dialog"
+            aria-modal="true"
+            x-id="['modal-title']"
+            :aria-labelledby="$id('modal-title')"
+            class="o-alpine-modal"
+        >
+            {{# Overlay #}}
+            <div x-show="open" x-transition.opacity.duration.400ms class="o-alpine-modal__overlay"></div>
+
+            {{# Panel #}}
+            <div
+                x-show="open" x-transition
+                x-on:click="open = false"
+                class="o-alpine-modal__panel"
+            >
+                <div
+                    x-on:click.stop
+                    x-trap.noscroll.inert="open"
+                    class="o-alpine-modal__panel__inner"
+                >
+                    <!-- Title -->
+                    <h2 :id="$id('modal-title')">Confirm</h2>
+                    <!-- Content -->
+                    <p>Are you sure you want to learn how to create an awesome modal?</p>
+                    <!-- Buttons -->
+                    <div class="o-alpine-modal__buttons">
+                        <button type="button" x-on:click="open = false" class="c-btn c-btn--1">
+                            Confirm
+                        </button>
+                        <button type="button" x-on:click="open = false" class="c-btn c-btn--2">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+*/
+/* GROUP ALPINE COMPONENTS / MODAL / LAYOUT
+=================================================== */
+.o-alpine-modal {
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+    z-index: var(--z-index-modal);
+}
+
+.o-alpine-modal__overlay {
+    position: fixed;
+    inset: 0;
+}
+
+.o-alpine-modal__panel {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.o-alpine-modal__panel__inner {
+    position: relative;
+    overflow-y: auto;
+    width: 100%;
+    max-width: var(--max-width-modal);
+}
+/* GROUP ALPINE COMPONENTS / MODAL / SPACING
+=================================================== */
+.o-alpine-modal__panel,
+.o-alpine-modal__panel__inner {
+    padding: var(--spacing-l);
+}
+/* GROUP ALPINE COMPONENTS / MODAL / DECORATION
+=================================================== */
+.o-alpine-modal__overlay {
+    background: hsl(0deg 0% 0% / 50%);
+}
+
+.o-alpine-modal__panel__inner {
+    background: white;
+    border-radius: var(--border-radius-m);
+}
+
+
+
+
+/* GROUP ALPINE COMPONENTS / ACCORDION
+=================================================== */
+/* HTML Example...
+
+    {{ section:alpine_collapse }}{{ partial:_alpine_collapse }}{{ /section:alpine_collapse }}
+    <div x-data="{ active: 1 }" class="o-alpine-accordion">
+        <div x-data="{
+            id: 1,
+            get expanded() {
+                return this.active === this.id
+            },
+            set expanded(value) {
+                this.active = value ? this.id : null
+            },
+        }" role="region" class="o-alpine-accordion__item">
+            <h2>
+                <button
+                    x-on:click="expanded = !expanded"
+                    :aria-expanded="expanded"
+                >
+                    <span>Question #1</span>
+                    <span x-show="expanded" aria-hidden="true">&minus;</span>
+                    <span x-show="!expanded" aria-hidden="true">&plus;</span>
+                </button>
+            </h2>
+
+            <div x-show="expanded" x-collapse>
+                <div class="o-alpine-accordion__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In magnam quod natus deleniti architecto eaque consequuntur ex, illo neque iste repellendus modi, quasi ipsa commodi saepe? Provident ipsa nulla earum.</div>
+            </div>
+        </div>
+
+        <div x-data="{
+            id: 2,
+            get expanded() {
+                return this.active === this.id
+            },
+            set expanded(value) {
+                this.active = value ? this.id : null
+            },
+        }" role="region" class="o-alpine-accordion__item">
+            <h2>
+                <button
+                    x-on:click="expanded = !expanded"
+                    :aria-expanded="expanded"
+                >
+                    <span>Question #2</span>
+                    <span x-show="expanded" aria-hidden="true">&minus;</span>
+                    <span x-show="!expanded" aria-hidden="true">&plus;</span>
+                </button>
+            </h2>
+
+            <div x-show="expanded" x-collapse>
+                <div class="o-alpine-accordion__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In magnam quod natus deleniti architecto eaque consequuntur ex, illo neque iste repellendus modi, quasi ipsa commodi saepe? Provident ipsa nulla earum.</div>
+            </div>
+        </div>
+    </div>
+
+*/
+/* Statamic HTML Example...
+
+    The partial at the top of the outputs the collapse plugin script in the head, which is needed for the animations.
+
+    {{ section:alpine_collapse }}{{ partial:_alpine_collapse }}{{ /section:alpine_collapse }}
+    <div x-data="{ active: 1 }" class="o-alpine-accordion">
+        {{ questions_and_answers }}
+        <div x-data="{
+            id: {{ count }},
+            get expanded() {
+                return this.active === this.id
+            },
+            set expanded(value) {
+                this.active = value ? this.id : null
+            },
+        }" role="region" class="o-alpine-accordion__item">
+            <h2>
+                <button
+                    x-on:click="expanded = !expanded"
+                    :aria-expanded="expanded"
+                >
+                    <span>{{ question }}</span>
+                    <span x-show="expanded" aria-hidden="true"><minus svg here/></span>
+                    <span x-show="!expanded" aria-hidden="true"><plus svg here/></span>
+                </button>
+            </h2>
+
+            <div x-show="expanded" x-collapse>
+                <div class="o-alpine-accordion__text">{{ answer }}</div>
+            </div>
+        </div>
+        {{ /questions_and_answers }}
+    </div>
+
+*/
+/* GROUP ALPINE COMPONENTS / ACCORDION / LAYOUT
+=================================================== */
+.o-alpine-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s-1);
+
+    margin-inline: auto;
+    max-width: var(--max-width-1);
+}
+
+.o-alpine-accordion button {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.o-alpine-accordion__text {
+    max-width: 70rem;
+}
+
+.o-alpine-accordion span[x-show] {
+    display: flex;
+    align-items: center;
+}
+
+.o-alpine-accordion span[x-show] svg {
+    /* Cancel defaults */
+    margin-inline-end: 0;
+    top: unset;
+}
+/* GROUP ALPINE COMPONENTS / ACCORDION / SPACING
+=================================================== */
+.o-alpine-accordion {
+    margin-block-end: var(--spacing-l);
+}
+
+.o-alpine-accordion button {
+    padding: var(--spacing-m) var(--spacing-l);
+}
+
+.o-alpine-accordion__text {
+    padding-inline: var(--spacing-l);
+    padding-block-end: var(--spacing-l-1);
+}
+
+.o-alpine-accordion h2 {
+    padding-block-end: 0;
+}
+
+.o-alpine-accordion__text ul {
+    padding-block-end: var(--spacing-s-1);
+    padding-inline-start: 0.8rem;
+}
+
+.o-alpine-accordion span[x-show] {
+    margin-inline-start: 1rem;
+}
+/* GROUP ALPINE COMPONENTS / ACCORDION / DECORATION
+=================================================== */
+.o-alpine-accordion__item {
+    background: white;
+    box-shadow: var(--box-shadow-tailwind);
+    border-radius: var(--border-radius-l);
+}
+
+.o-alpine-accordion h2 {
+    font-family: var(--font-family-info);
+    font-size: var(--font-size-s);
+}
+
+.o-alpine-accordion button {
+    line-height: var(--font-size-s-line-height);
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-s);
+}
+
+.o-alpine-accordion__text ul {
+    list-style: circle;
+}
+
+.o-alpine-accordion span[x-show] svg {
+    font-size: 1.75em;
+}

@@ -4,7 +4,7 @@ table + h2 {
     padding-block-start: var(--spacing-s-1);
 }
 
-.js--table-wrapper {
+.js--tableWrapper {
     margin-bottom: var(--spacing-m-2);
 }
 /* GROUP PLUGIN / BOOTSTRAP / TABLES
@@ -86,7 +86,22 @@ table > thead > tr > td {
 @media (max-width: 47.9375em){
     /* =JFG. Need to wrap something around tables for overflow.
     Without JS tables just behave as normal i.e. you wouldn't be able to see big tables. */
-    .js--table-wrapper {
+    /* add this to your script...
+    /* GROUP FRAMEWORK / NON CORE / TABLE WRAPPER
+    =================================================== */
+    /* Array.from(document.querySelectorAll('.s-entry-content table') || []).forEach(element => {
+        // create wrapper container
+        var wrapper = document.createElement('div');
+
+        // insert wrapper before el in the DOM tree
+        element.parentNode.insertBefore(wrapper, element);
+
+        // move el into wrapper
+        wrapper.appendChild(element);
+        wrapper.classList.add('js--tableWrapper');
+    }); */
+
+    .js--tableWrapper {
         overflow-y: hidden;
         overflow-x: scroll;
         -ms-overflow-style: -ms-autohiding-scrollbar;

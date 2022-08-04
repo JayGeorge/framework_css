@@ -336,9 +336,7 @@ p:last-child {
     padding-block-end: 0;
 }
 
-p,
-ol,
-ul {
+main :where(p, ol, ul) {
     line-height: var(--font-size-reading-line-height);
 }
 
@@ -516,6 +514,15 @@ nav {
     width: 100%;
 }
 
+nav li {
+    position: relative;
+}
+
+nav li a {
+    /* Needed to better vertically align */
+    display: flex;
+}
+
 /* nav*/
 .o-nav-flex ul {
     list-style: none;
@@ -531,15 +538,6 @@ nav {
         flex-direction: row;
         justify-content: flex-end;
     }
-}
-
-nav li {
-    position: relative;
-}
-
-nav li a {
-    /* Needed to better vertically align */
-    display: flex;
 }
 
 
@@ -631,6 +629,14 @@ button:focus,
 input:focus,
 textarea:focus {
     outline: 4px solid blue;
+}
+.c-nav-mobile-button:focus {
+    /* We'll set the outline on the SVG instead because it's neater */
+    outline: none;
+}
+.c-nav-mobile-button:focus svg {
+    /* Increase offset for nav since we have it on the SVG instead */
+    outline-offset: 10px;
 }
 
 /* Elements > Framework > Forms */

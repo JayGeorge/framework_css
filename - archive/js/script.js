@@ -1033,7 +1033,7 @@ jQuery(document).ready(function($) {
     /* GROUP PLUGIN / BOOTSTRAP / TABLES
     =================================================== */
     $("table:not(.perch-debug)").each(function(){
-        $(this).wrap("<div class='js--table-wrapper' />").parent();
+        $(this).wrap("<div class='js--tableWrapper' />").parent();
     });
     /* GROUP MOLECULES / (NON CORE) / HIGHLIGHT TODAY’S DATE
     =================================================== */

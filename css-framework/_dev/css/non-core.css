@@ -183,6 +183,8 @@
     --box-shadow-s-dark-right: 10px 0 6px -6px hsla(0, 0%, 0%, 0.05);
     --box-shadow-b-1: 0 5px hsla(0, 0%, 0%, 0.1);
 
+    --box-shadow-tailwind: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1);
+
     --box-shadow-focus: 0 0 15px var(--colour-orange);
     --box-shadow-focus: 0 0 0 3px var(--colour-blue);
     /* GROUP VARIABLES -- DECORATION -- OTHER
@@ -911,6 +913,13 @@ h2 + .o-hero-buttons {
 /* Using animation rather than transitions means we're not affected by the parent element going from display: none; to display: block; (transitions are affected by this though) */
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / OPEN STATE
 =================================================== */
+/* --mq-nav-opens-before */
+@media (max-width: 1199px) {
+    .js--navIsOpen {
+        /* Prevent the body scrolling when the full height nav is open */
+        overflow: hidden;
+    }
+}
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -1365,37 +1374,4 @@ img.no-alt {
 .u-panel-dark-to-light {
     --stop: 25%;
     background: linear-gradient(to bottom, var(--colour-black-off) 0%, var(--colour-black-off) var(--stop), var(--colour-grey) var(--stop));
-}
-
-
-
-
-/* GROUP ALPINE COMPONENTS / DROPDOWN
-=================================================== */
-/* Notes...
-
-    - Get rid of the extra div from the Alpine docs example, so that .o-alpine-dropdown-panel is the direct parent of the items
-
-*/
-/* GROUP ALPINE COMPONENTS / DROPDOWN / LAYOUT
-=================================================== */
-.o-alpine-dropdown-panel {
-    position: absolute;
-    overflow: hidden;
-    right: 0;
-    width: 14rem;
-    background: white;
-
-    display: grid;
-    gap: var(--spacing-s-1);
-}
-
-.o-alpine-dropdown-panel__item {
-    display: block;
-}
-/* GROUP ALPINE COMPONENTS / DROPDOWN / SPACING
-=================================================== */
-.o-alpine-dropdown-panel {
-    padding: var(--spacing-s-2) var(--spacing-m);
-    margin-block-start: var(--spacing-s-x);
 }

@@ -371,7 +371,7 @@ label {
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / ALERTS
 =================================================== */
 /* purgecss start ignore */
-.c-form-message {
+.c-alert {
     padding: var(--spacing-s) var(--spacing-s-1);
     border-radius: var(--border-radius-m);
     margin-block-end: var(--spacing-s-1);
@@ -382,14 +382,14 @@ label {
     font-size: var(--font-size-s-x-x);
 }
 
-.c-form-message--success {
+.c-alert--success {
     /* https://tailwindui.com/components/application-ui/feedback/alerts */
     /* AA */
     background: #ecfdf5;
     color: #218065;
 }
 
-.c-form-message--fail {
+.c-alert--fail {
     /* https://tailwindui.com/components/application-ui/feedback/alerts */
     /* AA */
     background: #fef2f2;

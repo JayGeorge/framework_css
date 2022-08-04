@@ -73,8 +73,8 @@
     /* This is needed for rasterised images */
     object-fit: contain;
 
-    max-width: 7.5rem;
-    max-height: 6rem;
+    max-width: 5.8rem;
+    max-height: 2.5rem;
 
     /* Optional to left-align */
     /* position: relative; */

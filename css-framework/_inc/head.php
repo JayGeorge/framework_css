@@ -48,7 +48,10 @@
     ?>
     <?php /* GROUP JAVASCRIPT / THIRD PARTY ANALYTICS USING DEFER
     =================================================== */ ?>
-    <?php /* <script src="https://cdn.usefathom.com/script.js" data-site="CVUUZVZT" defer></script> */ ?>
+    <?php if(($GLOBALS['production']) == true) { ?>
+        <?php /* <script src="https://cdn.usefathom.com/script.js" data-site="CVUUZVZT" defer></script> */ ?>
+    <?php } ?>
+
 
     <?php /* GROUP Everything else ('SEO' meta tags, icons, Open Graph, etc.)
     =================================================== */ ?>
