@@ -9,27 +9,23 @@
 /* HTML Example...
 
     <body>
-        <div data-observe-sections__scroller>
-            <header data-observe-sections__header></header>
-            <main>
-                <section data-observe-sections__section="raspberry"></section>
-                <section data-observe-sections__section="vanilla"></section>
-                <section data-observe-sections__section="chocolate"></section>
-            </main>
-        </div>
+        <header data-observe-sections__header></header>
+        <main>
+            <section data-observe-sections__section="raspberry"></section>
+            <section data-observe-sections__section="vanilla"></section>
+            <section data-observe-sections__section="chocolate"></section>
+        </main>
     </body>
 
 */
 function observeSections() {
     const header = document.querySelector('[data-observe-sections__header]')
     const sections = [...document.querySelectorAll('[data-observe-sections__section]')]
-    const scrollRoot = document.querySelector('[data-observe-sections__scroller]')
 
     let prevYPosition = 0
     let direction = 'up'
 
     const options = {
-        root: scrollRoot,
         rootMargin: `${header.offsetHeight * -1}px`,
         threshold: 0
     }
@@ -63,13 +59,13 @@ function observeSections() {
 
     const onIntersect = (entries, observer) => {
         entries.forEach((entry) => {
-            if (scrollRoot.scrollTop > prevYPosition) {
+            if (window.scrollY > prevYPosition) {
                 direction = 'down'
             } else {
                 direction = 'up'
             }
 
-            prevYPosition = scrollRoot.scrollTop
+            prevYPosition = window.scrollY
 
             const target = direction === 'down' ? getTargetSection(entry) : entry.target
 
