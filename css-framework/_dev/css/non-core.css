@@ -512,6 +512,23 @@ a {
     padding-block-end: 0;
 }
 
+/* Notes...
+
+    - For the 'observe sections' intersection observer component to trigger EVENLY, we can't always rely on padding-block-end.
+    - Therefore for slides, we sometimes need to switch from bottom padding-block-end to padding-block-start on the next slide instead.
+    - The following rules handle that
+
+*/
+/* Example rules...
+.o-slide[data-observe-sections__section="dark"] {
+    padding-block-end: 0;
+}
+
+.o-slide[data-observe-sections__section="dark"] + .o-slide {
+    padding-block-start: var(--spacing-vh-s);
+}
+*/
+
 
 
 
@@ -1348,6 +1365,11 @@ img.no-alt {
 =================================================== */
 [class*="u-panel"] {
     position: relative;
+}
+
+/* Probably a safe default */
+.u-panel-grey + .u-panel-grey {
+    padding-block-start: 0;
 }
 
 /* Here we attach the panel class directly to the component so that:
