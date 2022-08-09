@@ -430,6 +430,7 @@ label {
 /* purgecss end ignore */
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / DECORATION / BORDERS
 =================================================== */
+/* purgecss ignore */
 input:not([type="submit"]) {
     border: 1px solid hsl(0deg 0% 90%);
     border-radius: 4px;
