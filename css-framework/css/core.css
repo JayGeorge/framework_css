@@ -787,6 +787,10 @@ main button {
     margin-block-end: 1.25rem;
 }
 
+p + .c-btn {
+    margin-block-start: var(--spacing-s-2);
+}
+
 .c-btn a {
     /* e.g. icons in buttons */
     display: flex;
@@ -1055,6 +1059,7 @@ img:not([alt]) {
 /* GROUP UTILITIES / FRAMEWORK / LAYOUT / CONSTRAINTS / MAX
 =================================================== */
 [class*="u-mx-"] {
+    position: relative;
     margin-inline: auto;
 }
 
