@@ -440,7 +440,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
     color: #111;
     display: none;
     height: 17px;
-    margin-bottom: 9px;
+    margin-block-end: 9px;
     position: absolute;
     text-align: center;
     -webkit-transform: translateX(-50%);

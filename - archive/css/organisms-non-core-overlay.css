@@ -34,7 +34,7 @@
 .o-overlay .btn {
 	margin-top: var(--r-m);
 	/* Cancel so we can add padding to the .o-overlay organism instead, in case the button is not there */
-	margin-bottom: 0;
+	margin-block-end: 0;
 }
 .o-overlay .btn a {
 	margin-right: 0;

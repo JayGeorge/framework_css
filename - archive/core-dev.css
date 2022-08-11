@@ -1095,7 +1095,7 @@ body {
 }
 
 .nav-tabs > li {
-    margin-bottom: -1px;
+    margin-block-end: -1px;
 }
 
 .nav-tabs > li > a {
@@ -1565,7 +1565,7 @@ body,
 
 /* HTML Example...
 
-    <div class="o-layout-col-mq-600-up u-margin-bottom-s-2 u-link-style-none">
+    <div class="o-layout-col-mq-600-up u-margin-block-end-s-2 u-link-style-none">
     <div class="o-layout-width-l u-padding-block-start-s-x c-social-icons">
         <a href="" class="u-link-style-none u-link-style-none--2"><span class="c-jg-icon-twitter c-icon-m-2 d-color-4"></span></a>
         <a href="" class="u-link-style-none u-link-style-none--2"><span class="c-jg-icon-linkedin2 c-icon-m-2 d-color-4"></span></a>
@@ -1923,7 +1923,7 @@ body,
                     <p>Set character limit of this text in PHP. Lorem ipsum ius kasd cibo utroque an, eum eu populo percipitur, his in equidem posidonium concludaturque. No eam deserunt salutatus.</p>
                     <p><a>Read the full bio<a></p>
                 </div>
-                <img src="https://goo.gl/FvN5TR" title="" alt="" class="u-margin-bottom-n u-margin-top-n" />
+                <img src="https://goo.gl/FvN5TR" title="" alt="" class="u-margin-block-end-n u-margin-top-n" />
             </div>
         </label>
     </div>
@@ -2011,7 +2011,7 @@ p + .c-price-label {
 =================================================== */
 .c-price-label--total {
     padding-block-start: 1rem;
-    margin-bottom: var(--spacing-l);
+    margin-block-end: var(--spacing-l);
     margin-top: var(--spacing-s);
     border-bottom: 1px solid #ddd;
     border-top: 1px solid #ddd;
@@ -2528,7 +2528,7 @@ p + .c-price-label {
 
 .c-search__input[type="search"] {
     /* Neutralise for flexbox alignment */
-    margin-bottom: 0;
+    margin-block-end: 0;
 }
 /* GROUP MOLECULES / (NON CORE) / SEARCH / SPACING / HORIZONTAL
 =================================================== */
@@ -2726,15 +2726,15 @@ body .btn--search-overlay-close {
 }
 
 .c-search-overlay__related {
-    margin-bottom: var(--spacing-l-1);
+    margin-block-end: var(--spacing-l-1);
 }
 
 .c-search-overlay__related__col {
-    margin-bottom: var(--spacing-m);
+    margin-block-end: var(--spacing-m);
 }
 
 .c-search-overlay__form {
-    margin-bottom: 5em;
+    margin-block-end: 5em;
     margin-top: 8em;
 }
 
@@ -2752,7 +2752,7 @@ body .btn--search-overlay-close {
 
     .c-search-overlay__form {
         /* Increase */
-        margin-bottom: 8em;
+        margin-block-end: 8em;
         margin-top: 10em;
     }
 }
@@ -3066,7 +3066,7 @@ body .c-search-overlay__search-button {
 }
 
 .c-screenshot-notes {
-    margin-bottom: var(--spacing-l-4);
+    margin-block-end: var(--spacing-l-4);
     text-align: center;
     font-style: italic;
     color: hsla(var(--colour-black-off-hsl),.5)
@@ -3078,11 +3078,11 @@ body .c-search-overlay__search-button {
     }
 
     .c-screenshot {
-        margin-bottom: var(--spacing-l-4)
+        margin-block-end: var(--spacing-l-4)
     }
 
     .c-screenshot--with-notes {
-        margin-bottom: var(--spacing-l-3)
+        margin-block-end: var(--spacing-l-3)
     }
 
     .c-screenshot {
@@ -3162,7 +3162,7 @@ body .c-search-overlay__search-button {
 .c-filter-form__heading {
     /* Needed for overflow gradient to have a chance at kicking in */
     padding-block-start: var(--spacing-l);
-    margin-bottom: var(--spacing-l);
+    margin-block-end: var(--spacing-l);
 }
 /* GROUP ORGANISMS / FILTER FORM / DECORATION
 =================================================== */
@@ -3267,7 +3267,7 @@ form {
 /* Molecules > Forms > Search > Genesis > Icomoon */
 /* form */.c-search-expandable--genesis [type="search"] {
     /* Override default [type="search"] form CSS */
-    margin-bottom: 0;
+    margin-block-end: 0;
 }
 
 .c-search-expandable + .icon--background::before,
@@ -3377,7 +3377,7 @@ body .c-search-expandable--2,
 =================================================== */
 .hs-error-msgs {
     position: relative;
-    /* To counter margin-bottom of inputs */
+    /* To counter margin-block-end of inputs */
     top: -1rem;
 }
 
@@ -3533,7 +3533,7 @@ nav a {
 }
 
 .js--is-open .c-nav-mobile-button {
-    margin-bottom: 0;
+    margin-block-end: 0;
 }
 
 /* ul o-*/
@@ -3550,7 +3550,7 @@ nav {
 .c-nav-mobile-button,
 /* e.g. Organisms > Nav > Header > Closed */
 nav {
-    margin-bottom: var(--spacing-l);
+    margin-block-end: var(--spacing-l);
 }
 
 /* 600 + / --mq-nav-switches-to-grid-after */
@@ -4161,13 +4161,13 @@ ul/*o-*/.sub-menu {
 /* o-*/.entry-image {
     /* For small devices */
     display: block;
-    margin-bottom: var(--spacing-s-1);
+    margin-block-end: var(--spacing-s-1);
     margin-top: var(--spacing-s);
 }
 
 p /* u-*/.alignnone {
     /* Prevent p tag from adding double VERTICAL SPACING */
-    margin-bottom: 0;
+    margin-block-end: 0;
 }
 
 /* u-*/.aligncenter {
@@ -4225,7 +4225,7 @@ figure {
 =================================================== */
 .s-entry-content /* c-*/.wp-caption img {
     /* Make sure there's not so much spacing because we also have the caption */
-    margin-bottom: 0;
+    margin-block-end: 0;
 }
 
 /* c-*/.wp-caption {
@@ -4249,7 +4249,7 @@ figure {
 /* dt o-*/.gallery-icon {
     padding-bottom: 0;
     padding-block-start: 0;
-    margin-bottom: 0;
+    margin-block-end: 0;
     /* Override WordPress gallery # selector */
     margin-top: 0!important;
 }
@@ -4350,7 +4350,7 @@ figure {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin-bottom: var(--spacing-l-2)!important;
+        margin-block-end: var(--spacing-l-2)!important;
         margin-top: var(--spacing-l-1)!important;
         background: var(--colour-grey-light-6);
 
@@ -4462,7 +4462,7 @@ figure {
     ------------------------------------- */
     padding-inline-start: var(--gutters-l);
     padding-inline-end: var(--gutters-l);
-    margin-bottom: calc(var(--gutters-l) * 2);
+    margin-block-end: calc(var(--gutters-l) * 2);
     /* END FLEXBOX GRID - GUTTER ITEM
     ------------------------------------- */
     /* @apply --t-separator-1--t-b; */
@@ -4533,10 +4533,10 @@ figure {
     ------------------------------------- */
     padding-inline-start: var(--gutters-l);
     padding-inline-end: var(--gutters-l);
-    /* margin-bottom: calc(var(--gutters-l) * 2); */
+    /* margin-block-end: calc(var(--gutters-l) * 2); */
     /* END FLEXBOX GRID - GUTTER ITEM
     ------------------------------------- */
-    margin-bottom: 0;
+    margin-block-end: 0;
 }
 
 .entry-categories-and-tags li {
@@ -4667,7 +4667,7 @@ figure {
 }
 
 .c-avatar {
-    margin-bottom: var(--spacing-s-x);
+    margin-block-end: var(--spacing-s-x);
 }
 
 /* Overrides for an inline comment */
@@ -4685,7 +4685,7 @@ figure {
 
 .c-comment-author {
     padding-bottom: var(--spacing-s-x-x);
-    margin-bottom: var(--spacing-s);
+    margin-block-end: var(--spacing-s);
 }
 
 .c-comment {
@@ -4898,7 +4898,7 @@ figure {
 body .woocommerce .woocommerce-error,
 body .woocommerce .woocommerce-info,
 body .woocommerce .woocommerce-message {
-    margin-bottom: var(--spacing-s)!important;
+    margin-block-end: var(--spacing-s)!important;
 }
 
 .woocommerce-info ~ form {
@@ -4929,7 +4929,7 @@ body .woocommerce form .form-row.woocommerce-invalid select {
 html .woocommerce .woocommerce-breadcrumb {
     padding-bottom: var(--spacing-m);
     padding-block-start: var(--spacing-m);
-    margin-bottom: 0;
+    margin-block-end: 0;
     @apply --o-layout-width-l;
 }
 
@@ -5147,7 +5147,7 @@ body .woocommerce input.button:disabled[disabled] {
 /* Coupon code input */
 html .woocommerce-cart table.cart td.actions .coupon .input-text {
     @apply --u-center-horizontal;
-    margin-bottom: var(--spacing-s-1);
+    margin-block-end: var(--spacing-s-1);
 }
 
 /* Space between coupon buttons */
@@ -5185,7 +5185,7 @@ html .woocommerce table.shop_table td {
 }
 
 .cart_item {
-    margin-bottom: var(--spacing-l);
+    margin-block-end: var(--spacing-l);
     border: 0;
 }
 
@@ -5290,7 +5290,7 @@ html .woocommerce table.shop_table {
 
     html .woocommerce-cart table.cart td.actions .coupon .input-text {
         /* Cancel VERTICAL SPACING for so flexbox works well */
-        margin-bottom: 0;
+        margin-block-end: 0;
     }
 
 
@@ -5466,7 +5466,7 @@ https://github.com/philipwalton/flexbugs#2-column-flex-items-set-to-align-itemsc
 
 .c-testimonial img {
     width: 45px;
-    margin-bottom: var(--spacing-s-2);
+    margin-block-end: var(--spacing-s-2);
     margin-right: var(--spacing-s-1);
     @apply --u-shape-circle-1;
 }
@@ -5681,7 +5681,7 @@ Setup and Dependencies...
 
     .o-logo-nav-cta-distributed__nav nav {
         /* Cancel default */
-        margin-bottom: 0;
+        margin-block-end: 0;
     }
 }
 
@@ -6322,7 +6322,7 @@ nav ul li .current-menu-item > a span {
 */
 .o-overlay .btn {
     /* Cancel so we can add padding to the .o-overlay organism instead, in case the button is not there */
-    margin-bottom: 0;
+    margin-block-end: 0;
     margin-top: var(--spacing-m);
 }
 
@@ -6567,11 +6567,11 @@ img ~ .o-overlay__preview--3 {
 }
 
 .c-careers-card__footer .btn {
-    margin-bottom: 0;
+    margin-block-end: 0;
 }
 
 .c-careers-card__footer__item {
-    margin-bottom: var(--spacing-s);
+    margin-block-end: var(--spacing-s);
 }
 
 .c-careers-card__footer__item:not(:last-child) {
@@ -6839,7 +6839,7 @@ screen and (min-resolution: 2dppx) and (min-width: 100em) {
 
 /* s-*/.blog .content img {
     /* Img seems to be wrapped in a p tag */
-    margin-bottom: 0;
+    margin-block-end: 0;
     margin-top: 0;
 }
 

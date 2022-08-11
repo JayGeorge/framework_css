@@ -87,7 +87,7 @@
 .c-paging .c-btn a {
     /* Needed for when previous and next are side by side. This should already be set as flex by the Atoms > Buttons group */
     /* display: flex; */
-    margin-bottom: var(--spacing-m);
+    margin-block-end: var(--spacing-m);
 }
 /* GROUP COMPONENTS / PAGINATION / DECORATION
 =================================================== */

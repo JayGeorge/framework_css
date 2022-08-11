@@ -30,7 +30,7 @@
 	max-width: 100%;
 	margin-left: 0;
 	margin-right: 0;
-	margin-bottom: var(--r-s);
+	margin-block-end: var(--r-s);
 	float: none;
 }
 /* GROUP ORGANISMS / WORDPRESS / GENESIS / WIDGETS / FEATURE POSTS / FLOATS

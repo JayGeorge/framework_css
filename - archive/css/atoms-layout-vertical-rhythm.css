@@ -10,7 +10,7 @@ p,
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-block-end: 0;
 }
 /* GROUP ATOMS / VERTICAL SPACING / (PROJECT MODIFICATIONS / NOT YET MODIFIED)
 =================================================== */
@@ -35,7 +35,7 @@ h6,
   padding-block-start: var(--r-s-x-x)!important;
 }
 .u-margin-b-s-x-x {
-  margin-bottom: var(--r-s-x-x)!important;
+  margin-block-end: var(--r-s-x-x)!important;
 }
 .u-margin-t-s-x-x {
   margin-top: var(--r-s-x-x)!important;
@@ -150,10 +150,10 @@ dl,
 /* Organisms > (Not Part Of Framework) > Careers Card */
 .c-careers-card__footer__item {
   /* =JFG. Same value as o-layout-width-l-0 property */
-  margin-bottom: var(--r-s);
+  margin-block-end: var(--r-s);
 }
 .u-margin-b-s {
-	margin-bottom: var(--r-s)!important;
+	margin-block-end: var(--r-s)!important;
 }
 /* .u-margin-t-s, */
 /* Molecules > Forms */
@@ -209,7 +209,7 @@ table + h2,
 	padding-block-start: var(--r-s-1)!important;
 }
 .u-margin-b-s-1 {
-  margin-bottom: var(--r-s-1)!important;
+  margin-block-end: var(--r-s-1)!important;
 }
 .u-margin-t-s-1 {
   margin-top: var(--r-s-1)!important;
@@ -224,7 +224,7 @@ table + h2,
   padding-block-start: var(--r-s-2)!important;
 }
 .u-margin-b-s-2 {
-  margin-bottom: var(--r-s-2)!important;
+  margin-block-end: var(--r-s-2)!important;
 }
 .u-margin-t-s-2 {
   margin-top: var(--r-s-2)!important;
@@ -271,10 +271,10 @@ table + h2,
 /* Molecules > (Non Core) > Pagination > Genesis Pagination Archive */
 .pagination li {
   /* =JFG. Same value as o-layout-width-l property */
-  margin-bottom: var(--r-m);
+  margin-block-end: var(--r-m);
 }
 .u-margin-b-m {
-	margin-bottom: var(--r-m)!important;
+	margin-block-end: var(--r-m)!important;
 }
 /* .u-margin-t-m, */
 /* Atoms > Elements */
@@ -332,10 +332,10 @@ blockquote,
 hr,
 /* Standard Classes > Wordpress > Widgets */
 .widget {
-  margin-bottom: var(--r-l);
+  margin-block-end: var(--r-l);
 }
 .u-margin-b-l {
-	margin-bottom: var(--r-l)!important;
+	margin-block-end: var(--r-l)!important;
 }
 /* .u-margin-t-l, */
 /* Atoms > Elements */
@@ -367,7 +367,7 @@ hr {
   padding-block-start: var(--r-l-1)!important;
 }
 .u-margin-b-l-1 {
-  margin-bottom: var(--r-l-1)!important;
+  margin-block-end: var(--r-l-1)!important;
 }
 .u-margin-t-l-1 {
   margin-top: var(--r-l-1)!important;
@@ -394,7 +394,7 @@ hr {
   margin-top: var(--r-l-2)!important;
 }
 .u-margin-b-l-2 {
-  margin-bottom: var(--r-l-2)!important;
+  margin-block-end: var(--r-l-2)!important;
 }
 
 
@@ -443,7 +443,7 @@ hr {
 /* 768 + */
 @media (min-width: 48em) {
   .u-margin-b-s-1-mq-768-up {
-    margin-bottom: var(--r-s-1)!important;
+    margin-block-end: var(--r-s-1)!important;
   }
 }
 /* 1280 + */
@@ -473,7 +473,7 @@ hr {
 /* .u-margin-b-n, */
 /* Organisms > (Not Part Of Framework) > Careers Card */
 .c-careers-card__footer .btn {
-	margin-bottom: 0;
+	margin-block-end: 0;
 }
 /* .u-padding-t-n, */
 /* Atoms > Elements */

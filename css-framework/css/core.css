@@ -496,7 +496,7 @@ main:focus {
 }
 
 main {
-    margin-bottom: var(--spacing-l-1);
+    margin-block-end: var(--spacing-l-1);
 }
 
 main > *:last-child {

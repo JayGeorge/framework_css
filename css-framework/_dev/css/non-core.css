@@ -268,7 +268,7 @@ code {
     overflow-x: scroll;
     padding-block-end: var(--spacing-s-x);
     padding-block-start: var(--spacing-s-x);
-    margin-bottom: var(--spacing-m);
+    margin-block-end: var(--spacing-m);
     color: var(--colour-grey-reading);
 }
 
@@ -300,7 +300,7 @@ code {
 blockquote {
     position: relative;
     padding-inline-start: var(--spacing-m-2);
-    /* margin-bottom: var(--spacing-l); */
+    /* margin-block-end: var(--spacing-l); */
     margin-inline-start: var(--spacing-s-x-x);
     border-left: 4px solid turquoise;
 }
@@ -345,7 +345,7 @@ cite {
 
 hr {
     height: 2px;
-    margin-bottom: var(--spacing-l);
+    margin-block-end: var(--spacing-l);
     margin-top: var(--spacing-l);
     background: var(--colour-grey-light-1);
     border: 0;
@@ -862,7 +862,7 @@ h2 + .o-hero-buttons {
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / SPACING
 =================================================== */
 .js--navIsOpen .c-nav-mobile-button {
-    margin-bottom: 0;
+    margin-block-end: 0;
 }
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / CURRENT PAGE
 =================================================== */
@@ -1201,7 +1201,7 @@ h2 + .o-hero-buttons {
     padding-block-start: var(--spacing-s);
     /*padding-inline-start: var(--spacing-s);*/
     /*padding-inline-end: var(--spacing-s);*/
-    /*margin-bottom: var(--spacing-l-1);*/
+    /*margin-block-end: var(--spacing-l-1);*/
     /*margin-top: var(--spacing-s-1);*/
     /*font-size: 1em;*/
 }
@@ -1241,7 +1241,7 @@ h2 + .o-hero-buttons {
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY CONTENT / (MODIFIERS) / VIDEO
 =================================================== */
 .s-entry-content--video .js--video {
-    margin-bottom: 0;
+    margin-block-end: 0;
 }
 
 .s-entry-content--video .js--video + p {

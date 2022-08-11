@@ -27,7 +27,7 @@ textarea {
     /* box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1); */
     /* =JFG. e.g. search box >> blog or newsletter signup email address */
     padding: 15px;
-    margin-bottom: 2rem;
+    margin-block-end: 2rem;
     /* e.g. fields next to each other */
     margin-right: 0.5rem;
     /* =JFG. Need line height; IE9 bug. Source http://stackoverflow.com/questions/7797103/text-indent-for-a-text-box-in-ie */
@@ -75,7 +75,7 @@ body [type="checkbox"] {
 /* =JFG. Need high specificity e.g. "Preferred Appointment Time" xx HH, xx MM */
 [type="text"] + label {
     position: relative;
-    /* =JFG. Counter margin-bottom */
+    /* =JFG. Counter margin-block-end */
     top: -0.25rem;
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / (CROSS POLLINATED)
@@ -141,7 +141,7 @@ input + .c-form__notes {
 /* Exceptions */
 .c-form [type="checkbox"],
 .c-form [type="radio"] {
-    margin-bottom: 0;
+    margin-block-end: 0;
 }
 
 /* purgecss start ignore */
@@ -574,7 +574,7 @@ textarea {
 =================================================== */
 /* e.g. do not affect hubspot comment, which is the last field. We do not want to create a big gap between the Hubspot comment and the submit button */
 .comment-form-comment textarea {
-    margin-bottom: 2.4rem;
+    margin-block-end: 2.4rem;
 }
 
 
@@ -630,6 +630,6 @@ textarea {
 =================================================== */
 .js .js__form--hide-labels-until-focused input {
     /* Decrease */
-    margin-bottom: var(--spacing-s);
+    margin-block-end: var(--spacing-s);
 }
 /* purgecss end ignore */

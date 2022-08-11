@@ -17,7 +17,7 @@
     max-width: var(--max-width-1);
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: var(--spacing-l-1);
+    margin-block-end: var(--spacing-l-1);
 }
 
 .o-responsive-video__inner-wrapper {
@@ -53,7 +53,7 @@
 @media (min-width: 1400px) {
     .o-responsive-video {
         /* Increase */
-        margin-bottom: var(--spacing-l-2);
+        margin-block-end: var(--spacing-l-2);
     }
 }
 
@@ -93,7 +93,7 @@ p + .js__videoLazyLoad {
 
 /* .js--video, */
 .js__videoLazyLoad {
-    margin-bottom: var(--spacing-s);
+    margin-block-end: var(--spacing-s);
 }
 
 /* .js--video + p + .js--video, */
@@ -103,11 +103,11 @@ p + .js__videoLazyLoad {
 
 .no-js iframe {
     /* Where we don't have JS hook for padding */
-    margin-bottom: var(--spacing-l-1);
+    margin-block-end: var(--spacing-l-1);
 }
 
 .js--video {
-    margin-bottom: var(--spacing-l);
+    margin-block-end: var(--spacing-l);
 }
 
 p + .js--video,

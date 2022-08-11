@@ -6,7 +6,7 @@
 /* Override any more complex rules like .s-entry-content:last-child */
 .s-legalise:last-child {
     padding: var(--spacing-l);
-    margin-bottom: var(--spacing-l-2);
+    margin-block-end: var(--spacing-l-2);
 }
 
 .s-content-main-legalise .s-entry-header {
@@ -15,7 +15,7 @@
 
 .s-content-main-legalise .s-entry-content:not(.s-legalise) {
     padding-block-end: var(--spacing-l);
-    margin-bottom: var(--spacing-l-1);
+    margin-block-end: var(--spacing-l-1);
 }
 
 .s-legalise h2 {
