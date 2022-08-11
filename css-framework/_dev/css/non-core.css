@@ -274,7 +274,9 @@ code {
 
 /* Notes...
 
-    Source - http://html5doctor.com/cite-and-blockquote-reloaded/
+    Source 1 - http://html5doctor.com/cite-and-blockquote-reloaded/
+    Source 2 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
+    {citation}
 
 */
 /* HTML Example...
@@ -285,6 +287,14 @@ code {
             — <cite><a href="http://www.brucelawson.co.uk/2013/on-citing-quotations-again/">Bruce Lawson</a></cite>
         </footer>
     </blockquote>
+
+    OR
+
+    <blockquote>
+        <p>It was a bright cold day in April, and the clocks were striking thirteen.</p>
+    </blockquote>
+    <figcaption>First sentence in <cite><a href="http://www.george-orwell.org/1984/0.html">Nineteen Eighty-Four</a></cite> by George Orwell (Part 1, Chapter 1).</figcaption>
+</figure>
 
 */
 blockquote {
