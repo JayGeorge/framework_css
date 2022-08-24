@@ -682,7 +682,7 @@ https://twitter.com/LeaVerou/status/1045836563505188867 */
 } */
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / HOVER
 =================================================== */
-a:hover {
+.s-entry-content a:hover {
     text-decoration-color: black;
 }
 
@@ -992,12 +992,38 @@ button.c-btn--2,
 .s-entry-content figure {
     margin: 0;
 }
-/* GROUP SCOPE / FRAMEWORK / ENTRY / ENTRY CONTENT / DECORATION
-=================================================== */
-/* e.g. an img output wrapped in a figure element */
-/* .s-entry-content figure {
-    
-} */
+
+.s-entry-content:has(+ .s-entry-content--inline-image) {
+    /* Increase - push an inline image away from the paragraph above */
+    padding-block-end: var(--spacing-l-3);
+}
+
+/* -- */
+
+/* Custom */
+@media (min-width: 768px) {
+    .s-entry-content--inline-quote blockquote {
+        float: left;
+        width: 32.8%;
+        margin-inline-end: var(--spacing-l-1);
+    }
+}
+
+/* -- */
+
+.s-entry-content--inline-image {
+    width: 68.1%;
+    /* Increase */
+    padding-inline-end: var(--spacing-l-1);
+}
+
+/* Custom */
+@media (min-width: 650px) {
+    .s-entry-content--inline-image {
+        width: 38.2%;
+        float: left;
+    }
+}
 /* purgecss end ignore */
 
 
@@ -1047,46 +1073,39 @@ img:not([alt]) {
     width: auto;
     height: auto;
 }
-/* GROUP UTILITIES / FRAMEWORK / SPACING
+/* GROUP UTILITIES / DECORATION / PANELS
 =================================================== */
-.u-px-l {
-    padding-inline: var(--spacing-l);
-}
-
-.u-px-l-1 {
-    padding-inline: var(--spacing-l-1);
-}
-/* GROUP UTILITIES / FRAMEWORK / LAYOUT / CONSTRAINTS / MAX
-=================================================== */
-[class*="u-mx-"] {
+[class*="u-panel"] {
     position: relative;
-    margin-inline: auto;
 }
 
-.u-mx-1 {
-    max-width: var(--max-width-1);
+/* Probably a safe default */
+.u-panel-grey + .u-panel-grey {
+    padding-block-start: 0;
 }
 
-.u-mx-2 {
-    max-width: var(--max-width-2);
+/* Here we attach the panel class directly to the component so that:
+
+    - We can still make use of adjacent selectors to control spacing such as .component + .component without a panel parent getting in the way
+
+*/
+
+/* some-class*/
+.u-panel-white::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    background: white;
+    z-index: -1;
+
+    /* Object > Framework > (Non Core) > Layout > Full Width {Bust Out Of Container} */
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-inline: -50vw;
 }
 
-.u-mx--uncentered {
-    margin-left: 0;
-}
-/* GROUP UTILITIES / FRAMEWORK / STATAMIC
-=================================================== */
-/* if ( window.location !== window.parent.location ) {
-    // The page is in an iFrame and very likely being called by Statamic's Live Preview mode.
-    // Use this class to selectively disable some animations since the page will be rapidly loaded on every keystroke
-    document.querySelector('html').classList.add('js--live-preview');
-} */
-/* purgecss start ignore */
-.js--live-preview *,
-.js--live-preview *::before,
-.js--live-preview *::after {
-    animation-duration: 0s!important;
-    animation-delay: 0s!important;
-    /* Stop AOS tripping things up in case it does not get initialised */
-    opacity: 1!important;
+.u-panel-dark-to-light {
+    --stop: 25%;
+    background: linear-gradient(to bottom, var(--colour-black-off) 0%, var(--colour-black-off) var(--stop), var(--colour-grey) var(--stop));
 }

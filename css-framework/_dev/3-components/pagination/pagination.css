@@ -28,12 +28,31 @@
     </div>
 
 */
-/* GROUP COMPONENTS / PAGINATION / LAYOUT
-=================================================== */
+.c-paging {
+    padding-inline: var(--spacing-l);
+    text-align: center;
+}
+
 .c-paging__buttons {
     display: flex;
     justify-content: center;
     gap: var(--spacing-m);
+}
+
+.c-paging .c-btn,
+.c-paging .c-btn a {
+    /* Cancel defaults */
+    margin-right: 0;
+}
+
+.c-paging .c-btn {
+    margin-top: var(--spacing-l);
+}
+
+.c-paging .c-btn a {
+    /* Needed for when previous and next are side by side. This should already be set as flex by the Atoms > Buttons group */
+    /* display: flex; */
+    margin-block-end: var(--spacing-m);
 }
 
 /* Custom */
@@ -67,34 +86,3 @@
         margin-left: 0;
     }
 }
-/* GROUP COMPONENTS / PAGINATION / SPACING
-=================================================== */
-.c-paging {
-    padding-inline-start: var(--spacing-l);
-    padding-inline-end: var(--spacing-l);
-}
-
-.c-paging .c-btn,
-.c-paging .c-btn a {
-    /* Cancel defaults */
-    margin-right: 0;
-}
-
-.c-paging .c-btn {
-    margin-top: var(--spacing-l);
-}
-
-.c-paging .c-btn a {
-    /* Needed for when previous and next are side by side. This should already be set as flex by the Atoms > Buttons group */
-    /* display: flex; */
-    margin-block-end: var(--spacing-m);
-}
-/* GROUP COMPONENTS / PAGINATION / DECORATION
-=================================================== */
-.c-paging {
-    text-align: center;
-}
-
-/* .c-paging__info {
-    font-weight: strong
-} */

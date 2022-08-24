@@ -16,6 +16,21 @@
 
 */
 :root {
+    /* GROUP VARIABLES -- LAYOUT -- GRID
+    =================================================== */
+    --grid-template-columns-golden-ratio-left: 1.618fr 1fr;
+    --grid-template-columns-golden-ratio-right: 1fr 1.618fr;
+    --grid-template-columns-offset-inline-end-column-1: calc(max(46em, 42%) + var(--spacing-l-1));
+    --grid-template-columns-offset-inline-end-column-2: calc(100% - var(--grid-template-columns-offset-inline-end-column-1));
+    --grid-template-columns-offset-inline-end: var(--grid-template-columns-offset-inline-end-column-1) 1fr;
+    /* GROUP VARIABLES -- SPACING
+    =================================================== */
+    --spacing-m-2: 1.65rem;
+    /* GROUP VARIABLES -- SPACING -- ICONS
+    =================================================== */
+    --spacing-icon-s: 0.2rem;
+    --spacing-icon-m: 0.3rem;
+    --spacing-icon-l: 0.6rem;
     /* GROUP VARIABLES -- DECORATION -- COLOURS
     =================================================== */
     /*
@@ -84,14 +99,6 @@
     --colour-grey-light-4: whitesmoke;
     --colour-grey-light-5: hsl(var(--colour-grey-hue) 97%);
     --colour-grey-light-6: hsl(var(--colour-grey-hue) 99%);
-    /* GROUP VARIABLES -- SPACING
-    =================================================== */
-    --spacing-m-2: 1.65rem;
-    /* GROUP VARIABLES -- SPACING -- ICONS
-    =================================================== */
-    --spacing-icon-s: 0.2rem;
-    --spacing-icon-m: 0.3rem;
-    --spacing-icon-l: 0.6rem;
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
     =================================================== */
     /* Where you may want to space the line-height slightly e.g. You may want to use -spaced because a paragraph contains short information and links, so you'd like to make it breathe a bit more. Use _sparingly_ since it exceeds the max recommended line-height of 1.5 */
@@ -334,10 +341,11 @@ blockquote p:last-child {
     padding-block-end: 0;
 }
 
-/* figure {
-    Cancelled based on e.g. >> /page-wordpress-blog-archive-genesis.php
-    padding-block-end: var(--spacing-l-1);
-} */
+figcaption {
+    padding-block-start: var(--spacing-s);
+    font-size: var(--font-size-s-x);
+    font-style: italic;
+}
 
 cite {
     font-size: 0.75em;
@@ -1371,39 +1379,30 @@ img.no-alt {
 .u-texture {
     background-image: url(/img/textures/something.jpg);
 }
-/* GROUP UTILITIES / DECORATION / PANELS
+/* GROUP UTILITIES / FRAMEWORK / SPACING
 =================================================== */
-[class*="u-panel"] {
+.u-px-l {
+    padding-inline: var(--spacing-l);
+}
+
+.u-px-l-1 {
+    padding-inline: var(--spacing-l-1);
+}
+/* GROUP UTILITIES / FRAMEWORK / LAYOUT / CONSTRAINTS / MAX
+=================================================== */
+[class*="u-mx-"] {
     position: relative;
+    margin-inline: auto;
 }
 
-/* Probably a safe default */
-.u-panel-grey + .u-panel-grey {
-    padding-block-start: 0;
+.u-mx-1 {
+    max-width: var(--max-width-1);
 }
 
-/* Here we attach the panel class directly to the component so that:
-
-    - We can still make use of adjacent selectors to control spacing such as .component + .component without a panel parent getting in the way
-
-*/
-
-/* some-class*/
-.u-panel-white::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    background: white;
-    z-index: -1;
-
-    /* Object > Framework > (Non Core) > Layout > Full Width {Bust Out Of Container} */
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-inline: -50vw;
+.u-mx-2 {
+    max-width: var(--max-width-2);
 }
 
-.u-panel-dark-to-light {
-    --stop: 25%;
-    background: linear-gradient(to bottom, var(--colour-black-off) 0%, var(--colour-black-off) var(--stop), var(--colour-grey) var(--stop));
+.u-mx--uncentered {
+    margin-left: 0;
 }
