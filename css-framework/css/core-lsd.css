@@ -877,6 +877,12 @@ button.c-btn--2,
         .c-site-header__cta
 
 */
+/* GROUP COMPONENTS / FRAMEWORK / SITE HEADER / LAYOUT
+=================================================== */
+/* GROUP COMPONENTS / FRAMEWORK / SITE HEADER / SPACING
+=================================================== */
+/* GROUP COMPONENTS / FRAMEWORK / SITE HEADER / DECORATION
+=================================================== */
 
 
 
@@ -899,13 +905,21 @@ button.c-btn--2,
         p
 
 */
+/* GROUP COMPONENTS / FRAMEWORK / MARKETING CONTENT / LAYOUT
+=================================================== */
 .c-marketing-content {
     max-width: var(--max-width-1);
-    padding: var(--spacing-l-3) var(--spacing-l);
     margin-inline-start: auto;
     margin-inline-end: auto;
     text-align: center;
 }
+/* GROUP COMPONENTS / FRAMEWORK / MARKETING CONTENT / SPACING
+=================================================== */
+.c-marketing-content {
+    padding: var(--spacing-l-3) var(--spacing-l);
+}
+/* GROUP COMPONENTS / FRAMEWORK / MARKETING CONTENT / DECORATION
+=================================================== */
 
 
 
@@ -917,13 +931,20 @@ button.c-btn--2,
     - Based on WordPress Genesis Entry Content but tailored for neutral frameworks
 
 */
+/* GROUP SCOPE / FRAMEWORK / ENTRY / ENTRY CONTENT / LAYOUT
+=================================================== */
 /* purgecss start ignore */
 .s-entry-content {
     max-width: var(--max-width-reading);
+}
+/* GROUP SCOPE / FRAMEWORK / ENTRY / ENTRY CONTENT / SPACING
+=================================================== */
+.s-entry-content {
     padding-inline-start: var(--spacing-l);
     padding-inline-end: var(--spacing-l);
     padding-block-end: var(--spacing-l);
 }
+
 .s-entry-content :is(ol, ul) {
     padding-inline-start: 0.8rem;
 }

@@ -504,6 +504,8 @@ a {
     .o-slide.c-slide
 
 */
+/* GROUP OBJECTS / FRAMEWORK / (NON CORE) / SLIDE / LAYOUT
+=================================================== */
 /* Optional for vertical centering content */
 /* .o-slide { */
     /* display: flex; */
@@ -512,6 +514,8 @@ a {
 
     /* min-height: 90vh; <-- Careful using this as it could cause spacing inconsistencies */
 /* } */
+/* GROUP OBJECTS / FRAMEWORK / (NON CORE) / SLIDE / SPACING
+=================================================== */
 .o-slide {
     padding-block: var(--spacing-vh-s);
 }
@@ -732,7 +736,6 @@ h2 + .o-hero-buttons {
 /* Notes...
 
     - Can contain anything e.g. Clients
-    - Cross pollinated with core.css e.g. .c-hero-block__strapline
 
 */
 
@@ -756,6 +759,8 @@ h2 + .o-hero-buttons {
     .c-hero-block--compressed-t-2
 
 */
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / HERO BLOCK / LAYOUT
+=================================================== */
 .c-hero-block {
     position: relative;
     display: flex;
@@ -763,9 +768,6 @@ h2 + .o-hero-buttons {
     flex-basis: 100%;
     justify-content: center;
     text-align: center;
-
-    padding-block-end: var(--spacing-l-3-horizontal);
-    padding-inline-end: var(--spacing-l-3-horizontal)
 }
 
 .c-hero-block > * {
@@ -775,12 +777,15 @@ h2 + .o-hero-buttons {
 .c-hero-block__text {
     max-width: 46rem;
 }
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / HERO BLOCK / SPACING / (CROSS POLLINATED)
+=================================================== */
+.c-hero-block {
+    padding-block-end: var(--spacing-l-3-horizontal);
+    padding-inline-end: var(--spacing-l-3-horizontal);
+}
 
 .c-hero-block__title {
     padding-block-start: 0;
-
-    font-size: var(--font-size-l-1);
-    line-height: var(--font-size-l-1-line-height);
 }
 
 /* .c-hero-title--with-strapline { */
@@ -790,20 +795,35 @@ h2 + .o-hero-buttons {
 
 /* e.g. div*/.c-hero-block__strapline {
     padding-block-end: var(--spacing-l-1);
-    
-    font-size: var(--font-size-s-1);
-    color: var(--colour-grey-reading);
 }
 
 .c-hero-block + .c-hero-block {
     /* e.g. client logos AJAX'd in */
     padding-block-start: var(--spacing-m-2);
 }
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / HERO BLOCK / DECORATION / (CROSS POLLINATED)
+=================================================== */
+/* Notes...
+
+    - Cross pollinated with core.css e.g. .c-hero-block__strapline
+
+*/
+
+.c-hero-block__strapline {
+    font-size: var(--font-size-s-1);
+    color: var(--colour-grey-reading);
+}
+
+.c-hero-block__title {
+    font-size: var(--font-size-l-1);
+    line-height: var(--font-size-l-1-line-height);
+}
 
 .c-hero-block img {
     filter: var(--image-boost);
 }
-
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / HERO BLOCK / (MODIFIERS)
+=================================================== */
 .c-hero-block--compressed .c-hero-block__text {
     /* e.g. >> /projects */
     padding-block-end: var(--spacing-l-1);
