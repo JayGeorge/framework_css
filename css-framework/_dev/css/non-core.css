@@ -104,11 +104,13 @@
     /* Where you may want to space the line-height slightly e.g. You may want to use -spaced because a paragraph contains short information and links, so you'd like to make it breathe a bit more. Use _sparingly_ since it exceeds the max recommended line-height of 1.5 */
     --font-size-spaced-line-height: 1.6;
 
+    /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- PERFECT FIFTH
+    =================================================== */
     /* Based on Perfect Fifth - https://type-scale.com/ */
     --font-size-s-x-x: 0.667rem;
 
     /* Outside type scale */
-    --font-size-s: clamp(calc(1.3em * 0.85), 4vw, 1.3em);
+    --font-size-s: clamp(1.3em * 0.85, 4vw, 1.3em);
     --font-size-s-line-height: 1.4;
     /* -- */
 
@@ -124,8 +126,10 @@
     --font-size-l-1: clamp(5.063em * 0.725, 6vw, 5.063em);
     --font-size-l-1-line-height: 1.05;
 
-    --font-size-l-2: clamp(calc(7.594em * 0.7), 15vw, 7.594em);
+    --font-size-l-2: clamp(7.594em * 0.7, 15vw, 7.594em);
     --font-size-l-2-line-height: 1;
+    /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- GOLDEN RATIO
+    =================================================== */
     /* Based on Golden Ratio - https://type-scale.com/ */
     --font-size-s-x-x: 0.618em;
     --font-size-s-x-x-custom: 0.73em;
@@ -141,10 +145,10 @@
     --font-size-l-line-height: 1.25;
     --font-size-l-line-height-entry: 1.1;
 
-    --font-size-l-1: clamp(calc(4.236em * 0.6), 10vw, 4.236em);
+    --font-size-l-1: clamp(4.236em * 0.6, 10vw, 4.236em);
     --font-size-l-1-line-height: 1.15;
 
-    --font-size-l-2: clamp(calc(6.854em * 0.7), 13.5vw, 6.854em);
+    --font-size-l-2: clamp(6.854em * 0.7, 13.5vw, 6.854em);
     --font-size-l-2-line-height: 0.99;
 
     --font-size-l-3: 11.089rem;
