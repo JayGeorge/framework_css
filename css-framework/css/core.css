@@ -952,8 +952,8 @@ button.c-btn--2,
 }
 
 /* Bard wraps <li> text in a <p> tag */
-.s-entry-content li p:only-child {
-    padding-block-end: 0;
+.s-entry-content li p: {
+    padding-block-end: 0!important;
 }
 
 .s-entry-content > .h1 {

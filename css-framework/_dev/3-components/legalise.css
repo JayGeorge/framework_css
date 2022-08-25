@@ -1,7 +1,24 @@
-/* GROUP SCOPE / LEGALISE / LAYOUT
+/*! Notes...
+
+    Author: Jay George
+    Author URI: https://jaygeorge.co.uk
+
+    ABOUT THIS CSS
+    ===================================================
+    - Only edit filename-dev.css, then process with Laravel Mix (1. run `sudo npm install` 2. Configure with `webpack.mix.js` 3. `npm run watch` to constantly monitor and compile into prod/)
+
+*/
+
+
+/* GROUP SCOPE / LEGALISE
 =================================================== */
-/* GROUP SCOPE / LEGALISE / SPACING
-=================================================== */
+.s-legalise {
+    max-width: var(--max-width-2);
+    margin-inline: auto;
+
+    border: 1px solid var(--colour-grey-light-2);
+}
+
 .s-legalise,
 /* Override any more complex rules like .s-entry-content:last-child */
 .s-legalise:last-child {
@@ -9,70 +26,28 @@
     margin-block-end: var(--spacing-l-2);
 }
 
-.s-content-main-legalise .s-entry-header {
-    padding-block-end: var(--spacing-l-1);
-}
-
-.s-content-main-legalise .s-entry-content:not(.s-legalise) {
-    padding-block-end: var(--spacing-l);
-    margin-block-end: var(--spacing-l-1);
-}
-
 .s-legalise h2 {
     padding-block-end: var(--spacing-m);
+
+    font-size: var(--font-size-s-2);
+    border-bottom: 1px solid var(--colour-grey-light-2);
 }
 
 .s-legalise h2:not(:first-child) {
     padding-block-start: var(--spacing-l-1);
 }
 
-.s-legalise h3 {
-    padding-block-end: var(--spacing-s-x-x);
-}
-
-.s-legalise h2 + p {
-    padding-block-start: var(--spacing-s-1);
-}
-/* GROUP SCOPE / LEGALISE / DECORATION
-=================================================== */
-.s-legalise {
-    border: 1px solid var(--colour-grey-light-2);
-}
-
-.s-content-main-legalise .s-entry-content:not(.s-legalise) {
-    border-bottom: 1px dashed var(--colour-grey-light-2);
-}
-
-.s-content-main-legalise .s-entry-content:last-child {
-    border-bottom: 0;
-}
-
-.s-content-main-legalise .s-entry-content {
-    font-size: var(--font-size-s-x);
-}
-
-.s-content-main-legalise .s-entry-content * {
-    text-align: left;
-}
-
-.s-legalise h2 {
-    font-size: var(--font-size-s-2);
-    border-bottom: 1px solid var(--colour-grey-light-2);
-}
-
-.s-legalise h3 {
-    font-size: var(--font-size-s);
-}
-
 .s-legalise h3,
 .s-legalise h4 {
-    color: var(--colour-grey);
-    font-family: var(--font-family-1);
-    font-weight: var(--font-family-1-weight-strong);
+    font-weight: var(--font-family-main-weight-medium);
 }
 
-.s-legalise * {
-    text-align: left;
+.s-legalise h3 {
+    font-size: var(--font-size-s-1);
+}
+
+.s-legalise p {
+    padding-block-end: var(--spacing-s-1);
 }
 
 /* Custom */

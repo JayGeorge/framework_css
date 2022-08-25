@@ -651,7 +651,7 @@ h2 + .o-hero-buttons {
 
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / DECORATIONAL
 =================================================== */
-/* Utility-like classes that are tied to a specific piece of UI */
+/* Utility-like classes that are not tied to a specific piece of UI */
 /* e.g.
 .c-subtext {
     color: var(--colour-grey);
