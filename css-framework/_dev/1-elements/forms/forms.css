@@ -281,7 +281,9 @@ input + .c-form__notes {
 }
 
 /* purgecss start ignore */
-.c-form-cols__col--full-width {
+.c-form-cols__col--full-width,
+/* e.g. has a file attachment */
+.c-form-cols__col:has(input[type=file]) {
     grid-column: 1 / -1;
 }
 /* purgecss end ignore */
@@ -509,7 +511,7 @@ textarea {
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION / STYLE 3
 =================================================== */
 /* =JFG. https://dribbble.com/shots/267632-Personal-Info?list=searches&tag=form_input&offset=6 */
-.s-input-style--3 input:not([type="radio"]) {
+.s-input-style--3 input:not([type="radio"]):not([type="file"]) {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow:
@@ -537,7 +539,7 @@ textarea {
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION / STYLE 6
 =================================================== */
-.s-input-style--6 input:not([type="radio"]) {
+.s-input-style--6 input:not([type="radio"]):not([type="file"]) {
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 5px rgba(0,0,0,0.1);

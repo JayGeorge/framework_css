@@ -1337,7 +1337,7 @@ img.no-alt {
 .u-icon-m {
     font-size: var(--icon-size-m);
 }
-/* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / ANIMATION / FADE IN
+/* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES
 =================================================== */
 /* Components > Framework > Nav */
 /* Atoms > JS Toggle Content */
@@ -1351,7 +1351,8 @@ img.no-alt {
         opacity: 1;
     }
 }
-
+/* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / ANIMATION / FADE IN
+=================================================== */
 .u-animated--fade-in {
     animation-name: fade-in;
     animation-duration: 1.2s;
