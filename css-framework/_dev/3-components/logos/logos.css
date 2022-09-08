@@ -92,6 +92,11 @@
     }
 }
 
+/* Tweaks */
+/* .c-logo-grid__item [src*="sandbox"] {
+    max-height: 2.25rem;
+} */
+
 /* Other exceptions */
 /* p + .c-logo-grid {
     padding-block-start: var(--spacing-l);

@@ -1058,23 +1058,21 @@ img:not([alt]) {
     position: relative;
 }
 
-/* Probably a safe default */
-.u-panel-grey + .u-panel-grey {
-    padding-block-start: 0;
-}
-
 /* Here we attach the panel class directly to the component so that:
 
     - We can still make use of adjacent selectors to control spacing such as .component + .component without a panel parent getting in the way
+    - e.g. <footer class="c-site-footer u-panel u-panel--dark" style="--panel-colour: var(--colour-purple-deep);">
 
 */
 
 /* some-class*/
-.u-panel-white::before {
+.u-panel::before {
     content: "";
     position: absolute;
+    top: 0;
+
     height: 100%;
-    background: white;
+    background: var(--panel-colour, white);
     z-index: -1;
 
     /* Object > Framework > (Non Core) > Layout > Full Width {Bust Out Of Container} */
@@ -1082,6 +1080,21 @@ img:not([alt]) {
     left: 50%;
     right: 50%;
     margin-inline: -50vw;
+}
+
+/* Explicit */
+.u-panel--dark * {
+    color: white;
+}
+.u-panel--light * {
+    color: black;
+}
+
+/* For forms */
+.u-panel--dark [placeholder],
+.u-panel--dark ::-webkit-input-placeholder,
+.u-panel--dark ::placeholder {
+    opacity: 1;
 }
 
 .u-panel-dark-to-light {

@@ -228,15 +228,26 @@
     </div>
 
 */
-/* GROUP ALPINE COMPONENTS / ACCORDION / LAYOUT
-=================================================== */
 .o-alpine-accordion {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-s-1);
 
     margin-inline: auto;
+    margin-block-end: var(--spacing-l);
     max-width: var(--max-width-1);
+}
+
+.o-alpine-accordion__text {
+    max-width: 70rem;
+    padding-inline: var(--spacing-l);
+    padding-block-end: var(--spacing-l-1);
+}
+
+.o-alpine-accordion__item {
+    background: white;
+    box-shadow: var(--box-shadow-tailwind);
+    border-radius: var(--border-radius-l);
 }
 
 .o-alpine-accordion button {
@@ -244,73 +255,142 @@
     width: 100%;
     align-items: center;
     justify-content: space-between;
-}
 
-.o-alpine-accordion__text {
-    max-width: 70rem;
-}
-
-.o-alpine-accordion span[x-show] {
-    display: flex;
-    align-items: center;
-}
-
-.o-alpine-accordion span[x-show] svg {
-    /* Cancel defaults */
-    margin-inline-end: 0;
-    top: unset;
-}
-/* GROUP ALPINE COMPONENTS / ACCORDION / SPACING
-=================================================== */
-.o-alpine-accordion {
-    margin-block-end: var(--spacing-l);
-}
-
-.o-alpine-accordion button {
     padding: var(--spacing-m) var(--spacing-l);
-}
 
-.o-alpine-accordion__text {
-    padding-inline: var(--spacing-l);
-    padding-block-end: var(--spacing-l-1);
-}
-
-.o-alpine-accordion h2 {
-    padding-block-end: 0;
-}
-
-.o-alpine-accordion__text ul {
-    padding-block-end: var(--spacing-s-1);
-    padding-inline-start: 0.8rem;
-}
-
-.o-alpine-accordion span[x-show] {
-    margin-inline-start: 1rem;
-}
-/* GROUP ALPINE COMPONENTS / ACCORDION / DECORATION
-=================================================== */
-.o-alpine-accordion__item {
-    background: white;
-    box-shadow: var(--box-shadow-tailwind);
-    border-radius: var(--border-radius-l);
-}
-
-.o-alpine-accordion h2 {
-    font-family: var(--font-family-info);
-    font-size: var(--font-size-s);
-}
-
-.o-alpine-accordion button {
     line-height: var(--font-size-s-line-height);
     text-align: left;
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-s);
 }
 
-.o-alpine-accordion__text ul {
-    list-style: circle;
+.o-alpine-accordion span[x-show] {
+    display: flex;
+    align-items: center;
+
+    margin-inline-start: 1rem;
 }
 
 .o-alpine-accordion span[x-show] svg {
+    /* Cancel defaults */
+    margin-inline-end: 0;
+    top: unset;
+
     font-size: 1.75em;
 }
+
+.o-alpine-accordion h2 {
+    padding-block-end: 0;
+
+    font-family: var(--font-family-info);
+    font-size: var(--font-size-s);
+}
+
+.o-alpine-accordion__text ul {
+    padding-block-end: var(--spacing-s-1);
+    padding-inline-start: 0.8rem;
+    list-style: circle;
+}
+
+
+
+
+/* GROUP ALPINE COMPONENTS / TOGGLE
+=================================================== */
+/* Notes...
+
+    - Only core Alpine needed
+    - https://alpinejs.dev/component/toggle
+
+*/
+/* HTML Example...
+
+    <div class="c-site-header__cta">
+        {{# Alpine Toggle #}}
+        <div
+            x-data="{ value: false }"
+            class="o-alpine-toggle"
+            x-id="['toggle-label']"
+        >
+            <input type="hidden" name="sendNotifications" :value="value">
+
+            {{# Label #}}
+            <label
+                @click="$refs.toggle.click(); $refs.toggle.focus()"
+                :id="$id('toggle-label')"
+            >
+                Brand Mode
+            </label>
+
+            {{# Button #}}
+            <button
+                x-ref="toggle"
+                @click="value = ! value"
+                type="button"
+                role="switch"
+                :aria-checked="value"
+                :aria-labelledby="$id('toggle-label')"
+                :class="value ? 'o-alpine-toggle__right-active' : ''"
+                class="o-alpine-toggle__left-active"
+            >
+                <span
+                    :class="value ? 'o-alpine-toggle__switch--active' : ''"
+                    class="o-alpine-toggle__switch"
+                    aria-hidden="true"
+                ></span>
+            </button>
+        </div>
+    </div>
+
+*/
+/* purgecss start ignore */
+.o-alpine-toggle {
+    --switch-size: 1.5rem;
+    --width: 5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-s);
+}
+
+.o-alpine-toggle button {
+    cursor: pointer;
+}
+
+.o-alpine-toggle label {
+    /* Disable default */
+    padding-block-end: 0;
+}
+
+.o-alpine-toggle__left-active,
+.o-alpine-toggle__right-active {
+    width: var(--width);
+    border-radius: 50px;
+}
+
+.o-alpine-toggle__left-active {
+    position: relative;
+    display: inline-flex;
+
+    padding: var(--spacing-s-x-x);
+
+    background: lightgrey;
+}
+
+.o-alpine-toggle__right-active {
+    background: mediumspringgreen;
+}
+
+.o-alpine-toggle__switch {
+    width: var(--switch-size);
+    height: var(--switch-size);
+    transition: all 0.12s cubic-bezier(0.55, 0.09, 0.68, 0.53) 0s;
+
+    background: white;
+    border-radius: 50px;
+}
+.o-alpine-toggle__switch--active {
+    transform: translateX(calc(var(--width) - 2rem));
+}
+/* purgecss end ignore */

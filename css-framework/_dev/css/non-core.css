@@ -587,7 +587,8 @@ a {
     text-align: center;
 }
 
-.o-hero-buttons .c-btn {
+.o-hero-buttons :where(.c-btn, [type="submit"]) {
+    /* Since spacing is now controlled with flex */
     margin-inline-end: 0;
 }
 
@@ -658,7 +659,7 @@ h2 + .o-hero-buttons {
     border-bottom; 1px solid grey;
 }
 
-.c-eyebrow-headline {
+.c-eyebrow-heading {
     text-transform: uppercase;
 }
 

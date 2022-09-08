@@ -1,0 +1,53 @@
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / LABELS HIDDEN UNTIL FOCUSED
+=================================================== */
+/* Notes...
+
+    - Used to provide a more compact experience
+    - Still accessible since labels appear when you start typing
+    - Requires JS becuase we're traversing _up_ the DOM tree
+
+*/
+
+/* Javascript needed...
+
+    Array.from(document.querySelectorAll('.js__formHideLabelsUntilFocused input:not([type="submit"]), .js__formHideLabelsUntilFocused textarea') || []).forEach(element => {
+        element.addEventListener('focus', (event) => {
+            // The label is targetted as a descendent of the parent with CSS to hide/unhide it
+            event.target.parentElement.classList.add('js__formHideLabelsUntilFocused__labelUnhidden');
+        });
+        element.addEventListener('blur', (event) => {
+            event.target.parentElement.classList.remove('js__formHideLabelsUntilFocused__labelUnhidden');
+        });
+    });
+
+*/
+
+/* Alternative classes...
+
+    - Use js__formHideLabelsUntilFocused__always-show to always show a label. You probably want to do this on radios and checkboxes since they have multiple labels
+
+*/
+/* purgecss start ignore */
+.js .js__formHideLabelsUntilFocused label {
+    /* Fast out, Slow in */
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    opacity: 0;
+}
+
+.js .js__formHideLabelsUntilFocused__labelUnhidden label,
+.js .js__formHideLabelsUntilFocused__always-show label{
+    opacity: 1;
+}
+
+.js .js__formHideLabelsUntilFocused__always-show label:first-child {
+    /* Make up for the labels which other fields don't have */
+    padding-block-start: var(--spacing-l-1);
+    padding-block-end: var(--spacing-m);
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / LABELS HIDDEN UNTIL FOCUSED / SPACING
+=================================================== */
+.js .js__formHideLabelsUntilFocused input {
+    /* Decrease */
+    margin-block-end: var(--spacing-s);
+}
+/* purgecss end ignore */
