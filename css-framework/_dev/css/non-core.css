@@ -285,27 +285,7 @@ code {
 
 /* Notes...
 
-    Source 1 - http://html5doctor.com/cite-and-blockquote-reloaded/
-    Source 2 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
-    {citation}
-
-*/
-/* HTML Example...
-
-    <blockquote>
-        <p>As my fellow HTML5 Doctor, Oli Studholme has showed, citations almost always appear as part of the quotation – it’s highly conventional.</p>
-        <footer>
-            — <cite><a href="http://www.brucelawson.co.uk/2013/on-citing-quotations-again/">Bruce Lawson</a></cite>
-        </footer>
-    </blockquote>
-
-    OR
-
-    <blockquote>
-        <p>It was a bright cold day in April, and the clocks were striking thirteen.</p>
-    </blockquote>
-    <figcaption>First sentence in <cite><a href="http://www.george-orwell.org/1984/0.html">Nineteen Eighty-Four</a></cite> by George Orwell (Part 1, Chapter 1).</figcaption>
-</figure>
+    For HTML examples on using blockquote along with references see my CSS.text file in my wiki, under Blockquotes
 
 */
 blockquote {
@@ -496,38 +476,41 @@ a {
 
 /* GROUP OBJECTS / FRAMEWORK / (NON CORE) / SLIDE
 =================================================== */
-/* Notes...
+@layer objects {
+    /* Notes...
 
-	- Used to introduce hero-like text, occupying most of the screen vertically
-	- Use an additional component class to handle the decoration
-    - Don't use something like .o-slide__inner; instead define this in components, it's less complex
+        - Used to introduce a new section
 
-*/
-/* HTML Example...
+    */
+    /* HTML Example...
 
-    .o-slide.c-slide
+        .o-slide
 
-*/
-/* Optional for vertical centering content */
-/* .o-slide { */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
+    */
+    /* Optional for vertical centering content */
+    /* .o-slide { */
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* justify-content: center; */
 
-    /* min-height: 90vh; <-- Careful using this as it could cause spacing inconsistencies */
-/* } */
-.o-slide {
-    padding-block: var(--spacing-vh-s);
+        /* min-height: 90vh; <-- Careful using this as it could cause spacing inconsistencies */
+    /* } */
+    .o-slide {
+        padding-block: var(--spacing-vh-s);
+    }
+
+    .o-slide > *:last-child {
+        padding-block-end: 0;
+    }
+
+    .o-slide > *:first-child {
+        padding-block-start: 0;
+    }
 }
-
-.o-slide .o-hero-buttons {
-    /* So everything is still centered */
-    padding-block-end: 0;
-}
-
-.o-slide > *:last-child {
-    /* e.g. when marketing-text is at the bottom of a slide */
-    padding-block-end: 0;
+@layer modifiers {
+    .o-slide--compressed-b-total {
+        padding-block-end: 0;
+    }
 }
 
 /* Notes...
@@ -1354,11 +1337,14 @@ img.no-alt {
 }
 /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / ANIMATION / FADE IN
 =================================================== */
-.u-animated--fade-in {
+.u-animated-fade-in {
     animation-name: fade-in;
     animation-duration: 1.2s;
     /* Out quadratic */
     animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    /* Shorthand example. I'd recommend you use this, saves a lot of space */
+    animation: 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) fade-in both;
 }
 /* GROUP UTILITIES / DECORATION
 =================================================== */
