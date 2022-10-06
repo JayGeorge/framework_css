@@ -33,6 +33,8 @@
     /* Smaller values for mobile */
     --spacing-l-2: min(11.5vw, 4.2rem);
     --spacing-l-3: min(20vw, 4.7rem);
+    /* Increased later */
+    --spacing-l-3-horizontal: var(--spacing-s);
     --spacing-l-4: min(22vw, 7rem);
     --spacing-l-4-static: 7rem;
     /* or */
@@ -333,6 +335,8 @@ p:last-child {
 
 main :where(p, ol, ul) {
     line-height: var(--font-size-reading-line-height);
+    list-style-position: inside;
+    padding-inline-start: 0;
 }
 
 /* Nested lists */
@@ -436,7 +440,7 @@ article + article {
 }
 /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / LOW PRIORITY / VERTICAL SPACING
 =================================================== */
-:where(h3, .h3) {
+h3, .h3 {
     padding-block-end: var(--spacing-s-x);
 }
 
@@ -1097,8 +1101,18 @@ img:not([alt]) {
     /* Notes...
 
         - If you're using this on a component with margin-block-end rather than padding-block-end then I'd recommend you add a .component-wrapper and add .u-panel.u-panel--split there instead. This will get around the problem of extending the split below the component to join the next panel.
+        - To adjust panels for mobile you can add an override on a case-by-case basis, e.g. ...
+
+        @media (max-width: 899px) {
+            .c-text-and-motif.u-panel {
+                --panel-stop-1: 5%!important;
+            }
+        }
+        - You could also use the .u-panel--higher-mqs modifier to remove the panel for mobile
+
     */
-    /* HTML Example..
+    /* HTML Example...
+
         - You can use it with either 1 or 2 stops.
         - Note that it's generally better to use margin-block-end on components because for example a 90% stop will be 90% height of the component rather than 90% height of the component + it's padding below
 
@@ -1107,6 +1121,7 @@ img:not([alt]) {
 
         Here is an example of 2 stops:
         <div class="c-something u-panel u-panel--split" style="--panel-colour-start: white; --panel-colour-end: var(--colour-grey-light); --panel-stop-1: 10%; --panel-stop-2: 90%;">
+
     */
     .u-panel--split::before {
         background: linear-gradient(to bottom, 
@@ -1115,5 +1130,12 @@ img:not([alt]) {
             var(--panel-stop-2, 100%), 
             var(--panel-colour-start) var(--panel-stop-2, 100%)
         );
+    }
+    /* Custom */
+    @media (max-width: 1023px) {
+        .u-panel--higher-mqs::before {
+            /* Remove */
+            content: unset!important;
+        }
     }
 }

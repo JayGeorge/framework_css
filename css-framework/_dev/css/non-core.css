@@ -1229,152 +1229,162 @@ h2 + .o-hero-buttons {
 
 /* GROUP UTILTIES / FRAMEWORK / (NON CORE)
 =================================================== */
-/* For when something is revealed with JS, but if JS is not available show it */
-.js .u-js-hide {
-    display: none;
-}
-
-/* Hide visually and from screen readers */
-.u-hidden {
-    display: none!important;
-}
-
-.u-link-style-none,
-.u-link-style-none * {
-    font-weight: inherit;
-    text-decoration: none;
-    color: inherit;
-    border-bottom: 0;
-}
-
-/* Needed for when you declare width and height attributes to improve loading lazy images */
-/* picture*/
-.u-full-width-image img {
-    width: 100%;
-}
-
-/* Use this class when you're intentionally not adding an alt tag e.g. it's a decorational image */
-img.no-alt {
-    border: initial;
-}
-
-/* GROUP UTILITIES / FRAMEWORK / (NON CORE) / LINE CLAMP
-=================================================== */
-/* e.g. <div class="u-line-clamp" style="--clamp: 3;"> */
-.u-line-clamp {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    /* Stop padding ruining the clamp */
-    padding-block-end: 0;
-    -webkit-line-clamp: var(--clamp, 2);
-}
-
-/* Custom */
-@media (max-width: 767px) {
-    .u-line-clamp--mq-768-up {
-        -webkit-line-clamp: unset;
-    }
-}
-
-/* Notes...
-
-    - See also https://css-tricks.com/almanac/properties/l/line-clamp/ {/ LINE CLAMP}
-*/
-.u-ellipsis {
-    display: block;
-    /* =JFG. Need to be inline-block or block to enable ellipsis */
-    white-space: nowrap;
-    /* 'overflow' value must be different from 'visible' */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* Optional */
-    max-width: 95%;
-}
-/* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ICONS / SIZING
-=================================================== */
-/* These is explicit, so override any automatic rules above with !important */
-.u-icon-right-x-x {
-    margin-inline-start: var(--spacing-icon-s)!important;
-}
-
-.u-icon-right-x {
-    margin-inline-start: var(--spacing-icon-m)!important;
-}
-
-.u-icon-left-x {
-    margin-inline-end: var(--spacing-icon-m)!important;
-}
-
-.u-icon-left {
-    margin-inline-end: var(--spacing-icon-l)!important;
-}
-
-.u-icon-right {
-    margin-inline-start: var(--spacing-icon-l)!important;
-}
-
-.u-icon-s {
-    font-size: var(--icon-size-s);
-}
-
-.u-icon-m {
-    font-size: var(--icon-size-m);
-}
-/* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES
-=================================================== */
-/* Components > Framework > Nav */
-/* Atoms > JS Toggle Content */
-/* Molecules > (Non Core) > Image > Lazy Load > {/ Lozad} */
-@keyframes fade-in {
-    0% {
-        opacity: 0;
+@layer utilities {
+    /* For when something is revealed with JS, but if JS is not available show it */
+    .js .u-js-hide {
+        display: none;
     }
 
-    100% {
-        opacity: 1;
+    /* Hide visually and from screen readers */
+    .u-hidden {
+        display: none!important;
     }
-}
-/* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / ANIMATION / FADE IN
-=================================================== */
-.u-animated-fade-in {
-    animation-name: fade-in;
-    animation-duration: 1.2s;
-    /* Out quadratic */
-    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-    /* Shorthand example. I'd recommend you use this, saves a lot of space */
-    animation: 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) fade-in both;
-}
-/* GROUP UTILITIES / DECORATION
-=================================================== */
-.u-texture {
-    background-image: url(/img/textures/something.jpg);
-}
-/* GROUP UTILITIES / FRAMEWORK / SPACING
-=================================================== */
-.u-px-l {
-    padding-inline: var(--spacing-l);
-}
+    .u-link-style-none,
+    .u-link-style-none * {
+        font-weight: inherit;
+        text-decoration: none;
+        color: inherit;
+        border-bottom: 0;
+    }
 
-.u-px-l-1 {
-    padding-inline: var(--spacing-l-1);
-}
-/* GROUP UTILITIES / FRAMEWORK / LAYOUT / CONSTRAINTS / MAX
-=================================================== */
-[class*="u-mx-"] {
-    position: relative;
-    margin-inline: auto;
-}
+    /* Needed for when you declare width and height attributes to improve loading lazy images */
+    /* picture*/
+    .u-full-width-image img {
+        width: 100%;
+    }
 
-.u-mx-1 {
-    max-width: var(--max-width-1);
-}
+    /* Use this class when you're intentionally not adding an alt tag e.g. it's a decorational image */
+    img.no-alt {
+        border: initial;
+    }
 
-.u-mx-2 {
-    max-width: var(--max-width-2);
-}
+    /* GROUP UTILITIES / FRAMEWORK / (NON CORE) / LINE CLAMP
+    =================================================== */
+    /* e.g. <div class="u-line-clamp" style="--clamp: 3;"> */
+    .u-line-clamp {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        /* Stop padding ruining the clamp */
+        padding-block-end: 0;
+        -webkit-line-clamp: var(--clamp, 2);
+    }
 
-.u-mx--uncentered {
-    margin-left: 0;
+    /* Custom */
+    @media (max-width: 767px) {
+        .u-line-clamp--mq-768-up {
+            -webkit-line-clamp: unset;
+        }
+    }
+
+    /* Notes...
+
+        - See also https://css-tricks.com/almanac/properties/l/line-clamp/ {/ LINE CLAMP}
+    */
+    .u-ellipsis {
+        display: block;
+        /* =JFG. Need to be inline-block or block to enable ellipsis */
+        white-space: nowrap;
+        /* 'overflow' value must be different from 'visible' */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* Optional */
+        max-width: 95%;
+    }
+    /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ICONS / SIZING
+    =================================================== */
+    /* These is explicit, so override any automatic rules above with !important */
+    .u-icon-right-x-x {
+        margin-inline-start: var(--spacing-icon-s)!important;
+    }
+
+    .u-icon-right-x {
+        margin-inline-start: var(--spacing-icon-m)!important;
+    }
+
+    .u-icon-left-x {
+        margin-inline-end: var(--spacing-icon-m)!important;
+    }
+
+    .u-icon-left {
+        margin-inline-end: var(--spacing-icon-l)!important;
+    }
+
+    .u-icon-right {
+        margin-inline-start: var(--spacing-icon-l)!important;
+    }
+
+    .u-icon-s {
+        font-size: var(--icon-size-s);
+    }
+
+    .u-icon-m {
+        font-size: var(--icon-size-m);
+    }
+    /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES
+    =================================================== */
+    /* Components > Framework > Nav */
+    /* Atoms > JS Toggle Content */
+    /* Molecules > (Non Core) > Image > Lazy Load > {/ Lozad} */
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+    /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / ANIMATION / FADE IN
+    =================================================== */
+    .u-animated-fade-in {
+        animation-name: fade-in;
+        animation-duration: 1.2s;
+        /* Out quadratic */
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+        /* Shorthand example. I'd recommend you use this, saves a lot of space */
+        animation: 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) fade-in both;
+    }
+    /* GROUP UTILITIES / DECORATION
+    =================================================== */
+    .u-texture {
+        background-image: url(/img/textures/something.jpg);
+    }
+    /* GROUP UTILITIES / FRAMEWORK / SPACING
+    =================================================== */
+    .u-px-l {
+        padding-inline: var(--spacing-l);
+    }
+
+    .u-px-l-1 {
+        padding-inline: var(--spacing-l-1);
+    }
+    /* GROUP UTILITIES / FRAMEWORK / (NON-CORE) / LAYOUT / HIDERS
+    =================================================== */
+    /* Custom */
+    @media (max-width: 1099px) {
+        .u-mq-1100-up {
+            display: none!important;
+        }
+    }
+    /* GROUP UTILITIES / FRAMEWORK / LAYOUT / CONSTRAINTS / MAX
+    =================================================== */
+    [class*="u-mx-"] {
+        position: relative;
+        margin-inline: auto;
+    }
+
+    .u-mx-1 {
+        max-width: var(--max-width-1);
+    }
+
+    .u-mx-2 {
+        max-width: var(--max-width-2);
+    }
+
+    .u-mx--uncentered {
+        margin-left: 0;
+    }
 }
