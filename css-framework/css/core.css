@@ -379,53 +379,38 @@ utilities;
         /* https://app.typographychecklist.com/ 91 - Use discretionary ligatures and swashes in headlines */
         font-feature-settings: "kern", "liga", "clig", "calt", "dlig", "swsh";
     }
-    /* purgecss end ignore */
-
-    h4,
-    .h4,
-    h4 a,
-    .h4 a {
+    
+    h4, .h4, h4 a, .h4 a {
         font-family: var(--font-family-headline);
         font-style: var(--font-family-headline-style-1);
         font-weight: var(--font-family-headline-weight-normal);
     }
-
+    
     /* --- */
-
+    
     /* purgecss start ignore */
-    h1,
-    .h1 {
+    h1, .h1 {
         font-size: var(--font-size-l);
         line-height: var(--font-size-l-line-height);
     }
-
-    h2,
-    .h2 {
+    h2, .h2 {
         font-size: var(--font-size-m);
         line-height: var(--font-size-m-line-height);
     }
-
-    h3,
-    .h3 {
+    h3, .h3 {
         font-size: var(--font-size-s-2);
         line-height: var(--font-size-s-2-line-height);
     }
     /* purgecss end ignore */
-
-    h4,
-    .h4 {
+    h4, .h4 {
         font-size: var(--font-size-s-1);
         line-height: var(--font-size-s-1-line-height);
     }
-
-    h5,
-    .h5 {
+    h5, .h5 {
         font-size: var(--font-size-s);
         line-height: var(--font-size-s-line-height);
     }
-
-    h6,
-    .h6 {
+    h6, .h6 {
         font-size: var(--font-size-s-x-1);
         line-height: var(--font-size-s-x-1-line-height);
     }
