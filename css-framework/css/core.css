@@ -657,29 +657,12 @@ nav a:focus {
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS -- remove for mouse
 =================================================== */
-/* purgecss start ignore */
-/* Notes...
-
-    Remove Focus Styles for Mouse Users
-    -----------------------------------
-    - You can use https://github.com/WICG/focus-visible to cancel focus styles for mouse users
-    [1] Add it like this - <script src="js/focus-visible.js" async></script>
-
-*/
 /* Native for browsers that support it - https://caniuse.com/#search=focus-visible
 https://twitter.com/LeaVerou/status/1045836563505188867 */
 :focus:not(:focus-visible),
 :focus:not(:focus-visible) * {
     outline: none!important;
 }
-/* purgecss end ignore */
-
-/* Temp until Safari supports focus-visible, targeting touch devices. This is stinky code so don't include it by default, and remove it when Safari supposts focus-visible */
-/* @media (hover: none) {
-    :focus {
-        outline: none!important;
-    }
-} */
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / HOVER
 =================================================== */
 .s-entry-content a:hover {
