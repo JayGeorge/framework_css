@@ -240,126 +240,130 @@
 
 /* GROUP RESET / FRAMEWORK / (NON CORE) / SCROLLBARS
 =================================================== */
-/* To hide search bars in general, enable the below. Source: https://stackoverflow.com/questions/3296644/hiding-the-scrollbar-on-an-html-page; */
-/* html { */
-/* Firefox */
-/* scrollbar-width: none; */
-/* IE and Edge */
-/* -ms-overflow-style: none; */
-/* } */
+@layer base {
+    /* To hide search bars in general, enable the below. Source: https://stackoverflow.com/questions/3296644/hiding-the-scrollbar-on-an-html-page; */
+    /* html { */
+    /* Firefox */
+    /* scrollbar-width: none; */
+    /* IE and Edge */
+    /* -ms-overflow-style: none; */
+    /* } */
 
-/* Chrome, Safari, and Opera */
-/* html::-webkit-scrollbar {
-    width: 0px;
-} */
+    /* Chrome, Safari, and Opera */
+    /* html::-webkit-scrollbar {
+        width: 0px;
+    } */
+}
 
 
 
 
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE)
 =================================================== */
-html {
-    /* Consider disabling this if you have pages that require lots of cmd + f https://css-tricks.com/downsides-of-smooth-scrolling/ */
-    scroll-behavior: smooth;
-    /*
-    h2 {
-        scroll-margin-top: 2em;
+@layer elements {
+    html {
+        /* Consider disabling this if you have pages that require lots of cmd + f https://css-tricks.com/downsides-of-smooth-scrolling/ */
+        scroll-behavior: smooth;
+        /*
+        h2 {
+            scroll-margin-top: 2em;
+        }
+        */
     }
+    
+    body {
+        /* So scroll bars hide like in Safari */
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    
+    pre,
+    code {
+        /* e.g. try <code><?php bloginfo('stylesheet_url'); ?></code> and you'll see that it overflows on smaller screens */
+        overflow-x: scroll;
+        padding-block-end: var(--spacing-s-x);
+        padding-block-start: var(--spacing-s-x);
+        margin-block-end: var(--spacing-m);
+        color: var(--colour-grey-reading);
+    }
+    
+    /* Notes...
+    
+        For HTML examples on using blockquote along with references see my CSS.text file in my wiki, under Blockquotes
+    
     */
-}
-
-body {
-    /* So scroll bars hide like in Safari */
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
-pre,
-code {
-    /* e.g. try <code><?php bloginfo('stylesheet_url'); ?></code> and you'll see that it overflows on smaller screens */
-    overflow-x: scroll;
-    padding-block-end: var(--spacing-s-x);
-    padding-block-start: var(--spacing-s-x);
-    margin-block-end: var(--spacing-m);
-    color: var(--colour-grey-reading);
-}
-
-/* Notes...
-
-    For HTML examples on using blockquote along with references see my CSS.text file in my wiki, under Blockquotes
-
-*/
-blockquote {
-    position: relative;
-    padding-inline-start: var(--spacing-m-2);
-    /* margin-block-end: var(--spacing-l); */
-    margin-inline-start: var(--spacing-s-x-x);
-    border-left: 4px solid turquoise;
-}
-
-blockquote p,
-blockquote cite {
-    color: var(--colour-grey-reading);
-}
-
-blockquote p {
-    quotes: "“" "”" "‘" "’";
-}
-
-blockquote p::before {
-    content: open-quote;
-}
-blockquote p::after {
-    content: close-quote;
-}
-
-blockquote::before {
-    position: absolute;
-    top: -0.3em;
-    left: 0.4em;
-    font-size: var(--font-size-m);
-    color: var(--colour-grey-light-1);
-}
-
-blockquote p:last-child {
-    /* e.g. prevent the decorative left border from extending beyond the text */
-    padding-block-end: 0;
-}
-
-figcaption {
-    padding-block-start: var(--spacing-s);
-    font-size: var(--font-size-s-x);
-    font-style: italic;
-}
-
-cite {
-    font-size: 0.75em;
-}
-
-hr {
-    height: 2px;
-    margin-block-end: var(--spacing-l);
-    margin-top: var(--spacing-l);
-    background: var(--colour-grey-light-1);
-    border: 0;
-}
-
-/*audio {
-    box-shadow: 0 0 10px rgba(255,255,255,0.25);
-}*/
-
-/* Aspect ratio */
-@supports (aspect-ratio: 16/9) {
-    iframe[src*="youtube"],
-    iframe[src*="vimeo"] {
-        /* Need supports otherwise height: auto; causes issues with the width */
-        height: auto;
-        aspect-ratio: 16/9;
+    blockquote {
+        position: relative;
+        padding-inline-start: var(--spacing-m-2);
+        /* margin-block-end: var(--spacing-l); */
+        margin-inline-start: var(--spacing-s-x-x);
+        border-left: 4px solid turquoise;
     }
-}
-
-iframe {
-    width: 100%;
-    border: none;
+    
+    blockquote p,
+    blockquote cite {
+        color: var(--colour-grey-reading);
+    }
+    
+    blockquote p {
+        quotes: "“" "”" "‘" "’";
+    }
+    
+    blockquote p::before {
+        content: open-quote;
+    }
+    blockquote p::after {
+        content: close-quote;
+    }
+    
+    blockquote::before {
+        position: absolute;
+        top: -0.3em;
+        left: 0.4em;
+        font-size: var(--font-size-m);
+        color: var(--colour-grey-light-1);
+    }
+    
+    blockquote p:last-child {
+        /* e.g. prevent the decorative left border from extending beyond the text */
+        padding-block-end: 0;
+    }
+    
+    figcaption {
+        padding-block-start: var(--spacing-s);
+        font-size: var(--font-size-s-x);
+        font-style: italic;
+    }
+    
+    cite {
+        font-size: 0.75em;
+    }
+    
+    hr {
+        height: 2px;
+        margin-block-end: var(--spacing-l);
+        margin-top: var(--spacing-l);
+        background: var(--colour-grey-light-1);
+        border: 0;
+    }
+    
+    /*audio {
+        box-shadow: 0 0 10px rgba(255,255,255,0.25);
+    }*/
+    
+    /* Aspect ratio */
+    @supports (aspect-ratio: 16/9) {
+        iframe[src*="youtube"],
+        iframe[src*="vimeo"] {
+            /* Need supports otherwise height: auto; causes issues with the width */
+            height: auto;
+            aspect-ratio: 16/9;
+        }
+    }
+    
+    iframe {
+        width: 100%;
+        border: none;
+    }
 }
 
 
@@ -375,77 +379,85 @@ iframe {
 
 */
 
-/* Default */
-a {
-    text-decoration-color: red;
-    text-decoration-line: underline;
-    text-decoration-line: underline overline;
-    text-decoration-line: line-through;
+@layer elements {
+    /* Default */
+    a {
+        text-decoration-color: red;
+        text-decoration-line: underline;
+        text-decoration-line: underline overline;
+        text-decoration-line: line-through;
 
-    /* https://css-tricks.com/almanac/properties/t/text-decoration-style */
-    text-decoration-style: dashed;
-    text-decoration-style: wavy;
-    text-decoration-style: dotted;
-    text-decoration-style: solid;
-    text-decoration-style: double;
+        /* https://css-tricks.com/almanac/properties/t/text-decoration-style */
+        text-decoration-style: dashed;
+        text-decoration-style: wavy;
+        text-decoration-style: dotted;
+        text-decoration-style: solid;
+        text-decoration-style: double;
 
-    /* https://css-tricks.com/almanac/properties/t/text-underline-position */
-    text-underline-position: left;
-    text-underline-position: right;
-    text-underline-position: under;
-    /* https://webkit.org/blog/8718/new-webkit-features-in-safari-12-1/ */
-    /* You can also specify from-font to both of these properties which will pull the relevant metric from the used font file itself. */
-    text-underline-offset: 0.5em;
-    text-decoration-thickness: 1px;
+        /* https://css-tricks.com/almanac/properties/t/text-underline-position */
+        text-underline-position: left;
+        text-underline-position: right;
+        text-underline-position: under;
+        /* https://webkit.org/blog/8718/new-webkit-features-in-safari-12-1/ */
+        /* You can also specify from-font to both of these properties which will pull the relevant metric from the used font file itself. */
+        text-underline-offset: 0.5em;
+        text-decoration-thickness: 1px;
+    }
 }
 
-/* Example taken from Typewolf. This should probably only be used for entry content because it might negatively affect elements such as nav */
-.u-link-style-2 a {
-    text-decoration-line: none;
-    border-bottom: 1px solid var(--colour-green-light);
-    box-shadow: inset 0 -7px 0 var(--colour-green-light);
-    transition: background 0.3s ease-out;
-}
+@layer utilities {
+    /* Example taken from Typewolf. This should probably only be used for entry content because it might negatively affect elements such as nav */
+    .u-link-style-2 a {
+        text-decoration-line: none;
+        border-bottom: 1px solid var(--colour-green-light);
+        box-shadow: inset 0 -7px 0 var(--colour-green-light);
+        transition: background 0.3s ease-out;
+    }
 
-.u-link-style-2 a:hover {
-    background: #f5f1f2;
-}
+    .u-link-style-2 a:hover {
+        background: #f5f1f2;
+    }
 
-/* Notes...
-
-    - Use "u-link-style-custom" prefix then these are pretty much rare/1 off
-    - Still include them in this group so we can see all link styles for easy maintenance
-
-*/
-.u-link-style-custom-1 {
-    color: var(--colour-grey-reading);
-}
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS } / BLOCK
-=================================================== */
-/* Notes...
-
-     If you wrap a link around everything you need to clear it.
-
-*/
-
-/* HTML example...
-
- <a href="">
-        <div>
-            Some content
-        </div>
-    </a>
-
-*/
-.u-link-style-block {
     /* Notes...
-        e.g. >> /what-we-do-static
-        
-        Not display: inline-block; because this allows
-        images to bust out of their containers on Firefox and Internet Explorer
+
+        - Use "u-link-style-custom" prefix then these are pretty much rare/1 off
+        - Still include them in this group so we can see all link styles for easy maintenance
+
     */
-    display: block;
+    .u-link-style-custom-1 {
+        color: var(--colour-grey-reading);
+    }
+    /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS } / BLOCK
+    =================================================== */
+    /* Notes...
+
+        If you wrap a link around everything you need to clear it.
+
+    */
+
+    /* HTML example...
+
+    <a href="">
+            <div>
+                Some content
+            </div>
+        </a>
+
+    */
+    .u-link-style-block {
+        /* Notes...
+            e.g. >> /what-we-do-static
+            
+            Not display: inline-block; because this allows
+            images to bust out of their containers on Firefox and Internet Explorer
+        */
+        display: block;
+    }
 }
+
+
+
+
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS
 =================================================== */
 /* Notes...
@@ -558,48 +570,50 @@ a {
     </div>
 
 */
-.o-hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    column-gap: var(--spacing-l-2);
-}
-
-.o-hero-buttons {
-    padding: var(--spacing-l-1);
-    text-align: center;
-}
-
-.o-hero-buttons :where(.c-btn, [type="submit"]) {
-    /* Since spacing is now controlled with flex */
-    margin-inline-end: 0;
-}
-
-.o-hero-buttons--left {
-    justify-content: flex-start;
-}
-
-/* --mq-max-width-reading-before */
-@media (max-width: 599px) {
+@layer objects {
     .o-hero-buttons {
-        text-align: left;
-        padding-inline-start: var(--spacing-l);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: var(--spacing-l-2);
     }
-}
-/* GROUP OBJECTS / FRAMEWORK / (NON CORE) / HERO BUTTONS { / BUTTON HERO} / SPACING
-=================================================== */
-.o-hero-buttons .c-btn {
-    /* Since spacing is now controlled with flex */
-    margin-block-end: 0;
-}
-/* GROUP OBJECTS / FRAMEWORK / (NON CORE) / HERO BUTTONS { / BUTTON HERO} / SPACING MODIFICATIONS
-=================================================== */
-.o-hero-buttons + h2 {
-    padding-block-start: var(--spacing-s);
-}
-
-h2 + .o-hero-buttons {
-    padding-block-start: var(--spacing-s-1);
+    
+    .o-hero-buttons {
+        padding: var(--spacing-l-1);
+        text-align: center;
+    }
+    
+    .o-hero-buttons :where(.c-btn, [type="submit"]) {
+        /* Since spacing is now controlled with flex */
+        margin-inline-end: 0;
+    }
+    
+    .o-hero-buttons--left {
+        justify-content: flex-start;
+    }
+    
+    /* --mq-max-width-reading-before */
+    @media (max-width: 599px) {
+        .o-hero-buttons {
+            text-align: left;
+            padding-inline-start: var(--spacing-l);
+        }
+    }
+    /* GROUP OBJECTS / FRAMEWORK / (NON CORE) / HERO BUTTONS { / BUTTON HERO} / SPACING
+    =================================================== */
+    .o-hero-buttons .c-btn {
+        /* Since spacing is now controlled with flex */
+        margin-block-end: 0;
+    }
+    /* GROUP OBJECTS / FRAMEWORK / (NON CORE) / HERO BUTTONS { / BUTTON HERO} / SPACING MODIFICATIONS
+    =================================================== */
+    .o-hero-buttons + h2 {
+        padding-block-start: var(--spacing-s);
+    }
+    
+    h2 + .o-hero-buttons {
+        padding-block-start: var(--spacing-s-1);
+    }
 }
 
 
@@ -621,13 +635,14 @@ h2 + .o-hero-buttons {
     </div>
 
 */
-
-.o-full-width-wrapper {
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-inline: -50vw;
+@layer objects {
+    .o-full-width-wrapper {
+        position: relative;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-inline: -50vw;
+    }
 }
 
 
@@ -637,27 +652,29 @@ h2 + .o-hero-buttons {
 =================================================== */
 /* Utility-like classes that are not tied to a specific piece of UI */
 /* e.g.
-.c-subtext {
-    color: var(--colour-grey);
-    border-bottom; 1px solid grey;
-}
+@layer components {
+    .c-subtext {
+        color: var(--colour-grey);
+        border-bottom; 1px solid grey;
+    }
 
-.c-eyebrow-heading {
-    text-transform: uppercase;
-}
+    .c-eyebrow-heading {
+        text-transform: uppercase;
+    }
 
-.c-separator {
-    position: relative;
-}
+    .c-separator {
+        position: relative;
+    }
 
-.c-separator::before {
-    --width: 20%;
-    content: "";
-    position: absolute;
-    bottom: 0;
-    width: var(--width);
-    left: calc((100% - var(--width)) / 2);
-    border-bottom: 1px solid var(--colour-black-off-2);
+    .c-separator::before {
+        --width: 20%;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: var(--width);
+        left: calc((100% - var(--width)) / 2);
+        border-bottom: 1px solid var(--colour-black-off-2);
+    }
 }
 */
 
@@ -671,45 +688,49 @@ h2 + .o-hero-buttons {
     <a href="{{ url }}" class="btn__left"><svg/> Previous</a>
 
 */
-/* Components > Pagination > (Cross Pollinated) */
-/* a*/
-.c-btn__left svg,
-/* a*/
-.c-btn__right svg {
-    position: relative;
-    /* Pagination Button e.g. right arrow inside button moves forward */
-    font-size: 1.5em;
-    transition: var(--animation-transition-fast);
-}
+@layer components {
+    /* Components > Pagination > (Cross Pollinated) */
+    /* a*/
+    .c-btn__left svg,
+    /* a*/
+    .c-btn__right svg {
+        position: relative;
+        /* Pagination Button e.g. right arrow inside button moves forward */
+        font-size: 1.5em;
+        transition: var(--animation-transition-fast);
+    }
 
-/* Components > Pagination > (Cross Pollinated) */
-/* a*/
-.c-btn__left svg {
-    right: 0;
-}
+    /* Components > Pagination > (Cross Pollinated) */
+    /* a*/
+    .c-btn__left svg {
+        right: 0;
+    }
 
-/* Components > Pagination > (Cross Pollinated) */
-/* a*/
-.c-btn__left:hover svg {
-    right: 5px;
-}
+    /* Components > Pagination > (Cross Pollinated) */
+    /* a*/
+    .c-btn__left:hover svg {
+        right: 5px;
+    }
 
-/* Components > Pagination > (Cross Pollinated) */
-/* a*/
-.c-btn__right svg {
-    left: 0;
-}
+    /* Components > Pagination > (Cross Pollinated) */
+    /* a*/
+    .c-btn__right svg {
+        left: 0;
+    }
 
-/* Components > Pagination > (Cross Pollinated) */
-/* a*/
-.c-btn__right:hover svg {
-    left: 5px;
+    /* Components > Pagination > (Cross Pollinated) */
+    /* a*/
+    .c-btn__right:hover svg {
+        left: 5px;
+    }
 }
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / BUTTONS / SIZES
 =================================================== */
-/* Small */
-.c-btn--s a {
-    padding: 0.6rem var(--spacing-m);
+@layer modifiers {
+    /* Small */
+    .c-btn--s a {
+        padding: 0.6rem var(--spacing-m);
+    }
 }
 
 
@@ -744,58 +765,61 @@ h2 + .o-hero-buttons {
     .c-hero-block--compressed-t-2
 
 */
-.c-hero-block {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    flex-basis: 100%;
-    justify-content: center;
-    text-align: center;
-
-    padding-block-end: var(--spacing-l-3-horizontal);
-    padding-inline-end: var(--spacing-l-3-horizontal)
-}
-
-.c-hero-block > * {
-    flex-basis: 100%;
-}
-
-.c-hero-block__text {
-    max-width: 46rem;
-}
-
-.c-hero-block__title {
-    padding-block-start: 0;
-
-    font-size: var(--font-size-l-1);
-    line-height: var(--font-size-l-1-line-height);
-}
-
-/* .c-hero-title--with-strapline { */
-    /* Decrease */
-/*     padding-block-end: var(--spacing-m-2);
-} */
-
-/* e.g. div*/.c-hero-block__strapline {
-    padding-block-end: var(--spacing-l-1);
+@layer components {
+    .c-hero-block {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: 100%;
+        justify-content: center;
+        text-align: center;
     
-    font-size: var(--font-size-s-1);
-    color: var(--colour-grey-reading);
+        padding-block-end: var(--spacing-l-3-horizontal);
+        padding-inline-end: var(--spacing-l-3-horizontal)
+    }
+    
+    .c-hero-block > * {
+        flex-basis: 100%;
+    }
+    
+    .c-hero-block__text {
+        max-width: 46rem;
+    }
+    
+    .c-hero-block__title {
+        padding-block-start: 0;
+    
+        font-size: var(--font-size-l-1);
+        line-height: var(--font-size-l-1-line-height);
+    }
+    
+    /* .c-hero-title--with-strapline { */
+        /* Decrease */
+    /*     padding-block-end: var(--spacing-m-2);
+    } */
+    
+    /* e.g. div*/.c-hero-block__strapline {
+        padding-block-end: var(--spacing-l-1);
+        
+        font-size: var(--font-size-s-1);
+        color: var(--colour-grey-reading);
+    }
+    
+    .c-hero-block + .c-hero-block {
+        /* e.g. client logos AJAX'd in */
+        padding-block-start: var(--spacing-m-2);
+    }
+    
+    .c-hero-block img {
+        filter: var(--image-boost);
+    }
 }
-
-.c-hero-block + .c-hero-block {
-    /* e.g. client logos AJAX'd in */
-    padding-block-start: var(--spacing-m-2);
-}
-
-.c-hero-block img {
-    filter: var(--image-boost);
-}
-
-.c-hero-block--compressed .c-hero-block__text {
-    /* e.g. >> /projects */
-    padding-block-end: var(--spacing-l-1);
-    padding-block-start: 0;
+@layer modifiers {
+    .c-hero-block--compressed .c-hero-block__text {
+        /* e.g. >> /projects */
+        padding-block-end: var(--spacing-l-1);
+        padding-block-start: 0;
+    }
 }
 
 
@@ -837,15 +861,17 @@ h2 + .o-hero-buttons {
 */
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / SPACING
 =================================================== */
-.js--navIsOpen .c-nav-mobile-button {
-    margin-block-end: 0;
-}
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / CURRENT PAGE
-=================================================== */
-/* Ancestors and Parents of Current Page */
-/* nav */
-.c-current-menu-ancestor > a span {
-    color: rgba(var(--colour-turquoise-rgb),0.5);
+@layer ui {
+    .js--navIsOpen .c-nav-mobile-button {
+        margin-block-end: 0;
+    }
+    /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / CURRENT PAGE
+    =================================================== */
+    /* Ancestors and Parents of Current Page */
+    /* nav */
+    .c-current-menu-ancestor > a span {
+        color: rgba(var(--colour-turquoise-rgb),0.5);
+    }
 }
 
 
@@ -865,62 +891,68 @@ h2 + .o-hero-buttons {
 */
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / BUTTON
 =================================================== */
-/* button*/
-.c-nav-mobile-button {
-    width: 100%;
-    
-    /* =JFG. Cancel any default button value */
-    margin-inline-end: 0;
-
-    font-size: 1.7em;
-    /* Make sure it's dead center */
-    line-height: 0;
-
-    cursor: pointer;
-}
-
-/* Optional, if you want to include both an icon and text */
-/* HTML Example...
-
-    <button class="c-nav-mobile-button u-js-only">
-        <span class="c-nav-mobile-button__inner"> <-- this gets wrapped around the text and icon
-            <span class="c-nav-icon">Menu</span>
-            <svg class="c-jg-icon c-jg-icon--menu c-nav-icon"><use xlink:href="#c-jg-icon--menu"></use></svg>
-            <svg class="c-jg-icon c-jg-icon--close c-nav-icon-closed"><use xlink:href="#c-jg-icon--close"></use></svg>
-        </span>
-    </button>
-
-*/
-.c-nav-mobile-button__inner {
-    display: flex;
-    justify-content: center;
-    align-items: center
-}
-
-/* --mq-nav-opens-after */
-@media (min-width: 1200px) {
-    /* div*/
+@layer components {
+    /* button*/
     .c-nav-mobile-button {
-        /* =JFG. Hide the toggle button now that nav is always visible */
-        display: none;
+        width: 100%;
+        
+        /* =JFG. Cancel any default button value */
+        margin-inline-end: 0;
+
+        font-size: 1.7em;
+        /* Make sure it's dead center */
+        line-height: 0;
+
+        cursor: pointer;
+    }
+
+    /* Optional, if you want to include both an icon and text */
+    /* HTML Example...
+
+        <button class="c-nav-mobile-button u-js-only">
+            <span class="c-nav-mobile-button__inner"> <-- this gets wrapped around the text and icon
+                <span class="c-nav-icon">Menu</span>
+                <svg class="c-jg-icon c-jg-icon--menu c-nav-icon"><use xlink:href="#c-jg-icon--menu"></use></svg>
+                <svg class="c-jg-icon c-jg-icon--close c-nav-icon-closed"><use xlink:href="#c-jg-icon--close"></use></svg>
+            </span>
+        </button>
+
+    */
+    .c-nav-mobile-button__inner {
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+
+    /* --mq-nav-opens-after */
+    @media (min-width: 1200px) {
+        /* div*/
+        .c-nav-mobile-button {
+            /* =JFG. Hide the toggle button now that nav is always visible */
+            display: none;
+        }
     }
 }
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / CLOSED STATE
 =================================================== */
 /* purgecss start ignore */
-/* If we have JS then this is hidden until toggled open. The menu appears on larger screens */
-/* for nav.js__collapsedUntilNavOpened */
-.js .js__collapsedUntilNavOpened {
-    display: none;
+@layer ui {
+    /* If we have JS then this is hidden until toggled open. The menu appears on larger screens */
+    /* for nav.js__collapsedUntilNavOpened */
+    .js .js__collapsedUntilNavOpened {
+        display: none;
+    }
 }
 /* Using animation rather than transitions means we're not affected by the parent element going from display: none; to display: block; (transitions are affected by this though) */
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / OPEN STATE
 =================================================== */
-/* --mq-nav-opens-before */
-@media (max-width: 1199px) {
-    .js--navIsOpen {
-        /* Prevent the body scrolling when the full height nav is open */
-        overflow: hidden;
+@layer ui {
+    /* --mq-nav-opens-before */
+    @media (max-width: 1199px) {
+        .js--navIsOpen {
+            /* Prevent the body scrolling when the full height nav is open */
+            overflow: hidden;
+        }
     }
 }
 @keyframes fade-in {
@@ -932,109 +964,111 @@ h2 + .o-hero-buttons {
         opacity: 1;
     }
 }
-/* Since we're initially setting an opacity we should make sure animation is supported before doing this */
-@supports (animation-name: fade-in) {
-    /* --mq-nav-opens-before */
-    @media (max-width: 1199px) {
-        .c-site-header__nav li {
-            opacity: 0;
+@layer components {
+    /* Since we're initially setting an opacity we should make sure animation is supported before doing this */
+    @supports (animation-name: fade-in) {
+        /* --mq-nav-opens-before */
+        @media (max-width: 1199px) {
+            .c-site-header__nav li {
+                opacity: 0;
+            }
+
+            .js--navIsOpen .c-site-header__nav li {
+                animation-name: fade-in;
+                animation-duration: 0.9s;
+                animation-fill-mode: forwards;
+            }
+            /* Staggered animation */
+            .c-site-header__nav li {
+                /* Default i.e. after 4th */
+                animation-delay: calc(0.025s * 8);
+            }
+            .c-site-header__nav li:nth-child(1) {
+                /* Need to give it at least a tiny bit (not 0s) otherwise blips on iOS */
+                animation-delay: calc(0.025s * 1);
+            }
+            .c-site-header__nav li:nth-child(2) {
+                animation-delay: calc(0.025s * 2);
+            }
+            .c-site-header__nav li:nth-child(3) {
+                animation-delay: calc(0.025s * 4);
+            }
+            .c-site-header__nav li:nth-child(4) {
+                animation-delay: calc(0.025s * 6);
+            }
         }
 
-        .js--navIsOpen .c-site-header__nav li {
-            animation-name: fade-in;
-            animation-duration: 0.9s;
-            animation-fill-mode: forwards;
+        @keyframes wipe-in-down {
+            from {
+                clip-path: inset(0 0 100% 0);
+            }
+            to {
+                clip-path: inset(0 0 0 0);
+            }
         }
-        /* Staggered animation */
-        .c-site-header__nav li {
-            /* Default i.e. after 4th */
-            animation-delay: calc(0.025s * 8);
+        @keyframes wipe-out-up-and-collapse {
+            0% {
+                clip-path: inset(0 0 0 0);
+            }
+            100% {
+                clip-path: inset(0 0 100% 0);
+                /* hide so that it doesn't make the .c-site-header tall, thus preventing anything underneath being clicked, even if it's invisible */
+                height: 0;
+                visibility: hidden;
+                overflow: hidden;
+            }
         }
-        .c-site-header__nav li:nth-child(1) {
-            /* Need to give it at least a tiny bit (not 0s) otherwise blips on iOS */
-            animation-delay: calc(0.025s * 1);
+        /* --mq-nav-opens-before */
+        @media (max-width: 1199px) {
+            .js:not(.js--navIsOpen):not(.js--navHasBeenOpened) .c-nav-mobile-button + nav {
+                opacity: 0;
+                pointer-events: none;
+            }
+        
+            .js--navIsOpen .c-site-header__nav {
+                animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
+            }
+        
+            .js:not(.js--navIsOpen) .c-site-header__nav {
+                animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-out-up-and-collapse both;
+            }
         }
-        .c-site-header__nav li:nth-child(2) {
-            animation-delay: calc(0.025s * 2);
-        }
-        .c-site-header__nav li:nth-child(3) {
-            animation-delay: calc(0.025s * 4);
-        }
-        .c-site-header__nav li:nth-child(4) {
-            animation-delay: calc(0.025s * 6);
+        
+        .js--navIsOpen .js__collapsedUntilNavOpened {
+            display: block;
         }
     }
-
-    @keyframes wipe-in-down {
-        from {
-            clip-path: inset(0 0 100% 0);
-        }
-        to {
-            clip-path: inset(0 0 0 0);
-        }
+    /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / OPEN STATE / SVG ANIMATIONS
+    =================================================== */
+    .c-nav-line {
+        transition: 0.25s ease-in-out;
+        transform-origin: center;
     }
-    @keyframes wipe-out-up-and-collapse {
-        0% {
-            clip-path: inset(0 0 0 0);
-        }
-        100% {
-            clip-path: inset(0 0 100% 0);
-            /* hide so that it doesn't make the .c-site-header tall, thus preventing anything underneath being clicked, even if it's invisible */
-            height: 0;
-            visibility: hidden;
-            overflow: hidden;
-        }
+
+    .js--navIsOpen .c-nav-line--1 {
+        opacity: 0;
+        transition: 0.1s;
     }
-    /* --mq-nav-opens-before */
-    @media (max-width: 1199px) {
-        .js:not(.js--navIsOpen):not(.js--navHasBeenOpened) .c-nav-mobile-button + nav {
-            opacity: 0;
-            pointer-events: none;
-        }
-    
-        .js--navIsOpen .c-site-header__nav {
-            animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
-        }
-    
-        .js:not(.js--navIsOpen) .c-site-header__nav {
-            animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-out-up-and-collapse both;
-        }
+
+    .js--navIsOpen .c-nav-line--2 {
+        transform: rotate(45deg) translate(0.5px);
     }
-    
-    .js--navIsOpen .js__collapsedUntilNavOpened {
-        display: block;
+
+    .c-nav-line--3 {
+        opacity: 0;
     }
-}
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / OPEN STATE / SVG ANIMATIONS
-=================================================== */
-.c-nav-line {
-    transition: 0.25s ease-in-out;
-    transform-origin: center;
-}
 
-.js--navIsOpen .c-nav-line--1 {
-    opacity: 0;
-    transition: 0.1s;
-}
+    .js--navIsOpen .c-nav-line--3 {
+        opacity: 1;
+    }
 
-.js--navIsOpen .c-nav-line--2 {
-    transform: rotate(45deg) translate(0.5px);
-}
+    .js--navIsOpen .c-nav-line--3 {
+        transform: rotate(-45deg) translate(-0.5px);
+    }
 
-.c-nav-line--3 {
-    opacity: 0;
-}
-
-.js--navIsOpen .c-nav-line--3 {
-    opacity: 1;
-}
-
-.js--navIsOpen .c-nav-line--3 {
-    transform: rotate(-45deg) translate(-0.5px);
-}
-
-.js--navIsOpen .c-nav-line--4 {
-    opacity: 0;
+    .js--navIsOpen .c-nav-line--4 {
+        opacity: 0;
+    }
 }
 /* purgecss end ignore */
 
@@ -1049,63 +1083,66 @@ h2 + .o-hero-buttons {
     i.e. an inline list.
      
 */
-/* --mq-nav-switches-to-grid-after */
-@media (min-width: 600px) {
-    .s-nav-grid-mq-600-up nav li {
-        display: inline-block;
-        text-align: left;
-    }
+@layer scope {
+    /* --mq-nav-switches-to-grid-after */
+    @media (min-width: 600px) {
+        .s-nav-grid-mq-600-up nav li {
+            display: inline-block;
+            text-align: left;
+        }
 
-    /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / GRID / ACCESSIBILITY
+        /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / GRID / ACCESSIBILITY
+        =================================================== */
+        .s-nav-grid-mq-600-up .js__u-js-hide {
+            /* Cancel hiding of Skip to Content when we reach full nav break point,
+            because now it's not possible to jump past the collapsed full nav */
+            display: inline-block;
+        }
+
+        .s-nav-grid-mq-600-up .js__u-js-hide:focus {
+            position: relative;
+        }
+    }
+    /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / OPEN
     =================================================== */
-    .s-nav-grid-mq-600-up .js__u-js-hide {
-        /* Cancel hiding of Skip to Content when we reach full nav break point,
-        because now it's not possible to jump past the collapsed full nav */
-        display: inline-block;
-    }
+    /* Optional force the nav to open */
+    /* --mq-nav-opens-after */
+    @media (min-width: 1200px) {
+        /* div*/
+        .s-nav-open-mq-1200-up .c-nav-mobile-button {
+            /* =JFG. Hide the toggle button now that nav is always visible */
+            display: none;
+        }
 
-    .s-nav-grid-mq-600-up .js__u-js-hide:focus {
-        position: relative;
+        /* Need .js to trump .js .js__collapsedUntilNavOpened selector */
+        .js .s-nav-open-mq-1200-up nav {
+            /* =JFG. Ensure nav is above elements when sub-menus are positioned absolutely */
+            position: relative;
+            z-index: 2;
+            /* =JFG. Cancel display: none; */
+            display: block;
+        }
     }
 }
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / OPEN
-=================================================== */
-/* Optional force the nav to open */
-/* --mq-nav-opens-after */
-@media (min-width: 1200px) {
-    /* div*/
-    .s-nav-open-mq-1200-up .c-nav-mobile-button {
-        /* =JFG. Hide the toggle button now that nav is always visible */
-        display: none;
-    }
-
-    /* Need .js to trump .js .js__collapsedUntilNavOpened selector */
-    .js .s-nav-open-mq-1200-up nav {
-        /* =JFG. Ensure nav is above elements when sub-menus are positioned absolutely */
-        position: relative;
-        z-index: 2;
-        /* =JFG. Cancel display: none; */
-        display: block;
-    }
-}
-
 
 
 
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / SITE TITLE
 =================================================== */
-/* */.site-title,
-/* */.site-description {
-    /* START SCREEN READER TEXT
-    --------------------------- */
-    clip: rect(1px, 1px, 1px, 1px);
+@layer objects {
+    /* */.o-site-title,
+    /* */.o-site-description {
+        /* START SCREEN READER TEXT
+        --------------------------- */
+        clip: rect(1px, 1px, 1px, 1px);
 
-    position: absolute!important;
-    overflow: hidden;
-    width: 1px;
-    height: 1px;
-    /* END SCREEN READER TEXT
-    ------------------------- */
+        position: absolute!important;
+        overflow: hidden;
+        width: 1px;
+        height: 1px;
+        /* END SCREEN READER TEXT
+        ------------------------- */
+    }
 }
 
 
@@ -1113,73 +1150,79 @@ h2 + .o-hero-buttons {
 
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY HEADER
 =================================================== */
-.s-entry-header {
-    max-width: var(--max-width-reading);
-    padding-inline-start: var(--spacing-l);
-    padding-block-end: var(--spacing-s-1);
-    padding-inline-end: var(--spacing-l);
-    clear: both;
-}
-
-/* Notes...
-
-    e.g. <header class="entry-header s-entry-header{{ title | length > 40 ?= ' s-entry-header--with-long-title' }}">
-
-*/
-/* .s-entry-header--with-long-title {
-
-} */
-
-.s-entry-header h1 {
-    padding-block-end: var(--spacing-m);
-}
-
-.s-entry-header .entry-time {
-    font-size: var(--font-size-s-x);
+@layer scope {
+    .s-entry-header {
+        max-width: var(--max-width-reading);
+        padding-inline-start: var(--spacing-l);
+        padding-block-end: var(--spacing-s-1);
+        padding-inline-end: var(--spacing-l);
+        clear: both;
+    }
+    
+    /* Notes...
+    
+        e.g. <header class="entry-header s-entry-header{{ title | length > 40 ?= ' s-entry-header--with-long-title' }}">
+    
+    */
+    /* .s-entry-header--with-long-title {
+    
+    } */
+    
+    .s-entry-header h1 {
+        padding-block-end: var(--spacing-m);
+    }
+    
+    .s-entry-header .entry-time {
+        font-size: var(--font-size-s-x);
+    }
 }
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY TITLE
 =================================================== */
-/* Notes...
+@layer scope {
+    /* Notes...
 
-    - Used to control titles, especially when you have different elements e.g. h2, h3, that all need to look the same
+        - Used to control titles, especially when you have different elements e.g. h2, h3, that all need to look the same
 
-*/
-.s-single .entry-title {
-    max-width: var(--max-width-title);
-    padding-inline-start: var(--spacing-l);
-    padding-block-end: var(--spacing-s-1);
-    padding-inline-end: var(--spacing-l);
-    margin-inline-start: auto;
-    margin-inline-end: auto;
-    clear: both;
-    text-align: center;
-    /* e.g. >> 404.php */
-    font-size: var(--font-size-l);
-    line-height: var(--font-size-l-line-height);
+    */
+    .s-single .entry-title {
+        max-width: var(--max-width-title);
+        padding-inline-start: var(--spacing-l);
+        padding-block-end: var(--spacing-s-1);
+        padding-inline-end: var(--spacing-l);
+        margin-inline-start: auto;
+        margin-inline-end: auto;
+        clear: both;
+        text-align: center;
+        /* e.g. >> 404.php */
+        font-size: var(--font-size-l);
+        line-height: var(--font-size-l-line-height);
+    }
 }
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY TITLE / (NON CORE) / INTRO
 =================================================== */
-.c-entry-title--with-intro {
-    padding-block-end: var(--spacing-s-x-x);
-}
-
-.c-entry-title-intro {
-    padding-block-end: var(--spacing-l);
-    text-align: center;
-    /*line-height: var(--font-size-reading-line-height);*/
-    /*font-size: 1.3em;*/
-    /*color: var(--colour-pink);*/
-    /*@apply --t-text-style-1-strong;*/
-}
-
-.c-entry-title-intro--s {
-    padding-block-end: var(--spacing-s);
-    padding-block-start: var(--spacing-s);
-    /*padding-inline-start: var(--spacing-s);*/
-    /*padding-inline-end: var(--spacing-s);*/
-    /*margin-block-end: var(--spacing-l-1);*/
-    /*margin-top: var(--spacing-s-1);*/
-    /*font-size: 1em;*/
+@layer components {
+    .c-entry-title--with-intro {
+        padding-block-end: var(--spacing-s-x-x);
+    }
+    
+    .c-entry-title-intro {
+        padding-block-end: var(--spacing-l);
+        text-align: center;
+        /*line-height: var(--font-size-reading-line-height);*/
+        /*font-size: 1.3em;*/
+        /*color: var(--colour-pink);*/
+        /*@apply --t-text-style-1-strong;*/
+    }
+    
+    .c-entry-title-intro--s {
+        padding-block-end: var(--spacing-s);
+        padding-block-start: var(--spacing-s);
+        /*padding-inline-start: var(--spacing-s);*/
+        /*padding-inline-end: var(--spacing-s);*/
+        /*margin-block-end: var(--spacing-l-1);*/
+        /*margin-top: var(--spacing-s-1);*/
+        /*font-size: 1em;*/
+    }
 }
 
 
@@ -1187,41 +1230,43 @@ h2 + .o-hero-buttons {
 
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY CONTENT / (MODIFIERS)
 =================================================== */
-/*.s-entry-content--hero,*/
-.s-entry-content--intro {
-    /* e.g. Gallery page intro 
-        Do not apply to all .s-entry-content because it has undesirable consequences like making iframes disappear
-    */
-    /* Horizontal text */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+@layer scope {
+    /*.s-entry-content--hero,*/
+    .s-entry-content--intro {
+        /* e.g. Gallery page intro 
+            Do not apply to all .s-entry-content because it has undesirable consequences like making iframes disappear
+        */
+        /* Horizontal text */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.s-entry-content--with-lead > p:first-child {
-    font-weight: var(--font-family-main-weight-strong);
-}
+    .s-entry-content--with-lead > p:first-child {
+        font-weight: var(--font-family-main-weight-strong);
+    }
 
-.s-entry-content--hero {
-    padding-block-end: var(--spacing-l);
-}
+    .s-entry-content--hero {
+        padding-block-end: var(--spacing-l);
+    }
 
-.s-entry-content--compressed {
-    padding-block-end: var(--spacing-m-1);
-}
+    .s-entry-content--compressed {
+        padding-block-end: var(--spacing-m-1);
+    }
 
-.s-entry-content--compressed-totally {
-    /* e.g. a Perch block, where we have lots of `.s-entry-content`s stacked on top of each other */
-    padding-block-end: 0;
-}
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY CONTENT / (MODIFIERS) / VIDEO
-=================================================== */
-.s-entry-content--video .js--video {
-    margin-block-end: 0;
-}
+    .s-entry-content--compressed-totally {
+        /* e.g. a Perch block, where we have lots of `.s-entry-content`s stacked on top of each other */
+        padding-block-end: 0;
+    }
+    /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY CONTENT / (MODIFIERS) / VIDEO
+    =================================================== */
+    .s-entry-content--video .js--video {
+        margin-block-end: 0;
+    }
 
-.s-entry-content--video .js--video + p {
-    margin-top: var(--spacing-s-1);
+    .s-entry-content--video .js--video + p {
+        margin-top: var(--spacing-s-1);
+    }
 }
 
 
