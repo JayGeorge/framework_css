@@ -758,8 +758,7 @@ button.c-btn,
     - Don't affect the header
     - Not .c-btn + .c-btn in case a button is next to a different tag such as <p/>
 */
-main .c-btn,
-main button {
+main :where(.c-btn, button) {
     margin-right: 1rem;
 }
 
