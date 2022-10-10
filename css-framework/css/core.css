@@ -417,10 +417,7 @@ utilities;
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / HIGH PRIORITY / VERTICAL SPACING
     =================================================== */
     /* purgecss start ignore */
-    h1,
-    .h1,
-    h2,
-    .h2 {
+    h1, .h1, h2, .h2 {
         padding-block-end: var(--spacing-s-1);
     }
 
@@ -445,36 +442,24 @@ utilities;
         padding-block-start: var(--spacing-m);
     }
 
-    h4,
-    .h4,
-    h5,
-    .h5,
-    h6,
-    .h6 {
+    h4, .h4, h5, .h5, h6, .h6 {
         padding-block-end: var(--spacing-s-x-x);
     }
 
-    * + h3,
-    * + .h3,
+    * + h3, * + .h3,
     /* e.g. p followed by a div followed by an h3 */
-    * > h3:not(:first-child),
-    * > .h3:not(:first-child),
-    * + h4,
-    * + .h4,
+    * > h3, * > .h3, * + h4, * + .h4,
     /* e.g. p followed by a div followed by an h4 */
-    * > h4,
-    * > .h4 {
+    * > h4, * > .h4 {
         padding-block-start: var(--spacing-s);
     }
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / EXCEPTIONS / VERTICAL SPACING
     =================================================== */
-    ul + h2,
-    ul + .h2 {
+    ul + :where(h2, .h2) {
         padding-block-start: var(--spacing-s);
     }
 
-    h1 + h2,
-    h1 + .h2,
+    h1 + :where(h2, .h2)
     .h1 + .h2,
     h2 + h3,
     hr + * {
@@ -722,7 +707,7 @@ utilities;
 /* GROUP COMPONENTS / FRAMEWORK / SKIP LINKS
 =================================================== */
 @layer components {
-    /* purgecss start ignore */
+    /* purgecss ignore */
     /* .u-screen-reader*/
     .c-skip-to-content:focus {
         position: fixed!important;
@@ -736,7 +721,6 @@ utilities;
         /* Looks better on Skip to Content */
         text-underline-position: auto;
     }
-    /* purgecss end ignore */
 }
 
 
