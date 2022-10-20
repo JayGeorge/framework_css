@@ -188,3 +188,111 @@ line-height: var(--font-size-height-l-1);
 /* .c-btn--2 a:hover {
     
 } */
+
+
+
+
+/* GROUP UTILITIES / DECORATION / PANELS
+=================================================== */
+/* Statamic Example...
+
+    Antlers:
+
+    <div class="c-something u-panel{{ if panel_stop_1 }} u-panel--split" style="
+        --panel-colour-start: {{ panel_colour_start ?? 'var(--colour-grey-light)' }}; 
+        --panel-colour-end: {{ panel_colour_end ?? 'white' }}; 
+        {{ panel_stop_1 ?= '--panel-stop-1: {panel_stop_1}%;' }} 
+        {{ panel_stop_2 ?= '--panel-stop-2: {panel_stop_2}%;' }}
+    "{{ else }}"{{ /if }}>
+
+    your_blueprint.yaml:
+
+    title: 'Panel Controls'
+    fields:
+      -
+        handle: advanced
+        field:
+          mode: button
+          display: Advanced
+          type: revealer
+          icon: revealer
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+      -
+        handle: panel_colour_start
+        field:
+          swatches:
+            - 'hsl(0deg 0% 98%)'
+            - 'hsl(0deg 0% 100%)'
+          theme: nano
+          lock_opacity: true
+          default_color_mode: HSLA
+          color_modes:
+            - hex
+            - hsla
+          display: 'Panel Colour Start'
+          type: color
+          icon: color
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          width: 25
+          if:
+            advanced: 'equals true'
+      -
+        handle: panel_stop_1
+        field:
+          input_type: text
+          antlers: false
+          display: 'Panel Stop 1 (%)'
+          type: text
+          icon: text
+          width: 75
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          if:
+            advanced: 'equals true'
+      -
+        handle: panel_colour_end
+        field:
+          swatches:
+            - 'hsl(0deg 0% 98%)'
+            - 'hsl(0deg 0% 100%)'
+          theme: nano
+          lock_opacity: true
+          default_color_mode: HSLA
+          color_modes:
+            - hex
+            - hsla
+          display: 'Panel Colour End'
+          type: color
+          icon: color
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          width: 25
+          if:
+            advanced: 'equals true'
+      -
+        handle: panel_stop_2
+        field:
+          input_type: text
+          antlers: false
+          display: 'Panel Stop 2 (%)'
+          type: text
+          icon: text
+          width: 75
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          if:
+            advanced: 'equals true'
+
+*/

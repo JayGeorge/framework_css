@@ -228,13 +228,13 @@
 @layer 
 base, 
 elements,
-/* Third party e.g. Flickity */
-vendors,
 objects, 
 components, 
 modifiers, 
 /* Including scope modifier classes */
 scope, 
+/* Third party e.g. Flickity. Should be higher than 'components' to override things like button rules */
+vendors, 
 /* Specific UI that should never be overriden, such as the layout in Alpine Components */
 ui, 
 utilities;
@@ -344,10 +344,28 @@ utilities;
         padding-block-end: 0;
     }
 
-    main :where(p, ol, ul) {
+    /* Don't affect Statamic's lists here, which contain p tags like this:
+        <ol>
+            <li>
+                <p>Sponsor games</p>
+            </li>
+            <li>
+                <p>Promote your game</p>
+            </li>
+            <li>
+                <p>Sponsor live events</p>
+            </li>
+        </ol>
+    */
+    main :where(p:not(li p), ol, ul):not(:has(li p)) {
         line-height: var(--font-size-reading-line-height);
+        font-size: var(--font-size-s);
         list-style-position: inside;
         padding-inline-start: 0;
+    }
+    /* For Statamic's lists use a different method: */
+    ol:has(li p) {
+        padding-inline-start: var(--spacing-l-1);
     }
 
     /* Nested lists */
@@ -1139,6 +1157,9 @@ utilities;
         Here is an example of 2 stops:
         <div class="c-something u-panel u-panel--split" style="--panel-colour-start: white; --panel-colour-end: var(--colour-grey-light); --panel-stop-1: 10%; --panel-stop-2: 90%;">
 
+    */
+    /* Statamic Example...
+        See this group in README.css
     */
     .u-panel--split::before {
         background: linear-gradient(to bottom, 
