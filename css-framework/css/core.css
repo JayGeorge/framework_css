@@ -66,6 +66,11 @@
     --colour-purple-1: hsl(254deg 66% 77%);
     --colour-purple-2: hsl(254deg 66% 87%);
 
+    --colour-red-legacy: red;
+    --colour-red-hue: 132 35;
+    --colour-red-lch: 50% var(--colour-red-hue);
+    --colour-red: lch(var(--colour-red-lch));
+
     --colour-purple-light: hsl(var(--colour-purple-hue) 93%);
     --colour-purple-transparent: hsl(var(--colour-purple-hsl) / 85%);
 
@@ -368,14 +373,6 @@ utilities;
         padding-inline-start: var(--spacing-l-1);
     }
 
-    /* Nested lists */
-    ol ol,
-    ol ol li:last-child,
-    ul ul,
-    ul ul li:last-child {
-        padding-block-end: 0;
-    }
-
     p + ul {
         padding-block-start: var(--spacing-s);
     }
@@ -501,6 +498,16 @@ utilities;
     }
 
     main > *:last-child {
+        padding-block-end: 0;
+    }
+}
+@layer components {
+    /* Put these at the component level e.g. so we make sure we override something like .c-site-footer li { padding-block-end: var(--spacing-s-x); } */
+    /* Nested lists */
+    ol ol,
+    ol ol li:last-child,
+    ul ul,
+    ul ul li:last-child {
         padding-block-end: 0;
     }
 }
@@ -673,8 +680,10 @@ utilities;
         /* Increase */
         outline-offset: 10px;
     }
-    /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS -- remove for mouse
-    =================================================== */
+}
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS -- remove for mouse
+=================================================== */
+@layer ui {
     /* Native for browsers that support it - https://caniuse.com/#search=focus-visible
     https://twitter.com/LeaVerou/status/1045836563505188867 */
     :focus:not(:focus-visible),

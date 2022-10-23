@@ -1024,16 +1024,16 @@
                 opacity: 0;
                 pointer-events: none;
             }
-        
+
             .js--navIsOpen .c-site-header__nav {
                 animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
             }
-        
+
             .js:not(.js--navIsOpen) .c-site-header__nav {
                 animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-out-up-and-collapse both;
             }
         }
-        
+
         .js--navIsOpen .js__collapsedUntilNavOpened {
             display: block;
         }
