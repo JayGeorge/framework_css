@@ -130,7 +130,7 @@
 
     --font-size-l-2: clamp(5.653em * 0.618, 12vw, 5.653em);
     --font-size-l-2-line-height: 1;
-    /* Smaller for entries, where typically titles are longer. If you need further control you can do something like @media (max-width: 499px) { .s-entry-header--with-long-title { font-size: 0.74em; } } */
+    /* Smaller for entries, where typically titles are longer. If you need further control you can do something like media (max-width: 499px) .s-entry-header--with-long-title - font-size: 0.74em; */
     --font-size-l-2-entry: clamp(5.653em * 0.75, 11vw, 5.653em);
     --font-size-l-2-line-height: 1.1;
     --font-size-l-2-entry-line-height: 1.1;
