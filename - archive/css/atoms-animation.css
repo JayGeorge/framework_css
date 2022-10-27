@@ -8,7 +8,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 
 
 
-/* GROUP ATOMS / ANIMATIONS / ANIMATION / TIMING
+/* GROUP ATOMS / ANIMATIONS / TIMING
 =================================================== */
 /* =JFG. Lots of animations based on 
 http://daneden.github.io/animate.CSS/ 
@@ -43,7 +43,7 @@ with syntax modified slightly */
 .u-animated--infinite {
   animation-iteration-count: infinite;
 }
-/* GROUP ATOMS / ANIMATIONS / ANIMATION / ANIMATE ON LOAD
+/* GROUP ATOMS / ANIMATIONS / ANIMATE ON LOAD
 =================================================== */
 /* .js-required-u-animated--on-load {
   CSS added via jQuery.
@@ -51,7 +51,7 @@ with syntax modified slightly */
 } */
 
 
-/* GROUP ATOMS / ANIMATIONS / ANIMATION
+/* GROUP ATOMS / ANIMATIONS
 =================================================== */
 @keyframes rotate {
   from {
@@ -70,7 +70,7 @@ with syntax modified slightly */
   animation-timing-function: linear;
   animation-duration: 3s;
 }
-/* GROUP ATOMS / ANIMATIONS / ANIMATION / FADE IN
+/* GROUP ATOMS / ANIMATIONS / FADE IN
 =================================================== */
 @keyframes fade-in {
   0% {
@@ -95,7 +95,7 @@ with syntax modified slightly */
 /*nav*/.menu-header.js--is-open li {
 	animation-duration: 1.5s;
 }
-/* GROUP ATOMS / ANIMATIONS / ANIMATION / FADE IN UP BIG
+/* GROUP ATOMS / ANIMATIONS / FADE IN UP BIG
 =================================================== */
 @keyframes fade-in-up-big {
   0% {
@@ -112,7 +112,7 @@ with syntax modified slightly */
 .u-animated--fade-in-up-big {
   animation-name: fade-in-up-big;
 }
-/* GROUP ATOMS / ANIMATIONS / ANIMATION / SLIDE IN UP
+/* GROUP ATOMS / ANIMATIONS / SLIDE IN UP
 =================================================== */
 @keyframes slide-in-up {
   0% {
@@ -131,7 +131,7 @@ with syntax modified slightly */
 .u-reveal-on-hover__target:hover .u-reveal-on-hover__preview {
   animation-name: slide-in-up;
 }
-/* GROUP ATOMS / ANIMATIONS / ANIMATION / SLIDE OUT DOWN
+/* GROUP ATOMS / ANIMATIONS / SLIDE OUT DOWN
 =================================================== */
 @keyframes slide-out-down {
   0% {
@@ -149,7 +149,7 @@ with syntax modified slightly */
 .u-reveal-on-hover__target .u-reveal-on-hover__preview {
   animation-name: slide-out-down;
 }
-/* GROUP ATOMS / ANIMATIONS / ANIMATION / SLIDE IN RIGHT
+/* GROUP ATOMS / ANIMATIONS / SLIDE IN RIGHT
 =================================================== */
 @keyframes slide-in-right {
   0% {

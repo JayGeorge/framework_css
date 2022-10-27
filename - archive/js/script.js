@@ -137,7 +137,7 @@ Array.from(document.querySelectorAll('.js__focus-on-click')).forEach(element => 
 
 
 
-/* GROUP ATOMS / ANIMATIONS / ANIMATION / ANIMATE UP AND DOWN {STICK}
+/* GROUP ATOMS / ANIMATIONS / ANIMATE UP AND DOWN {STICK}
 =================================================== */
 /* Notes...
 
@@ -173,7 +173,7 @@ Array.from(document.querySelectorAll('.js__animate-in-or-out-on-click')).forEach
         }
     });
 });
-/* GROUP ATOMS / ANIMATIONS / ANIMATION / ANIMATE UP AND DOWN / MODIFIED TO USE NEXT SIBLING FOR VALIDATION / ACCESSIBILTY
+/* GROUP ATOMS / ANIMATIONS / ANIMATE UP AND DOWN / MODIFIED TO USE NEXT SIBLING FOR VALIDATION / ACCESSIBILTY
 =================================================== */
 /* Notes...
 
@@ -769,7 +769,7 @@ jQuery(document).ready(function($) {
         };
     }
 
-    /* GROUP ATOMS / ANIMATIONS / ANIMATION / ANIMATE ON LOAD
+    /* GROUP ATOMS / ANIMATIONS / ANIMATE ON LOAD
     =================================================== */
     /* Only animate once everything has loaded, using JS to detect load state (*2015-04-21-055500). Style is inserted with JS so if JS is not available we are not using display:none;, because we ae unable to remove it without JS. You should also add a .u-animated--delayed class to the HTML as a fallback; which is used until JS is loaded to replace it */
 

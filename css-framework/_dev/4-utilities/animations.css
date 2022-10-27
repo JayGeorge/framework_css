@@ -37,20 +37,20 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .js-loading *::after {
     animation-play-state: paused!important;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS
 =================================================== */
 /* Default */
 [class*="u-animated"] {
     animation-fill-mode: both;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / LENGTH
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / LENGTH
 =================================================== */
 /* Molecules > (Non Core) > Modal */
 .u-animated-fast {
     animation-duration: 0.5s;
     animation-fill-mode: both;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / ANIMATE UP AND DOWN {STICK}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATE UP AND DOWN {STICK}
 =================================================== */
 /* Notes
 
@@ -86,7 +86,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     animation-duration: 0.9s;
     animation-fill-mode: forwards;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE IN
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / FADE IN
 =================================================== */
 @keyframes fade-in {
     from {
@@ -101,7 +101,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .u-animated-fade-in {
     animation-name: fade-in;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE IN UP
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / FADE IN UP
 =================================================== */
 @keyframes fade-in-up {
     from {
@@ -119,7 +119,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .u-animated-fade-in-up {
     animation-name: fade-in-up;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE IN UP BIG
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / FADE IN UP BIG
 =================================================== */
 /* Molecules > (Non Core) > Modal > jQuery (Archive) */
 @keyframes fade-in-up-big {
@@ -140,7 +140,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .o-modal-box--demo {
     animation-name: fade-in-up-big;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE UP AND FADE IN
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / SLIDE UP AND FADE IN
 =================================================== */
 @keyframes slide-up-and-fade-in {
     0% {
@@ -153,7 +153,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         transform: none;
     }
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE DOWN AND FADE OUT
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / SLIDE DOWN AND FADE OUT
 =================================================== */
 @keyframes slide-down-and-fade-out {
     0% {
@@ -165,7 +165,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         transform: translate3d(0, 100vh, 0);
     }
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE IN UP BIG FROM BOTTOM
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / FADE IN UP BIG FROM BOTTOM
 =================================================== */
 @keyframes fade-in-up-big-from-bottom {
     0% {
@@ -184,7 +184,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     animation-name: fade-in-up-big-from-bottom;
     animation-duration: 0.5s;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE IN DOWN BIG
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / FADE IN DOWN BIG
 =================================================== */
 /* Molecules > (Non Core) > Modal > jQuery (Archive) */
 @keyframes fade-in-down-big {
@@ -205,7 +205,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .o-modal-box--demo {
     animation-name: fade-in-down-big;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / FADE OUT
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / FADE OUT
 =================================================== */
 /* Organisms > Nav */
 @keyframes fade-out {
@@ -223,7 +223,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     /* Out quadratic */
     animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE OUT DOWN
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / SLIDE OUT DOWN
 =================================================== */
 @keyframes slide-out-down {
     0% {
@@ -246,7 +246,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .u-reveal-on__target .u-checkbox-hack ~ .u-reveal-on__content {
     animation-name: slide-out-down;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE IN UP
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / SLIDE IN UP
 =================================================== */
 @keyframes slide-in-up {
     0% {
@@ -270,7 +270,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .u-reveal-on__target .u-checkbox-hack:checked ~ .u-reveal-on__content {
     animation-name: slide-in-up;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE DOWN AND FADE IN
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / SLIDE DOWN AND FADE IN
 =================================================== */
 /* Organisms > nav > mobile */
 @keyframes slide-up-and-fade-in {
@@ -290,7 +290,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .u-animated-slide-up-and-fade-in {
     animation-name: slide-up-and-fade-in;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE RIGHT AND FADE IN
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / SLIDE RIGHT AND FADE IN
 =================================================== */
 /* Organisms > nav > mobile */
 @keyframes slide-right-and-fade-in {
@@ -310,7 +310,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .u-animated-slide-right-and-fade-in {
     animation-name: slide-right-and-fade-in;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE IN LEFT
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / SLIDE IN LEFT
 =================================================== */
 @keyframes slide-in-left {
     0% {
@@ -326,7 +326,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .u-animated-slide-in-left {
     animation-name: slide-in-left;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / SLIDE OUT RIGHT
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / SLIDE OUT RIGHT
 =================================================== */
 @keyframes slide-out-right {
     0% {
@@ -342,7 +342,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .u-animated-slide-out-right {
     animation-name: slide-out-right;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / STRIKE-THROUGH / {STRIKETHROUGH}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / STRIKE-THROUGH / {STRIKETHROUGH}
 =================================================== */
 @keyframes strike-through {
     from {
@@ -395,7 +395,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 }
 
 */
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / BOUNCE
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / BOUNCE
 =================================================== */
 @keyframes bounce {
     0%, 20%, 50%, 80%, to {
@@ -414,7 +414,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .u-animated-bounce {
     animation: bounce 3s infinite;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / BOUNCE IN UP
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / BOUNCE IN UP
 =================================================== */
 @keyframes bounce-in-up {
     0% {
@@ -440,7 +440,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     animation-duration: 0.5s;
     animation-name: bounce-in-up;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / ZOOM IN
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ZOOM IN
 =================================================== */
 @keyframes zoom-in {
     from {
@@ -458,7 +458,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     animation-name: zoom-in;
     animation-duration: 0.5s;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / ZOOM OUT
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ZOOM OUT
 =================================================== */
 @keyframes zoom-out {
     from {
@@ -476,7 +476,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     animation-name: zoom-out;
     animation-duration: 0.5s;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / ROTATE
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ROTATE
 =================================================== */
 @keyframes rotate-infinite {
     from {
@@ -491,7 +491,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .u-animated-rotate-infinite {
     animation: rotate-infinite 2s linear infinite;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / ROTATE
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ROTATE
 =================================================== */
 @keyframes pulse {
     from {
@@ -513,7 +513,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     animation-iteration-count: infinite;
     animation-timing-function: ease-out;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / MARQUEE
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / MARQUEE
 =================================================== */
 /* HTML Example...
 
@@ -592,7 +592,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     animation-duration: 100s;
     transform: scale(0.5);
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / MARQUEE / LAYOUT
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / MARQUEE / LAYOUT
 =================================================== */
 .o-marquee-animation {
     position: absolute;
@@ -631,7 +631,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     top: -15rem;
     left: -20rem;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ANIMATION / MARQUEE / DECORATION
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / MARQUEE / DECORATION
 =================================================== */
 .o-marquee-animation .c-jg-icon {
     font-size: 20em;
