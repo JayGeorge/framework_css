@@ -5,8 +5,6 @@
 
     ABOUT THIS CSS
     ===================================================
-    ABOUT THIS CSS
-    ===================================================
     - Only edit filename-dev.css, then process with Laravel Mix (1. run `sudo npm install` 2. Configure with `webpack.mix.js` 3. `npm run watch` to constantly monitor and compile into prod/)
     - Class name prefixes are influenced by Namespaces article - http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
     - Class relationships are based on BEM structure
@@ -227,27 +225,26 @@
 
 
 /* purgecss start ignore */
+/* These are recommended rules so we don't want to purge them */
 
 /* GROUP LAYERS
 =================================================== */
-@layer 
-base, 
+@layer
+base,
 elements,
-objects, 
-components, 
-modifiers, 
-/* Including scope modifier classes */
-scope, 
+objects,
+components,
+modifiers,
 /* Third party e.g. Flickity. Should be higher than 'components' to override things like button rules */
-vendors, 
+vendors,
 /* Specific UI that should never be overriden, such as the layout in Alpine Components */
-ui, 
-utilities;
+ui,
+utilities,
+scope;
 
 @layer base {
     /* GROUP RESET / FRAMEWORK - Taken from html5boilerplate.com
     =================================================== */
-    /* These are recommended rules so we don't want to lint them */
     audio,canvas,iframe,img,svg,video {
         vertical-align: middle;
     }
@@ -393,6 +390,8 @@ utilities;
         font-weight: var(--font-family-headline-weight-normal);
         /* https://app.typographychecklist.com/ 91 - Use discretionary ligatures and swashes in headlines */
         font-feature-settings: "kern", "liga", "clig", "calt", "dlig", "swsh";
+        /* Override iOS Safari's user agent stylesheet */
+        text-decoration: none;
     }
     
     h4, .h4, h4 a, .h4 a {
@@ -403,7 +402,6 @@ utilities;
     
     /* --- */
     
-    /* purgecss start ignore */
     h1, .h1 {
         font-size: var(--font-size-l);
         line-height: var(--font-size-l-line-height);
@@ -1086,11 +1084,9 @@ utilities;
     }
     /* GROUP UTILITIES / DECORATION / PANELS
     =================================================== */
-    .u-panel {
-        position: relative;
-    }
+    /* Notes...
 
-    /* Here we attach the panel class directly to the component so that:
+        Here we attach the panel class directly to the component so that:
 
         - We can still make use of adjacent selectors to control spacing such as .component + .component without a panel parent getting in the way
         - Instead of .u-panel + .u-panel rules to create spacing, be more explicit and use .o-slide
@@ -1103,6 +1099,9 @@ utilities;
         <footer class="c-site-footer u-panel u-panel--dark" style="--panel-colour: var(--colour-purple-deep);">
 
     */
+    .u-panel {
+        position: relative;
+    }
 
     /* some-class*/
     .u-panel::before {
@@ -1125,12 +1124,8 @@ utilities;
     .u-panel--dark * {
         color: white;
     }
-    .u-panel--light *,
-    .u-panel--light .c-btn--1 a {
+    .u-panel--light * {
         color: black;
-    }
-    .u-panel--light .c-btn--1 a {
-        border-color: black;
     }
 
     /* For forms */
@@ -1174,8 +1169,8 @@ utilities;
         background: linear-gradient(to bottom, 
             var(--panel-colour-start) var(--panel-stop-1, 50%), 
             var(--panel-colour-end) var(--panel-stop-1, 50%), 
-            var(--panel-stop-2, 100%), 
-            var(--panel-colour-start) var(--panel-stop-2, 100%)
+            var(--panel-stop-2, 101%), 
+            var(--panel-colour-start) var(--panel-stop-2, 101%)
         );
     }
     /* Custom */

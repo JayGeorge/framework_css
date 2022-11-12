@@ -458,34 +458,6 @@
 
 
 
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS
-=================================================== */
-/* Notes...
-
-    Rian Rietveld, Twitter, on 2018-03-08:
-    - keep a good color contrast for text/borders against the background
-    - not by color alone, so don't only change the color (for color blind users)
-    - in WCAG 2.1 the borders also need to comply to a good contrast
-
-    For focusing on images you could also consider using box-shadow so you can get border radius e.g. box-shadow: var(--box-shadow-focus);
-
-    Other tips:
-    - **https://www.gov.uk/ is a great example of how to handle focus styles**
-    - Do not make colors faint; make them obvious
-    - Try to keep focus colors consistent where possible. You may want to avoid changing colors on buttons though, because it's gross
-    - Use box shadow if you'd like to use border-radius
-
-*/
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS} / EXTERNAL
-=================================================== */
-/* Source http://css-tricks.com/snippets/jquery/target-only-external-links/ */
-/* a:not([href^="http://brewpixel.com"]):not([href^="#"]):not([href^="/"]) {
-
-} */
-
-
-
-
 /* GROUP OBJECTS / FRAMEWORK / (NON CORE) / SLIDE
 =================================================== */
 @layer objects {
@@ -622,7 +594,7 @@
 /* GROUP OBJECT / FRAMEWORK / (NON CORE) / LAYOUT / FULL WIDTH {BUST OUT OF CONTAINER}
 =================================================== */
 /* Notes...
-    
+
     - When you need to bust out of containers such as .s-entry-content
     - Based on https://css-tricks.com/full-width-containers-limited-width-parents/
 
