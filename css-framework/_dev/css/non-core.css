@@ -521,13 +521,8 @@
 =================================================== */
 /* Notes...
 
-    - Used to separate buttons in a blocked space
-
-*/
-
-/* Modifiers...
-
-    .o-hero-buttons--left <- align left e.g. you might use this for hero buttons below a map
+    - Put some space around a group of buttons
+    - Center the buttons
 
 */
 
@@ -539,7 +534,18 @@
                 Some button
             </a>
         </div>
+        <div class="c-btn">
+            <a href="">
+                Some button
+            </a>
+        </div>
     </div>
+
+*/
+
+/* Modifiers...
+
+    .o-hero-buttons--left <- align left e.g. you might use this for hero buttons below a map
 
 */
 @layer objects {
@@ -547,7 +553,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        column-gap: var(--spacing-l-2);
+        gap: var(--spacing-m);
     }
     
     .o-hero-buttons {
@@ -557,7 +563,7 @@
     
     .o-hero-buttons :where(.c-btn, [type="submit"]) {
         /* Since spacing is now controlled with flex */
-        margin-inline-end: 0;
+        margin: unset;
     }
     
     .o-hero-buttons--left {
@@ -570,12 +576,6 @@
             text-align: left;
             padding-inline-start: var(--spacing-l);
         }
-    }
-    /* GROUP OBJECTS / FRAMEWORK / (NON CORE) / HERO BUTTONS { / BUTTON HERO} / SPACING
-    =================================================== */
-    .o-hero-buttons .c-btn {
-        /* Since spacing is now controlled with flex */
-        margin-block-end: 0;
     }
     /* GROUP OBJECTS / FRAMEWORK / (NON CORE) / HERO BUTTONS { / BUTTON HERO} / SPACING MODIFICATIONS
     =================================================== */
@@ -663,9 +663,7 @@
 @layer components {
     /* Components > Pagination > (Cross Pollinated) */
     /* a*/
-    .c-btn__left svg,
-    /* a*/
-    .c-btn__right svg {
+    :where(.c-btn__left, .c-btn__right) svg {
         position: relative;
         /* Pagination Button e.g. right arrow inside button moves forward */
         font-size: 1.5em;
@@ -1309,6 +1307,39 @@
         /* Optional */
         max-width: 95%;
     }
+    /* GROUP UTILITIES / (NON CORE) / STICKY FOOTER
+    =================================================== */
+    /* Source:http://codepen.io/astrotim/pen/PwYQOJ */
+
+    /* HTML Example...
+
+        <body>
+            <main>
+                main content here
+            </main>
+        </body>
+
+        <footer class="u-sticky-footer">
+        </footer>
+
+    */
+
+    html, body {
+        min-height: 100vh;
+    }
+
+    body:has(.u-sticky-footer) {
+        display: flex;
+        flex-direction: column;
+    }
+    /* This gets in the way */
+    body:has(.u-sticky-footer) + grammarly-desktop-integration {
+        display: none;
+    }
+
+    main {
+        flex-grow: 1;
+    }
     /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ICONS / SIZING
     =================================================== */
     /* These is explicit, so override any automatic rules above with !important */
@@ -1375,6 +1406,104 @@
         */
         animation: 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) fade-in both;
     }
+    /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK (Authored by me)
+    =================================================== */
+    /* Notes...
+
+        - My own mini framework that operates similar to [AOS](https://michalsnik.github.io/aos/) but much simpler
+        - See `script.js` under `GROUP SCROLL TRIGGER WITH INTERSECTION OBSERVER` for the script, below are CSS examples to go with this
+
+    */
+
+    /* purgecss start ignore */
+    /* If they're ok with animation */
+    @media (prefers-reduced-motion: no-preference) {
+        /* Defaults */
+        [data-io] {
+            --io-default-duration: 1.2s;
+            --io-default-delay: 0.5s;
+            --stagger: 0.2s;
+
+            animation-fill-mode: both;
+            animation-delay: var(--io-default-delay);
+            animation-duration: var(--io-default-duration);
+        }
+
+        /* When an item is followed by another item then add a default delay */
+        [data-io][class*="__"] + [data-io][class*="__"] {
+            animation-delay: calc(var(--io-default-delay) + var(--stagger));
+        }
+        [data-io][class*="__"] + [data-io][class*="__"]:nth-child(2) {
+            animation-delay: calc(var(--io-default-delay) + var(--stagger) * 2);
+        }
+        [data-io][class*="__"] + [data-io][class*="__"]:nth-child(3) {
+            animation-delay: calc(var(--io-default-delay) + var(--stagger) * 3);
+        }
+        [data-io][class*="__"] + [data-io][class*="__"]:nth-child(4) {
+            animation-delay: calc(var(--io-default-delay) + var(--stagger) * 4);
+        }
+        /* etc. */
+
+        /* Delays */
+        [data-io--delay],
+        [data-io--delay]::before {
+            /* Add a custom delay like this: <div data-io data-io--delay style="--delay: 5s"></div> */
+            /* 1.5s if --delay is not defined */
+            animation-delay: var(--delay, 1.5s)!important;
+        }
+        /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / FADES
+        =================================================== */
+        .js :where([data-io--fade-in], [data-io--slide-up-and-fade-in]) {
+            opacity: 0;
+        }
+        /* Fade in */
+        .js [data-io--fade-in][data-io-seen] {
+            animation-name: fade-in;
+            animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        /* Slide Up and Fade In */
+        .js [data-io--slide-up-and-fade-in][data-io-seen] {
+            animation-name: slide-up-and-fade-in;
+            animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / WIPES
+        =================================================== */
+        /* e.g. <p class="c-intro-text" data-io data-io--wipe-in-right>At Assured</p> */
+        /* handy to use switch like data-io data-io--wipe-in-{{ switch between='right|left' }} */
+        .js [data-io--wipe-in-right],
+        .js [data-io--wipe-in-left] {
+            clip-path: inset(0 100% 0 0);
+        }
+        .js [data-io-seen][data-io--wipe-in-right] {
+            animation: var(--io-default-duration) cubic-bezier(.25, 1, .30, 1) wipe-in-right both;
+        }
+        .js [data-io-seen][data-io--wipe-in-left] {
+            animation: var(--io-default-duration) cubic-bezier(.25, 1, .30, 1) wipe-in-left both;
+        }
+    }
+    /* purgecss end ignore */
+
+    /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / ONLY ANIMATE ONCE PER SESSION
+    =================================================== */
+    /* Notes...
+
+        - This works by checking the previous page, or the 'referrer'
+        - If we're coming from 'within' the current site then we add a class to prevent further animation
+        - Add to the head with inline script so it executes faster
+        - You can then do something like this:
+
+        // Stop the animation if it's already happened
+        // purgecss ignore
+        .js--animationHasAlreadyHappenedThisSession .u-animate-once-per-session {
+            animation-duration: 0s!important;
+            animation-delay: 0s!important;
+        }
+
+        JS Example...
+        if(document.referrer.includes('filomena.and.jaygeorge')) {
+            document.querySelector('html').classList.add('js--animationHasAlreadyHappenedThisSession');
+        };
+    */
     /* GROUP UTILITIES / DECORATION
     =================================================== */
     .u-texture {

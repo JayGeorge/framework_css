@@ -77,7 +77,7 @@ for(i;i < nav_links.length; i++){
 
 /* GROUP SCROLL TRIGGER WITH INTERSECTION OBSERVER
 =================================================== */
-/* Simple Intersection Observer to for scroll-triggered animations. See my 'JavaScript.txt > IO Framework' in my wiki for more info */
+/* Simple Intersection Observer to for scroll-triggered animations. See GROUP UTILTIES / FRAMEWORK / (NON CORE) / SCROLL TRIGGER WITH INTERSECTION OBSERVER for more info */
 /* HTML Example...
     <div data-io>
     </div>
@@ -94,6 +94,7 @@ function jfg_intersectionObserver() {
     const observe_target = document.querySelectorAll('[data-io]');
 
     const options = {
+        // When at least 25% is visible
         threshold: [0.25]
     }
 

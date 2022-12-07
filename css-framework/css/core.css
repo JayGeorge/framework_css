@@ -95,9 +95,8 @@
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
     =================================================== */
     /* Optimise line-height for reading */
-    /* purgecss start ignore */
+    /* purgecss ignore */
     --font-size-reading-line-height: 1.5;
-    /* purgecss end ignore */
 
     --font-size-s-x-x: 0.707em;
 
@@ -225,13 +224,12 @@
 
 
 /* purgecss start ignore */
-/* These are recommended rules so we don't want to purge them */
-
 /* GROUP LAYERS
 =================================================== */
 @layer
 base,
 elements,
+/* Remember - objects with a component selector (e.g. .o-something .c-btn) should be in a component layer% instead */
 objects,
 components,
 modifiers,
@@ -265,7 +263,9 @@ scope;
         box-sizing: border-box;
     }
 }
+/* purgecss end ignore */
 @layer elements {
+    /* purgecss start ignore */
     /* GROUP ELEMENTS / FRAMEWORK
     =================================================== */
     /* https://twitter.com/bramus/status/1452572001697153029 */
@@ -295,6 +295,7 @@ scope;
     /* =JFG. Use display:inline-block to prevent white space (read full answers here...) http://stackoverflow.com/questions/5804256/why-an-image-inside-a-div-has-an-extra-space-below-the-image */
     img {
         display: inline-block;
+        /* Maintain aspect ratio */
         max-width: 100%;
         height: auto;
     }
@@ -377,13 +378,8 @@ scope;
     strong {
         font-weight: var(--font-family-main-weight-strong);
     }
-    /* purgecss end ignore */
-
-
-
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS
     =================================================== */
-    /* purgecss start ignore */
     h1, .h1, h1 a, .h1 a, h2, .h2, h2 a, .h2 a, h3, .h3, h3 a, .h3 a {
         font-family: var(--font-family-headline);
         font-style: var(--font-family-headline-style-1);
@@ -552,10 +548,10 @@ scope;
 
 
 
+/* purgecss start ignore */
 @layer elements {
     /* GROUP ELEMENTS / FRAMEWORK / SVGs
     =================================================== */
-    /* purgecss start ignore */
     :where([src*="svg"], svg) {
         width: 1em;
         height: 1em;

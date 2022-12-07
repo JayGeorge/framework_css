@@ -148,7 +148,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         transform: translate3d(0, 100vh, 0);
     }
 
-    100% {
+    75%, 100% {
         opacity: 1;
         transform: none;
     }
