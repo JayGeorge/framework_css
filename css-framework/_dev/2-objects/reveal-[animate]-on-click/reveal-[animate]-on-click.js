@@ -42,7 +42,7 @@
 
 /* GROUP FRAMEWORK / NAV
 =================================================== */
-Array.from(document.querySelectorAll('.js__nav-mobile-button') || []).forEach(element => {
+Array.from(document.querySelectorAll('.js__navMobileButton') || []).forEach(element => {
     element.onclick = function(){
         /* Temporarily add a class to prevent the animation from cutting out too early, as the z-index switches */
         if(document.querySelector('html').classList.contains('js--navIsOpen')) {

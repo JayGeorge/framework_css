@@ -60,6 +60,27 @@ line-height: var(--font-size-height-l-1);
 
 
 
+/* GROUP LAYERS
+=================================================== */
+/* See readme.css for more information */
+@layer
+base,
+elements,
+/* Remember - objects with a component selector (e.g. .o-something .c-btn) should be in a component layer% instead */
+objects,
+components,
+modifiers,
+/* Third party e.g. Flickity. Should be higher than 'components' to override things like button rules */
+vendors,
+/* Specific UI that should never be overriden, such as the layout in Alpine Components */
+ui,
+utilities,
+/* .s- classes */
+scope;
+
+
+
+
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS
 =================================================== */
 /* Notes...

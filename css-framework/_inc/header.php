@@ -28,7 +28,7 @@
     </div>
     *-->
 
-    <button class="c-nav-mobile-button js__nav-mobile-button u-js-only">
+    <button class="c-nav-mobile-button js__navMobileButton u-js-only">
         <?php
             /* Animate this when closed */
             // include 'img/svg/nav.php'; <-- you can find this in my framework
