@@ -81,11 +81,6 @@
     =================================================== */
     --font-family-main: adonis-web, serif;
     --font-family-headline: sans-serif;
-    /* GROUP VARIABLES -- DECORATION -- TEXT -- STYLES
-    =================================================== */
-    --font-family-main-style-1: normal;
-    --font-family-main-style-2: italic;
-    --font-family-headline-style-1: normal;
     /* GROUP VARIABLES -- DECORATION -- TEXT -- WEIGHTS
     =================================================== */
     --font-family-main-weight-normal: 500;
@@ -380,7 +375,6 @@ scope;
     =================================================== */
     h1, .h1, h1 a, .h1 a, h2, .h2, h2 a, .h2 a, h3, .h3, h3 a, .h3 a {
         font-family: var(--font-family-headline);
-        font-style: var(--font-family-headline-style-1);
         font-weight: var(--font-family-headline-weight-normal);
         /* https://app.typographychecklist.com/ 91 - Use discretionary ligatures and swashes in headlines */
         font-feature-settings: "kern", "liga", "clig", "calt", "dlig", "swsh";
@@ -390,7 +384,6 @@ scope;
     
     h4, .h4, h4 a, .h4 a {
         font-family: var(--font-family-headline);
-        font-style: var(--font-family-headline-style-1);
         font-weight: var(--font-family-headline-weight-normal);
     }
     

@@ -38,7 +38,6 @@ div.hopscotch-bubble .hopscotch-bubble-close {
 
 .hopscotch-bubble .hopscotch-title {
     font-family: var(--font-family-main);
-    font-style: var(--font-family-main-style-1);
 }
 /* GROUP ORGANISMS / PLUGINS / HOPSCOTCH (TOUR) / DECORATION / BUTTONS
 =================================================== */
