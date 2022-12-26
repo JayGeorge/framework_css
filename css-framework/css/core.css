@@ -551,7 +551,7 @@ scope;
 
     :where(h1, h2, h3, h4, h5, h6, p) svg {
         vertical-align: baseline;
-        margin-right: var(--spacing-s-x);
+        margin-inline-end: var(--spacing-s-x);
     }
 
     /* Notes...
@@ -567,30 +567,27 @@ scope;
 
     */
     a > :is(svg, [src*=".svg"]):first-child:not(:last-child) {
-        margin-right: var(--spacing-s-2);
+        margin-inline-end: var(--spacing-s-2);
     }
 
     a > :is(svg, [src*=".svg"]):last-child:not(:first-child) {
-        margin-left: var(--spacing-s-2);
-        margin-right: 0;
+        margin-inline: var(--spacing-s-2) 0;
     }
 }
 @layer components {
     .c-btn a > :is(svg, [src*=".svg"]):first-child:not(:last-child) {
-        margin-right: var(--spacing-s);
+        margin-inline-end: var(--spacing-s);
     }
-    
+
     .c-btn a > :is(svg, [src*=".svg"]):last-child:not(:first-child) {
-        margin-left: var(--spacing-s);
-        margin-right: 0;
+        margin-inline: var(--spacing-s) 0;
     }
-    
+
     button svg,
     .c-btn :where([src*="svg"], svg) {
         font-size: 1.1em;
     }
 }
-/* purgecss end ignore */
 
 
 
