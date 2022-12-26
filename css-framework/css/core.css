@@ -37,7 +37,7 @@
     --spacing-l-4-static: 7rem;
     /* or */
     /* --spacing-l-4: min(25vw, 9.5rem); */
-    
+
     --spacing-vh-s: min(20vw, 15vh);
     --spacing-vh-m: min(22vw, 25vh);
 
@@ -113,7 +113,7 @@
 
     --font-size-m: clamp(1.999em * 0.75, 6vw, 1.999em);
     --font-size-m-line-height: 1.185;
-    
+
     --font-size-l: clamp(2.827em * 0.8, 9vw, 2.827em);
     --font-size-l-line-height: 1.15;
 
@@ -248,7 +248,7 @@ scope;
     *::before,
     *::after {
         /* Prevent flickering.
-        When you click a link or a button or a div that has a click function on it, 
+        When you click a link or a button or a div that has a click function on it,
         usually a grey box flickers. The below prevents that. Source: http://goo.gl/MZ4Dr5 */
         -webkit-tap-highlight-color: rgba(0,0,0,0);
         /* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
@@ -300,12 +300,12 @@ scope;
 
     /* Reset */
     h1, h2, h3, h4, h5, h6,
-    p, 
+    p,
     ul, ol,
     figure, blockquote {
         margin-block: 0;
     }
-    
+
     /* Reset */
     figure {
         margin-inline: 0;
@@ -381,14 +381,14 @@ scope;
         /* Override iOS Safari's user agent stylesheet */
         text-decoration: none;
     }
-    
+
     h4, .h4, h4 a, .h4 a {
         font-family: var(--font-family-headline);
         font-weight: var(--font-family-headline-weight-normal);
     }
-    
+
     /* --- */
-    
+
     h1, .h1 {
         font-size: var(--font-size-l);
         line-height: var(--font-size-l-line-height);
@@ -770,18 +770,18 @@ scope;
     .c-btn:last-child {
         margin-right: 0;
     }
-    
+
     .c-btn {
         position: relative;
         display: inline-block;
         /* Components > Framework > Forms > Layout */
         margin-block-end: 1.25rem;
     }
-    
+
     p + .c-btn {
         margin-block-start: var(--spacing-s-2);
     }
-    
+
     .c-btn a {
         /* e.g. icons in buttons */
         display: flex;
@@ -940,58 +940,58 @@ scope;
     .s-entry-content :is(ol, ul) {
         padding-inline-start: 0.8rem;
     }
-    
+
     .s-entry-content p + :is(ol, ul) {
         padding-block-start: var(--spacing-s);
         padding-block-end: var(--spacing-l);
     }
-    
+
     .s-entry-content li :is(ol, ul) {
         /* e.g.
-    
+
         <ul>
             <li>something</li>
             <li>something else
                 <ol> <-- we don't want this to have extra padding
-    
+
         */
         padding-inline: 0;
         padding-block-start: 0;
     }
-    
+
     .s-entry-content li {
         /* e.g. ul li */
         padding-inline-start: var(--spacing-s-x-x);
     }
-    
+
     /* Bard wraps <li> text in a <p> tag */
     .s-entry-content li p: {
         padding-block-end: 0!important;
     }
-    
+
     .s-entry-content > .h1 {
         padding-block-start: 0;
     }
-    
+
     /* e.g. when we have .s-entry-child divs following each other with blocks */
     .s-entry-content:last-child,
     /* e.g. cancel the last p tag from adding to the VERTICAL SPACING */
     .s-entry-content > *:last-child {
         padding-block-end: 0;
     }
-    
+
     /* e.g. an img output wrapped in a figure element */
     .s-entry-content figure {
         margin: 0;
     }
-    
+
     .s-entry-content:has(+ .s-entry-content--inline-image) {
         /* Increase - push an inline image away from the paragraph above */
         padding-block-end: var(--spacing-l-3);
     }
-    
+
     /* -- */
-    
+
     /* Custom */
     @media (min-width: 768px) {
         .s-entry-content--inline-quote blockquote {
@@ -1000,15 +1000,15 @@ scope;
             margin-inline-end: var(--spacing-l-1);
         }
     }
-    
+
     /* -- */
-    
+
     .s-entry-content--inline-image {
         width: 68.1%;
         /* Increase */
         padding-inline-end: var(--spacing-l-1);
     }
-    
+
     /* Custom */
     @media (min-width: 650px) {
         .s-entry-content--inline-image {
@@ -1028,24 +1028,24 @@ scope;
     .qa-test {
         border: 3px solid red!important;
     }
-    
+
     /* Images without alt tags */
     img:not([alt]) {
         border: 5px dashed red;
     }
-    
+
     /* Components > Framework > Nav */
     .no-js .u-js-only {
         display: none!important;
     }
-    
+
     /* Text meant only for screen readers. */
     /* Components > Framework > Nav */
     .u-screen-reader-text {
         /* START SCREEN READER TEXT
         --------------------------- */
         clip: rect(1px, 1px, 1px, 1px);
-    
+
         position: absolute!important;
         overflow: hidden;
         width: 1px;
@@ -1053,16 +1053,16 @@ scope;
         /* END SCREEN READER TEXT
         ------------------------- */
     }
-    
+
     /* Needed if the text should be visible on keyboard focus */
     .u-screen-reader-text:focus {
         clip: auto!important;
-    
+
         z-index: 100000; /* Above WP toolbar. */
         display: block;
         top: 0;
         left: 0;
-    
+
         width: auto;
         height: auto;
     }
@@ -1150,10 +1150,10 @@ scope;
         See this group in README.css
     */
     .u-panel--split::before {
-        background: linear-gradient(to bottom, 
-            var(--panel-colour-start) var(--panel-stop-1, 50%), 
-            var(--panel-colour-end) var(--panel-stop-1, 50%), 
-            var(--panel-stop-2, 101%), 
+        background: linear-gradient(to bottom,
+            var(--panel-colour-start) var(--panel-stop-1, 50%),
+            var(--panel-colour-end) var(--panel-stop-1, 50%),
+            var(--panel-stop-2, 101%),
             var(--panel-colour-start) var(--panel-stop-2, 101%)
         );
     }
