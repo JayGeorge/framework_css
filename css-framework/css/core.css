@@ -965,7 +965,7 @@ scope;
     }
 
     /* Bard wraps <li> text in a <p> tag */
-    .s-entry-content li p: {
+    .s-entry-content li p {
         padding-block-end: 0!important;
     }
 
