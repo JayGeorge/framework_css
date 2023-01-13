@@ -1493,6 +1493,104 @@
     .u-texture {
         background-image: url(/img/textures/something.jpg);
     }
+    /* GROUP UTILITIES / DECORATION / PANELS
+    =================================================== */
+    /* Notes...
+
+        Here we attach the panel class directly to the component so that:
+
+        - We can still make use of adjacent selectors to control spacing such as .component + .component without a panel parent getting in the way
+        - Instead of .u-panel + .u-panel rules to create spacing, be more explicit and use .o-slide
+        - Note that it's generally better to use margin-block-end on components because for example a 90% stop will be 90% height of the component rather than 90% height of the component + it's padding below
+
+    */
+
+    /* HTML Example...
+
+        <footer class="c-site-footer u-panel u-panel--dark" style="--panel-colour: var(--colour-purple-deep);">
+
+    */
+    .u-panel {
+        position: relative;
+    }
+
+    /* some-class*/
+    .u-panel::before {
+        content: "";
+        position: absolute;
+        top: 0;
+
+        height: 100%;
+        background: var(--panel-colour, white);
+        z-index: -1;
+
+        /* Object > Framework > (Non Core) > Layout > Full Width {Bust Out Of Container} */
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-inline: -50vw;
+    }
+
+    /* Explicit */
+    .u-panel--dark * {
+        color: white;
+    }
+    .u-panel--light * {
+        color: black;
+    }
+
+    /* For forms */
+    .u-panel--dark [placeholder],
+    .u-panel--dark ::-webkit-input-placeholder,
+    .u-panel--dark ::placeholder {
+        opacity: 1;
+        color: white;
+        background: var(--colour-purple-transparent);
+    }
+
+    /* Notes...
+
+        - If you're using this on a component with margin-block-end rather than padding-block-end then I'd recommend you add a .component-wrapper and add .u-panel.u-panel--split there instead. This will get around the problem of extending the split below the component to join the next panel.
+        - To adjust panels for mobile you can add an override on a case-by-case basis, e.g. ...
+
+        @media (max-width: 899px) {
+            .c-text-and-motif.u-panel {
+                --panel-stop-1: 5%!important;
+            }
+        }
+        - You could also use the .u-panel--higher-mqs modifier to remove the panel for mobile
+
+    */
+    /* HTML Example...
+
+        - You can use it with either 1 or 2 stops.
+        - Note that it's generally better to use margin-block-end on components because for example a 90% stop will be 90% height of the component rather than 90% height of the component + it's padding below
+
+        Here is an example of 1 stop:
+        <div class="c-something u-panel u-panel--split" style="--panel-colour-start: var(--colour-grey-light); --panel-colour-end: white; --panel-stop-1: 80%;">
+
+        Here is an example of 2 stops:
+        <div class="c-something u-panel u-panel--split" style="--panel-colour-start: white; --panel-colour-end: var(--colour-grey-light); --panel-stop-1: 10%; --panel-stop-2: 90%;">
+
+    */
+    /* Statamic Example...
+        See this group in README.css
+    */
+    .u-panel--split::before {
+        background: linear-gradient(to bottom,
+            var(--panel-colour-start) var(--panel-stop-1, 50%),
+            var(--panel-colour-end) var(--panel-stop-1, 50%),
+            var(--panel-stop-2, 101%),
+            var(--panel-colour-start) var(--panel-stop-2, 101%)
+        );
+    }
+    /* Custom */
+    @media (max-width: 1023px) {
+        .u-panel--higher-mqs::before {
+            /* Remove */
+            content: unset!important;
+        }
+    }
     /* GROUP UTILITIES / FRAMEWORK / SPACING
     =================================================== */
     .u-px-l {
