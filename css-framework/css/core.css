@@ -54,7 +54,8 @@
     /* GROUP VARIABLES -- LAYOUT -- Z-INDEX
     =================================================== */
     --z-index-above-body: 1;
-    --z-index-above-nav: 2;
+    --z-index-nav: 2;
+    --z-index-above-nav: 3;
     /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME
     =================================================== */
     /* Dark to light */
@@ -355,7 +356,6 @@ scope;
     */
     main :where(p:not(li p), ol, ul):not(:has(li p)) {
         line-height: var(--font-size-reading-line-height);
-        font-size: var(--font-size-s);
         list-style-position: inside;
         padding-inline-start: 0;
     }
@@ -437,8 +437,7 @@ scope;
         padding-block-end: var(--spacing-s-x);
     }
 
-    * > h2,
-    * > .h2 {
+    * > :where(h2, .h2) {
         padding-block-start: var(--spacing-m);
     }
 
@@ -446,11 +445,11 @@ scope;
         padding-block-end: var(--spacing-s-x-x);
     }
 
-    * + h3, * + .h3,
+    * + :where(h3, .h3),
     /* e.g. p followed by a div followed by an h3 */
-    * > h3, * > .h3, * + h4, * + .h4,
+    * > :where(h3, .h3), * + :where(h4, .h4),
     /* e.g. p followed by a div followed by an h4 */
-    * > h4, * > .h4 {
+    * + :where(h4, .h4), {
         padding-block-start: var(--spacing-s);
     }
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / EXCEPTIONS / VERTICAL SPACING
@@ -934,8 +933,7 @@ scope;
 @layer scope {
     .s-entry-content {
         max-width: var(--max-width-reading);
-        padding-inline-start: var(--spacing-l);
-        padding-inline-end: var(--spacing-l);
+        padding-inline: var(--spacing-l);
         padding-block-end: var(--spacing-l);
     }
     .s-entry-content :is(ol, ul) {

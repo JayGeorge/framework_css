@@ -27,6 +27,10 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    /* U might need this */
+    & > * {
+        width: 100%;
+    }
 }
 
 /* .u-layout-sticky-footer-wrapper__main-content, */
