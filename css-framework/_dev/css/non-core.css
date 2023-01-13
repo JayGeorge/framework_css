@@ -1130,26 +1130,30 @@
         font-size: var(--font-size-s-x);
     }
 }
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY TITLE
+/* GROUP SCOPE / FRAMEWORK / (NON CORE) / ENTRY / ENTRY TITLE
 =================================================== */
-@layer scope {
+@layer components {
     /* Notes...
 
         - Used to control titles, especially when you have different elements e.g. h2, h3, that all need to look the same
 
     */
-    .s-single .entry-title {
-        max-width: var(--max-width-title);
-        padding-inline-start: var(--spacing-l);
-        padding-block-end: var(--spacing-s-1);
-        padding-inline-end: var(--spacing-l);
-        margin-inline-start: auto;
-        margin-inline-end: auto;
-        clear: both;
-        text-align: center;
-        /* e.g. >> 404.php */
-        font-size: var(--font-size-l);
-        line-height: var(--font-size-l-line-height);
+    /* HTML Example...
+
+        .s-entry-title
+            h1
+
+    */
+    .s-entry-title {
+        max-width: var(--max-width-2);
+        margin-inline: auto;
+        padding-inline: var(--spacing-l);
+        padding-block-end: var(--spacing-s);
+        & h1 {
+            padding-block-start: var(--spacing-s);
+            max-width: var(--max-width-reading);
+            clear: both;
+        }
     }
 }
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY TITLE / (NON CORE) / INTRO
