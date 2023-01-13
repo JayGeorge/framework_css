@@ -1388,6 +1388,15 @@
         clip-path: inset(0 0 0 0);
       }
     }
+    @keyframes wipe-in-left {
+        1%, 100% { opacity: 1; }
+      from {
+        clip-path: inset(0 0 0 100%);
+      }
+      to {
+        clip-path: inset(0 0 0 0);
+      }
+    }
     @keyframes circle-in-center {
       from {
         clip-path: circle(0%);
