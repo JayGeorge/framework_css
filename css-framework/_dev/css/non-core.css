@@ -1370,6 +1370,52 @@
             opacity: 1;
         }
     }
+    @keyframes wipe-out-left {
+        1%, 100% { opacity: 1; }
+      from {
+        clip-path: inset(0 0 0 0);
+      }
+      to {
+        clip-path: inset(0 100% 0 0);
+      }
+    }
+    @keyframes wipe-in-right {
+        1%, 100% { opacity: 1; }
+      from {
+        clip-path: inset(0 100% 0 0);
+      }
+      to {
+        clip-path: inset(0 0 0 0);
+      }
+    }
+    @keyframes circle-in-center {
+      from {
+        clip-path: circle(0%);
+      }
+      to {
+        clip-path: circle(100%);
+      }
+    }
+    @keyframes circle-in-top-right {
+        1%, 100% { opacity: 1; }
+      from {
+        clip-path: circle(0%);
+          opacity: 0;
+      }
+      to {
+        clip-path: circle(150% at top right);
+      }
+    }
+    @keyframes circle-in-top-left {
+        1%, 100% { opacity: 1; }
+      from {
+        clip-path: circle(0%);
+          opacity: 0;
+      }
+      to {
+        clip-path: circle(150% at top left);
+      }
+    }
     /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / FADE IN
     =================================================== */
     .u-animated-fade-in {
@@ -1416,6 +1462,10 @@
             animation-delay: var(--io-default-delay);
             animation-duration: var(--io-default-duration);
         }
+        .js [data-io] {
+            /* Start off with a 0 opacity (rather than hidden) so browsers can still "see" the element. You'll need 1%, 100% { opacity: 1; } on each keyframe to make them appear immediately, unless you're using a fade anyway */
+            opacity: 0;
+        }
 
         /* When an item is followed by another item then add a default delay */
         [data-io][class*="__"] + [data-io][class*="__"] {
@@ -1458,15 +1508,17 @@
         =================================================== */
         /* e.g. <p class="c-intro-text" data-io data-io--wipe-in-right>At Assured</p> */
         /* handy to use switch like data-io data-io--wipe-in-{{ switch between='right|left' }} */
-        .js [data-io--wipe-in-right],
-        .js [data-io--wipe-in-left] {
-            clip-path: inset(0 100% 0 0);
-        }
         .js [data-io-seen][data-io--wipe-in-right] {
             animation: var(--io-default-duration) cubic-bezier(.25, 1, .30, 1) wipe-in-right both;
         }
         .js [data-io-seen][data-io--wipe-in-left] {
             animation: var(--io-default-duration) cubic-bezier(.25, 1, .30, 1) wipe-in-left both;
+        }
+        .js [data-io-seen][data-io--circle-in-top-right] {
+            animation: 4s cubic-bezier(.25, 1, .30, 1) circle-in-top-right both;
+        }
+        .js [data-io-seen][data-io--circle-in-top-left] {
+            animation: 4s cubic-bezier(.25, 1, .30, 1) circle-in-top-left both;
         }
     }
     /* purgecss end ignore */
