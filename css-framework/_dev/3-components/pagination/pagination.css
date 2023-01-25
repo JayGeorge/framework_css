@@ -28,61 +28,53 @@
     </div>
 
 */
-.c-paging {
-    padding-inline: var(--spacing-l);
-    text-align: center;
-}
-
-.c-paging__buttons {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-m);
-}
-
-.c-paging .c-btn,
-.c-paging .c-btn a {
-    /* Cancel defaults */
-    margin-right: 0;
-}
-
-.c-paging .c-btn {
-    margin-top: var(--spacing-l);
-}
-
-.c-paging .c-btn a {
-    /* Needed for when previous and next are side by side. This should already be set as flex by the Atoms > Buttons group */
-    /* display: flex; */
-    margin-block-end: var(--spacing-m);
-}
-
-/* Custom */
-@media (max-width: 599px) {
-    .c-btn--pagination:not(.c-btn--pagination-single) span {
-        /* Hide text because there's not enough room */
-        /* START SCREEN READER TEXT
-        --------------------------- */
-        clip: rect(1px, 1px, 1px, 1px);
-
-        position: absolute!important;
-        overflow: hidden;
-        width: 1px;
-        height: 1px;
-        /* END SCREEN READER TEXT
-        ------------------------- */
+@layer components {
+    .c-paging {
+        padding-inline: var(--spacing-l);
+        text-align: center;
     }
 
-    /* Center the icons since there is no text */
-    .c-btn--pagination:not(.c-btn--pagination-single) .c-btn__left :where([src*="svg"], svg) {
-        position: relative;
-        /* Visually center */
-        right: -0.3em;
-        margin-right: 0;
+    .c-paging__buttons {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-m);
     }
 
-    .c-btn--pagination:not(.c-btn--pagination-single) .c-btn__right :where([src*="svg"], svg) {
-        position: relative;
-        /* Visually center */
-        left: -0.3em;
-        margin-left: 0;
+    .c-paging .c-btn a {
+        /* Needed for when previous and next are side by side. This should already be set as flex by the Atoms > Buttons group */
+        /* display: flex; */
+        margin-block-end: var(--spacing-m);
+    }
+
+    /* Custom */
+    @media (max-width: 599px) {
+        .c-btn--pagination:not(.c-btn--pagination-single) span {
+            /* Hide text because there's not enough room */
+            /* START SCREEN READER TEXT
+            --------------------------- */
+            clip: rect(1px, 1px, 1px, 1px);
+
+            position: absolute!important;
+            overflow: hidden;
+            width: 1px;
+            height: 1px;
+            /* END SCREEN READER TEXT
+            ------------------------- */
+        }
+
+        /* Center the icons since there is no text */
+        .c-btn--pagination:not(.c-btn--pagination-single) .c-btn__left :where([src*="svg"], svg) {
+            position: relative;
+            /* Visually center */
+            right: -0.3em;
+            margin-right: 0;
+        }
+
+        .c-btn--pagination:not(.c-btn--pagination-single) .c-btn__right :where([src*="svg"], svg) {
+            position: relative;
+            /* Visually center */
+            left: -0.3em;
+            margin-left: 0;
+        }
     }
 }
