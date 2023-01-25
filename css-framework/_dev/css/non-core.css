@@ -119,7 +119,7 @@
 
     --font-size-m: clamp(2.25em * 0.695, 5.9vw, 2.25em);
     --font-size-m-line-height: 1.35;
-    
+
     --font-size-l: clamp(3.375em * 0.8, 5.9vw, 3.375em);
     --font-size-l-line-height: 1.15;
 
@@ -270,12 +270,12 @@
         }
         */
     }
-    
+
     body {
         /* So scroll bars hide like in Safari */
         -ms-overflow-style: -ms-autohiding-scrollbar;
     }
-    
+
     pre,
     code {
         /* e.g. try <code><?php bloginfo('stylesheet_url'); ?></code> and you'll see that it overflows on smaller screens */
@@ -285,11 +285,11 @@
         margin-block-end: var(--spacing-m);
         color: var(--colour-grey-reading);
     }
-    
+
     /* Notes...
-    
+
         For HTML examples on using blockquote along with references see my CSS.text file in my wiki, under Blockquotes
-    
+
     */
     blockquote {
         position: relative;
@@ -298,23 +298,23 @@
         margin-inline-start: var(--spacing-s-x-x);
         border-left: 4px solid turquoise;
     }
-    
+
     blockquote p,
     blockquote cite {
         color: var(--colour-grey-reading);
     }
-    
+
     blockquote p {
         quotes: "“" "”" "‘" "’";
     }
-    
+
     blockquote p::before {
         content: open-quote;
     }
     blockquote p::after {
         content: close-quote;
     }
-    
+
     blockquote::before {
         position: absolute;
         top: -0.3em;
@@ -322,22 +322,22 @@
         font-size: var(--font-size-m);
         color: var(--colour-grey-light-1);
     }
-    
+
     blockquote p:last-child {
         /* e.g. prevent the decorative left border from extending beyond the text */
         padding-block-end: 0;
     }
-    
+
     figcaption {
         padding-block-start: var(--spacing-s);
         font-size: var(--font-size-s-x);
         font-style: italic;
     }
-    
+
     cite {
         font-size: 0.75em;
     }
-    
+
     hr {
         height: 2px;
         margin-block-end: var(--spacing-l);
@@ -345,11 +345,11 @@
         background: var(--colour-grey-light-1);
         border: 0;
     }
-    
+
     /*audio {
         box-shadow: 0 0 10px rgba(255,255,255,0.25);
     }*/
-    
+
     /* Aspect ratio */
     @supports (aspect-ratio: 16/9) {
         iframe[src*="youtube"],
@@ -359,7 +359,7 @@
             aspect-ratio: 16/9;
         }
     }
-    
+
     iframe {
         width: 100%;
         border: none;
@@ -447,7 +447,7 @@
     .u-link-style-block {
         /* Notes...
             e.g. >> /what-we-do-static
-            
+
             Not display: inline-block; because this allows
             images to bust out of their containers on Firefox and Internet Explorer
         */
@@ -555,7 +555,7 @@
         justify-content: center;
         gap: var(--spacing-m);
     }
-    
+
     .o-hero-buttons {
         padding: var(--spacing-l-1);
         text-align: center;
@@ -564,7 +564,7 @@
     .o-hero-buttons--left {
         justify-content: flex-start;
     }
-    
+
     /* --mq-max-width-reading-before */
     @media (max-width: 599px) {
         .o-hero-buttons {
@@ -577,7 +577,7 @@
     .o-hero-buttons + h2 {
         padding-block-start: var(--spacing-s);
     }
-    
+
     h2 + .o-hero-buttons {
         padding-block-start: var(--spacing-s-1);
     }
@@ -745,43 +745,43 @@
         flex-basis: 100%;
         justify-content: center;
         text-align: center;
-    
+
         padding-block-end: var(--spacing-l-3-horizontal);
         padding-inline-end: var(--spacing-l-3-horizontal)
     }
-    
+
     .c-hero-block > * {
         flex-basis: 100%;
     }
-    
+
     .c-hero-block__text {
         max-width: 46rem;
     }
-    
+
     .c-hero-block__title {
         padding-block-start: 0;
-    
+
         font-size: var(--font-size-l-1);
         line-height: var(--font-size-l-1-line-height);
     }
-    
+
     /* .c-hero-title--with-strapline { */
         /* Decrease */
     /*     padding-block-end: var(--spacing-m-2);
     } */
-    
+
     /* e.g. div*/.c-hero-block__strapline {
         padding-block-end: var(--spacing-l-1);
-        
+
         font-size: var(--font-size-s-1);
         color: var(--colour-grey-reading);
     }
-    
+
     .c-hero-block + .c-hero-block {
         /* e.g. client logos AJAX'd in */
         padding-block-start: var(--spacing-m-2);
     }
-    
+
     .c-hero-block img {
         filter: var(--image-boost);
     }
@@ -859,7 +859,7 @@
     /* button*/
     .c-nav-mobile-button {
         width: 100%;
-        
+
         /* =JFG. Cancel any default button value */
         margin-inline-end: 0;
 
@@ -1035,7 +1035,7 @@
 
     Transforms the nav menu into a grid of items
     i.e. an inline list.
-     
+
 */
 @layer scope {
     /* --mq-nav-switches-to-grid-after */
@@ -1112,20 +1112,20 @@
         padding-inline-end: var(--spacing-l);
         clear: both;
     }
-    
+
     /* Notes...
-    
+
         e.g. <header class="entry-header s-entry-header{{ title | length > 40 ?= ' s-entry-header--with-long-title' }}">
-    
+
     */
     /* .s-entry-header--with-long-title {
-    
+
     } */
-    
+
     .s-entry-header h1 {
         padding-block-end: var(--spacing-m);
     }
-    
+
     .s-entry-header .entry-time {
         font-size: var(--font-size-s-x);
     }
@@ -1162,7 +1162,7 @@
     .c-entry-title--with-intro {
         padding-block-end: var(--spacing-s-x-x);
     }
-    
+
     .c-entry-title-intro {
         padding-block-end: var(--spacing-l);
         text-align: center;
@@ -1171,7 +1171,7 @@
         /*color: var(--colour-pink);*/
         /*@apply --t-text-style-1-strong;*/
     }
-    
+
     .c-entry-title-intro--s {
         padding-block-end: var(--spacing-s);
         padding-block-start: var(--spacing-s);
@@ -1191,7 +1191,7 @@
 @layer scope {
     /*.s-entry-content--hero,*/
     .s-entry-content--intro {
-        /* e.g. Gallery page intro 
+        /* e.g. Gallery page intro
             Do not apply to all .s-entry-content because it has undesirable consequences like making iframes disappear
         */
         /* Horizontal text */
@@ -1522,6 +1522,9 @@
         }
         .js [data-io-seen][data-io--wipe-in-left] {
             animation: var(--io-default-duration) cubic-bezier(.25, 1, .30, 1) wipe-in-left both;
+        }
+        .js [data-io-seen][data-io--circle-in-center] {
+            animation: var(--io-default-duration) cubic-bezier(.25, 1, .30, 1) circle-in-center both;
         }
         .js [data-io-seen][data-io--circle-in-top-right] {
             animation: 4s cubic-bezier(.25, 1, .30, 1) circle-in-top-right both;
