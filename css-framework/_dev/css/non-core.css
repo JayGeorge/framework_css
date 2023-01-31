@@ -554,9 +554,7 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: var(--spacing-m);
-    }
 
-    .o-hero-buttons {
         padding: var(--spacing-l-1);
         text-align: center;
     }
