@@ -75,9 +75,9 @@ for(i;i < nav_links.length; i++){
 
 
 
-/* GROUP SCROLL TRIGGER WITH INTERSECTION OBSERVER
+/* GROUP UTILITIES / ANIMATION / IO FRAMEWORK (Authored by me)
 =================================================== */
-/* Simple Intersection Observer to for scroll-triggered animations. See GROUP UTILTIES / FRAMEWORK / (NON CORE) / SCROLL TRIGGER WITH INTERSECTION OBSERVER for more info */
+/* Simple Intersection Observer to for scroll-triggered animations. See my 'JavaScript.txt > IO Framework' in my wiki for more info, and animation examples in non-core.css in my CSS framework */
 /* HTML Example...
     <div data-io>
     </div>
@@ -91,13 +91,15 @@ for(i;i < nav_links.length; i++){
     }
 */
 function jfg_intersectionObserver() {
-    const observe_target = document.querySelectorAll('[data-io]');
-
     const options = {
         // When at least 25% is visible
         threshold: [0.25]
     }
 
+    /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / DEFAULT
+    =================================================== */
+    /* data-io is the default, where data-io-seen is only added once, and never removed once added */
+    const observe_target = document.querySelectorAll('[data-io]');
     var my_observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.intersectionRatio > 0) {
@@ -107,9 +109,54 @@ function jfg_intersectionObserver() {
     }, {
         options
     });
-
     observe_target.forEach(entry => {
         my_observer.observe(entry);
+    });
+    /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / MULTIPLE TIMES
+    =================================================== */
+    /* data-io-repeat can be used for multiple triggers, where it's removed once out of sight, and re-added once back on screen */
+    const observe_target_multiple_times = document.querySelectorAll('[data-io-repeat]');
+    var my_observer_multiple_times = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.intersectionRatio > 0) {
+                entry.target.setAttribute('data-io-seen', '');
+            } else {
+                entry.target.removeAttribute('data-io-seen');
+            }
+        });
+    }, {
+        options
+    });
+    observe_target_multiple_times.forEach(entry => {
+        my_observer_multiple_times.observe(entry);
+    });
+    /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / CONTROL PLYR STATE
+    =================================================== */
+    /* Used to auto pause plyr instances when they're out of site, using intersection observer. Attach data-io-control-plyr to the same place you'd usually attach data-io-repeat to. It can be used for multiple triggers, where it's removed once out of sight, and re-added once back on screen */
+    window.addEventListener('load', (event) => {
+        const observe_plyr_multiple_times = document.querySelectorAll('[data-io-control-plyr]');
+        var my_observer_multiple_times = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.intersectionRatio > 0) {
+                    entry.target.setAttribute('data-io-control-plyr-pause', '');
+                    // Resume
+                    Array.from(playersMutedCoverMobileAndLandscape || []).forEach(element => {
+                        element.play();
+                    });
+                } else {
+                    entry.target.removeAttribute('data-io-control-plyr-pause');
+                    // Pause
+                    Array.from(playersMutedCoverMobileAndLandscape || []).forEach(element => {
+                        element.pause();
+                    });
+                }
+            });
+        }, {
+            options
+        });
+        observe_plyr_multiple_times.forEach(entry => {
+            my_observer_multiple_times.observe(entry);
+        });
     });
 }
 

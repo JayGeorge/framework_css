@@ -1648,51 +1648,59 @@ html {
     /* If they're ok with animation */
     @media (prefers-reduced-motion: no-preference) {
         /* Defaults */
-        [data-io] {
-            --io-default-duration: 1.2s;
-            --io-default-delay: 0.5s;
-            --stagger: 0.2s;
+        :where([data-io], [data-io-repeat]) {
+            /* We can't apply data attributes directly to inline SVGs in Statamic, so you could wrap a div around it like this: <div data-io-repeat data-io--slit-reveal>{{ svg src='motif' class='c-small-motif u-animated-motif-slit' }}</div> */
+            &, & > svg {
+                --io-duration: 1.2s;
+                --io-delay: 0.5s;
+                --io-stagger: 0.2s;
 
-            animation-fill-mode: both;
-            animation-delay: var(--io-default-delay);
-            animation-duration: var(--io-default-duration);
-        }
-        .js [data-io] {
-            /* Start off with a 0 opacity (rather than hidden) so browsers can still "see" the element. You'll need 1%, 100% { opacity: 1; } on each keyframe to make them appear immediately, unless you're using a fade anyway */
-            opacity: 0;
+                animation-fill-mode: both;
+                animation-delay: var(--io-delay);
+                animation-duration: var(--io-duration);
+            }
         }
 
         /* When an item is followed by another item then add a default delay */
         [data-io][class*="__"] + [data-io][class*="__"] {
-            animation-delay: calc(var(--io-default-delay) + var(--stagger));
+            animation-delay: calc(var(--io-delay) + var(--io-stagger));
         }
         [data-io][class*="__"] + [data-io][class*="__"]:nth-child(2) {
-            animation-delay: calc(var(--io-default-delay) + var(--stagger) * 2);
+            animation-delay: calc(var(--io-delay) + var(--io-stagger) * 2);
         }
         [data-io][class*="__"] + [data-io][class*="__"]:nth-child(3) {
-            animation-delay: calc(var(--io-default-delay) + var(--stagger) * 3);
+            animation-delay: calc(var(--io-delay) + var(--io-stagger) * 3);
         }
         [data-io][class*="__"] + [data-io][class*="__"]:nth-child(4) {
-            animation-delay: calc(var(--io-default-delay) + var(--stagger) * 4);
+            animation-delay: calc(var(--io-delay) + var(--io-stagger) * 4);
         }
         /* etc. */
 
         /* Delays */
         [data-io--delay],
         [data-io--delay]::before {
-            /* Add a custom delay like this: <div data-io data-io--delay style="--delay: 5s"></div> */
-            /* 1.5s if --delay is not defined */
-            animation-delay: var(--delay, 1.5s)!important;
+            /* Add a custom delay like this: <div data-io data-io--delay style="--io-delay: 5s"></div> */
+            /* Or in Antlers data-io--delay{{ index < 6 ?= ' style="--io-delay: 0.{{ index | multiply(2) }}s"' }} */
+            /* 1.5s if --io-delay is not defined */
+            animation-delay: var(--io-delay, 1.5s)!important;
         }
         /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / FADES
         =================================================== */
-        .js :where([data-io--fade-in], [data-io--slide-up-and-fade-in]) {
+        .js :where([data-io--fade-in], [data-io--fade-in-up], [data-io--slide-up-and-fade-in]) {
+            /* Start off with a 0 opacity (rather than hidden) so browsers can still "see" the element. You'll need 1%, 100% { opacity: 1; } on each keyframe to make them appear immediately, unless you're using a fade anyway */
             opacity: 0;
         }
         /* Fade in */
         .js [data-io--fade-in][data-io-seen] {
             animation-name: fade-in;
             animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        /* Fade in up */
+        .js [data-io--fade-in-up][data-io-seen] {
+            --io-delay: 0.1s;
+            --io-duration: 1s;
+            animation-name: fade-in-up;
+            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
         }
         /* Slide Up and Fade In */
         .js [data-io--slide-up-and-fade-in][data-io-seen] {
@@ -1704,13 +1712,13 @@ html {
         /* e.g. <p class="c-intro-text" data-io data-io--wipe-in-right>At Assured</p> */
         /* handy to use switch like data-io data-io--wipe-in-{{ switch between='right|left' }} */
         .js [data-io-seen][data-io--wipe-in-right] {
-            animation: var(--io-default-duration) cubic-bezier(.25, 1, .30, 1) wipe-in-right both;
+            animation: var(--io-duration) cubic-bezier(.25, 1, .30, 1) wipe-in-right both;
         }
         .js [data-io-seen][data-io--wipe-in-left] {
-            animation: var(--io-default-duration) cubic-bezier(.25, 1, .30, 1) wipe-in-left both;
+            animation: var(--io-duration) cubic-bezier(.25, 1, .30, 1) wipe-in-left both;
         }
         .js [data-io-seen][data-io--circle-in-center] {
-            animation: var(--io-default-duration) cubic-bezier(.25, 1, .30, 1) circle-in-center both;
+            animation: var(--io-duration) cubic-bezier(.25, 1, .30, 1) circle-in-center both;
         }
         .js [data-io-seen][data-io--circle-in-top-right] {
             animation: 4s cubic-bezier(.25, 1, .30, 1) circle-in-top-right both;
