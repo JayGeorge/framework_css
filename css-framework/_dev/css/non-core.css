@@ -231,6 +231,13 @@
     /* GROUP VARIABLES -- ANIMATIONS -- ANIMATIONS
     =================================================== */
     --animation-site-header-background: 1.5s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
+    /* GROUP VARIABLES -- ANIMATIONS -- TIMING
+    =================================================== */
+    --animation-timing-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
+    --animation-timing-in-cubic: cubic-bezier(0.55, 0.06, 0.68, 0.19);
+
+    --animation-timing-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --animation-timing-wipe: cubic-bezier(.25, 1, .30, 1);
 
     /* GROUP VARIABLES -- OTHER
     =================================================== */
@@ -1693,38 +1700,38 @@ html {
         /* Fade in */
         .js [data-io--fade-in][data-io-seen] {
             animation-name: fade-in;
-            animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+            animation-timing-function: var(--animation-timing-out-cubic);
         }
         /* Fade in up */
         .js [data-io--fade-in-up][data-io-seen] {
             --io-delay: 0.1s;
             --io-duration: 1s;
             animation-name: fade-in-up;
-            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            animation-timing-function: var(--animation-timing-linear-out-slow-in);
         }
         /* Slide Up and Fade In */
         .js [data-io--slide-up-and-fade-in][data-io-seen] {
             animation-name: slide-up-and-fade-in;
-            animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+            animation-timing-function: var(--animation-timing-out-cubic);
         }
         /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / WIPES
         =================================================== */
         /* e.g. <p class="c-intro-text" data-io data-io--wipe-in-right>At Assured</p> */
         /* handy to use switch like data-io data-io--wipe-in-{{ switch between='right|left' }} */
         .js [data-io-seen][data-io--wipe-in-right] {
-            animation: var(--io-duration) cubic-bezier(.25, 1, .30, 1) wipe-in-right both;
+            animation: var(--io-duration) var(--animation-timing-wipe) wipe-in-right both;
         }
         .js [data-io-seen][data-io--wipe-in-left] {
-            animation: var(--io-duration) cubic-bezier(.25, 1, .30, 1) wipe-in-left both;
+            animation: var(--io-duration) var(--animation-timing-wipe) wipe-in-left both;
         }
         .js [data-io-seen][data-io--circle-in-center] {
-            animation: var(--io-duration) cubic-bezier(.25, 1, .30, 1) circle-in-center both;
+            animation: var(--io-duration) var(--animation-timing-wipe) circle-in-center both;
         }
         .js [data-io-seen][data-io--circle-in-top-right] {
-            animation: 4s cubic-bezier(.25, 1, .30, 1) circle-in-top-right both;
+            animation: 4s var(--animation-timing-wipe) circle-in-top-right both;
         }
         .js [data-io-seen][data-io--circle-in-top-left] {
-            animation: 4s cubic-bezier(.25, 1, .30, 1) circle-in-top-left both;
+            animation: 4s var(--animation-timing-wipe) circle-in-top-left both;
         }
     }
     /* purgecss end ignore */
