@@ -26,6 +26,15 @@
     /* GROUP VARIABLES -- SPACING
     =================================================== */
     --spacing-m-2: 1.65rem;
+    --spacing-m-then-spacing-l-upper-mq: var(--spacing-m);
+
+    --spacing-l-static: 1.8rem;
+
+    --spacing-l-1-static: 2.5em;
+
+    --spacing-l-4-static: 7rem;
+    /* or */
+    /* --spacing-l-4: min(25vw, 9.5rem); */
     /* GROUP VARIABLES -- SPACING -- ICONS
     =================================================== */
     --spacing-icon-s: 0.2rem;
@@ -48,6 +57,9 @@
 
     --colour-orange: hsl(25, 100%, 53%);
     --colour-turquoise: hsl(184, 65%, 47%);
+    /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME -- GRADIENTS
+    =================================================== */
+    --colour-gradient-orange: radial-gradient(ellipse at bottom right, hsl(41, 100%, 69%) 0%,hsl(25, 100%, 50%) 100%);
     /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME -- BRANDS
     =================================================== */
     /* https://about.twitter.com/company/brand-assets */
@@ -159,6 +171,11 @@
     --icon-size-m-2: 1.8rem;
     --icon-size-l: 3rem;
     --icon-size-l-2: 5rem;
+    /* GROUP VARIABLES -- DECORATION -- TEXT -- OTHER
+    =================================================== */
+    --letter-spacing-s: 3px;
+    --letter-spacing-m: 5px;
+    --letter-spacing-l: 7px;
     /* GROUP VARIABLES -- DECORATION -- TEXT SHADOWS - ordered from light to dark variants
     =================================================== */
     --text-shadow-light: 1px 2px 5px hsla(0, 98%, 16%, 0.3);
@@ -166,6 +183,11 @@
     =================================================== */
     --border-grey-s: 3px solid grey;
     --border-grey-m: 5px solid grey;
+    /* GROUP VARIABLES -- DECORATION -- BORDER RADIUS
+    =================================================== */
+    --border-radius-s: 3px;
+    --border-radius-m: 5px;
+    --border-radius-l: 7px;
     /* GROUP VARIABLES -- DECORATION -- SEPARATORS -- BOX SHADOWS - ordered from light to dark variants
     =================================================== */
     --box-shadow-clean:
@@ -206,6 +228,9 @@
     =================================================== */
     /* Molecules > Pagination > (Cross Pollinated) */
     --animation-transition-fast: all 0.15s ease-in-out 0s;
+    /* GROUP VARIABLES -- ANIMATIONS -- ANIMATIONS
+    =================================================== */
+    --animation-site-header-background: 1.5s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
 
     /* GROUP VARIABLES -- OTHER
     =================================================== */
@@ -233,6 +258,38 @@
         ===================================================  */
         --spacing-m-2: 2rem;
     }
+}
+/* GROUP VARIABLES -- DECORATION -- COLOURS -- THEMING
+=================================================== */
+/* Notes...
+
+    - An example if you're using theming, e.g. flipping colours for different pages
+
+*/
+:root {
+    --colour-primary-text: white;
+    --colour-primary-background: black;
+
+    --colour-secondary-text: black;
+    --colour-secondary-background: white;
+}
+/* Defaults */
+html {
+    color: var(--colour-primary-text);
+    background: var(--colour-primary-background);
+}
+.s-social {
+    --colour-accent-background: var(--colour-red-legacy);
+    @supports (background: lch(0% 0 0)) {
+        --colour-accent-background: lch(var(--colour-red-lch));
+    }
+}
+.s-light {
+    --colour-primary-text: black;
+    --colour-primary-background: white;
+
+    --colour-secondary-text: white;
+    --colour-secondary-background: black;
 }
 
 
@@ -458,9 +515,9 @@
 
 
 
-/* GROUP OBJECTS / FRAMEWORK / (NON CORE) / SLIDE
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / SLIDE
 =================================================== */
-@layer objects {
+@layer components {
     /* Notes...
 
         - Used to introduce a new section
@@ -513,6 +570,20 @@
     padding-block-start: var(--spacing-vh-s);
 }
 */
+
+
+
+
+/* GROUP OBJECTS / FRAMEWORK / GSAP
+=================================================== */
+/* Need the JS in the <head> in my framework for this to work */
+/* purgecss ignore */
+@layer ui {
+    .js:not([data-js="document-loaded"]) [data-gsap="split-text-immediately"] {
+        /* Hide split text elements until the document is loaded and we can successfully animate them witout any issues as per https://greensock.com/forums/topic/17049-split-text-before-font-render-issue */
+        opacity: 0;
+    }
+}
 
 
 
@@ -614,6 +685,28 @@
         left: 50%;
         right: 50%;
         margin-inline: -50vw;
+    }
+}
+
+
+
+
+/* GROUP COMPONENTS / FRAMEWORK / MARKETING CONTENT
+=================================================== */
+/* HTML Example...
+
+    .c-marketing-content
+        h2
+        p
+
+*/
+@layer components {
+    .c-marketing-content {
+        max-width: var(--max-width-1);
+        padding: var(--spacing-l-3) var(--spacing-l);
+        margin-inline-start: auto;
+        margin-inline-end: auto;
+        text-align: center;
     }
 }
 
@@ -1180,6 +1273,101 @@
         /*font-size: 1em;*/
     }
 }
+/* GROUP SCOPE / FRAMEWORK / ENTRY / ENTRY CONTENT
+=================================================== */
+/* Notes...
+
+    - Based on WordPress Genesis Entry Content but tailored for neutral frameworks
+
+*/
+/* purgecss start ignore */
+@layer scope {
+    .s-entry-content {
+        max-width: var(--max-width-reading);
+        padding-inline: var(--spacing-l);
+        padding-block-end: var(--spacing-l);
+    }
+    .s-entry-content :is(ol, ul) {
+        padding-inline-start: 0.8rem;
+    }
+
+    .s-entry-content p + :is(ol, ul) {
+        padding-block-start: var(--spacing-s);
+        padding-block-end: var(--spacing-l);
+    }
+
+    .s-entry-content li :is(ol, ul) {
+        /* e.g.
+
+        <ul>
+            <li>something</li>
+            <li>something else
+                <ol> <-- we don't want this to have extra padding
+
+        */
+        padding-inline: 0;
+        padding-block-start: 0;
+    }
+
+    .s-entry-content li {
+        /* e.g. ul li */
+        padding-inline-start: var(--spacing-s-x-x);
+    }
+
+    /* Bard wraps <li> text in a <p> tag */
+    .s-entry-content li p {
+        padding-block-end: 0!important;
+    }
+
+    .s-entry-content > .h1 {
+        padding-block-start: 0;
+    }
+
+    /* e.g. when we have .s-entry-child divs following each other with blocks */
+    .s-entry-content:last-child,
+    /* e.g. cancel the last p tag from adding to the VERTICAL SPACING */
+    .s-entry-content > *:last-child {
+        padding-block-end: 0;
+    }
+
+    /* e.g. an img output wrapped in a figure element */
+    .s-entry-content figure {
+        margin: 0;
+    }
+
+    .s-entry-content:has(+ .s-entry-content--inline-image) {
+        /* Increase - push an inline image away from the paragraph above */
+        padding-block-end: var(--spacing-l-3);
+    }
+
+    /* -- */
+
+    /* Custom */
+    @media (min-width: 768px) {
+        .s-entry-content--inline-quote blockquote {
+            float: left;
+            width: 32.8%;
+            margin-inline-end: var(--spacing-l-1);
+        }
+    }
+
+    /* -- */
+
+    .s-entry-content--inline-image {
+        width: 68.1%;
+        /* Increase */
+        padding-inline-end: var(--spacing-l-1);
+    }
+
+    /* Custom */
+    @media (min-width: 650px) {
+        .s-entry-content--inline-image {
+            width: 38.2%;
+            float: left;
+        }
+    }
+}
+/* purgecss end ignore */
 
 
 
