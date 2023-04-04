@@ -132,32 +132,34 @@ function jfg_intersectionObserver() {
     });
     /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / CONTROL PLYR STATE
     =================================================== */
+    // Leaving this here for posterity but it doesn't work because it will pause every single video on the page rather than the current one
+
     /* Used to auto pause plyr instances when they're out of site, using intersection observer. Attach data-io-control-plyr to the same place you'd usually attach data-io-repeat to. It can be used for multiple triggers, where it's removed once out of sight, and re-added once back on screen */
-    window.addEventListener('load', (event) => {
-        const observe_plyr_multiple_times = document.querySelectorAll('[data-io-control-plyr]');
-        var my_observer_multiple_times = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.intersectionRatio > 0) {
-                    entry.target.setAttribute('data-io-control-plyr-pause', '');
-                    // Resume
-                    Array.from(playersMutedCoverMobileAndLandscape || []).forEach(element => {
-                        element.play();
-                    });
-                } else {
-                    entry.target.removeAttribute('data-io-control-plyr-pause');
-                    // Pause
-                    Array.from(playersMutedCoverMobileAndLandscape || []).forEach(element => {
-                        element.pause();
-                    });
-                }
-            });
-        }, {
-            options
-        });
-        observe_plyr_multiple_times.forEach(entry => {
-            my_observer_multiple_times.observe(entry);
-        });
-    });
+    // window.addEventListener('load', (event) => {
+    //     const observe_plyr_multiple_times = document.querySelectorAll('[data-io-control-plyr]');
+    //     var my_observer_multiple_times = new IntersectionObserver(entries => {
+    //         entries.forEach(entry => {
+    //             if (entry.intersectionRatio > 0) {
+    //                 entry.target.setAttribute('data-io-control-plyr-pause', '');
+    //                 // Resume
+    //                 Array.from(playersMutedCoverMobileAndLandscape || []).forEach(element => {
+    //                     element.play();
+    //                 });
+    //             } else {
+    //                 entry.target.removeAttribute('data-io-control-plyr-pause');
+    //                 // Pause
+    //                 Array.from(playersMutedCoverMobileAndLandscape || []).forEach(element => {
+    //                     element.pause();
+    //                 });
+    //             }
+    //         });
+    //     }, {
+    //         options
+    //     });
+    //     observe_plyr_multiple_times.forEach(entry => {
+    //         my_observer_multiple_times.observe(entry);
+    //     });
+    // });
 }
 
 jfg_intersectionObserver();

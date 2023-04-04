@@ -239,16 +239,18 @@
     =================================================== */
     /* Molecules > Pagination > (Cross Pollinated) */
     --animation-transition-fast: all 0.15s ease-in-out 0s;
+    /* GROUP VARIABLES -- ANIMATIONS -- TIMING
+    =================================================== */
+    --animation-timing-function-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
+    --animation-timing-function-in-cubic: cubic-bezier(0.55, 0.06, 0.68, 0.19);
+    --animation-timing-function-in-sine: cubic-bezier(0.47, 0, 0.75, 0.72);
+
+    --animation-timing-function-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --animation-timing-function-out-quadratic: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --animation-timing-function-wipe: cubic-bezier(.25, 1, .30, 1);
     /* GROUP VARIABLES -- ANIMATIONS -- ANIMATIONS
     =================================================== */
     --animation-site-header-background: 1.5s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
-    /* GROUP VARIABLES -- ANIMATIONS -- TIMING
-    =================================================== */
-    --animation-timing-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
-    --animation-timing-in-cubic: cubic-bezier(0.55, 0.06, 0.68, 0.19);
-
-    --animation-timing-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
-    --animation-timing-wipe: cubic-bezier(.25, 1, .30, 1);
 
     /* GROUP VARIABLES -- OTHER
     =================================================== */
@@ -296,18 +298,20 @@ html {
     color: var(--colour-primary-text);
     background: var(--colour-primary-background);
 }
-.s-social {
-    --colour-accent-background: var(--colour-red-legacy);
-    @supports (background: lch(0% 0 0)) {
-        --colour-accent-background: lch(var(--colour-red-lch));
+@layer scope {
+    .s-social {
+        --colour-accent-background: var(--colour-red-legacy);
+        @supports (background: lch(0% 0 0)) {
+            --colour-accent-background: lch(var(--colour-red-lch));
+        }
     }
-}
-.s-light {
-    --colour-primary-text: black;
-    --colour-primary-background: white;
-
-    --colour-secondary-text: white;
-    --colour-secondary-background: black;
+    .s-light {
+        --colour-primary-text: black;
+        --colour-primary-background: white;
+    
+        --colour-secondary-text: white;
+        --colour-secondary-background: black;
+    }
 }
 
 
@@ -780,29 +784,24 @@ html {
         font-size: 1.5em;
         transition: var(--animation-transition-fast);
     }
-
     /* Components > Pagination > (Cross Pollinated) */
     /* a*/
-    .c-btn__left svg {
-        right: 0;
+    .c-btn__left {
+        & svg {
+            right: 0;
+        }
+        &:hover svg {
+            right: 5px;
+        }
     }
-
-    /* Components > Pagination > (Cross Pollinated) */
     /* a*/
-    .c-btn__left:hover svg {
-        right: 5px;
-    }
-
-    /* Components > Pagination > (Cross Pollinated) */
-    /* a*/
-    .c-btn__right svg {
-        left: 0;
-    }
-
-    /* Components > Pagination > (Cross Pollinated) */
-    /* a*/
-    .c-btn__right:hover svg {
-        left: 5px;
+    .c-btn__right {
+        svg {
+            left: 0;
+        }
+        &:hover svg {
+            left: 5px;
+        }
     }
 }
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / BUTTONS / SIZES
@@ -1628,6 +1627,14 @@ html {
         clip-path: circle(150% at top left);
       }
     }
+    @keyframes slit-reveal {
+        0% {
+            clip-path: polygon(100% 0, 100% 0%, 100% 0, 0 100%, 0% 100%, 0 100%);
+        }
+        100% {
+            clip-path: polygon(50% 0, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0 50%);
+        }
+    }
     /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / FADE IN
     =================================================== */
     .u-animated-fade-in {
@@ -1659,6 +1666,12 @@ html {
         - My own mini framework that operates similar to [AOS](https://michalsnik.github.io/aos/) but much simpler
         - See `script.js` under `GROUP SCROLL TRIGGER WITH INTERSECTION OBSERVER` for the script, below are CSS examples to go with this
 
+        Using a Hidden Trigger
+        ----------------------
+        - If you need to place a hidden trigger at the bottom of the page you can use :has in combination with something like this `<div data-io-repeat data-io-hidden-trigger style="position: absolute; height:90vh;"></div>`
+            - data-io-hidden-trigger doesn't do anything; it's just an object you can test for like so: [data-io-hidden-trigger][data-io-seen]
+            see readme.css for more info
+
     */
 
     /* purgecss start ignore */
@@ -1669,7 +1682,7 @@ html {
             /* We can't apply data attributes directly to inline SVGs in Statamic, so you could wrap a div around it like this: <div data-io-repeat data-io--slit-reveal>{{ svg src='motif' class='c-small-motif u-animated-motif-slit' }}</div> */
             &, & > svg {
                 --io-duration: 1.2s;
-                --io-delay: 0.5s;
+                --io-delay: 0.4s;
                 --io-stagger: 0.2s;
 
                 animation-fill-mode: both;
@@ -1710,38 +1723,47 @@ html {
         /* Fade in */
         .js [data-io--fade-in][data-io-seen] {
             animation-name: fade-in;
-            animation-timing-function: var(--animation-timing-out-cubic);
+            animation-timing-function: var(--animation-timing-function-out-cubic);
         }
         /* Fade in up */
         .js [data-io--fade-in-up][data-io-seen] {
             --io-delay: 0.1s;
             --io-duration: 1s;
             animation-name: fade-in-up;
-            animation-timing-function: var(--animation-timing-linear-out-slow-in);
+            animation-timing-function: var(--animation-timing-function-linear-out-slow-in);
         }
         /* Slide Up and Fade In */
         .js [data-io--slide-up-and-fade-in][data-io-seen] {
             animation-name: slide-up-and-fade-in;
-            animation-timing-function: var(--animation-timing-out-cubic);
+            animation-timing-function: var(--animation-timing-function-out-cubic);
         }
         /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / WIPES
         =================================================== */
         /* e.g. <p class="c-intro-text" data-io data-io--wipe-in-right>At Assured</p> */
         /* handy to use switch like data-io data-io--wipe-in-{{ switch between='right|left' }} */
         .js [data-io-seen][data-io--wipe-in-right] {
-            animation: var(--io-duration) var(--animation-timing-wipe) wipe-in-right both;
+            animation: var(--io-duration) var(--animation-timing-function-wipe) wipe-in-right both;
         }
         .js [data-io-seen][data-io--wipe-in-left] {
-            animation: var(--io-duration) var(--animation-timing-wipe) wipe-in-left both;
+            animation: var(--io-duration) var(--animation-timing-function-wipe) wipe-in-left both;
         }
         .js [data-io-seen][data-io--circle-in-center] {
-            animation: var(--io-duration) var(--animation-timing-wipe) circle-in-center both;
+            animation: var(--io-duration) var(--animation-timing-function-wipe) circle-in-center both;
         }
         .js [data-io-seen][data-io--circle-in-top-right] {
-            animation: 4s var(--animation-timing-wipe) circle-in-top-right both;
+            animation: 4s var(--animation-timing-function-wipe) circle-in-top-right both;
         }
         .js [data-io-seen][data-io--circle-in-top-left] {
-            animation: 4s var(--animation-timing-wipe) circle-in-top-left both;
+            animation: 4s var(--animation-timing-function-wipe) circle-in-top-left both;
+        }
+        /* GROUP UTILTIES / ANIMATIONS / MOTIF SLIT
+        =================================================== */
+        /* Using my IO framework */
+        .js [data-io-seen][data-io--slit-reveal] svg {
+            --io-delay: inherit;
+            --io-duration: 1.5s;
+            animation-name: slit-reveal;
+            animation-timing-function: var(--animation-timing-function-in-sine);
         }
     }
     /* purgecss end ignore */
@@ -1786,31 +1808,43 @@ html {
 
     /* HTML Example...
 
-        <footer class="c-site-footer u-panel u-panel--dark" style="--panel-colour: var(--colour-purple-deep);">
+        <footer class="c-site-footer u-panel u-panel--dark" style="--panel-background-colour: var(--colour-purple-deep); --panel-text-colour: white;">
 
     */
+    /* some-class*/
     .u-panel {
         position: relative;
-    }
 
-    /* some-class*/
-    .u-panel::before {
-        content: "";
-        position: absolute;
-        top: 0;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+    
+            height: 100%;
+            background: var(--panel-background-colour, var(--colour-secondary-background));
+            z-index: -1;
+    
+            /* Object > Framework > (Non Core) > Layout > Full Width {Bust Out Of Container} */
+            width: 100vw;
+            left: 50%;
+            right: 50%;
+            margin-inline: -50vw;
+        }
 
-        height: 100%;
-        background: var(--panel-colour, white);
-        z-index: -1;
-
-        /* Object > Framework > (Non Core) > Layout > Full Width {Bust Out Of Container} */
-        width: 100vw;
-        left: 50%;
-        right: 50%;
-        margin-inline: -50vw;
+        & * {
+            color: var(--panel-text-colour, var(--colour-secondary-text));
+        }
     }
 
     /* Explicit */
+    .u-panel--grey-light {
+        &::after {
+            background: var(--colour-grey-light);
+        }
+        & * {
+            color: black;
+        }
+    }
     .u-panel--dark * {
         color: white;
     }
@@ -1846,26 +1880,26 @@ html {
         - Note that it's generally better to use margin-block-end on components because for example a 90% stop will be 90% height of the component rather than 90% height of the component + it's padding below
 
         Here is an example of 1 stop:
-        <div class="c-something u-panel u-panel--split" style="--panel-colour-start: var(--colour-grey-light); --panel-colour-end: white; --panel-stop-1: 80%;">
+        <div class="c-something u-panel u-panel--split" style="--panel-background-colour-start: var(--colour-grey-light); --panel-background-colour-end: white; --panel-stop-1: 80%;">
 
         Here is an example of 2 stops:
-        <div class="c-something u-panel u-panel--split" style="--panel-colour-start: white; --panel-colour-end: var(--colour-grey-light); --panel-stop-1: 10%; --panel-stop-2: 90%;">
+        <div class="c-something u-panel u-panel--split" style="--panel-background-colour-start: white; --panel-background-colour-end: var(--colour-grey-light); --panel-stop-1: 10%; --panel-stop-2: 90%;">
 
     */
     /* Statamic Example...
         See this group in README.css
     */
-    .u-panel--split::before {
+    .u-panel--split::after {
         background: linear-gradient(to bottom,
-            var(--panel-colour-start) var(--panel-stop-1, 50%),
-            var(--panel-colour-end) var(--panel-stop-1, 50%),
+            var(--panel-background-colour-start) var(--panel-stop-1, 50%),
+            var(--panel-background-colour-end) var(--panel-stop-1, 50%),
             var(--panel-stop-2, 101%),
-            var(--panel-colour-start) var(--panel-stop-2, 101%)
+            var(--panel-background-colour-start) var(--panel-stop-2, 101%)
         );
     }
     /* Custom */
     @media (max-width: 1023px) {
-        .u-panel--higher-mqs::before {
+        .u-panel--higher-mqs::after {
             /* Remove */
             content: unset!important;
         }

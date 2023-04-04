@@ -241,6 +241,29 @@ scope;
 
 
 
+/* GROUP UTILITIES / ANIMATION / IO FRAMEWORK (Authored by me)
+=================================================== */
+/* Here's an example of me using a hidden trigger:
+
+@layer scope {
+    /*
+    [1] Flip the colours on .o-scroll-snap__slide--flip-colours
+    [2] Except when there's a hidden trigger.
+
+    .s-social:has(.o-scroll-snap__slide--flip-colours [data-io-seen]):not(:has([data-io-hidden-trigger])) .c-site-header * {
+        color: black;
+        transition: color 0.5s ease-in 0s;
+    }
+    [3] When the slide contains an explicit trigger then use this to flip the .c-site-header colours
+    .s-social:has(.o-scroll-snap__slide--flip-colours [data-io-hidden-trigger][data-io-seen]) .c-site-header * {
+        color: black;
+    }
+}
+*/
+
+
+
+
 /* GROUP UTILITIES / DECORATION / PANELS
 =================================================== */
 /* Statamic Example...
@@ -248,8 +271,8 @@ scope;
     Antlers:
 
     <div class="c-something u-panel{{ if panel_stop_1 }} u-panel--split" style="
-        --panel-colour-start: {{ panel_colour_start ?? 'var(--colour-grey-light)' }}; 
-        --panel-colour-end: {{ panel_colour_end ?? 'white' }}; 
+        --panel-background-colour-start: {{ panel_colour_start ?? 'var(--colour-grey-light)' }}; 
+        --panel-background-colour-end: {{ panel_colour_end ?? 'white' }}; 
         {{ panel_stop_1 ?= '--panel-stop-1: {panel_stop_1}%;' }} 
         {{ panel_stop_2 ?= '--panel-stop-2: {panel_stop_2}%;' }}
     "{{ else }}"{{ /if }}>

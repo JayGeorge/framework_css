@@ -695,8 +695,7 @@ scope;
 =================================================== */
 /* purgecss start ignore */
 @layer components {
-    /* anchor instead of just .c-btn because the browser focusses on the a element, which is the background color we want to change should be...
-    */
+    /* anchor instead of just .c-btn because the browser focusses on the a element, which is the background color we want to change should be... */
     .c-btn a,
     /* For when you add a button with JS and it doesn't have an anchor */
     .js--btn,
@@ -722,10 +721,9 @@ scope;
         cursor: pointer;
         /* =JFG. Hover states with a slight delay, but focus without any because keyboard users want quick feedback. Do not use 'all' because it resizes slowly when resizing the browser window */
         transition: background-color 0.2s ease 0s;
-    }
-
-    .c-btn:last-child {
-        margin-right: 0;
+        &:last-child {
+            margin-right: 0;
+        }
     }
 
     .c-btn {
@@ -733,17 +731,15 @@ scope;
         display: inline-block;
         /* Components > Framework > Forms > Layout */
         margin-block-end: 1.25rem;
-    }
-
-    p + .c-btn {
-        margin-block-start: var(--spacing-s-2);
-    }
-
-    .c-btn a {
-        /* e.g. icons in buttons */
-        display: flex;
-        align-items: center;
-        text-align: left;
+        & a {
+            /* e.g. icons in buttons */
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+        :where(p) + & {
+            margin-block-start: var(--spacing-s-2);
+        }
     }
 }
 @layer elements {
@@ -777,7 +773,7 @@ scope;
 /* purgecss end ignore */
 /* GROUP COMPONENTS / FRAMEWORK / BUTTONS / TYPES
 =================================================== */
-@layer components {
+@layer modifiers {
     /* 1 */
 
 
