@@ -20,6 +20,8 @@
     =================================================== */
     --grid-template-columns-golden-ratio-left: 1.618fr 1fr;
     --grid-template-columns-golden-ratio-right: 1fr 1.618fr;
+    --grid-template-columns-inline-start-big: 60fr 40fr;
+    --grid-template-columns-inline-end-big: 40fr 60fr;
     --grid-template-columns-offset-inline-end-column-1: calc(max(46em, 42%) + var(--spacing-l-1));
     --grid-template-columns-offset-inline-end-column-2: calc(100% - var(--grid-template-columns-offset-inline-end-column-1));
     --grid-template-columns-offset-inline-end: var(--grid-template-columns-offset-inline-end-column-1) 1fr;
@@ -82,7 +84,7 @@
     /* background: antiquewhite; */
     /* background: floralwhite; */
     /* background: ghostwhite; */
-    /* background: honeydue; */
+    /* background: honeydew; */
     /* background: lavenderblush; */
     /* background: linen; */
     /* background: mintcream; */
@@ -279,6 +281,12 @@
         --spacing-m-2: 2rem;
     }
 }
+/* --mq-root-variable-adjustments-2 */
+@media (min-width: 730px) {
+    :root {
+        --spacing-m-then-spacing-l-upper-mq: var(--spacing-l);
+    }
+}
 /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEMING
 =================================================== */
 /* Notes...
@@ -293,10 +301,12 @@
     --colour-secondary-text: black;
     --colour-secondary-background: white;
 }
-/* Defaults */
-html {
-    color: var(--colour-primary-text);
-    background: var(--colour-primary-background);
+@layer elements {
+    /* Defaults */
+    html {
+        color: var(--colour-primary-text);
+        background: var(--colour-primary-background);
+    }
 }
 @layer scope {
     .s-social {
@@ -936,9 +946,6 @@ html {
 
 */
 @layer ui {
-    .js--navIsOpen .c-nav-mobile-button {
-        margin-block-end: 0;
-    }
     /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / CURRENT PAGE
     =================================================== */
     /* Ancestors and Parents of Current Page */
@@ -947,10 +954,6 @@ html {
         color: rgba(var(--colour-turquoise-rgb),0.5);
     }
 }
-
-
-
-
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / (CROSS POLLINATED)
 =================================================== */
 /* HTML Example...
@@ -1088,6 +1091,7 @@ html {
             }
 
             .js--navIsOpen .c-site-header__nav {
+                /* You could also try something like in:circle:top-right here from https://www.transition.style */
                 animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
             }
 

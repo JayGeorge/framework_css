@@ -116,8 +116,7 @@
 
     input + .c-form__notes {
         /* e.g. 'Login' button followed by 'Forgotten your password?' */
-        padding-block-end: 0;
-        padding-block-start: var(--spacing-l);
+        padding-block: var(--spacing-l) 0;
     }
 
     .c-form__notes p {

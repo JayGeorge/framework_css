@@ -11,6 +11,21 @@
     - For more information open readme.css at https://raw.githubusercontent.com/JayGeorge/framework_css/main/css-framework/css/readme.css
 
 */
+
+/* GROUP LAYERS
+=================================================== */
+/* See readme.css for more information */
+@layer
+base,
+elements,
+objects,
+components,
+modifiers,
+vendors,
+ui,
+utilities,
+scope;
+
 :root {
     /* GROUP VARIABLES -- SPACING
     =================================================== */
@@ -129,7 +144,6 @@
 @media (min-width: 730px) {
     :root {
         --spacing-l-3-horizontal: var(--spacing-l-3);
-        --spacing-m-then-spacing-l-upper-mq: var(--spacing-l);
     }
 }
 /* --mq-root-variable-adjustments-2-portrait */
@@ -192,20 +206,6 @@
 
 
 /* purgecss start ignore */
-/* GROUP LAYERS
-=================================================== */
-/* See readme.css for more information */
-@layer
-base,
-elements,
-objects,
-components,
-modifiers,
-vendors,
-ui,
-utilities,
-scope;
-
 @layer base {
     /* GROUP RESET / FRAMEWORK - Taken from html5boilerplate.com
     =================================================== */
