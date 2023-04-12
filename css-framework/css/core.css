@@ -421,7 +421,7 @@ scope;
     /* e.g. p followed by a div followed by an h3 */
     * > :where(h3, .h3), * + :where(h4, .h4),
     /* e.g. p followed by a div followed by an h4 */
-    * + :where(h4, .h4), {
+    * + :where(h4, .h4) {
         padding-block-start: var(--spacing-s);
     }
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / EXCEPTIONS / VERTICAL SPACING
