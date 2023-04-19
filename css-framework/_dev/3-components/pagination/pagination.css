@@ -42,33 +42,37 @@
 
     /* Custom */
     @media (max-width: 599px) {
-        .c-btn--pagination:not(.c-btn--pagination-single) span {
-            /* Hide text because there's not enough room */
-            /* START SCREEN READER TEXT
-            --------------------------- */
-            clip: rect(1px, 1px, 1px, 1px);
+        .c-btn--pagination {
+            &:not(.c-btn--pagination-single) {
+                & span {
+                    /* Hide text because there's not enough room */
+                    /* START SCREEN READER TEXT
+                    --------------------------- */
+                    clip: rect(1px, 1px, 1px, 1px);
 
-            position: absolute!important;
-            overflow: hidden;
-            width: 1px;
-            height: 1px;
-            /* END SCREEN READER TEXT
-            ------------------------- */
-        }
+                    position: absolute!important;
+                    overflow: hidden;
+                    width: 1px;
+                    height: 1px;
+                    /* END SCREEN READER TEXT
+                    ------------------------- */
+                }
 
-        /* Center the icons since there is no text */
-        .c-btn--pagination:not(.c-btn--pagination-single) .c-btn__left :where([src*="svg"], svg) {
-            position: relative;
-            /* Visually center */
-            right: -0.3em;
-            margin-right: 0;
-        }
+                /* Center the icons since there is no text */
+                .c-btn__left :where([src*="svg"], svg) {
+                    position: relative;
+                    /* Visually center */
+                    right: -0.3em;
+                    margin-right: 0;
+                }
 
-        .c-btn--pagination:not(.c-btn--pagination-single) .c-btn__right :where([src*="svg"], svg) {
-            position: relative;
-            /* Visually center */
-            left: -0.3em;
-            margin-left: 0;
+                .c-btn__right :where([src*="svg"], svg) {
+                    position: relative;
+                    /* Visually center */
+                    left: -0.3em;
+                    margin-left: 0;
+                }
+            }
         }
     }
 }
