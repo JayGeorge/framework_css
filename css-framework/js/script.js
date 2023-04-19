@@ -98,12 +98,18 @@ function jfg_intersectionObserver() {
 
     /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / DEFAULT
     =================================================== */
-    /* data-io is the default, where data-io-seen is only added once, and never removed once added */
+    /* Notes...
+        [1] data-io is the default, where data-io-seen is only added once, and never removed once added
+        [2] However, data-io-currently-in-view is always added/removed as an extra hook
+    */
     const observe_target = document.querySelectorAll('[data-io]');
     var my_observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.intersectionRatio > 0) {
                 entry.target.setAttribute('data-io-seen', '');
+                entry.target.setAttribute('data-io-currently-in-view', '');
+            } else {
+                entry.target.removeAttribute('data-io-currently-in-view');
             }
         });
     }, {
@@ -120,8 +126,10 @@ function jfg_intersectionObserver() {
         entries.forEach(entry => {
             if (entry.intersectionRatio > 0) {
                 entry.target.setAttribute('data-io-seen', '');
+                entry.target.setAttribute('data-io-currently-in-view', '');
             } else {
                 entry.target.removeAttribute('data-io-seen');
+                entry.target.removeAttribute('data-io-currently-in-view');
             }
         });
     }, {
