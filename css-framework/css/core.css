@@ -497,11 +497,8 @@ scope;
         flex-direction: column;
         gap: var(--spacing-m);
         padding-inline: 0;
-    }
-
-    /* --mq-nav-open-after */
-    @media (min-width: 768px) {
-        .o-nav-flex ul {
+        /* --mq-nav-open-after */
+        @media (min-width: 768px) {
             flex-direction: row;
             justify-content: flex-end;
         }
@@ -764,10 +761,9 @@ scope;
         background: none;
         /* To combat -apple-system-blueinput on iOS 15 */
         color: initial;
-    }
-
-    button svg {
-        font-size: 1.3em;
+        & svg {
+            font-size: 1.3em;
+        }
     }
 }
 /* purgecss end ignore */

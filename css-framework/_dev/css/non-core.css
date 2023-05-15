@@ -1709,6 +1709,12 @@
     */
 
     /* purgecss start ignore */
+    /* This is needed for Live Preview hot reloading. Hot reloading conflicts with intersection observer. If we don't disable intersection observer animations then everything stays hidden since IO doesn't get triggered. */
+    .js--statamicLivePreview :where([data-io], [data-io-repeat]) {
+        animation: unset!important;
+        opacity: unset!important;
+        transform: unset!important;
+    }
     /* If they're ok with animation */
     @media (prefers-reduced-motion: no-preference) {
         /* Defaults */
@@ -1744,60 +1750,70 @@
         [data-io--delay],
         [data-io--delay]::before {
             /* Add a custom delay like this: <div data-io data-io--delay style="--io-delay: 5s"></div> */
-            /* Or in Antlers data-io--delay{{ index < 6 ?= ' style="--io-delay: 0.{{ index | multiply(2) }}s"' }} */
+            /* Or in Statamic Antlers data-io--delay{{ index < 6 ?= ' style="--io-delay: 0.{{ index | multiply(2) }}s"' }} */
             /* 1.5s if --io-delay is not defined */
             animation-delay: var(--io-delay, 1.5s)!important;
         }
         /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / FADES
         =================================================== */
-        .js :where([data-io--fade-in], [data-io--fade-in-up], [data-io--slide-up-and-fade-in]) {
-            /* Start off with a 0 opacity (rather than hidden) so browsers can still "see" the element. You'll need 1%, 100% { opacity: 1; } on each keyframe to make them appear immediately, unless you're using a fade anyway */
-            opacity: 0;
-        }
-        /* Fade in */
-        .js [data-io--fade-in][data-io-seen] {
-            animation-name: fade-in;
-            animation-timing-function: var(--animation-timing-function-out-cubic);
-        }
-        /* Fade in up */
-        .js [data-io--fade-in-up][data-io-seen] {
-            --io-delay: 0.1s;
-            --io-duration: 1s;
-            animation-name: fade-in-up;
-            animation-timing-function: var(--animation-timing-function-linear-out-slow-in);
-        }
-        /* Slide Up and Fade In */
-        .js [data-io--slide-up-and-fade-in][data-io-seen] {
-            animation-name: slide-up-and-fade-in;
-            animation-timing-function: var(--animation-timing-function-out-cubic);
-        }
-        /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / WIPES
-        =================================================== */
-        /* e.g. <p class="c-intro-text" data-io data-io--wipe-in-right>At Assured</p> */
-        /* handy to use switch like data-io data-io--wipe-in-{{ switch between='right|left' }} */
-        .js [data-io-seen][data-io--wipe-in-right] {
-            animation: var(--io-duration) var(--animation-timing-function-wipe) wipe-in-right both;
-        }
-        .js [data-io-seen][data-io--wipe-in-left] {
-            animation: var(--io-duration) var(--animation-timing-function-wipe) wipe-in-left both;
-        }
-        .js [data-io-seen][data-io--circle-in-center] {
-            animation: var(--io-duration) var(--animation-timing-function-wipe) circle-in-center both;
-        }
-        .js [data-io-seen][data-io--circle-in-top-right] {
-            animation: 4s var(--animation-timing-function-wipe) circle-in-top-right both;
-        }
-        .js [data-io-seen][data-io--circle-in-top-left] {
-            animation: 4s var(--animation-timing-function-wipe) circle-in-top-left both;
-        }
-        /* GROUP UTILTIES / ANIMATIONS / MOTIF SLIT
-        =================================================== */
-        /* Using my IO framework */
-        .js [data-io-seen][data-io--slit-reveal] svg {
-            --io-delay: inherit;
-            --io-duration: 1.5s;
-            animation-name: slit-reveal;
-            animation-timing-function: var(--animation-timing-function-in-sine);
+        .js {
+            :where([data-io--fade-in], [data-io--fade-in-up], [data-io--slide-up-and-fade-in]) {
+                /* Start off with a 0 opacity (rather than hidden) so browsers can still "see" the element. You'll need 1%, 100% { opacity: 1; } on each keyframe to make them appear immediately, unless you're using a fade anyway */
+                opacity: 0;
+            }
+            /* Fade in */
+            [data-io--fade-in][data-io-seen] {
+                animation-name: fade-in;
+                animation-timing-function: var(--animation-timing-function-out-cubic);
+            }
+            /* Fade in up */
+            [data-io--fade-in-up][data-io-seen] {
+                --io-delay: 0.1s;
+                --io-duration: 1s;
+                animation-name: fade-in-up;
+                animation-timing-function: var(--animation-timing-function-linear-out-slow-in);
+            }
+            /* Slide Up and Fade In */
+            [data-io--slide-up-and-fade-in][data-io-seen] {
+                animation-name: slide-up-and-fade-in;
+                animation-timing-function: var(--animation-timing-function-out-cubic);
+            }
+            /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / WIPES
+            =================================================== */
+            /* e.g. <p class="c-intro-text" data-io data-io--wipe-in-right>At Assured</p> */
+            /* handy to use switch like data-io data-io--wipe-in-{{ switch between='right|left' }} */
+            [data-io-seen][data-io--wipe-in-right] {
+                animation: var(--io-duration) var(--animation-timing-function-wipe) wipe-in-right both;
+            }
+            [data-io-seen][data-io--wipe-in-left] {
+                animation: var(--io-duration) var(--animation-timing-function-wipe) wipe-in-left both;
+            }
+            [data-io-seen][data-io--circle-in-center] {
+                animation: var(--io-duration) var(--animation-timing-function-wipe) circle-in-center both;
+            }
+            [data-io-seen][data-io--circle-in-top-right] {
+                animation: 4s var(--animation-timing-function-wipe) circle-in-top-right both;
+            }
+            [data-io-seen][data-io--circle-in-top-left] {
+                animation: 4s var(--animation-timing-function-wipe) circle-in-top-left both;
+            }
+            /* GROUP UTILTIES / ANIMATIONS / IO FRAMEWORK / MOTIF SLIT
+            =================================================== */
+            /* Using my IO framework */
+            [data-io-seen][data-io--slit-reveal] svg {
+                --io-delay: inherit;
+                --io-duration: 1.5s;
+                animation-name: slit-reveal;
+                animation-timing-function: var(--animation-timing-function-in-sine);
+            }
+            /* GROUP UTILTIES / ANIMATIONS / IO FRAMEWORK / HIDERS
+            =================================================== */
+            @media (max-width: 767px) {
+                [data-io--desktop-only] {
+                    animation: unset;
+                    opacity: unset;
+                }
+            }
         }
     }
     /* purgecss end ignore */

@@ -10,7 +10,7 @@
     )));
 ?>
 <?php
-    $page_title = "Home";
+    $page_title = 'Home';
     $current_nav = 'home';
     $some_variable_to_pass_into_the_include = 'aaaaaaaaaaaaaaaaaaaa';
     // then you just echo $some_variable_to_pass_into_the_include inside the include

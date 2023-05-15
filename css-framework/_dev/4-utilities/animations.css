@@ -491,7 +491,53 @@ you just need to ensure that if transitions on the actual elements is set to "al
 .u-animated-rotate-infinite {
     animation: rotate-infinite 2s linear infinite;
 }
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / ROTATE
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / BLINK
+=================================================== */
+@layer utilities {
+    @keyframes blink {
+    from {
+        opacity: 0%;
+    }
+
+    50% {
+        opacity: 100%;
+    }
+
+    to {
+        opacity: 0%;
+    }
+}
+
+.u-animated-blink {
+    animation-name: blink;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / BLINK JAGGED
+=================================================== */
+@layer utilities {
+    @keyframes blink-jagged {
+    0%, 49% {
+        opacity: 0%;
+    }
+
+    50%, 99% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 0%;
+    }
+}
+
+.u-animated-blink-jagged {
+    animation-name: blink-jagged;
+    animation-duration: 0.9s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / PULSE
 =================================================== */
 @keyframes pulse {
     from {
