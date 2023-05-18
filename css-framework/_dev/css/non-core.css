@@ -793,6 +793,7 @@
         /* Pagination Button e.g. right arrow inside button moves forward */
         font-size: 1.5em;
         transition: var(--animation-transition-fast);
+        top: -0.075rem;
     }
     /* Components > Pagination > (Cross Pollinated) */
     /* a*/
@@ -806,7 +807,7 @@
     }
     /* a*/
     .c-btn__right {
-        svg {
+        & svg {
             left: 0;
         }
         &:hover svg {

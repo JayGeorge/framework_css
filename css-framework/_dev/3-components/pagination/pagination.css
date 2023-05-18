@@ -30,14 +30,39 @@
 */
 @layer components {
     .c-paging {
-        padding-inline: var(--spacing-l);
         text-align: center;
+        border-block-start: var(--border-dark);
+
+        :has(+ &) { /* The element before .c-paging should have this padding-block-end */
+            padding-block-end: var(--spacing-l-3);
+        }
+
+        & * {
+            color: var(--colour-black);
+        }
     }
 
     .c-paging__buttons {
-        display: flex;
-        justify-content: center;
-        gap: var(--spacing-m);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-l-1);
+
+        .c-btn {
+            margin-inline-end: 0;
+            margin-block-end: 0;
+
+            & a {
+                padding: var(--spacing-s-2) 0;
+            }
+        }
+
+        .c-btn__right {
+            /* Make sure 'Older' is always to the "right" */
+            grid-column: 2;
+            & a {
+                justify-content: flex-end;
+            }
+        }
     }
 
     /* Custom */
