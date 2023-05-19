@@ -352,6 +352,7 @@ scope;
         font-feature-settings: "kern", "liga", "clig", "calt", "dlig", "swsh";
         /* Override iOS Safari's user agent stylesheet */
         text-decoration: none;
+        color: inherit; /* If you use a link inside a heading, inherit the colour so it's not the default browser-purple */
     }
 
     h4, .h4, h4 a, .h4 a {
