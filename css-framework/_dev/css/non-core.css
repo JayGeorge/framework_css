@@ -241,6 +241,16 @@
     =================================================== */
     /* Molecules > Pagination > (Cross Pollinated) */
     --animation-transition-fast: all 0.15s ease-in-out 0s;
+    /* GROUP VARIABLES -- ANIMATIONS -- ANNI
+    =================================================== */
+    /* Notes...
+
+        - My own mini animation framework. Very very basic. Essentially just variables and class names.
+        - I've called it ANNI so it's easy to find it with cmd + f
+
+    */
+    --animation-duration: 1.2s;
+    --animation-stagger: 0.15s;
     /* GROUP VARIABLES -- ANIMATIONS -- TIMING
     =================================================== */
     --animation-timing-function-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
@@ -1591,7 +1601,7 @@
         0% {
             opacity: 0;
         }
-
+        
         100% {
             opacity: 1;
         }
@@ -1601,7 +1611,7 @@
             opacity: 0;
             transform: translate3d(0, 5vh, 0);
         }
-
+        
         75%, 100% {
             opacity: 1;
             transform: none;
@@ -1609,58 +1619,58 @@
     }
     @keyframes wipe-out-left {
         1%, 100% { opacity: 1; }
-      from {
-        clip-path: inset(0 0 0 0);
-      }
-      to {
-        clip-path: inset(0 100% 0 0);
-      }
+        from {
+            clip-path: inset(0 0 0 0);
+        }
+        to {
+            clip-path: inset(0 100% 0 0);
+        }
     }
     @keyframes wipe-in-right {
         1%, 100% { opacity: 1; }
-      from {
-        clip-path: inset(0 100% 0 0);
-      }
-      to {
-        clip-path: inset(0 0 0 0);
-      }
+        from {
+            clip-path: inset(0 100% 0 0);
+        }
+        to {
+            clip-path: inset(0 0 0 0);
+        }
     }
     @keyframes wipe-in-left {
         1%, 100% { opacity: 1; }
-      from {
-        clip-path: inset(0 0 0 100%);
-      }
-      to {
-        clip-path: inset(0 0 0 0);
-      }
+        from {
+            clip-path: inset(0 0 0 100%);
+        }
+        to {
+            clip-path: inset(0 0 0 0);
+        }
     }
     @keyframes circle-in-center {
-      from {
-        clip-path: circle(0%);
-      }
-      to {
-        clip-path: circle(100%);
-      }
+        from {
+            clip-path: circle(0%);
+        }
+        to {
+            clip-path: circle(100%);
+        }
     }
     @keyframes circle-in-top-right {
         1%, 100% { opacity: 1; }
-      from {
-        clip-path: circle(0%);
-          opacity: 0;
-      }
-      to {
-        clip-path: circle(150% at top right);
-      }
+        from {
+            clip-path: circle(0%);
+            opacity: 0;
+        }
+        to {
+            clip-path: circle(150% at top right);
+        }
     }
     @keyframes circle-in-top-left {
         1%, 100% { opacity: 1; }
-      from {
-        clip-path: circle(0%);
-          opacity: 0;
-      }
-      to {
-        clip-path: circle(150% at top left);
-      }
+        from {
+            clip-path: circle(0%);
+            opacity: 0;
+        }
+        to {
+            clip-path: circle(150% at top left);
+        }
     }
     @keyframes slit-reveal {
         0% {
@@ -1668,6 +1678,39 @@
         }
         100% {
             clip-path: polygon(50% 0, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0 50%);
+        }
+    }
+    /* GROUP UTILITIES / FRAMEWORK / ANNI / ANIMATIONS / FADE IN
+    =================================================== */
+    .u-anni-fade-in {
+        animation: 1.2s linear fade-in both;
+    }
+    /* GROUP UTILITIES / FRAMEWORK / ANI / ANIMATIONS / STAGGERING
+    =================================================== */
+    /* When an item (BEM-style) is followed by another item then add a default delay */
+    [class*="u-anni-"][class*="__"] + [class*="u-anni-"][class*="__"] {
+        animation-delay: calc(var(--animation-stagger));
+    }
+    [class*="u-anni-"][class*="__"] + [class*="u-anni-"][class*="__"]:nth-child(2) {
+        animation-delay: calc(var(--animation-stagger) * 2);
+    }
+    [class*="u-anni-"][class*="__"] + [class*="u-anni-"][class*="__"]:nth-child(3) {
+        animation-delay: calc(var(--animation-stagger) * 3);
+    }
+    [class*="u-anni-"][class*="__"] + [class*="u-anni-"][class*="__"]:nth-child(4) {
+        animation-delay: calc(var(--animation-stagger) * 4);
+    }
+    /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / VIEW TRANSITIONS
+    =================================================== */
+    @media not (prefers-reduced-motion: reduce) {
+        [class*="u-transition-hero"] {
+            view-transition-name: hero;
+        }
+        ::view-transition-old(hero) {
+            animation: fade-in 0.2s linear forwards;
+        }
+        ::view-transition-new(hero) {
+            animation: fade-in 0.3s linear reverse;
         }
     }
     /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / FADE IN
