@@ -249,8 +249,8 @@
         - I've called it ANNI so it's easy to find it with cmd + f
 
     */
-    --animation-duration: 1.2s;
-    --animation-stagger: 0.15s;
+    --anni-duration: 1s;
+    --anni-stagger: 0.12s;
     /* GROUP VARIABLES -- ANIMATIONS -- TIMING
     =================================================== */
     --animation-timing-function-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
@@ -1617,6 +1617,23 @@
             transform: none;
         }
     }
+    @keyframes wipe-out-up {
+        0% {
+            clip-path: inset(0 0 0 0);
+        }
+        100% {
+            clip-path: inset(0 0 100% 0);
+        }
+    }
+    @keyframes wipe-in-left {
+        1%, 100% { opacity: 1; }
+        from {
+            clip-path: inset(0 0 0 100%);
+        }
+        to {
+            clip-path: inset(0 0 0 0);
+        }
+    }
     @keyframes wipe-out-left {
         1%, 100% { opacity: 1; }
         from {
@@ -1630,15 +1647,6 @@
         1%, 100% { opacity: 1; }
         from {
             clip-path: inset(0 100% 0 0);
-        }
-        to {
-            clip-path: inset(0 0 0 0);
-        }
-    }
-    @keyframes wipe-in-left {
-        1%, 100% { opacity: 1; }
-        from {
-            clip-path: inset(0 0 0 100%);
         }
         to {
             clip-path: inset(0 0 0 0);
@@ -1681,38 +1689,69 @@
         }
     }
     /* GROUP UTILITIES / FRAMEWORK / ANNI / ANIMATIONS / FADE IN
-    =================================================== */
-    .u-anni-fade-in {
-        animation: 1.2s linear fade-in both;
-    }
-    /* GROUP UTILITIES / FRAMEWORK / ANI / ANIMATIONS / STAGGERING
-    =================================================== */
-    /* When an item (BEM-style) is followed by another item then add a default delay */
-    [class*="u-anni-"][class*="__"] + [class*="u-anni-"][class*="__"] {
-        animation-delay: calc(var(--animation-stagger));
-    }
-    [class*="u-anni-"][class*="__"] + [class*="u-anni-"][class*="__"]:nth-child(2) {
-        animation-delay: calc(var(--animation-stagger) * 2);
-    }
-    [class*="u-anni-"][class*="__"] + [class*="u-anni-"][class*="__"]:nth-child(3) {
-        animation-delay: calc(var(--animation-stagger) * 3);
-    }
-    [class*="u-anni-"][class*="__"] + [class*="u-anni-"][class*="__"]:nth-child(4) {
-        animation-delay: calc(var(--animation-stagger) * 4);
-    }
-    /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / VIEW TRANSITIONS
-    =================================================== */
+=================================================== */
+@layer utilities {
     @media not (prefers-reduced-motion: reduce) {
-        [class*="u-transition-hero"] {
-            view-transition-name: hero;
+        /* Notes...
+
+            - My own mini animation framework. Very very basic. Essentially just variables and class names.
+            - I've called it ANNI so it's easy to find it with cmd + f
+            - Override defaults like this `<div class="u-anni-fade-in" style="--anni-duration: 0.9s">`
+
+        */
+        .u-anni-fade-in {
+            animation: var(--anni-duration) linear fade-in both;
         }
-        ::view-transition-old(hero) {
-            animation: fade-in 0.2s linear forwards;
+        .u-anni-fade-in-up {
+            --anni-stagger: 0.2s;
+            animation: var(--anni-duration) var(--animation-timing-function-linear-out-slow-in) fade-in-up both;
         }
-        ::view-transition-new(hero) {
-            animation: fade-in 0.3s linear reverse;
+        .u-anni-wipe-out-up {
+            animation: var(--anni-duration) var(--animation-timing-function-wipe) wipe-out-up both;
+        }
+        [class*="u-anni-"] {
+            animation-delay: var(--anni-stagger, 0s);
+        }
+        /* GROUP UTILITIES / FRAMEWORK / ANNI / ANIMATIONS / STAGGERING
+        =================================================== */
+        /* When an animated item is followed by another item then add a default delay */
+        [class*="u-anni-"] + [class*="u-anni-"] {
+            animation-delay: calc(var(--anni-stagger));
+        }
+        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(2) {
+            animation-delay: calc(var(--anni-stagger) * 2);
+        }
+        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(3) {
+            animation-delay: calc(var(--anni-stagger) * 3.5);
+        }
+        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(4) {
+            animation-delay: calc(var(--anni-stagger) * 4);
+        }
+        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(5) {
+            animation-delay: calc(var(--anni-stagger) * 4.5);
+        }
+        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(6) {
+            animation-delay: calc(var(--anni-stagger) * 5);
+        }
+        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(7) {
+            animation-delay: calc(var(--anni-stagger) * 5.5);
+        }
+        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(8) {
+            animation-delay: calc(var(--anni-stagger) * 6);
+        }
+        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(9) {
+            animation-delay: calc(var(--anni-stagger) * 6.5);
+        }
+        /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / VIEW TRANSITIONS
+        =================================================== */
+        [class*="u-transition-wipe-out-up"] {
+            view-transition-name: wipe-out-up;
+        }
+        ::view-transition-old(wipe-out-up) {
+            animation: var(--anni-duration) var(--animation-timing-function-wipe) wipe-out-up both;
         }
     }
+}
     /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / FADE IN
     =================================================== */
     .u-animated-fade-in {
