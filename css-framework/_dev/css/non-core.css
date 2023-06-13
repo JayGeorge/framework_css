@@ -55,6 +55,13 @@
         - Analogous color combinations = 30° separating the hues.
         - You can also create monochromatic harmonies easily, with one main hue and then tweaking the lightness to get different tints and shades of that hue.
     */
+    /* Example of dividing more */
+    --colour-purple-legacy: purple;
+    --colour-purple-hue: 132 35;
+    --colour-purple-1: oklch(50% var(--colour-purple-hue));
+    --colour-purple-2: oklch(60% var(--colour-purple-hue));
+    --colour-purple-transparent: lch(50% var(--colour-purple-hue) / 20%);
+
     --colour-navy: hsl(226deg 25% 14%);
     --colour-navy-hsl: 226deg 25% 14%;
     --colour-navy-overlay: hsl(var(--colour-navy-hsl) / 20%);
@@ -1045,8 +1052,12 @@
     @supports (animation-name: fade-in) {
         /* --mq-nav-opens-before */
         @media (max-width: 1199px) {
-            .c-site-header__nav li {
-                opacity: 0;
+            .c-site-header__nav {
+                overflow: scroll;
+
+                & li {
+                    opacity: 0;
+                }
             }
 
             .js--navIsOpen .c-site-header__nav li {
@@ -1617,6 +1628,11 @@
             transform: none;
         }
     }
+    @keyframes pull-up {
+        100% {
+            transform: translateY(-100%);
+        }
+    }
     @keyframes wipe-out-up {
         0% {
             clip-path: inset(0 0 0 0);
@@ -1688,7 +1704,8 @@
             clip-path: polygon(50% 0, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0 50%);
         }
     }
-    /* GROUP UTILITIES / FRAMEWORK / ANNI / ANIMATIONS / FADE IN
+}
+/* GROUP UTILITIES / FRAMEWORK / ANNI
 =================================================== */
 @layer utilities {
     @media not (prefers-reduced-motion: reduce) {
@@ -1744,14 +1761,24 @@
         }
         /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / VIEW TRANSITIONS
         =================================================== */
-        [class*="u-transition-wipe-out-up"] {
+        .u-transition-wipe-out-up {
             view-transition-name: wipe-out-up;
         }
         ::view-transition-old(wipe-out-up) {
             animation: var(--anni-duration) var(--animation-timing-function-wipe) wipe-out-up both;
         }
+        ::view-transition-new(wipe-out-up) {
+            animation: 2.9s var(--animation-timing-function-wipe) wipe-in-down both;
+        }
+        .u-transition-pull-up {
+            view-transition-name: pull-up;
+        }
+        ::view-transition-old(pull-up) {
+            animation: 0.75s var(--animation-timing-function-linear-out-slow-in) pull-up both;
+        }
     }
 }
+@layer utilities {
     /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / FADE IN
     =================================================== */
     .u-animated-fade-in {

@@ -68,21 +68,10 @@ scope;
     /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME
     =================================================== */
     /* Dark to light */
-    --colour-purple: hsl(254deg 66% 67%);
-    --colour-purple-hsl: 254deg 66% 67%;
-    --colour-purple-hue: 254deg 66%;
-    --colour-purple-1: hsl(254deg 66% 77%);
-    --colour-purple-2: hsl(254deg 66% 87%);
-
     --colour-red-legacy: red;
-    --colour-red-hue: 132 35;
-    --colour-red-lch: 50% var(--colour-red-hue);
-    --colour-red: lch(var(--colour-red-lch));
+    --colour-red: oklch(50% 132 35);
 
-    --colour-purple-light: hsl(var(--colour-purple-hue) 93%);
-    --colour-purple-transparent: hsl(var(--colour-purple-hsl) / 85%);
-
-    --colour-focus: var(--colour-purple);
+    --colour-focus: purple;
     /* GROUP VARIABLES -- DECORATION -- TEXT -- FONTS
     =================================================== */
     --font-family-main: adonis-web, serif;
@@ -895,3 +884,8 @@ scope;
         height: auto;
     }
 }
+
+
+
+/* GROUP TEMP
+=================================================== */
