@@ -1093,7 +1093,7 @@
                 clip-path: inset(0 0 0 0);
             }
         }
-        @keyframes wipe-out-up-and-collapse {
+        @keyframes wipe-out-up {
             0% {
                 clip-path: inset(0 0 0 0);
             }
@@ -1103,6 +1103,14 @@
                 height: 0;
                 visibility: hidden;
                 overflow: hidden;
+            }
+        }
+        @keyframes collapse-height {
+            0% {
+                height: auto;
+            }
+            100% {
+                height: 0;
             }
         }
         /* --mq-nav-opens-before */
@@ -1117,8 +1125,14 @@
                 animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
             }
 
-            .js:not(.js--navIsOpen) .c-site-header__nav {
-                animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-out-up-and-collapse both;
+            .js:not(.js--navIsOpen) {
+                .c-site-header__nav {
+                    animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-up-out both;
+                }
+                .c-site-header {
+                    /* Effectively hide the .c-site-header after wipe-up has finished, thus preventing anything underneath being clicked, even if it's invisible */
+                    animation: 5s cubic-bezier(.25, 1, .30, 1) collapse-height both;
+                }
             }
         }
 
