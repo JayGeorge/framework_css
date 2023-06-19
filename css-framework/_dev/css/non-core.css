@@ -1787,6 +1787,7 @@
         }
     }
 }
+
 @layer utilities {
     /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK (Authored by me)
     =================================================== */
@@ -1911,8 +1912,9 @@
             }
         }
     }
+}
 
-
+@layer utilities {
     /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / ONLY ANIMATE ONCE PER SESSION
     =================================================== */
     /* Notes...
@@ -1938,6 +1940,9 @@
     .u-texture {
         background-image: url(/img/textures/something.jpg);
     }
+}
+
+@layer utilities {
     /* GROUP UTILITIES / DECORATION / PANELS
     =================================================== */
     /* Notes...
