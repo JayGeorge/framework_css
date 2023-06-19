@@ -626,7 +626,6 @@
 /* GROUP OBJECTS / FRAMEWORK / GSAP
 =================================================== */
 /* Need the JS in the <head> in my framework for this to work */
-/* purgecss ignore */
 @layer ui {
     .js:not([data-js="document-loaded"]) [data-gsap="split-text-immediately"] {
         /* Hide split text elements until the document is loaded and we can successfully animate them witout any issues as per https://greensock.com/forums/topic/17049-split-text-before-font-render-issue */
@@ -1028,7 +1027,6 @@
 }
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / OPEN STATE
 =================================================== */
-/* purgecss start ignore */
 @layer ui {
     /* --mq-nav-opens-before */
     @media (max-width: 1199px) {
@@ -1172,7 +1170,6 @@
         opacity: 0;
     }
 }
-/* purgecss end ignore */
 
 
 
@@ -1349,7 +1346,6 @@
     </article>
 
 */
-/* purgecss start ignore */
 @layer scope {
     .s-entry-content-wrapper {
         margin-inline: auto;
@@ -1442,7 +1438,6 @@
         }
     }
 }
-/* purgecss end ignore */
 
 
 
@@ -1832,7 +1827,7 @@
 
     */
 
-    /* purgecss start ignore */
+
     /* This is needed for Live Preview hot reloading. Hot reloading conflicts with intersection observer. If we don't disable intersection observer animations then everything stays hidden since IO doesn't get triggered. */
     .js--statamicLivePreview :where([data-io], [data-io-repeat]) {
         animation: unset!important;
@@ -1940,7 +1935,7 @@
             }
         }
     }
-    /* purgecss end ignore */
+
 
     /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / ONLY ANIMATE ONCE PER SESSION
     =================================================== */
@@ -1952,7 +1947,6 @@
         - You can then do something like this:
 
         // Stop the animation if it's already happened
-        // purgecss ignore
         .js--animationHasAlreadyHappenedThisSession .u-animate-once-per-session {
             animation-duration: 0s!important;
             animation-delay: 0s!important;

@@ -85,7 +85,6 @@ scope;
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
     =================================================== */
     /* Optimise line-height for reading */
-    /* purgecss ignore */
     --font-size-reading-line-height: 1.5;
 
     --font-size-s-x-x: 0.707em;
@@ -153,11 +152,10 @@ scope;
 /* --mq-root-variable-adjustments-smaller-laptops-after to --mq-root-variable-adjustments-larger-laptops-before */
 @media (min-width: 1025px) and (max-width: 1440px) {
     :root {
-        /* purgecss start ignore */
+    
         --font-bump: -0.09em; /* Decrease */
         /* and possibly... */
         /* --font-size-l-4: calc(9.313em + 0.75em)!important; */
-        /* purgecss end ignore */
     }
 }
 /* --mq-text-bump-1-after */
@@ -194,7 +192,6 @@ scope;
 
 
 
-/* purgecss start ignore */
 @layer base {
     /* GROUP RESET / FRAMEWORK - Taken from html5boilerplate.com
     =================================================== */
@@ -218,9 +215,8 @@ scope;
         box-sizing: border-box;
     }
 }
-/* purgecss end ignore */
 @layer elements {
-    /* purgecss start ignore */
+
     /* GROUP ELEMENTS / FRAMEWORK
     =================================================== */
     /* https://twitter.com/bramus/status/1452572001697153029 */
@@ -363,7 +359,6 @@ scope;
         font-size: var(--font-size-s-2);
         line-height: var(--font-size-s-2-line-height);
     }
-    /* purgecss end ignore */
     h4, .h4 {
         font-size: var(--font-size-s-1);
         line-height: var(--font-size-s-1-line-height);
@@ -378,7 +373,7 @@ scope;
     }
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / HIGH PRIORITY / VERTICAL SPACING
     =================================================== */
-    /* purgecss start ignore */
+
     h1, .h1, h2, .h2 {
         padding-block-end: var(--spacing-s-1);
     }
@@ -431,7 +426,6 @@ scope;
     :where(h2, h3, h4, h5, h6):only-child {
         padding-block: 0;
     }
-    /* purgecss end ignore */
 
     /* GROUP ELEMENTS / FRAMEWORK / MAIN
     =================================================== */
@@ -498,7 +492,6 @@ scope;
 
 
 
-/* purgecss start ignore */
 @layer elements {
     /* GROUP ELEMENTS / FRAMEWORK / SVGs
     =================================================== */
@@ -578,7 +571,6 @@ scope;
 }
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS
 =================================================== */
-/* purgecss start ignore */
 @layer base {
     /* .u-link-style-custom-1:focus a, */
     a:focus,
@@ -652,7 +644,6 @@ scope;
         color: var(--colour-grey-reading);
     }
 }
-/* purgecss end ignore */
 
 
 
@@ -660,7 +651,6 @@ scope;
 /* GROUP COMPONENTS / FRAMEWORK / SKIP LINKS
 =================================================== */
 @layer components {
-    /* purgecss ignore */
     /* .u-screen-reader*/
     .c-skip-to-content:focus {
         position: fixed!important;
@@ -680,7 +670,6 @@ scope;
 
 /* GROUP COMPONENTS / FRAMEWORK / BUTTONS
 =================================================== */
-/* purgecss start ignore */
 @layer components {
     /* anchor instead of just .c-btn because the browser focusses on the a element, which is the background color we want to change should be... */
     .c-btn a,
@@ -756,7 +745,6 @@ scope;
         }
     }
 }
-/* purgecss end ignore */
 /* GROUP COMPONENTS / FRAMEWORK / BUTTONS / TYPES
 =================================================== */
 @layer modifiers {
