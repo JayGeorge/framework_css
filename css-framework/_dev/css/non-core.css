@@ -1788,30 +1788,6 @@
     }
 }
 @layer utilities {
-    /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / FADE IN
-    =================================================== */
-    .u-animated-fade-in {
-        animation-name: fade-in;
-        animation-duration: 1.2s;
-        /* Out quadratic */
-        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-        /* Shorthand example. I'd recommend you use this, saves a lot of space */
-        /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation */
-        /* This property is a shorthand for the following CSS properties:
-
-            animation-delay
-            animation-direction
-            animation-duration
-            animation-fill-mode
-            animation-iteration-count
-            animation-name
-            animation-play-state
-            animation-timing-function
-
-        */
-        animation: 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) fade-in both;
-    }
     /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK (Authored by me)
     =================================================== */
     /* Notes...
