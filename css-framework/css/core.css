@@ -680,11 +680,7 @@ scope;
     /* Override form background default */
     /* e.g. Components > Framework > Comments */
     [type="submit"] {
-        /* display: inline-block; */
-        /* e.g. icons in buttons */
-        display: flex;
-        align-items: center;
-        text-align: left;
+        display: inline-flex;
         gap: 1rem;
         /* I've found it more stable to use pxls rather than ems. */
         --button-spacing: var(--button-spacing-vertical) var(--button-spacing-horizontal);
