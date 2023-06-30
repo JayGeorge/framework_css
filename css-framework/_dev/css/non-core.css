@@ -129,6 +129,14 @@
     /* Where you may want to space the line-height slightly e.g. You may want to use -spaced because a paragraph contains short information and links, so you'd like to make it breathe a bit more. Use _sparingly_ since it exceeds the max recommended line-height of 1.5 */
     --font-size-spaced-line-height: 1.6;
 
+    /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- DIFFERENT FONT
+    =================================================== */
+    /* Use variable names like this if you have a mixture of larger fonts with different typefaces that need different sizes */
+    /* --font-size-l-1-decorative: ; */
+    /* --font-size-l-1-line-height-decorative: ; */
+    /* --font-size-l-2-decorative: ; */
+    /* --font-size-l-2-line-height-decorative: ; */
+
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- AUGMENTED FOURTH
     =================================================== */
     /* Based on Augmented Fourth - https://type-scale.com/ */
@@ -676,6 +684,9 @@
 
         padding: var(--spacing-l-1);
         text-align: center;
+        &:last-child {
+            padding-block-end: 0;
+        }
     }
 
     .o-hero-buttons--left {
@@ -1621,7 +1632,7 @@
         0% {
             opacity: 0;
         }
-        
+
         100% {
             opacity: 1;
         }
@@ -1631,9 +1642,18 @@
             opacity: 0;
             transform: translate3d(0, 5vh, 0);
         }
-        
+
         75%, 100% {
             opacity: 1;
+            transform: none;
+        }
+    }
+    @keyframes in-up {
+        0% {
+            transform: translate3d(0, 5vh, 0);
+        }
+
+        75%, 100% {
             transform: none;
         }
     }
@@ -1891,12 +1911,17 @@
                 animation-name: fade-in-up;
                 animation-timing-function: var(--animation-timing-function-linear-out-slow-in);
             }
+            /* In up */
+            [data-io--in-up][data-io-seen] {
+                animation-name: in-up;
+                animation-timing-function: var(--animation-timing-function-linear-out-slow-in);
+            }
             /* Slide Up and Fade In */
             /* [data-io--slide-up-and-fade-in][data-io-seen] {
                 animation-name: slide-up-and-fade-in;
                 animation-timing-function: var(--animation-timing-function-out-cubic);
             } */
-            /* Roate In Up */
+            /* Rotate In Up */
             /* [data-io--rotate-in-up][data-io-seen] {
                 animation-name: rotate-in-up;
                 animation-timing-function: var(--animation-timing-function-out-cubic);
