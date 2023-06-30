@@ -61,6 +61,33 @@ document.addEventListener('click', function (event) {
 
 
 
+
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MULTI LEVEL
+=================================================== */
+Array.from(document.querySelectorAll('nav li a')).forEach(element => {
+    // If it has children / there's another ul
+    if(element.parentElement.querySelector('ul')) {
+        element.setAttribute('aria-expanded', 'false');
+        element.setAttribute('aria-pressed', 'false');
+        element.setAttribute('aria-label', 'Toggle expanded menu');
+        element.addEventListener('click', function(event) {
+            // Prevent the click
+            event.preventDefault();
+            // add a class to the ul <-- HERE
+            element.parentElement.querySelector('ul').classList.toggle('js--menuActive');
+            if (element.getAttribute('aria-expanded') === 'false' ) {
+                element.setAttribute('aria-expanded', 'true');
+                element.setAttribute('aria-pressed', 'true');
+            } else {
+                element.setAttribute('aria-expanded', 'false');
+                element.setAttribute('aria-pressed', 'false');
+            }
+        });
+    };
+});
+
+
+
 /* GROUP
 =================================================== */
 /* Notes...

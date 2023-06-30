@@ -1237,6 +1237,74 @@
 
 
 
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MULTI LEVEL
+=================================================== */
+/* Notes...
+
+    The same component name is needed from my JS framework
+
+*/
+.js nav ul ul:not(.js--menuActive) {
+    /* START SCREEN READER TEXT
+    --------------------------- */
+    clip: rect(1px, 1px, 1px, 1px);
+
+    position: absolute!important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    /* END SCREEN READER TEXT
+    ------------------------- */
+}
+
+@keyframes subnav {
+    0% {
+        opacity: 0;
+        transform: translate(var(--translateX), -0.25rem);
+    }
+
+    75%, 100% {
+        opacity: 1;
+    }
+}
+
+nav ul {
+    & li:has(ul ) {
+        z-index: 1;
+    }
+    & ul {
+        --padding: var(--spacing-m);
+        --translateX: -50%; 
+
+        flex-direction: column;
+        gap: 0.25rem;
+
+        position: absolute;
+        top: 150%;
+        left: 50%;
+        transform: translate(var(--translateX));
+        width: 100vw;
+        max-width: min(68vw, 20rem);
+
+        padding: var(--padding);
+
+        &.js--menuActive {
+            animation: 0.12s var(--animation-timing-function-in-sine) subnav both;
+        }
+
+        @media (min-width: 1024px) { /* --mq-nav-opens-after */
+            --translateX: 0%;
+
+            align-items: flex-start;
+            width: 11rem;
+            top: 3rem;
+            left: calc(0% - var(--padding));
+        }
+    }
+}
+
+
+
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / SITE TITLE
 =================================================== */
 @layer objects {
