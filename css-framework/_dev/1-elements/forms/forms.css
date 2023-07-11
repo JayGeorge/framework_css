@@ -3,22 +3,27 @@
     Author: Jay George
     Author URI: https://jaygeorge.co.uk
 
-    ABOUT THIS CSS
-    ===================================================
-    - Only edit filename-dev.css, then process with Laravel Mix (1. Configure with `webpack.mix.js` 2. `npm run production` will compile into prod/ on the server)
-
 */
 
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / (CROSS POLLINATED)
 =================================================== */
-/* Notes...
+/* HTML Example...
 
-    - You should consider increasing specificity depending on the environment e.g. add .site-container to
-    the selector for WordPress so rules do not affect wp-admin bar
+    <form class="c-form">
+        <div class="c-form__notes">
+            Your email address will not be published
+        </div>
+
+        <fieldset>
+            <legend>Leave a comment</legend>
+            <div>
+
+            </div>
+        </fieldset>
+    </form>
 
 */
 @layer elements {
-    /* purgecss start ignore */
     [type="text"],
     [type="email"],
     [type="tel"],
@@ -44,7 +49,6 @@
         padding-inline-start: 0;
         border: 0!important;
     }
-    /* purgecss end ignore */
 
     label {
         /* Make padding effective */
@@ -57,17 +61,31 @@
         line-height: 1;
     }
 
-    /* purgecss start ignore */
     textarea {
         width: 100%;
         /* e.g. something like Hubspot might be a bit short */
         min-height: 200px;
     }
-    /* purgecss end ignore */
 
-    body [type="checkbox"] {
+    [type="checkbox"] {
         /* Override any input styles */
         box-shadow: none;
+    }
+
+    [type="checkbox"],
+    [type="radio"] {
+        margin-right: var(--spacing-s);
+    }
+
+    /* Checkbox and Radio labels */
+    [type="checkbox"] + label,
+    [type="radio"] + label {
+        padding-block-end: var(--spacing-s-2);
+    }
+
+    [type="submit"] {
+        /* e.g. >> /blog/readability-test/ */
+        margin-top: var(--spacing-s);
     }
 
     /* Don't carpet bomb since we don't want a checkbox 100% width */
@@ -87,31 +105,13 @@
         top: -0.25rem;
     }
 }
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / (CROSS POLLINATED)
-=================================================== */
-/* HTML Example...
 
-    <form class="c-form">
-        <div class="c-form__notes">
-            Your email address will not be published
-        </div>
-
-        <fieldset>
-            <legend>Leave a comment</legend>
-            <div>
-
-            </div>
-        </fieldset>
-    </form>
-
-*/
 @layer components {
     .c-form {
         width: 100%;
         max-width: var(--max-width-reading);
         max-width: 50rem;
-        margin-inline-start: auto;
-        margin-inline-end: auto;
+        margin-inline: auto;
     }
 
     input + .c-form__notes {
@@ -119,8 +119,12 @@
         padding-block: var(--spacing-l) 0;
     }
 
-    .c-form__notes p {
-        color: var(--colour-grey-reading);
+    .c-form__notes {
+        padding-block-end: var(--spacing-m);
+        padding-inline: var(--spacing-l);
+        & p {
+            color: var(--colour-grey-reading);
+        }
     }
 
     .c-form legend {
@@ -139,6 +143,8 @@
     /* We use a class of fieldset since the `fieldset` element is not always present */
     .c-form__fieldset {
         padding: 0 var(--spacing-l);
+        /* Override default */
+        margin: 0;
         border: 0;
     }
 
@@ -148,27 +154,24 @@
     }
 
     /* Exceptions */
-    .c-form [type="checkbox"],
-    .c-form [type="radio"] {
+    .c-form :where([type="checkbox"], [type="radio"]) {
         margin-block-end: 0;
     }
 
-    /* purgecss start ignore */
     .maple,
     /* The <br/> is inserted by Statamic to break lines. We don't want this to take up extra space */
     .c-form__checkbox-group br {
         display: none;
     }
 }
-/* purgecss end ignore */
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / (MODIFIERS)
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / (MODIFIERS)
 =================================================== */
 @layer modifiers {
     .c-form--wide {
         max-width: 80rem;
     }
 }
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / STATAMIC EXAMPLE
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / STATAMIC EXAMPLE
 =================================================== */
 /* HTML Example...
 
@@ -200,7 +203,7 @@
     </form>
 
 */
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / PERCH EXAMPLE
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / PERCH EXAMPLE
 =================================================== */
 /* HTML Example...
 
@@ -238,7 +241,7 @@
     </form>
 
 */
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / LAYOUT / COLUMNS
+/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / COLUMNS
 =================================================== */
 /* HTML Example...
 
@@ -265,14 +268,22 @@
 
 */
 @layer components {
+    .c-form-wrapper {
+        /* (Optional). Used to adding padding on smaller MQs */
+        padding-inline: var(--spacing-s);
+    }
+
     /* if you just want a vertically stacked form */
     .c-form-rows {
         display: grid;
         gap: var(--spacing-l);
-    }
+        padding-block-end: var(--spacing-l-2);
 
-    .c-form-rows input {
-        margin-block-end: 0;
+        & input {
+            width: 100%;
+            max-width: none;
+            margin-block-end: 0;
+        }
     }
 
     /* When you want the submit button to span 100% */
@@ -308,59 +319,12 @@
         grid-template-columns: 1fr;
     }
 
-    /* purgecss start ignore */
     .c-form-cols__col--full-width,
     /* e.g. has a file attachment */
     .c-form-cols__col:has(input[type=file]) {
         grid-column: 1 / -1;
     }
 }
-/* purgecss end ignore */
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / SPACING
-=================================================== */
-/* purgecss start ignore */
-@layer components {
-    /* (Optional). Used to adding padding on smaller MQs */
-    .c-form-wrapper {
-        padding-inline-start: var(--spacing-s);
-        padding-inline-end: var(--spacing-s);
-    }
-
-    .c-form-rows {
-        padding-block-end: var(--spacing-l-2);
-    }
-
-    .c-form__notes {
-        padding-inline-start: var(--spacing-l);
-        padding-block-end: var(--spacing-m);
-        padding-inline-end: var(--spacing-l);
-    }
-
-    /* fieldset*/
-    .c-form__fieldset {
-        /* Override default */
-        margin: 0;
-    }
-}
-@layer elements {
-    /* form */
-    [type="checkbox"],
-    [type="radio"] {
-        margin-right: var(--spacing-s);
-    }
-
-    /* Checkbox and Radio labels */
-    [type="checkbox"] + label,
-    [type="radio"] + label {
-        padding-block-end: var(--spacing-s-2);
-    }
-
-    [type="submit"] {
-        /* e.g. >> /blog/readability-test/ */
-        margin-top: var(--spacing-s);
-    }
-}
-/* purgecss end ignore */
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / BUTTONS
 =================================================== */
 /* Notes...
@@ -381,11 +345,8 @@
         background: transparent;
     }
 }
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / MOBILE (INLINE)
-=================================================== */
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / ALERTS
 =================================================== */
-/* purgecss start ignore */
 @layer components {
     .c-alert {
         padding: var(--spacing-s) var(--spacing-s-1);
@@ -446,12 +407,10 @@
         font-family: var(--font-family-main);
         color: hsl(0deg 0% 0% / 50%);
     }
-    /* purgecss end ignore */
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / DECORATION / BORDERS
 =================================================== */
 @layer elements {
-    /* purgecss ignore */
     input:not([type="submit"]) {
         border: 1px solid hsl(0deg 0% 90%);
         border-radius: 4px;
@@ -498,7 +457,6 @@
 }
 
 
-/* purgecss start ignore */
 @layer elements {
     /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / TEXT FIELDS / DECORATION
     =================================================== */
@@ -595,7 +553,6 @@
         width: 100%;
     }
 }
-/* purgecss end ignore */
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / WORDPRESS
 =================================================== */
 @layer components {
@@ -630,7 +587,6 @@
 
 */
 @layer utilities {
-    /* purgecss start ignore */
     @supports selector(:has(*)) {
         .u-hide-labels-until-focused label {
             /* Fast out, Slow in */
@@ -653,5 +609,4 @@
             padding-block-end: var(--spacing-m);
         }
     }
-    /* purgecss end ignore */
 }

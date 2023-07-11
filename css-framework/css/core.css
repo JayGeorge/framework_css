@@ -5,7 +5,6 @@
 
     ABOUT THIS CSS
     ===================================================
-    - Only edit filename-dev.css, then process with Laravel Mix (1. run `sudo npm install` 2. Configure with `webpack.mix.js` 3. `npm run watch` to constantly monitor and compile into prod/)
     - Class name prefixes are influenced by Namespaces article - http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
     - Class relationships are based on BEM structure
     - For more information open readme.css at https://raw.githubusercontent.com/JayGeorge/framework_css/main/css-framework/css/readme.css
@@ -330,6 +329,9 @@ scope;
     }
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS
     =================================================== */
+    h1, h2, h3, h4, h5, h6, blockquote, figcaption { /* https://developer.chrome.com/blog/CSS-text-wrap-balance */
+        text-wrap: balance;
+    }
     h1, .h1, h1 a, .h1 a, h2, .h2, h2 a, .h2 a, h3, .h3, h3 a, .h3 a {
         font-family: var(--font-family-headline);
         font-weight: var(--font-family-headline-weight-normal);

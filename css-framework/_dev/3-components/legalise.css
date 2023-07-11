@@ -5,7 +5,9 @@
 
     ABOUT THIS CSS
     ===================================================
-    - Only edit filename-dev.css, then process with Laravel Mix (1. run `sudo npm install` 2. Configure with `webpack.mix.js` 3. `npm run watch` to constantly monitor and compile into prod/)
+    - Class name prefixes are influenced by Namespaces article - http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+    - Class relationships are based on BEM structure
+    - For more information open readme.css at https://raw.githubusercontent.com/JayGeorge/framework_css/main/css-framework/css/readme.css
 
 */
 
@@ -18,54 +20,56 @@
         margin-inline: auto;
 
         border: 1px solid var(--colour-grey-light-2);
-    }
 
-    .s-legalise,
-    /* Override any more complex rules like .s-entry-content:last-child */
-    .s-legalise:last-child {
-        padding: var(--spacing-l);
-        margin-block-end: var(--spacing-l-2);
-    }
+        /* Override any more complex rules like .s-entry-content:last-child */
+        &, &:last-child {
+            padding: var(--spacing-l);
+            margin-block-end: var(--spacing-l-2);
+        }
 
-    .s-legalise h2 {
-        padding-block-end: var(--spacing-m);
+        & h2 {
+            padding-block-end: var(--spacing-m);
+    
+            font-size: var(--font-size-s-2);
+            border-bottom: 1px solid var(--colour-grey-light-2);
+            &:not(:first-child) {
+                padding-block-start: var(--spacing-l-1);
+            }
+        }
+        & :where(h3, h4) {
+            font-weight: var(--font-family-main-weight-medium);
+        }
 
-        font-size: var(--font-size-s-2);
-        border-bottom: 1px solid var(--colour-grey-light-2);
-    }
+        & h3 {
+            font-size: var(--font-size-s-1);
+        }
 
-    .s-legalise h2:not(:first-child) {
-        padding-block-start: var(--spacing-l-1);
-    }
-
-    .s-legalise h3,
-    .s-legalise h4 {
-        font-weight: var(--font-family-main-weight-medium);
-    }
-
-    .s-legalise h3 {
-        font-size: var(--font-size-s-1);
-    }
-
-    .s-legalise p {
-        padding-block-end: var(--spacing-s-1);
-    }
-
-    /* Custom */
-    @media (max-width: 899px) {
-        .s-legalise {
+        /* Custom */
+        @media (max-width: 899px) {
             border-left: none;
             border-right: none;
         }
     }
 
-    /* purgecss start ignore */
     /* GROUP ELEMENTS / TABLES
     =================================================== */
     table + h2 {
         padding-block-start: var(--spacing-s-1);
     }
 
+    /* GROUP FRAMEWORK / NON CORE / TABLE WRAPPER
+    =================================================== */
+    /* Array.from(document.querySelectorAll('.s-entry-content table') || []).forEach(element => {
+        // create wrapper container
+        var wrapper = document.createElement('div');
+
+        // insert wrapper before el in the DOM tree
+        element.parentNode.insertBefore(wrapper, element);
+
+        // move el into wrapper
+        wrapper.appendChild(element);
+        wrapper.classList.add('js--tableWrapper');
+    }); */
     .js--tableWrapper {
         margin-bottom: var(--spacing-m-2);
     }
