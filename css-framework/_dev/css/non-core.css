@@ -314,16 +314,15 @@
     - An example if you're using theming, e.g. flipping colours for different pages
 
 */
-:root {
-    --colour-primary-text: white;
-    --colour-primary-background: black;
-
-    --colour-secondary-text: black;
-    --colour-secondary-background: white;
-}
 @layer elements {
     /* Defaults */
     html {
+        --colour-primary-text: white;
+        --colour-primary-background: black;
+
+        --colour-secondary-text: black;
+        --colour-secondary-background: white;
+
         color: var(--colour-primary-text);
         background: var(--colour-primary-background);
     }
