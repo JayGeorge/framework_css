@@ -2048,20 +2048,30 @@ nav ul {
             =================================================== */
             /* e.g. <p class="c-intro-text" data-io data-io--wipe-in-right>At Assured</p> */
             /* handy to use switch like data-io data-io--wipe-in-{{ switch between='right|left' }} */
-            /* [data-io-seen][data-io--wipe-in-right] {
-                animation: var(--io-duration) var(--animation-timing-function-wipe) wipe-in-right both;
+            /* [data-io--wipe-in-right], [data-io--wipe-in-left] {
+                animation-timing: var(--animation-timing-function-wipe);
+            }
+            [data-io-seen][data-io--wipe-in-right] {
+                animation-name: wipe-in-right;
             }
             [data-io-seen][data-io--wipe-in-left] {
-                animation: var(--io-duration) var(--animation-timing-function-wipe) wipe-in-left both;
+                animation-name: wipe-in-left;
             }
             [data-io-seen][data-io--circle-in-center] {
-                animation: var(--io-duration) var(--animation-timing-function-wipe) circle-in-center both;
+                animation-duration: 1s;
+                animation-delay: 0.5s;
+                animation-timing: var(--animation-timing-function-in-cubic);
+            }
+            [data-io-seen][data-io--circle-in-top-right], [data-io-seen][data-io--circle-in-top-left] {
+            [data-io-seen][data-io--circle-in-top-right] {
+                animation-duration: 4s;
+                animation-timing: var(--animation-timing-function-wipe);
             }
             [data-io-seen][data-io--circle-in-top-right] {
-                animation: 4s var(--animation-timing-function-wipe) circle-in-top-right both;
+                animation-name: circle-in-top-right;
             }
             [data-io-seen][data-io--circle-in-top-left] {
-                animation: 4s var(--animation-timing-function-wipe) circle-in-top-left both;
+                animation-name: circle-in-top-left;
             } */
             /* GROUP UTILTIES / ANIMATIONS / IO FRAMEWORK / MOTIF SLIT
             =================================================== */
