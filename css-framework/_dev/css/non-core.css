@@ -1687,142 +1687,177 @@ nav ul {
     .u-icon-m {
         font-size: var(--icon-size-m);
     }
-    /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES
-    =================================================== */
-    /* Components > Framework > Nav */
-    @keyframes fade-in {
-        0% {
-            opacity: 0;
-        }
+    /* If they're OK with animation */
+    @media (prefers-reduced-motion: no-preference) {
+        /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES / FADES
+        =================================================== */
+        /* Components > Framework > Nav */
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
 
-        100% {
-            opacity: 1;
+            100% {
+                opacity: 1;
+            }
         }
-    }
-    @keyframes fade-in-up {
-        0% {
-            opacity: 0;
-            transform: translate3d(0, 5vh, 0);
-        }
+        @keyframes fade-in-up {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 5vh, 0);
+            }
 
-        75%, 100% {
-            opacity: 1;
-            transform: none;
+            75%, 100% {
+                opacity: 1;
+                transform: none;
+            }
         }
-    }
-    @keyframes in-up {
-        0% {
-            transform: translate3d(0, 5vh, 0);
-        }
+        @keyframes in-up {
+            0% {
+                transform: translate3d(0, 5vh, 0);
+            }
 
-        75%, 100% {
-            transform: none;
+            75%, 100% {
+                transform: none;
+            }
         }
-    }
-    @keyframes pull-up {
-        100% {
-            transform: translateY(-100%);
-        }
-    }
-    @keyframes rotate-in-up {
-        0% {
-            transform: translate3d(0, 100vh, 0) rotate(-90deg);
-        }
+        /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES / SLIDES
+        =================================================== */
+        @keyframes slide-in-left {
+            0% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
 
-        75%, 100% {
-            opacity: 1;
-            transform: none;
+            100% {
+                transform: translateX(0%);
+                opacity: 1;
+            }
         }
-    }
-    @keyframes rotate-in-up-reverse {
-        0% {
-            transform: translate3d(0, 100vh, 0) rotate(90deg);
-        }
+        @keyframes slide-in-right {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
 
-        75%, 100% {
-            opacity: 1;
-            transform: none;
+            100% {
+                transform: translateX(0%);
+                opacity: 1;
+            }
         }
-    }
-    @keyframes stack {
-        from {
-            opacity: 0;
-            transform: scale(1.2);
+        /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES / MOVES
+        =================================================== */
+        @keyframes pull-up {
+            100% {
+                transform: translateY(-100%);
+            }
         }
+        @keyframes rotate-in-up {
+            0% {
+                transform: translate3d(0, 100vh, 0) rotate(-90deg);
+            }
 
-        to {
-            opacity: 1;
+            75%, 100% {
+                opacity: 1;
+                transform: none;
+            }
         }
-    }
-    @keyframes wipe-out-up {
-        0% {
-            clip-path: inset(0 0 0 0);
+        @keyframes rotate-in-up-reverse {
+            0% {
+                transform: translate3d(0, 100vh, 0) rotate(90deg);
+            }
+
+            75%, 100% {
+                opacity: 1;
+                transform: none;
+            }
         }
-        100% {
-            clip-path: inset(0 0 100% 0);
+        @keyframes stack {
+            from {
+                opacity: 0;
+                transform: scale(1.2);
+            }
+
+            to {
+                opacity: 1;
+            }
         }
-    }
-    @keyframes wipe-in-left {
-        1%, 100% { opacity: 1; }
-        from {
-            clip-path: inset(0 0 0 100%);
+        /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES / WIPES
+        =================================================== */
+        @keyframes wipe-out-up {
+            0% {
+                clip-path: inset(0 0 0 0);
+            }
+            100% {
+                clip-path: inset(0 0 100% 0);
+            }
         }
-        to {
-            clip-path: inset(0 0 0 0);
+        @keyframes wipe-in-left {
+            1%, 100% { opacity: 1; }
+            from {
+                clip-path: inset(0 0 0 100%);
+            }
+            to {
+                clip-path: inset(0 0 0 0);
+            }
         }
-    }
-    @keyframes wipe-out-left {
-        1%, 100% { opacity: 1; }
-        from {
-            clip-path: inset(0 0 0 0);
+        @keyframes wipe-out-left {
+            1%, 100% { opacity: 1; }
+            from {
+                clip-path: inset(0 0 0 0);
+            }
+            to {
+                clip-path: inset(0 100% 0 0);
+            }
         }
-        to {
-            clip-path: inset(0 100% 0 0);
+        @keyframes wipe-in-right {
+            1%, 100% { opacity: 1; }
+            from {
+                clip-path: inset(0 100% 0 0);
+            }
+            to {
+                clip-path: inset(0 0 0 0);
+            }
         }
-    }
-    @keyframes wipe-in-right {
-        1%, 100% { opacity: 1; }
-        from {
-            clip-path: inset(0 100% 0 0);
+        /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES / CIRCLES
+        =================================================== */
+        @keyframes circle-in-center {
+            from {
+                clip-path: circle(0%);
+            }
+            to {
+                clip-path: circle(100%);
+            }
         }
-        to {
-            clip-path: inset(0 0 0 0);
+        @keyframes circle-in-top-right {
+            1%, 100% { opacity: 1; }
+            from {
+                clip-path: circle(0%);
+                opacity: 0;
+            }
+            to {
+                clip-path: circle(150% at top right);
+            }
         }
-    }
-    @keyframes circle-in-center {
-        from {
-            clip-path: circle(0%);
+        @keyframes circle-in-top-left {
+            1%, 100% { opacity: 1; }
+            from {
+                clip-path: circle(0%);
+                opacity: 0;
+            }
+            to {
+                clip-path: circle(150% at top left);
+            }
         }
-        to {
-            clip-path: circle(100%);
-        }
-    }
-    @keyframes circle-in-top-right {
-        1%, 100% { opacity: 1; }
-        from {
-            clip-path: circle(0%);
-            opacity: 0;
-        }
-        to {
-            clip-path: circle(150% at top right);
-        }
-    }
-    @keyframes circle-in-top-left {
-        1%, 100% { opacity: 1; }
-        from {
-            clip-path: circle(0%);
-            opacity: 0;
-        }
-        to {
-            clip-path: circle(150% at top left);
-        }
-    }
-    @keyframes slit-reveal {
-        0% {
-            clip-path: polygon(100% 0, 100% 0%, 100% 0, 0 100%, 0% 100%, 0 100%);
-        }
-        100% {
-            clip-path: polygon(50% 0, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0 50%);
+        /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES / MISC
+        =================================================== */
+        @keyframes slit-reveal {
+            0% {
+                clip-path: polygon(100% 0, 100% 0%, 100% 0, 0 100%, 0% 100%, 0 100%);
+            }
+            100% {
+                clip-path: polygon(50% 0, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0 50%);
+            }
         }
     }
 }
@@ -1857,32 +1892,18 @@ nav ul {
         /* GROUP UTILITIES / FRAMEWORK / ANNI / ANIMATIONS / STAGGERING
         =================================================== */
         /* When an animated item is followed by another item then add a default delay */
-        [class*="u-anni-"] + [class*="u-anni-"] {
-            animation-delay: calc(var(--anni-stagger));
-        }
-        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(2) {
-            animation-delay: calc(var(--anni-stagger) * 2);
-        }
-        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(3) {
-            animation-delay: calc(var(--anni-stagger) * 3.5);
-        }
-        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(4) {
-            animation-delay: calc(var(--anni-stagger) * 4);
-        }
-        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(5) {
-            animation-delay: calc(var(--anni-stagger) * 4.5);
-        }
-        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(6) {
-            animation-delay: calc(var(--anni-stagger) * 5);
-        }
-        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(7) {
-            animation-delay: calc(var(--anni-stagger) * 5.5);
-        }
-        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(8) {
-            animation-delay: calc(var(--anni-stagger) * 6);
-        }
-        [class*="u-anni-"] + [class*="u-anni-"]:nth-child(9) {
-            animation-delay: calc(var(--anni-stagger) * 6.5);
+        [class*="u-anni-"] {
+            + [class*="u-anni-"]:not([style*="anni-stagger"]) { /* Except when there's an inline style with a stagger override */
+                animation-delay: calc(var(--anni-stagger));
+                &:nth-child(2) {animation-delay: calc(var(--anni-stagger) * 2)}
+                &:nth-child(3) {animation-delay: calc(var(--anni-stagger) * 3.5)}
+                &:nth-child(4) {animation-delay: calc(var(--anni-stagger) * 4)}
+                &:nth-child(5) {animation-delay: calc(var(--anni-stagger) * 4.5)}
+                &:nth-child(6) {animation-delay: calc(var(--anni-stagger) * 5)}
+                &:nth-child(7) {animation-delay: calc(var(--anni-stagger) * 5.5)}
+                &:nth-child(8) {animation-delay: calc(var(--anni-stagger) * 6)}
+                &:nth-child(9) {animation-delay: calc(var(--anni-stagger) * 6.5)}
+            }
         }
         /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / VIEW TRANSITIONS
         =================================================== */
@@ -1940,6 +1961,10 @@ nav ul {
                 animation-fill-mode: both;
                 animation-delay: var(--io-delay);
                 animation-duration: var(--io-duration);
+
+                @media (max-width: 767px) {
+                    --io-delay: var(--io-delay-mobile)!important; /* e.g. you can override for mobile like this `style="--io-delay-mobile: 0.2s; --io-delay: 0.65s"` */
+                }
             }
         }
 
@@ -1970,7 +1995,7 @@ nav ul {
         =================================================== */
         .js {
             :where([data-io--fade-in], [data-io--fade-in-up], [data-io--slide-up-and-fade-in]) {
-            /* :where([data-io--slide-up-and-fade-in], [data-io--rotate-in-up]) { */
+            /* :where([data-io--slide-up-and-fade-in], [data-io--rotate-in-up], [data-io--slide-in-left], [data-io--slide-in-right]) { */
                 /* Start off with a 0 opacity (rather than hidden) so browsers can still "see" the element. You'll need 1%, 100% { opacity: 1; } on each keyframe to make them appear immediately, unless you're using a fade anyway */
                 opacity: 0;
             }
@@ -1997,6 +2022,56 @@ nav ul {
                 animation-name: slide-up-and-fade-in;
                 animation-timing-function: var(--animation-timing-function-out-cubic);
             } */
+            /* [data-io--slide-in-left], [data-io--slide-in-right] {
+                animation-timing-function: var(--animation-timing-function-out-cubic);
+            } */
+            /* Slide in left */
+            /* [data-io--slide-in-left][data-io-seen] {
+                animation-name: slide-in-left;
+            } */
+            /* [data-io--slide-in-right][data-io-seen] {
+                animation-name: slide-in-right;
+            } */
+            /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / WIPES
+            =================================================== */
+            /* e.g. <p class="c-intro-text" data-io data-io--wipe-in-right>At Assured</p> */
+            /* handy to use switch like data-io data-io--wipe-in-{{ switch between='right|left' }} */
+            /* [data-io--wipe-in-right], [data-io--wipe-in-left] {
+                animation-timing: var(--animation-timing-function-wipe);
+            }
+            [data-io-seen][data-io--wipe-in-right] {
+                animation-name: wipe-in-right;
+            }
+            [data-io-seen][data-io--wipe-in-left] {
+                animation-name: wipe-in-left;
+            }
+            [data-io-seen][data-io--circle-in-center] {
+                animation-duration: 1s;
+                animation-delay: 0.5s;
+                animation-timing: var(--animation-timing-function-in-cubic);
+            }
+            [data-io-seen][data-io--circle-in-top-right], [data-io-seen][data-io--circle-in-top-left] {
+            [data-io-seen][data-io--circle-in-top-right] {
+                animation-duration: 4s;
+                animation-timing: var(--animation-timing-function-wipe);
+            }
+            [data-io-seen][data-io--circle-in-top-right] {
+                animation-name: circle-in-top-right;
+            }
+            [data-io-seen][data-io--circle-in-top-left] {
+                animation-name: circle-in-top-left;
+            } */
+            /* GROUP UTILTIES / ANIMATIONS / IO FRAMEWORK / MOTIF SLIT
+            =================================================== */
+            /* Using my IO framework */
+            /* [data-io-seen][data-io--slit-reveal] svg {
+                --io-delay: inherit;
+                --io-duration: 1.5s;
+                animation-name: slit-reveal;
+                animation-timing-function: var(--animation-timing-function-in-sine);
+            } */
+            /* GROUP UTILTIES / ANIMATIONS / IO FRAMEWORK / OTHER
+            =================================================== */
             /* Rotate In Up */
             /* [data-io--rotate-in-up][data-io-seen] {
                 animation-name: rotate-in-up;
@@ -2042,44 +2117,6 @@ nav ul {
                         }
                     }
                 }
-            } */
-            /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / WIPES
-            =================================================== */
-            /* e.g. <p class="c-intro-text" data-io data-io--wipe-in-right>At Assured</p> */
-            /* handy to use switch like data-io data-io--wipe-in-{{ switch between='right|left' }} */
-            /* [data-io--wipe-in-right], [data-io--wipe-in-left] {
-                animation-timing: var(--animation-timing-function-wipe);
-            }
-            [data-io-seen][data-io--wipe-in-right] {
-                animation-name: wipe-in-right;
-            }
-            [data-io-seen][data-io--wipe-in-left] {
-                animation-name: wipe-in-left;
-            }
-            [data-io-seen][data-io--circle-in-center] {
-                animation-duration: 1s;
-                animation-delay: 0.5s;
-                animation-timing: var(--animation-timing-function-in-cubic);
-            }
-            [data-io-seen][data-io--circle-in-top-right], [data-io-seen][data-io--circle-in-top-left] {
-            [data-io-seen][data-io--circle-in-top-right] {
-                animation-duration: 4s;
-                animation-timing: var(--animation-timing-function-wipe);
-            }
-            [data-io-seen][data-io--circle-in-top-right] {
-                animation-name: circle-in-top-right;
-            }
-            [data-io-seen][data-io--circle-in-top-left] {
-                animation-name: circle-in-top-left;
-            } */
-            /* GROUP UTILTIES / ANIMATIONS / IO FRAMEWORK / MOTIF SLIT
-            =================================================== */
-            /* Using my IO framework */
-            /* [data-io-seen][data-io--slit-reveal] svg {
-                --io-delay: inherit;
-                --io-duration: 1.5s;
-                animation-name: slit-reveal;
-                animation-timing-function: var(--animation-timing-function-in-sine);
             } */
             /* GROUP UTILTIES / ANIMATIONS / IO FRAMEWORK / HIDERS
             =================================================== */

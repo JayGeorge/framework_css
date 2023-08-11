@@ -845,29 +845,24 @@ scope;
     /* Text meant only for screen readers. */
     /* Components > Framework > Nav */
     .u-screen-reader-text {
-        /* START SCREEN READER TEXT
-        --------------------------- */
         clip: rect(1px, 1px, 1px, 1px);
 
         position: absolute!important;
         overflow: hidden;
         width: 1px;
         height: 1px;
-        /* END SCREEN READER TEXT
-        ------------------------- */
-    }
-
-    /* Needed if the text should be visible on keyboard focus */
-    .u-screen-reader-text:focus {
-        clip: auto!important;
-
-        z-index: 100000; /* Above WP toolbar. */
-        display: block;
-        top: 0;
-        left: 0;
-
-        width: auto;
-        height: auto;
+        /* Needed if the text should be visible on keyboard focus */
+        &:focus {
+            clip: auto!important;
+    
+            z-index: 100000; /* Above WP toolbar. */
+            display: block;
+            top: 0;
+            left: 0;
+    
+            width: auto;
+            height: auto;
+        }
     }
 }
 
