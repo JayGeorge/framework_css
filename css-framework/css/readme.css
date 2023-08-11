@@ -1,10 +1,26 @@
-/* Notes...
-
-    - This file contains detailed guide notes about CSS groups without cluttering CSS files
-
-*/
+/* GROUP NOTES
+===================================================  */
+/* This file contains detailed guide notes about CSS groups without cluttering CSS files */
 
 
+/* GROUP NOTES / COMMENT FORMATTING
+===================================================  */
+/* Important comments should sit vertically above code so it's easily seen when scanning the CSS file. Comments are generally considered "important" if they include layout hints */
+
+/* Here is an example of an important comment */
+.something {
+    display: grid;
+    /* Here is a second example of an important commment, e.g. Prevent overflow on screens less than em or px value */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 24em), 1fr));
+}
+
+/* Other supplementary comments should sit horizontally to the right of code so our CSS is more compressed and easy to read. */
+
+@media (min-width: 1130px) { /* An example of a supplementary comment, e.g. a note about the media query value, like --mq-column-breakpoint-2-after */
+    .something-else {
+        padding: 0 0 0 0.7rem; /* A second example of a supplementary comment, e.g. Some manual nudging */
+    }
+}
 
 
 /* GROUP VARIABLES -- SPACING
@@ -14,8 +30,6 @@
     padding-inline-start: max(var(--spacing-l), 7vw);
 
 */
-
-
 
 
 /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
@@ -58,27 +72,23 @@ line-height: var(--font-size-height-l-1);
 */
 
 
-
-
 /* GROUP LAYERS
 =================================================== */
 /* See readme.css for more information */
 @layer
 base,
 elements,
-/* Remember - objects with a component selector (e.g. .o-something .c-btn) should be in a component layer% instead */
+/* Remember - objects with a component selector (e.g. .o-something .c-btn) should be in a component layer instead */
 objects,
 components,
 modifiers,
+utilities,
 /* Third party e.g. Flickity. Should be higher than 'components' to override things like button rules */
 vendors,
 /* Specific UI that should never be overriden, such as the layout in Alpine Components */
 ui,
-utilities,
 /* .s- classes */
 scope;
-
-
 
 
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS
@@ -143,8 +153,6 @@ scope;
 */
 
 
-
-
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / HOVER
 =================================================== */
 /* Notes...
@@ -171,8 +179,6 @@ scope;
 */
 
 
-
-
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS
 =================================================== */
 /* Notes...
@@ -197,8 +203,6 @@ scope;
 /* a:not([href^="http://brewpixel.com"]):not([href^="#"]):not([href^="/"]) {
 
 } */
-
-
 
 
 /* GROUP COMPONENTS / FRAMEWORK / BUTTONS
@@ -239,8 +243,6 @@ scope;
 } */
 
 
-
-
 /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK (Authored by me)
 =================================================== */
 /* Here's an example of me using a hidden trigger:
@@ -260,8 +262,6 @@ scope;
     }
 }
 */
-
-
 
 
 /* GROUP UTILITIES / DECORATION / PANELS
