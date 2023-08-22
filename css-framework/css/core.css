@@ -576,15 +576,11 @@ scope;
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS
 =================================================== */
 @layer base {
-    /* .u-link-style-custom-1:focus a, */
-    a:focus,
-    .c-nav-mobile-button:focus svg,
-    summary:focus,
-    .c-btn a:focus,
-    button:focus,
+    .c-nav-mobile-button:focus-visible svg,
+    :where(a, button, summary):focus-visible,
     /* Elements > Framework > Forms */
-    input:focus,
-    textarea:focus {
+    input:focus-visible,
+    textarea:focus-visible {
         outline: 4px solid blue;
     }
 
@@ -621,16 +617,6 @@ scope;
         :where(nav) & {
             outline-offset: 10px; /* Increase */
         }
-    }
-}
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS -- remove for mouse
-=================================================== */
-@layer ui {
-    /* Native for browsers that support it - https://caniuse.com/#search=focus-visible
-    https://twitter.com/LeaVerou/status/1045836563505188867 */
-    :focus:not(:focus-visible),
-    :focus:not(:focus-visible) * {
-        outline: none!important;
     }
 }
 @layer scope {
