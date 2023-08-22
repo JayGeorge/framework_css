@@ -36,7 +36,7 @@
                 padding-block-start: var(--spacing-l-1);
             }
         }
-        & :where(h3, h4) {
+        & :is(h3, h4) {
             font-weight: var(--font-family-main-weight-medium);
         }
 

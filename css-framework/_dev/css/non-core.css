@@ -809,7 +809,7 @@
 @layer components {
     /* Components > Pagination > (Cross Pollinated) */
     /* a*/
-    :where(.c-btn__left, .c-btn__right) svg {
+    :is(.c-btn__left, .c-btn__right) svg {
         position: relative;
         /* Pagination Button e.g. right arrow inside button moves forward */
         font-size: 1.5em;
@@ -1944,7 +1944,7 @@ nav ul {
 
 
     /* This is needed for Live Preview hot reloading. Hot reloading conflicts with intersection observer. If we don't disable intersection observer animations then everything stays hidden since IO doesn't get triggered. */
-    .js--statamicLivePreview :where([data-io], [data-io-repeat]) {
+    .js--statamicLivePreview :is([data-io], [data-io-repeat]) {
         animation: unset!important;
         opacity: unset!important;
         transform: unset!important;
@@ -1952,7 +1952,7 @@ nav ul {
     /* If they're ok with animation */
     @media (prefers-reduced-motion: no-preference) {
         /* Defaults */
-        :where([data-io], [data-io-repeat]) {
+        :is([data-io], [data-io-repeat]) {
             /* We can't apply data attributes directly to inline SVGs in Statamic, so you could wrap a div around it like this: <div data-io-repeat data-io--slit-reveal>{{ svg src='motif' class='c-small-motif u-animated-motif-slit' }}</div> */
             &, & > svg {
                 --io-duration: 1.2s;
@@ -1995,8 +1995,8 @@ nav ul {
         /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / FADES
         =================================================== */
         .js {
-            :where([data-io--fade-in], [data-io--fade-in-up], [data-io--slide-up-and-fade-in]) {
-            /* :where([data-io--slide-up-and-fade-in], [data-io--rotate-in-up], [data-io--slide-in-left], [data-io--slide-in-right]) { */
+            :is([data-io--fade-in], [data-io--fade-in-up], [data-io--slide-up-and-fade-in]) {
+            /* :is([data-io--slide-up-and-fade-in], [data-io--rotate-in-up], [data-io--slide-in-left], [data-io--slide-in-right]) { */
                 /* Start off with a 0 opacity (rather than hidden) so browsers can still "see" the element. You'll need 1%, 100% { opacity: 1; } on each keyframe to make them appear immediately, unless you're using a fade anyway */
                 opacity: 0;
             }

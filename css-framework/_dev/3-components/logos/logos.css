@@ -66,7 +66,7 @@
     /* filter: grayscale(100%) opacity(50%); */
 }
 
-.c-logo-grid :where(img, svg) {
+.c-logo-grid :is(img, svg) {
     width: 100%;
     height: 100%;
     /* This is needed for rasterised images */
@@ -86,7 +86,7 @@
         --width: 13rem;
     }
 
-    .c-logo-grid :where(img, svg) {
+    .c-logo-grid :is(img, svg) {
         max-width: 7.5rem;
         max-height: 5rem;
     }

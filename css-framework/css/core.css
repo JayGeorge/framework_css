@@ -310,7 +310,7 @@ scope;
             </li>
         </ol>
     */
-    main :where(p:not(li p), ol, ul):not(:has(li p)) {
+    main :is(p:not(li p), ol, ul):not(:has(li p)) {
         line-height: var(--font-size-reading-line-height);
         list-style-position: inside;
         padding-inline-start: 0;
@@ -396,7 +396,7 @@ scope;
         padding-block-end: var(--spacing-s-x);
     }
 
-    * > :where(h2, .h2) {
+    * > :is(h2, .h2) {
         padding-block-start: var(--spacing-m);
     }
 
@@ -404,20 +404,20 @@ scope;
         padding-block-end: var(--spacing-s-x-x);
     }
 
-    * + :where(h3, .h3),
+    * + :is(h3, .h3),
     /* e.g. p followed by a div followed by an h3 */
-    * > :where(h3, .h3), * + :where(h4, .h4),
+    * > :is(h3, .h3), * + :is(h4, .h4),
     /* e.g. p followed by a div followed by an h4 */
-    * + :where(h4, .h4) {
+    * + :is(h4, .h4) {
         padding-block-start: var(--spacing-s);
     }
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / EXCEPTIONS / VERTICAL SPACING
     =================================================== */
-    ul + :where(h2, .h2) {
+    ul + :is(h2, .h2) {
         padding-block-start: var(--spacing-s);
     }
 
-    h1 + :where(h2, .h2)
+    h1 + :is(h2, .h2)
     .h1 + .h2,
     h2 + h3,
     hr + * {
@@ -425,7 +425,7 @@ scope;
     }
 
     /* e.g. where we just have an h2 in a left column; it shouldn't have bottom padding */
-    :where(h2, h3, h4, h5, h6):only-child {
+    :is(h2, h3, h4, h5, h6):only-child {
         padding-block: 0;
     }
     /* GROUP ELEMENTS / FRAMEWORK / MAIN
@@ -497,13 +497,13 @@ scope;
 /* GROUP ELEMENTS / FRAMEWORK / SVGs
 =================================================== */
 @layer elements {
-    :where([src*="svg"], svg) {
+    :is([src*="svg"], svg) {
         width: 1em;
         height: 1em;
         fill: currentColor;
     }
 
-    :where(h1, h2, h3, h4, h5, h6, p) svg {
+    :is(h1, h2, h3, h4, h5, h6, p) svg {
         vertical-align: baseline;
         margin-inline-end: var(--spacing-s-x);
     }
@@ -540,7 +540,7 @@ scope;
     }
 
     button svg,
-    .c-btn :where([src*="svg"], svg) {
+    .c-btn :is([src*="svg"], svg) {
         font-size: 1.1em;
     }
 }
@@ -577,7 +577,7 @@ scope;
 =================================================== */
 @layer base {
     .c-nav-mobile-button:focus-visible svg,
-    :where(a, button, summary):focus-visible,
+    :is(a, button, summary):focus-visible,
     /* Elements > Framework > Forms */
     input:focus-visible,
     textarea:focus-visible {
@@ -704,7 +704,7 @@ scope;
             align-items: center;
             text-align: left;
         }
-        :where(p) + & {
+        :is(p) + & {
             margin-block-start: var(--spacing-s-2);
         }
     }
@@ -714,7 +714,7 @@ scope;
         - Don't affect the header
         - Not .c-btn + .c-btn in case a button is next to a different tag such as <p/>
     */
-    main :where(.c-btn, button) {
+    main :is(.c-btn, button) {
         margin-right: 1rem;
     }
 

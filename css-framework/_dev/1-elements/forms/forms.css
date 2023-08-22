@@ -154,7 +154,7 @@
     }
 
     /* Exceptions */
-    .c-form :where([type="checkbox"], [type="radio"]) {
+    .c-form :is([type="checkbox"], [type="radio"]) {
         margin-block-end: 0;
     }
 

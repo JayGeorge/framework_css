@@ -84,14 +84,14 @@
                 }
 
                 /* Center the icons since there is no text */
-                .c-btn__left :where([src*="svg"], svg) {
+                .c-btn__left :is([src*="svg"], svg) {
                     position: relative;
                     /* Visually center */
                     right: -0.3em;
                     margin-right: 0;
                 }
 
-                .c-btn__right :where([src*="svg"], svg) {
+                .c-btn__right :is([src*="svg"], svg) {
                     position: relative;
                     /* Visually center */
                     left: -0.3em;
