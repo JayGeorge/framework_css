@@ -88,17 +88,17 @@ scope;
 
     --font-size-s-x-x: 0.707em;
 
+    /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- OUTSIDE SCALE
+    =================================================== */
     /* e.g. Outside scale. Sometimes I go outside scales because of my font-bump adjustmemts */
     /* Decreased at a later root breakpoint */
     /* --font-size-s-x: 0.9em; */
-    /* -- */
     --font-size-s-x: 1em;
     --font-size-s-x-line-height: 1.3;
     --font-size-s-x-1: 1rem;
     --font-size-s: 1.1em;
     /* --font-size-s-2: clamp(1.3em, 7vw, 1.5em); */
     /* --font-size-s-2-line-height: 1.3; */
-    /* -- */
 
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- AUGMENTED FOURTH
     =================================================== */
@@ -151,7 +151,7 @@ scope;
 /* --mq-root-variable-adjustments-smaller-laptops-after to --mq-root-variable-adjustments-larger-laptops-before */
 @media (min-width: 1025px) and (max-width: 1440px) {
     :root {
-    
+        
         --font-bump: -0.09em; /* Decrease */
         /* and possibly... */
         /* --font-size-l-4: calc(9.313em + 0.75em)!important; */
@@ -329,7 +329,8 @@ scope;
     }
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS
     =================================================== */
-    h1, h2, h3, h4, h5, h6, blockquote, figcaption { /* https://developer.chrome.com/blog/CSS-text-wrap-balance */
+    /* https://developer.chrome.com/blog/CSS-text-wrap-balance */
+    h1, h2, h3, h4, h5, h6, blockquote, figcaption {
         text-wrap: balance;
     }
     h1, .h1, h1 a, .h1 a, h2, .h2, h2 a, .h2 a, h3, .h3, h3 a, .h3 a {
@@ -375,7 +376,6 @@ scope;
     }
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / HIGH PRIORITY / VERTICAL SPACING
     =================================================== */
-
     h1, .h1, h2, .h2 {
         padding-block-end: var(--spacing-s-1);
     }
@@ -428,7 +428,6 @@ scope;
     :where(h2, h3, h4, h5, h6):only-child {
         padding-block: 0;
     }
-
     /* GROUP ELEMENTS / FRAMEWORK / MAIN
     =================================================== */
     main:focus {
@@ -456,9 +455,10 @@ scope;
 
 
 
+
+/* GROUP ELEMENTS / FRAMEWORK / NAV
+=================================================== */
 @layer elements {
-    /* GROUP ELEMENTS / FRAMEWORK / NAV
-    =================================================== */
     nav {
         clear: both;
         display: block;
@@ -494,9 +494,9 @@ scope;
 
 
 
+/* GROUP ELEMENTS / FRAMEWORK / SVGs
+=================================================== */
 @layer elements {
-    /* GROUP ELEMENTS / FRAMEWORK / SVGs
-    =================================================== */
     :where([src*="svg"], svg) {
         width: 1em;
         height: 1em;
@@ -520,21 +520,23 @@ scope;
         </div>
 
     */
-    a > :is(svg, [src*=".svg"]):first-child:not(:last-child) {
-        margin-inline-end: var(--spacing-s-2);
-    }
-
-    a > :is(svg, [src*=".svg"]):last-child:not(:first-child) {
-        margin-inline: var(--spacing-s-2) 0;
+    a > :is(svg, [src*=".svg"]) {
+        &:first-child:not(:last-child) {
+            margin-inline-end: var(--spacing-s-2);
+        }
+        &:last-child:not(:first-child) {
+            margin-inline: var(--spacing-s-2) 0;
+        }
     }
 }
 @layer components {
-    .c-btn a > :is(svg, [src*=".svg"]):first-child:not(:last-child) {
-        margin-inline-end: var(--spacing-s);
-    }
-
-    .c-btn a > :is(svg, [src*=".svg"]):last-child:not(:first-child) {
-        margin-inline: var(--spacing-s) 0;
+    .c-btn a > :is(svg, [src*=".svg"]) {
+        &:first-child:not(:last-child) {
+            margin-inline-end: var(--spacing-s);
+        }
+        &:last-child:not(:first-child) {
+            margin-inline: var(--spacing-s) 0;
+        }
     }
 
     button svg,
@@ -585,6 +587,11 @@ scope;
     textarea:focus {
         outline: 4px solid blue;
     }
+
+    /* ensure the focus outline is effective when a link is wrapped around a heading */
+    a:has(> h2, h3, h4, h5, h6) {
+        display: inline-block;
+    }
 }
 
 @layer components {
@@ -606,13 +613,14 @@ scope;
         background: seashell;
     }
 
-    p a:focus {
-        /* Offset for text */
-        outline-offset: 5px;
-    }
-
-    nav a:focus {
-        outline-offset: 10px; /* Increase */
+    a:focus {
+        p & {
+            /* Offset for text */
+            outline-offset: 5px;
+        }
+        :where(nav) & {
+            outline-offset: 10px; /* Increase */
+        }
     }
 }
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS -- remove for mouse
