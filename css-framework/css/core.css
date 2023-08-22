@@ -594,17 +594,16 @@ scope;
     .c-nav-mobile-button:focus {
         /* We'll set the outline on the SVG instead because it's neater */
         outline: none;
-    }
-    .c-nav-mobile-button:focus svg {
-        /* Increase offset for nav since we have it on the SVG instead */
-        outline-offset: 10px;
+        & svg {
+            /* Increase offset for nav since we have it on the SVG instead */
+            outline-offset: 10px;
+        }
     }
 }
 
 @layer elements {
     /* Elements > Framework > Forms */
-    input:focus,
-    textarea:focus {
+    :is(input, textarea):focus {
         /* Light colour here */
         background: seashell;
     }
@@ -614,7 +613,7 @@ scope;
             /* Offset for text */
             outline-offset: 5px;
         }
-        :where(nav) & {
+        :is(nav) & {
             outline-offset: 10px; /* Increase */
         }
     }
