@@ -3,16 +3,9 @@
 /* This file contains detailed guide notes about CSS groups without cluttering CSS files */
 
 
-/* GROUP NOTES / COMMENT FORMATTING
+/* GROUP NOTES / FORMATTING / COMMENTS / DEFAULT FORMATTING
 ===================================================  */
-/* By default comments should sit vertically above code so they're easily seen when scanning the CSS file. It's tempting to add them to the end of the line to save space but this makes them harder to scan / makes CSS harder to debug, and comments are stripped from production CSS anyway.
-
-Comments should be added to the end of the line when they are entirely supplementary. Examples:
-
-- Increase or Decrease <-- when you are just noting a change in value, for example on higher or lower media queries
-- A URL example of the property/value pair
-
-*/
+/* By default comments should sit vertically above code so they're easily seen when scanning the CSS file. It's tempting to add them to the end of the line to save space but this makes them harder to scan / makes CSS harder to debug, and comments are stripped from production CSS anyway. */
 
 /* Here is an example of a comment */
 .something {
@@ -20,6 +13,85 @@ Comments should be added to the end of the line when they are entirely supplemen
     /* Here is a second example of a commment, e.g. Prevent overflow on screens less than em or px value */
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 24em), 1fr));
 }
+/* GROUP NOTES / FORMATTING / COMMENTS / END OF LINE FORMATTING
+===================================================  */
+/* Comments should only be added to the end of the line when they are entirely supplementary. Examples:
+
+- Increase or Decrease <-- when you are just noting a change in value, for example on higher or lower media queries. Example:
+    ```
+        .something {
+            padding-block: 1rem;
+            @media (min-width: 768px) {
+                padding-block: 2rem; /* Increase
+            }
+        }
+    ```
+- A URL example from which the property/value pair decision is based. Example
+    ```
+        :root {
+            --font-size-s-2: 1.563em;
+            --font-size-s-2-line-height: 1.3; /* e.g. >> /blog/post-2
+        }
+    ```
+
+*/
+
+
+
+/* GROUP NOTES / FORMATTING / SPACING / SELECTORS
+===================================================  */
+/* Aims of formatting:
+
+    - Readability
+        - It's very important to be able to quickly understand the author's intentions when scanning CSS
+    - Scannability
+        - While spacing things out aids readability, if it's _too_ spraed out it can also hinder scannability
+        - We should try and save space where possible to improve scannability
+
+*/
+/*
+
+    1. Generally there should be a single line between every CSS selector, _except_ in the following circumstances
+    2. Within Objects and Components there should be no line in between selector rules, to keep scannability high. Example:
+        ```
+        .something {
+            
+        }
+        .something-else {
+
+        }
+    ```
+
+*/
+
+
+
+/* GROUP NOTES / FORMATTING / SPACING / GROUPING
+===================================================  */
+/*
+
+    1. Generally there should be three lines to separate each group, _except_ in the following circumstances
+    2. _Within_ Objects and Components there should be no line in between groups, to keep scannability high. Example:
+        ```
+        /* GROUP COMPONENTS / SOMETHING
+        =================================================== 
+        .something {
+            
+        }
+        .something-else {
+
+        }
+        /* GROUP COMPONENTS / SOMETHING / MQS
+        =================================================== 
+        @media (min-width: 768px) {
+            .something {
+                
+            }
+        }
+    ```
+
+*/
+
 
 
 /* GROUP VARIABLES -- SPACING
@@ -29,6 +101,7 @@ Comments should be added to the end of the line when they are entirely supplemen
     padding-inline-start: max(var(--spacing-l), 7vw);
 
 */
+
 
 
 /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
@@ -71,6 +144,7 @@ line-height: var(--font-size-height-l-1);
 */
 
 
+
 /* GROUP LAYERS
 =================================================== */
 /* See readme.css for more information */
@@ -88,6 +162,7 @@ vendors,
 ui,
 /* .s- classes */
 scope;
+
 
 
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS
@@ -178,6 +253,7 @@ scope;
 */
 
 
+
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS
 =================================================== */
 /* Notes...
@@ -202,6 +278,7 @@ scope;
 /* a:not([href^="http://brewpixel.com"]):not([href^="#"]):not([href^="/"]) {
 
 } */
+
 
 
 /* GROUP COMPONENTS / FRAMEWORK / BUTTONS
@@ -242,6 +319,7 @@ scope;
 } */
 
 
+
 /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK (Authored by me)
 =================================================== */
 /* Here's an example of me using a hidden trigger:
@@ -261,6 +339,7 @@ scope;
     }
 }
 */
+
 
 
 /* GROUP UTILITIES / DECORATION / PANELS
