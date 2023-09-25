@@ -66,6 +66,22 @@
 
 
 
+/* GROUP NOTES / FORMATTING / SPACING / PROPERTIES AND VALUES
+===================================================  */
+/*
+
+    1. Generally every property/value pair should be on a separte line, _except_ in the following circumstances
+    2. When different values or properties share very similar numbers or letters. Example:
+        ```
+        h2, .h2 {
+            font-size: var(--font-size-l); line-height: var(--font-size-l-line-height);
+        }
+    ```
+
+*/
+
+
+
 /* GROUP NOTES / FORMATTING / SPACING / GROUPING
 ===================================================  */
 /*
