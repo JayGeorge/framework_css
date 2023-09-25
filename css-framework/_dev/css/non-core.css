@@ -213,9 +213,13 @@ scope;
     --icon-size-l-2: 5rem;
     /* GROUP VARIABLES -- DECORATION -- TEXT -- OTHER
     =================================================== */
+    /* Sometimes ems are useful here with scaling text */
     --letter-spacing-s: 3px;
     --letter-spacing-m: 5px;
     --letter-spacing-l: 7px;
+
+    --letter-spacing-s-em: 0.2em;
+    --letter-spacing-l-em: 0.138em;
     /* GROUP VARIABLES -- DECORATION -- TEXT SHADOWS - ordered from light to dark variants
     =================================================== */
     --text-shadow-light: 1px 2px 5px hsla(0, 98%, 16%, 0.3);
@@ -237,6 +241,8 @@ scope;
     --box-shadow-s-light: 0 1px 8px hsla(0, 0%, 0%, 0.09);
     --box-shadow-s-light-s: 0 0 5px hsla(0, 0%, 0%, 0.1);
     --box-shadow-s-light-t: 0 -7px 7px -7px hsla(0, 0%, 0%, 0.09);
+    /* https://stackoverflow.com/questions/4561097/css-box-shadow-bottom-only */
+    /* For a bottom-only shadow... > whatever you set the blur to (3rd value), set the spread (4th value) to the negative of it */
     --box-shadow-s-light-b: 0 10px 9px -8px hsla(0, 0%, 0%, 0.09);
     --box-shadow-s-light-b-2: 0 10px 9px -8px hsla(0, 0%, 0%, 0.05);
     --box-shadow-s-light-b-3: 0 10px 9px hsla(0, 0%, 0%, 0.06);
@@ -280,6 +286,8 @@ scope;
     --anni-stagger: 0.12s;
     /* GROUP VARIABLES -- ANIMATIONS -- TIMING
     =================================================== */
+    --animation-timing-function-hipster: cubic-bezier(0.55, 0, 0.1, 1);
+
     --animation-timing-function-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
     --animation-timing-function-in-cubic: cubic-bezier(0.55, 0.06, 0.68, 0.19);
     --animation-timing-function-in-sine: cubic-bezier(0.47, 0, 0.75, 0.72);
@@ -803,14 +811,14 @@ scope;
 
 
 
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / DECORATIONAL
+/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / DECORATIONAL / { / EYEBROW }
 =================================================== */
 /* Utility-like classes that are not tied to a specific piece of UI */
 /* e.g.
 @layer components {
     .c-subtext {
         color: var(--colour-grey);
-        border-bottom; 1px solid grey;
+        border-bottom: 1px solid grey;
     }
 
     .c-eyebrow-heading {
@@ -938,8 +946,7 @@ scope;
     .c-hero-block__title {
         padding-block-start: 0;
 
-        font-size: var(--font-size-l-1);
-        line-height: var(--font-size-l-1-line-height);
+        font-size: var(--font-size-l-1); line-height: var(--font-size-l-1-line-height);
     }
 
     /* .c-hero-title--with-strapline { */
@@ -1133,7 +1140,7 @@ scope;
                 clip-path: inset(0 0 0 0);
             }
         }
-        @keyframes wipe-out-up {
+        @keyframes wipe-up-out {
             0% {
                 clip-path: inset(0 0 0 0);
             }
@@ -1171,7 +1178,7 @@ scope;
                 }
                 .c-site-header {
                     /* Effectively hide the .c-site-header after wipe-up has finished, thus preventing anything underneath being clicked, even if it's invisible */
-                    animation: 5s cubic-bezier(.25, 1, .30, 1) collapse-height both;
+                    animation: 1s cubic-bezier(.25, 1, .30, 1) collapse-height 1s both;
                 }
             }
         }
@@ -1424,8 +1431,7 @@ nav ul {
     .c-entry-title-intro--s {
         padding-block-end: var(--spacing-s);
         padding-block-start: var(--spacing-s);
-        /*padding-inline-start: var(--spacing-s);*/
-        /*padding-inline-end: var(--spacing-s);*/
+        /*padding-inline: var(--spacing-s);*/
         /*margin-block-end: var(--spacing-l-1);*/
         /*margin-top: var(--spacing-s-1);*/
         /*font-size: 1em;*/
@@ -1918,12 +1924,23 @@ nav ul {
             --anni-stagger: 0.2s;
             animation: var(--anni-duration) var(--animation-timing-function-linear-out-slow-in) fade-in-up both;
         }
-        .u-anni-wipe-out-up {
-            animation: var(--anni-duration) var(--animation-timing-function-wipe) wipe-out-up both;
-        }
+        /* .u-anni-wipe-in-left {
+            animation: var(--anni-duration) wipe-in-left both;
+        } */
         /* .u-anni-rotate-in-up {
             animation: var(--anni-duration) var(--animation-timing-function-out-cubic) rotate-in-up both;
-            animation-name: rotate-in-up;
+        } */
+        /* .u-anni-slide-in-right {
+            animation: var(--anni-duration) var(--animation-timing-function-out-quadratic) slide-in-right both;
+        } */
+        /* .u-anni-slide-in-left {
+            animation: var(--anni-duration) var(--animation-timing-function-out-quadratic) slide-in-left both;
+        } */
+        /* GROUP UTILITIES / FRAMEWORK / ANNI / TIMING / WIPES
+        =================================================== */
+        /* handy to use switch like u-anni-wipe-in-{{ switch between='right|left' }} */
+        /* [class*="u-anni-wipe"] {
+            animation-timing: var(--animation-timing-function-wipe);
         } */
         /* GROUP UTILITIES / FRAMEWORK / ANNI / ANIMATIONS / STAGGERING
         =================================================== */
@@ -1948,6 +1965,11 @@ nav ul {
                 &:nth-child(15) {animation-delay: calc(var(--anni-stagger) * 8.5)}
             }
         }
+    }
+}
+
+@layer utilities {
+    @media not (prefers-reduced-motion: reduce) {
         /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / VIEW TRANSITIONS
         =================================================== */
         .u-transition-wipe-out-up {

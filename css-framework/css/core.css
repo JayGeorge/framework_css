@@ -151,7 +151,6 @@ scope;
 /* --mq-root-variable-adjustments-smaller-laptops-after to --mq-root-variable-adjustments-larger-laptops-before */
 @media (min-width: 1025px) and (max-width: 1440px) {
     :root {
-        
         --font-bump: -0.09em; /* Decrease */
         /* and possibly... */
         /* --font-size-l-4: calc(9.313em + 0.75em)!important; */
@@ -351,28 +350,22 @@ scope;
     /* --- */
 
     h1, .h1 {
-        font-size: var(--font-size-l);
-        line-height: var(--font-size-l-line-height);
+        font-size: var(--font-size-l); line-height: var(--font-size-l-line-height);
     }
     h2, .h2 {
-        font-size: var(--font-size-m);
-        line-height: var(--font-size-m-line-height);
+        font-size: var(--font-size-m); line-height: var(--font-size-m-line-height);
     }
     h3, .h3 {
-        font-size: var(--font-size-s-2);
-        line-height: var(--font-size-s-2-line-height);
+        font-size: var(--font-size-s-2); line-height: var(--font-size-s-2-line-height);
     }
     h4, .h4 {
-        font-size: var(--font-size-s-1);
-        line-height: var(--font-size-s-1-line-height);
+        font-size: var(--font-size-s-1); line-height: var(--font-size-s-1-line-height);
     }
     h5, .h5 {
-        font-size: var(--font-size-s);
-        line-height: var(--font-size-s-line-height);
+        font-size: var(--font-size-s); line-height: var(--font-size-s-line-height);
     }
     h6, .h6 {
-        font-size: var(--font-size-s-x-1);
-        line-height: var(--font-size-s-x-1-line-height);
+        font-size: var(--font-size-s-x-1); line-height: var(--font-size-s-x-1-line-height);
     }
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / HIGH PRIORITY / VERTICAL SPACING
     =================================================== */
@@ -434,7 +427,8 @@ scope;
         outline: none;
     }
 
-    main {
+    /* Only when followed by the footer */
+    main:has(+ footer) {
         margin-block-end: var(--spacing-l-1);
     }
 
@@ -697,7 +691,7 @@ scope;
         - Don't affect the header
         - Not .c-btn + .c-btn in case a button is next to a different tag such as <p/>
     */
-    main :is(.c-btn, button) {
+    main :is(.c-btn, button):not(:last-child) {
         margin-right: 1rem;
     }
 

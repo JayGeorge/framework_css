@@ -3,6 +3,12 @@
     Author: Jay George
     Author URI: https://jaygeorge.co.uk
 
+    ABOUT THIS CSS
+    ===================================================
+    - Class name prefixes are influenced by Namespaces article - http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+    - Class relationships are based on BEM structure
+    - For more information open readme.css at https://raw.githubusercontent.com/JayGeorge/framework_css/main/css-framework/css/readme.css
+
 */
 
 /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / (CROSS POLLINATED)
@@ -48,6 +54,11 @@
     [type="file"] {
         padding-inline-start: 0;
         border: 0!important;
+    }
+
+    select {
+        /* prevent long options making the box longer */
+        max-width: 100%;
     }
 
     label {
@@ -114,7 +125,7 @@
         margin-inline: auto;
     }
 
-    input + .c-form__notes {
+    input:not[type="hidden"] + .c-form__notes {
         /* e.g. 'Login' button followed by 'Forgotten your password?' */
         padding-block: var(--spacing-l) 0;
     }
@@ -425,6 +436,9 @@
     textarea {
         /* =JFG. Cancel default button appearance */
         -webkit-appearance: none;
+        background: none;
+        border: 0;
+        border-radius: 0;
     }
     /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / FORMS / INPUT TYPES
     =================================================== */
@@ -603,7 +617,8 @@
             opacity: 1;
         }
 
-        .u-hide-labels-until-focused__always-show label:first-child {
+        .u-hide-labels-until-focused__always-show label {
+            opacity: 1;
             /* Make up for the labels which other fields don't have */
             padding-block-start: var(--spacing-l-1);
             padding-block-end: var(--spacing-m);
