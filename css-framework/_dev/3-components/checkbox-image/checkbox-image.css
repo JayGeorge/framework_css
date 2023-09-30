@@ -20,7 +20,7 @@
         <img src="/img/about/age/20s.png" alt="photo of person in their 20s" />
     </label>
 
-    Remember you can also use radio buttons. E.g. instead of...
+    Remember you can also use radio buttons. e.g. instead of...
     <input id="age_20s" type="checkbox" name="age_20s" />
     and
     <input id="age_25-35" type="checkbox" name="age_25-35" />

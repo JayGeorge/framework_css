@@ -11,6 +11,9 @@
 
 */
 
+/* GROUP LOCAL FONTS
+=================================================== */
+
 /* GROUP LAYERS
 =================================================== */
 /* See readme.css for more information */
@@ -58,7 +61,9 @@ scope;
     =================================================== */
     /* Used with font-variation-settings, e.g. font-variation-settings: var(--font-family-main-variation-normal); */
     --font-family-main-variation-normal: 'ital' 0, 'wdth' 100, 'wght' 400;
-    /* GROUP VARIABLES -- DECORATION -- COLOURS
+    /* GROUP VARIABLES -- DECORATION -- COLOURS -- GREYSCALE
+    =================================================== */
+    /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME
     =================================================== */
     /*
         - Use HSL. More info here - https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/
@@ -140,6 +145,11 @@ scope;
     =================================================== */
     /* Where you may want to space the line-height slightly e.g. You may want to use -spaced because a paragraph contains short information and links, so you'd like to make it breathe a bit more. Use _sparingly_ since it exceeds the max recommended line-height of 1.5 */
     --font-size-spaced-line-height: 1.6;
+
+    /* If a font is outside a used scale then you should add a Capitalised Heading above it with the note "Outside Scale" to denote that this is a conscious decision. For example, if you are using the Augmented Fourth scale.. */
+
+    /* Outside Scale */
+    --font-size-l: clamp(2.5em * 0.8, 9vw, 2.5em); /* e.g. >> Home > .c-display-title */
 
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- DIFFERENT FONT
     =================================================== */
@@ -297,7 +307,7 @@ scope;
     --animation-timing-function-wipe: cubic-bezier(.25, 1, .30, 1);
     /* GROUP VARIABLES -- ANIMATIONS -- ANIMATIONS
     =================================================== */
-    --animation-site-header-background: 1.5s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
+    --animation-site-header-background: 1.5s var(--animation-timing-function-wipe) wipe-in-down both;
 
     /* GROUP VARIABLES -- OTHER
     =================================================== */
@@ -371,7 +381,7 @@ scope;
 
 
 
-/* GROUP RESET / FRAMEWORK / (NON CORE) / SCROLLBARS
+/* GROUP RESET / FRAMEWORK / SCROLLBARS
 =================================================== */
 @layer base {
     /* To hide search bars in general, enable the below. Source: https://stackoverflow.com/questions/3296644/hiding-the-scrollbar-on-an-html-page; */
@@ -391,24 +401,20 @@ scope;
 
 
 
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE)
+/* GROUP ELEMENTS / FRAMEWORK
 =================================================== */
 @layer elements {
     html {
-        /* Consider disabling this if you have pages that require lots of cmd + f https://css-tricks.com/downsides-of-smooth-scrolling/ */
-        scroll-behavior: smooth;
         /*
         h2 {
             scroll-margin-top: 2em;
         }
         */
     }
-
     body {
         /* So scroll bars hide like in Safari */
         -ms-overflow-style: -ms-autohiding-scrollbar;
     }
-
     pre,
     code {
         /* e.g. try <code><?php bloginfo('stylesheet_url'); ?></code> and you'll see that it overflows on smaller screens */
@@ -418,7 +424,6 @@ scope;
         margin-block-end: var(--spacing-m);
         color: var(--colour-grey-reading);
     }
-
     /* Notes...
 
         For HTML examples on using blockquote along with references see my CSS.text file in my wiki, under Blockquotes
@@ -430,35 +435,33 @@ scope;
         /* margin-block-end: var(--spacing-l); */
         margin-inline-start: var(--spacing-s-x-x);
         border-left: 4px solid turquoise;
-    }
 
-    blockquote p,
-    blockquote cite {
-        color: var(--colour-grey-reading);
-    }
+        & :is(p, cite) {
+            color: var(--colour-grey-reading);
+        }
 
-    blockquote p {
-        quotes: "“" "”" "‘" "’";
-    }
+        & p {
+            quotes: "“" "”" "‘" "’";
+            &::before {
+                content: open-quote;
+            }
+            &::after {
+                content: close-quote;
+            }
 
-    blockquote p::before {
-        content: open-quote;
-    }
-    blockquote p::after {
-        content: close-quote;
-    }
+            &:last-child {
+                /* e.g. prevent the decorative left border from extending beyond the text */
+                padding-block-end: 0;
+            }
+        }
 
-    blockquote::before {
-        position: absolute;
-        top: -0.3em;
-        left: 0.4em;
-        font-size: var(--font-size-m);
-        color: var(--colour-grey-light-1);
-    }
-
-    blockquote p:last-child {
-        /* e.g. prevent the decorative left border from extending beyond the text */
-        padding-block-end: 0;
+        &::before {
+            position: absolute;
+            top: -0.3em;
+            left: 0.4em;
+            font-size: var(--font-size-m);
+            color: var(--colour-grey-light-1);
+        }
     }
 
     figcaption {
@@ -502,7 +505,7 @@ scope;
 
 
 
-/* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS }
+/* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS }
 =================================================== */
 /* Notes...
 
@@ -559,7 +562,7 @@ scope;
             background: #f5f1f2;
         }
     }
-    /* GROUP ELEMENTS / FRAMEWORK / (NON CORE) / TEXT / LINK STYLES {/ LINKS } / BLOCK
+    /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS } / BLOCK
     =================================================== */
     /* Notes...
 
@@ -590,7 +593,7 @@ scope;
 
 
 
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / SLIDE
+/* GROUP COMPONENTS / FRAMEWORK / SLIDE
 =================================================== */
 @layer components {
     /* Notes...
@@ -661,11 +664,12 @@ scope;
 
 
 
-
-/* GROUP OBJECTS / FRAMEWORK / (NON CORE) / HERO BUTTONS { / BUTTON HERO}
+/* GROUP OBJECTS / FRAMEWORK / HERO BUTTONS { / BUTTON HERO}
 =================================================== */
 /* Notes...
 
+    What does it do?
+    ----------------
     - Put some space around a group of buttons
     - Center the buttons
 
@@ -718,7 +722,7 @@ scope;
             padding-inline-start: var(--spacing-l);
         }
     }
-    /* GROUP OBJECTS / FRAMEWORK / (NON CORE) / HERO BUTTONS { / BUTTON HERO} / SPACING MODIFICATIONS
+    /* GROUP OBJECTS / FRAMEWORK / HERO BUTTONS { / BUTTON HERO} / SPACING MODIFICATIONS
     =================================================== */
     .o-hero-buttons + h2 {
         padding-block-start: var(--spacing-s);
@@ -739,7 +743,7 @@ scope;
 
 
 
-/* GROUP OBJECT / FRAMEWORK / (NON CORE) / LAYOUT / FULL WIDTH {BUST OUT OF CONTAINER}
+/* GROUP OBJECT / FRAMEWORK / LAYOUT / FULL WIDTH {BUST OUT OF CONTAINER}
 =================================================== */
 /* Notes...
 
@@ -811,7 +815,7 @@ scope;
 
 
 
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / DECORATIONAL / { / EYEBROW }
+/* GROUP COMPONENTS / FRAMEWORK / DECORATIONAL / { / EYEBROW }
 =================================================== */
 /* Utility-like classes that are not tied to a specific piece of UI */
 /* e.g.
@@ -843,7 +847,7 @@ scope;
 
 
 
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / BUTTONS / TYPES / ANIMATION
+/* GROUP COMPONENTS / FRAMEWORK / BUTTONS / TYPES / ANIMATION
 =================================================== */
 /* Left and Right Arrows */
 /* HTML Example...
@@ -881,7 +885,7 @@ scope;
         }
     }
 }
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / BUTTONS / SIZES
+/* GROUP COMPONENTS / FRAMEWORK / BUTTONS / SIZES
 =================================================== */
 @layer modifiers {
     /* Small */
@@ -893,7 +897,7 @@ scope;
 
 
 
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / HERO BLOCK
+/* GROUP COMPONENTS / FRAMEWORK / HERO BLOCK
 =================================================== */
 /* Notes...
 
@@ -982,7 +986,7 @@ scope;
 
 
 
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV
+/* GROUP COMPONENTS / FRAMEWORK / NAV
 =================================================== */
 /*
 
@@ -1001,7 +1005,7 @@ scope;
     See one of the various demos in the CSS Framework
 
 */
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MODIFIER CLASSES
+/* GROUP COMPONENTS / FRAMEWORK / NAV / MODIFIER CLASSES
 =================================================== */
 /* Notes...
 
@@ -1012,7 +1016,7 @@ scope;
 
 */
 @layer ui {
-    /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / CURRENT PAGE
+    /* GROUP COMPONENTS / FRAMEWORK / NAV / CURRENT PAGE
     =================================================== */
     /* Ancestors and Parents of Current Page */
     /* nav */
@@ -1020,7 +1024,7 @@ scope;
         color: rgba(var(--colour-turquoise-rgb),0.5);
     }
 }
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / (CROSS POLLINATED)
+/* GROUP COMPONENTS / FRAMEWORK / NAV / MOBILE / (CROSS POLLINATED)
 =================================================== */
 /* HTML Example...
 
@@ -1030,7 +1034,7 @@ scope;
     </button>
 
 */
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / BUTTON
+/* GROUP COMPONENTS / FRAMEWORK / NAV / MOBILE / BUTTON
 =================================================== */
 @layer components {
     /* button*/
@@ -1074,7 +1078,7 @@ scope;
         }
     }
 }
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / OPEN STATE
+/* GROUP COMPONENTS / FRAMEWORK / NAV / MOBILE / OPEN STATE
 =================================================== */
 @layer ui {
     /* --mq-nav-opens-before */
@@ -1169,16 +1173,16 @@ scope;
 
             .js--navIsOpen .c-site-header__nav {
                 /* You could also try something like in:circle:top-right here from https://www.transition.style */
-                animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
+                animation: 1s var(--animation-timing-function-wipe) wipe-in-down both;
             }
 
             .js:not(.js--navIsOpen) {
                 .c-site-header__nav {
-                    animation: 1s cubic-bezier(.25, 1, .30, 1) wipe-up-out both;
+                    animation: 1s var(--animation-timing-function-wipe) wipe-up-out both;
                 }
                 .c-site-header {
                     /* Effectively hide the .c-site-header after wipe-up has finished, thus preventing anything underneath being clicked, even if it's invisible */
-                    animation: 1s cubic-bezier(.25, 1, .30, 1) collapse-height 1s both;
+                    animation: 1s var(--animation-timing-function-wipe) collapse-height 1s both;
                 }
             }
         }
@@ -1187,7 +1191,7 @@ scope;
             display: block;
         }
     }
-    /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MOBILE / OPEN STATE / SVG ANIMATIONS
+    /* GROUP COMPONENTS / FRAMEWORK / NAV / MOBILE / OPEN STATE / SVG ANIMATIONS
     =================================================== */
     .c-nav-line {
         transition: 0.25s ease-in-out;
@@ -1223,7 +1227,7 @@ scope;
 
 
 
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / GRID
+/* GROUP COMPONENTS / FRAMEWORK / NAV / GRID
 =================================================== */
 /* Notes...
 
@@ -1239,7 +1243,7 @@ scope;
             text-align: left;
         }
 
-        /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / GRID / ACCESSIBILITY
+        /* GROUP COMPONENTS / FRAMEWORK / NAV / GRID / ACCESSIBILITY
         =================================================== */
         .s-nav-grid-mq-600-up .js__u-js-hide {
             /* Cancel hiding of Skip to Content when we reach full nav break point,
@@ -1251,7 +1255,7 @@ scope;
             position: relative;
         }
     }
-    /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / OPEN
+    /* GROUP COMPONENTS / FRAMEWORK / NAV / OPEN
     =================================================== */
     /* Optional force the nav to open */
     /* --mq-nav-opens-after */
@@ -1275,7 +1279,7 @@ scope;
 
 
 
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MULTI LEVEL
+/* GROUP COMPONENTS / FRAMEWORK / NAV / MULTI LEVEL
 =================================================== */
 /* Notes...
 
@@ -1343,7 +1347,7 @@ nav ul {
 
 
 
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / SITE TITLE
+/* GROUP COMPONENTS / FRAMEWORK / SITE TITLE
 =================================================== */
 @layer objects {
     /* */.o-site-title,
@@ -1364,7 +1368,7 @@ nav ul {
 
 
 
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY HEADER
+/* GROUP COMPONENTS / FRAMEWORK / ENTRY / ENTRY HEADER
 =================================================== */
 @layer scope {
     .s-entry-header {
@@ -1392,7 +1396,7 @@ nav ul {
         font-size: var(--font-size-s-x);
     }
 }
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY TITLE
+/* GROUP COMPONENTS / FRAMEWORK / ENTRY / ENTRY TITLE
 =================================================== */
 @layer components {
     /* Notes...
@@ -1412,7 +1416,7 @@ nav ul {
         clear: both;
     }
 }
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY TITLE / (NON CORE) / INTRO
+/* GROUP COMPONENTS / FRAMEWORK / ENTRY / ENTRY TITLE / INTRO
 =================================================== */
 @layer components {
     .c-entry-title--with-intro {
@@ -1557,7 +1561,7 @@ nav ul {
 
 
 
-/* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY CONTENT / (MODIFIERS)
+/* GROUP COMPONENTS / FRAMEWORK / ENTRY / ENTRY CONTENT / (MODIFIERS)
 =================================================== */
 @layer scope {
     /*.s-entry-content--hero,*/
@@ -1587,7 +1591,7 @@ nav ul {
         /* e.g. a Perch block, where we have lots of `.s-entry-content`s stacked on top of each other */
         padding-block-end: 0;
     }
-    /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / ENTRY / ENTRY CONTENT / (MODIFIERS) / VIDEO
+    /* GROUP COMPONENTS / FRAMEWORK / ENTRY / ENTRY CONTENT / (MODIFIERS) / VIDEO
     =================================================== */
     .s-entry-content--video .js--video {
         margin-block-end: 0;
@@ -1601,7 +1605,7 @@ nav ul {
 
 
 
-/* GROUP UTILTIES / FRAMEWORK / (NON CORE)
+/* GROUP UTILTIES / FRAMEWORK
 =================================================== */
 @layer utilities {
     /* For when something is revealed with JS, but if JS is not available show it */
@@ -1633,7 +1637,7 @@ nav ul {
         border: initial;
     }
 
-    /* GROUP UTILITIES / FRAMEWORK / (NON CORE) / LINE CLAMP
+    /* GROUP UTILITIES / FRAMEWORK / LINE CLAMP
     =================================================== */
     /* e.g. <div class="u-line-clamp" style="--clamp: 3;"> */
     .u-line-clamp {
@@ -1666,7 +1670,7 @@ nav ul {
         /* Optional */
         max-width: 95%;
     }
-    /* GROUP UTILITIES / (NON CORE) / STICKY FOOTER
+    /* GROUP UTILITIES / STICKY FOOTER
     =================================================== */
     /* Source:http://codepen.io/astrotim/pen/PwYQOJ */
 
@@ -1699,7 +1703,7 @@ nav ul {
     main {
         flex-grow: 1;
     }
-    /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ICONS / SIZING
+    /* GROUP UTILTIES / FRAMEWORK / ICONS / SIZING
     =================================================== */
     /* These is explicit, so override any automatic rules above with !important */
     .u-icon-right-x-x {
@@ -1731,7 +1735,7 @@ nav ul {
     }
     /* If they're OK with animation */
     @media (prefers-reduced-motion: no-preference) {
-        /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES / FADES
+        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / FADES
         =================================================== */
         /* Components > Framework > Nav */
         @keyframes fade-in {
@@ -1763,7 +1767,7 @@ nav ul {
                 transform: none;
             }
         }
-        /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES / SLIDES
+        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / SLIDES
         =================================================== */
         @keyframes slide-in-left {
             0% {
@@ -1787,7 +1791,7 @@ nav ul {
                 opacity: 1;
             }
         }
-        /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES / MOVES
+        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / MOVES
         =================================================== */
         @keyframes pull-up {
             100% {
@@ -1824,7 +1828,7 @@ nav ul {
                 opacity: 1;
             }
         }
-        /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES / WIPES
+        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / WIPES
         =================================================== */
         @keyframes wipe-out-up {
             0% {
@@ -1832,6 +1836,14 @@ nav ul {
             }
             100% {
                 clip-path: inset(0 0 100% 0);
+            }
+        }
+        @keyframes wipe-in-down {
+            from {
+                clip-path: inset(0 0 100% 0);
+            }
+            to {
+                clip-path: inset(0 0 0 0);
             }
         }
         @keyframes wipe-in-left {
@@ -1861,7 +1873,7 @@ nav ul {
                 clip-path: inset(0 0 0 0);
             }
         }
-        /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES / CIRCLES
+        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / CIRCLES
         =================================================== */
         @keyframes circle-in-center {
             from {
@@ -1891,7 +1903,7 @@ nav ul {
                 clip-path: circle(150% at top left);
             }
         }
-        /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES / MISC
+        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / MISC
         =================================================== */
         @keyframes slit-reveal {
             0% {
@@ -1970,7 +1982,7 @@ nav ul {
 
 @layer utilities {
     @media not (prefers-reduced-motion: reduce) {
-        /* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / VIEW TRANSITIONS
+        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / VIEW TRANSITIONS
         =================================================== */
         .u-transition-wipe-out-up {
             view-transition-name: wipe-out-up;
@@ -2347,7 +2359,6 @@ nav ul {
     }
     /* GROUP UTILITIES / FRAMEWORK / (NON-CORE) / LAYOUT / HIDERS
     =================================================== */
-    /* Custom */
     @media (max-width: 1099px) {
         .u-mq-1100-up {
             display: none!important;

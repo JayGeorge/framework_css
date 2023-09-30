@@ -14,7 +14,7 @@
 
 /* GROUP ATOMS / (NON CORE) / CLONE
 =================================================== */
-// E.g. clone('js__fixed-nav', 'js__site-header');
+// e.g. clone('js__fixed-nav', 'js__site-header');
 function clone(selector_id, destination__id) {
     // Get the element
     var item_to_be_cloned = document.getElementById(selector_id);

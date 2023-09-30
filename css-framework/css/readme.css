@@ -45,14 +45,71 @@
     - Readability
         - It's very important to be able to quickly understand the author's intentions when scanning CSS
     - Scannability
-        - While spacing things out aids readability, if it's _too_ spraed out it can also hinder scannability
+        - While spacing things can aid readability, it can also hinder scannability and comprehension
         - We should try and save space where possible to improve scannability
+        - Because we use 4 spaces (rather than 2) readability is higher and we can generally visually afford to remove spaces between selectors
+        - Only keep a line between selectors if you're grouping themes (for example, layout selectors, positioning, etc.). Here is a good example of grouping themes, adding a line in between:
 
+        ```
+        c-flying-badges {
+            min-height: 100vh;
+            min-height: 100svh;
+
+            position: relative; /* Needed for overflow: hidden; to work
+
+            display: grid;
+            align-content: center;
+            text-align: center;
+            /* Minimum vertical padding of --carousel-product-fake-celing if it exists, with a fallback if it doesn't
+            padding: var(--carousel-product-fake-ceiling, var(--spacing-l-3)) var(--spacing-l);
+
+            & > * {
+                text-wrap: balance;
+                &:first-child {
+                    padding-block-start: 0;
+                }
+            }
+            & h2 {
+                font-size: var(--font-size-l-2);
+                line-height: var(--font-size-l-2-line-height);
+                max-width: var(--max-width-title);
+                margin-inline: auto;
+            }
+            & p {
+                font-size: var(--font-size-s);
+                max-width: var(--max-width-reading-long);
+                margin-inline: auto;
+                &:last-of-type {
+                    margin-block-end: 0;
+                }
+            }
+
+            .c-flying-badges__badge {
+                position: absolute;
+                @supports not (animation-timeline: auto) {
+                    rotate: 25deg;
+                    &:nth-of-type(even) {
+                        rotate: -25deg;
+                    }
+                }
+                /* e.g. Pink badge
+                &:nth-of-type(1) {
+                    top: -2rem;
+                    left: -3rem;
+                }
+                /* e.g. Blue badge
+                &:nth-of-type(2) {
+                    bottom: -5%;
+                    left: 8%;
+                }
+                etc.
+        ```
 */
 /*
 
-    1. Generally there should be a single line between every CSS selector, _except_ in the following circumstances
-    2. Within Objects and Components there should be no line in between selector rules, to keep scannability high. Example:
+    Examples of where we can remove spacing:
+
+    1. Within Objects and Components there should be no line in between _selector_ rules, to keep scannability high. Example:
         ```
         .something {
             
@@ -61,6 +118,21 @@
 
         }
     ```
+    2. Space in between different media queries can be eliminated without hindering readability
+    3. You can remove space between selectors where code is grouped because it's "reset" or "base" code. You almost never need to touch this code or comprehend the relationship between different selectors.
+    4. You can remove space between selectors where you'd like to logically group code, to help convey a theme. You might want to do this for "reset" CSS, "utility" CSS or, for example, where I am targetting headings:
+        ```
+        blockquote
+            /* e.g. >> /blog/intolerance
+            :is(h2) + & {
+                margin-block: 0 var(--spacing-m);
+            }
+            /* e.g. >> /blog/setting-up-statamic-v3-on-macos-part-4-of-4-publishing-a-statamic-site
+            :is(h3) + & {
+                margin-block-start: var(--spacing-m);
+            }
+        ```
+    5. There should be NO line between groups for Variable definitions at the top of the stylesheet (in the root)
 
 */
 
@@ -86,8 +158,7 @@
 ===================================================  */
 /*
 
-    1. Generally there should be three lines to separate each group, _except_ in the following circumstances
-    2. _Within_ Objects and Components there should be no line in between groups, to keep scannability high. Example:
+    There should be THREE LINES to separate each group, but _within_ Objects and Components there should be NO line in between groups, to keep scannability high. Example:
         ```
         /* GROUP COMPONENTS / SOMETHING
         =================================================== 

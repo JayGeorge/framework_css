@@ -577,7 +577,7 @@ http://help.typekit.com/customer/portal/articles/6852-controlling-the-flash-of-u
 /* HTML Example...
 
     <div class="u-fixed-above">
-        E.g. content above the fold
+        e.g. content above the fold
     </div>
     <div class="u-fixed-below">
         Put your content e.g. CTA here
@@ -1473,7 +1473,7 @@ body,
 /* Notes...
 
     - Used to push the content down at higher resolutions so it's more centered in the screen, at eye level
-    - E.g. a blog archive without images where we want the blog heading to be at eye level
+    - e.g. a blog archive without images where we want the blog heading to be at eye level
 
 */
 
