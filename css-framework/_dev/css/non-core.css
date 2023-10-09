@@ -28,7 +28,9 @@ utilities,
 utilities-modifiers,
 vendors,
 ui,
-scope;
+scope,
+/* Rarely needed */
+scope-ui;
 
 :root {
     /* GROUP VARIABLES -- LAYOUT -- GRID

@@ -157,6 +157,11 @@ scope;
         /* --font-size-l-4: calc(9.313em + 0.75em)!important; */
     }
 }
+@media (min-width: 1024px) {
+    :root {
+        --spacing-vh-full: 100vmin;
+    }
+}
 /* --mq-text-bump-1-after */
 @media (min-width: 1600px) {
     :root {
