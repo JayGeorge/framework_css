@@ -1917,6 +1917,104 @@ nav ul {
         }
     }
 }
+
+
+
+/* GROUP UTILITIES / FRAMEWORK / SCROLLY
+=================================================== */
+/* Notes...
+
+    - My own mini scroll-driven animations framework. Very very basic. Essentially just variables and class names.
+    - I've called it SCROLLY so it's easy to find it with cmd + f
+
+*/
+@layer utilities {
+    /* If they're OK with animation */
+    @media (prefers-reduced-motion: no-preference) {
+        @keyframes scrolly-fade-in {
+            0%, 30% {
+                opacity: 0;
+            }
+            50% {
+                opacity: var(--stagger, 50%);
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes scrolly-fade-in-up {
+            0%, 30% {
+                top: var(--move-by, 5vh);
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+                top: 0;
+            }
+        }
+    }
+    .u-scrolly-fade-in-children,
+    .u-scrolly-fade-in-up-children {
+        view-timeline-name: --scroll-section;
+        > * {
+            animation-timeline: --scroll-section;
+            animation-range: cover 0% cover 55%;
+            animation-timing-function: var(--animation-timing-function-in-quadratic);
+        }
+    }
+    /* GROUP UTILITIES / FRAMEWORK / SCROLLY / FADE IN CHILDREN
+    =================================================== */
+    .u-scrolly-fade-in-children {
+        > * {
+            animation-name: scrolly-fade-in;
+
+            &:nth-child(2) { --stagger: 40%; }
+            &:nth-child(3) { --stagger: 20%; }
+            &:nth-child(4) { --stagger: 10%; }
+        }
+        /* If has at least 5 children, spread out the stagger more */
+        &:has(> :nth-child(5)) > * {
+            &:nth-child(2) { --stagger: 45%; }
+            &:nth-child(3) { --stagger: 40%; }
+            &:nth-child(4) { --stagger: 35%; }
+            &:nth-child(5) { --stagger: 30%; }
+            &:nth-child(6) { --stagger: 25%; }
+            &:nth-child(7) { --stagger: 20%; }
+            &:nth-child(8) { --stagger: 15%; }
+            &:nth-child(9) { --stagger: 10%; }
+            &:nth-child(10) { --stagger: 5%; }
+            &:nth-child(n+11) { --stagger: 0%; }
+        }
+    }
+    /* GROUP UTILITIES / FRAMEWORK / SCROLLY / FADE IN UP CHILDREN
+    =================================================== */
+    .u-scrolly-fade-in-up-children {
+        > * {
+            position: relative;
+            animation-name: scrolly-fade-in-up;
+
+            &:nth-child(2) { --move-by: 10vh; }
+            &:nth-child(3) { --move-by: 15vh; }
+            &:nth-child(4) { --move-by: 20vh; }
+        }
+        /* If has at least 5 children, spread out the stagger more */
+        &:has(> :nth-child(5)) > * {
+            &:nth-child(2) { --move-by: 5vh; }
+            &:nth-child(3) { --move-by: 7.5vh; }
+            &:nth-child(4) { --move-by: 10vh; }
+            &:nth-child(5) { --move-by: 12.5vh; }
+            &:nth-child(6) { --move-by: 15vh; }
+            &:nth-child(7) { --move-by: 17.5vh; }
+            &:nth-child(8) { --move-by: 20vh; }
+            &:nth-child(9) { --move-by: 22.5vh; }
+            &:nth-child(10) { --move-by: 25vh; }
+            &:nth-child(n+11) { --move-by: 27.5vh; }
+        }
+    }
+}
+
+
+
 /* GROUP UTILITIES / FRAMEWORK / ANNI
 =================================================== */
 @layer utilities {
