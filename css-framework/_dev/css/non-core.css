@@ -152,7 +152,6 @@ scope-ui;
 
     /* Outside Scale */
     --font-size-l: clamp(2.5em * 0.8, 9vw, 2.5em); /* e.g. >> Home > .c-display-title */
-
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- DIFFERENT FONT
     =================================================== */
     /* Use variable names like this if you have a mixture of larger fonts with different typefaces that need different sizes */
@@ -302,6 +301,7 @@ scope-ui;
 
     --animation-timing-function-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
     --animation-timing-function-in-cubic: cubic-bezier(0.55, 0.06, 0.68, 0.19);
+    --animation-timing-function-in-quadratic: cubic-bezier(0.55, 0.09, 0.68, 0.53);
     --animation-timing-function-in-sine: cubic-bezier(0.47, 0, 0.75, 0.72);
 
     --animation-timing-function-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -310,12 +310,10 @@ scope-ui;
     /* GROUP VARIABLES -- ANIMATIONS -- ANIMATIONS
     =================================================== */
     --animation-site-header-background: 1.5s var(--animation-timing-function-wipe) wipe-in-down both;
-
     /* GROUP VARIABLES -- OTHER
     =================================================== */
     /* Used to push down the columns for the overlay */
     --overlay-height-push: 11vh;
-
     /* After standard variables you can add variables that are not part of the framework e.g. */
     /* GROUP VARIABLES -- NOT PART OF FRAMEWORK -- PLUGINS -- FREE TO BOOK
     =================================================== */
@@ -382,7 +380,6 @@ scope-ui;
 
 
 
-
 /* GROUP RESET / FRAMEWORK / SCROLLBARS
 =================================================== */
 @layer base {
@@ -399,7 +396,6 @@ scope-ui;
         width: 0px;
     } */
 }
-
 
 
 
@@ -506,7 +502,6 @@ scope-ui;
 
 
 
-
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS }
 =================================================== */
 /* Notes...
@@ -542,7 +537,6 @@ scope-ui;
         text-decoration-thickness: 1px;
     }
 }
-
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / CUSTOM
 =================================================== */
 @layer utilities {
@@ -594,7 +588,6 @@ scope-ui;
 
 
 
-
 /* GROUP COMPONENTS / FRAMEWORK / SLIDE
 =================================================== */
 @layer components {
@@ -618,49 +611,17 @@ scope-ui;
     /* } */
     .o-slide {
         padding-block: var(--spacing-vh-s);
-    }
-
-    .o-slide > *:last-child {
-        padding-block-end: 0;
-    }
-
-    .o-slide > *:first-child {
-        padding-block-start: 0;
+        > *:last-child {
+            padding-block-end: 0;
+        }
+        > *:first-child {
+            padding-block-start: 0;
+        }
     }
 }
 @layer modifiers {
     .o-slide--compressed-b-total {
         padding-block-end: 0;
-    }
-}
-
-/* Notes...
-
-    - For the 'observe sections' intersection observer component to trigger EVENLY, we can't always rely on padding-block-end.
-    - Therefore for slides, we sometimes need to switch from bottom padding-block-end to padding-block-start on the next slide instead.
-    - The following rules handle that
-
-*/
-/* Example rules...
-.o-slide[data-observe-sections__section="dark"] {
-    padding-block-end: 0;
-}
-
-.o-slide[data-observe-sections__section="dark"] + .o-slide {
-    padding-block-start: var(--spacing-vh-s);
-}
-*/
-
-
-
-
-/* GROUP OBJECTS / FRAMEWORK / GSAP
-=================================================== */
-/* Need the JS in the <head> in my framework for this to work */
-@layer ui {
-    .js:not([data-js="document-loaded"]) [data-gsap="split-text-immediately"] {
-        /* Hide split text elements until the document is loaded and we can successfully animate them witout any issues as per https://greensock.com/forums/topic/17049-split-text-before-font-render-issue */
-        opacity: 0;
     }
 }
 
@@ -711,27 +672,20 @@ scope-ui;
         &:last-child {
             padding-block-end: 0;
         }
-    }
-
-    .o-hero-buttons--left {
-        justify-content: flex-start;
-    }
-
-    /* --mq-max-width-reading-before */
-    @media (max-width: 599px) {
-        .o-hero-buttons {
+        /* --mq-max-width-reading-before */
+        @media (max-width: 599px) {
             text-align: left;
             padding-inline-start: var(--spacing-l);
         }
-    }
-    /* GROUP OBJECTS / FRAMEWORK / HERO BUTTONS { / BUTTON HERO} / SPACING MODIFICATIONS
-    =================================================== */
-    .o-hero-buttons + h2 {
-        padding-block-start: var(--spacing-s);
-    }
+        /* GROUP OBJECTS / FRAMEWORK / HERO BUTTONS { / BUTTON HERO} / SPACING MODIFICATIONS
+        =================================================== */
+        & + h2 {
+            padding-block-start: var(--spacing-s);
+        }
 
-    h2 + .o-hero-buttons {
-        padding-block-start: var(--spacing-s-1);
+        :where(h2) + & {
+            padding-block-start: var(--spacing-s-1);
+        }
     }
 }
 @layer components {
@@ -741,7 +695,11 @@ scope-ui;
         margin: unset;
     }
 }
-
+@layer modifiers {
+    .o-hero-buttons--left {
+        justify-content: flex-start;
+    }
+}
 
 
 
@@ -773,7 +731,6 @@ scope-ui;
 
 
 
-
 /* GROUP COMPONENTS / FRAMEWORK / MARKETING CONTENT
 =================================================== */
 /* HTML Example...
@@ -795,7 +752,6 @@ scope-ui;
 
 
 
-
 /* GROUP COMPONENTS / FRAMEWORK / BUTTONS
 =================================================== */
 @layer components {
@@ -813,7 +769,6 @@ scope-ui;
         /* line-height: 1.3; */
     }
 }
-
 
 
 
@@ -898,96 +853,6 @@ scope-ui;
 
 
 
-
-/* GROUP COMPONENTS / FRAMEWORK / HERO BLOCK
-=================================================== */
-/* Notes...
-
-    - Can contain anything e.g. Clients
-    - Cross pollinated with core.css e.g. .c-hero-block__strapline
-
-*/
-
-/* HTML Example...
-
-    .c-hero-block
-        .c-hero-block__text
-            h2.c-hero-block__title
-            div.c-hero-block__strapline
-                From world-class airlines to cruise lines. From start-ups to renowned brands.
-
-*/
-
-/* Modifiers...
-
-    .c-hero-block--compressed
-    .c-hero-block--compressed-totally
-    .c-hero-block--compressed-b-1
-    .c-hero-block--compressed-b-2
-    .c-hero-block--compressed-t-1
-    .c-hero-block--compressed-t-2
-
-*/
-@layer components {
-    .c-hero-block {
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        flex-basis: 100%;
-        justify-content: center;
-        text-align: center;
-
-        padding-block-end: var(--spacing-l-3-horizontal);
-        padding-inline-end: var(--spacing-l-3-horizontal)
-    }
-
-    .c-hero-block > * {
-        flex-basis: 100%;
-    }
-
-    .c-hero-block__text {
-        max-width: 46rem;
-    }
-
-    .c-hero-block__title {
-        padding-block-start: 0;
-
-        font-size: var(--font-size-l-1); line-height: var(--font-size-l-1-line-height);
-    }
-
-    /* .c-hero-title--with-strapline { */
-        /* Decrease */
-    /*     padding-block-end: var(--spacing-m-2);
-    } */
-
-    /* e.g. div*/.c-hero-block__strapline {
-        padding-block-end: var(--spacing-l-1);
-
-        font-size: var(--font-size-s-1);
-        color: var(--colour-grey-reading);
-    }
-
-    .c-hero-block + .c-hero-block {
-        /* e.g. client logos AJAX'd in */
-        padding-block-start: var(--spacing-m-2);
-    }
-
-    .c-hero-block img {
-        filter: var(--image-boost);
-    }
-}
-@layer modifiers {
-    .c-hero-block--compressed .c-hero-block__text {
-        /* e.g. >> /projects */
-        padding-block-end: var(--spacing-l-1);
-        padding-block-start: 0;
-    }
-}
-
-
-
-
-
 /* GROUP COMPONENTS / FRAMEWORK / NAV
 =================================================== */
 /*
@@ -1051,6 +916,12 @@ scope-ui;
         line-height: 0;
 
         cursor: pointer;
+
+        /* --mq-nav-opens-after */
+        @media (min-width: 1200px) {
+            /* =JFG. Hide the toggle button now that nav is always visible */
+            display: none;
+        }
     }
 
     /* Optional, if you want to include both an icon and text */
@@ -1070,27 +941,9 @@ scope-ui;
         justify-content: center;
         align-items: center
     }
-
-    /* --mq-nav-opens-after */
-    @media (min-width: 1200px) {
-        /* div*/
-        .c-nav-mobile-button {
-            /* =JFG. Hide the toggle button now that nav is always visible */
-            display: none;
-        }
-    }
 }
 /* GROUP COMPONENTS / FRAMEWORK / NAV / MOBILE / OPEN STATE
 =================================================== */
-@layer ui {
-    /* --mq-nav-opens-before */
-    @media (max-width: 1199px) {
-        .js--navIsOpen {
-            /* Prevent the body scrolling when the full height nav is open */
-            overflow: hidden;
-        }
-    }
-}
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -1098,6 +951,43 @@ scope-ui;
 
     to {
         opacity: 1;
+    }
+}
+@keyframes wipe-in-down {
+    from {
+        clip-path: inset(0 0 100% 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+@keyframes wipe-up-out {
+    0% {
+        clip-path: inset(0 0 0 0);
+    }
+    100% {
+        clip-path: inset(0 0 100% 0);
+        /* hide so that it doesn't make the .c-site-header tall, thus preventing anything underneath being clicked, even if it's invisible */
+        height: 0;
+        visibility: hidden;
+        overflow: hidden;
+    }
+}
+@keyframes collapse-height {
+    0% {
+        height: auto;
+    }
+    100% {
+        height: 0;
+    }
+}
+@layer ui {
+    /* --mq-nav-opens-before */
+    @media (max-width: 1199px) {
+        .js--navIsOpen {
+            /* Prevent the body scrolling when the full height nav is open */
+            overflow: hidden;
+        }
     }
 }
 @layer components {
@@ -1113,84 +1003,54 @@ scope-ui;
                 }
             }
 
-            .js--navIsOpen .c-site-header__nav li {
-                animation-name: fade-in;
-                animation-duration: 0.9s;
-                animation-fill-mode: forwards;
-            }
-            /* Staggered animation */
             .c-site-header__nav li {
+                .js--navIsOpen & {
+                    animation-name: fade-in;
+                    animation-duration: 0.9s;
+                    animation-fill-mode: forwards;
+                }
+                /* Staggered animation */
                 /* Default i.e. after 4th */
                 animation-delay: calc(0.025s * 8);
-            }
-            .c-site-header__nav li:nth-child(1) {
-                /* Need to give it at least a tiny bit (not 0s) otherwise blips on iOS */
-                animation-delay: calc(0.025s * 1);
-            }
-            .c-site-header__nav li:nth-child(2) {
-                animation-delay: calc(0.025s * 2);
-            }
-            .c-site-header__nav li:nth-child(3) {
-                animation-delay: calc(0.025s * 4);
-            }
-            .c-site-header__nav li:nth-child(4) {
-                animation-delay: calc(0.025s * 6);
-            }
-        }
-
-        @keyframes wipe-in-down {
-            from {
-                clip-path: inset(0 0 100% 0);
-            }
-            to {
-                clip-path: inset(0 0 0 0);
-            }
-        }
-        @keyframes wipe-up-out {
-            0% {
-                clip-path: inset(0 0 0 0);
-            }
-            100% {
-                clip-path: inset(0 0 100% 0);
-                /* hide so that it doesn't make the .c-site-header tall, thus preventing anything underneath being clicked, even if it's invisible */
-                height: 0;
-                visibility: hidden;
-                overflow: hidden;
-            }
-        }
-        @keyframes collapse-height {
-            0% {
-                height: auto;
-            }
-            100% {
-                height: 0;
+                &:nth-child(1) {
+                    /* Need to give it at least a tiny bit (not 0s) otherwise blips on iOS */
+                    animation-delay: calc(0.025s * 1);
+                }
+                &:nth-child(2) {
+                    animation-delay: calc(0.025s * 2);
+                }
+                &:nth-child(3) {
+                    animation-delay: calc(0.025s * 4);
+                }
+                &:nth-child(4) {
+                    animation-delay: calc(0.025s * 6);
+                }
             }
         }
         /* --mq-nav-opens-before */
         @media (max-width: 1199px) {
-            .js:not(.js--navIsOpen):not(.js--navHasBeenOpened) .c-nav-mobile-button + nav {
-                opacity: 0;
-                pointer-events: none;
-            }
-
-            .js--navIsOpen .c-site-header__nav {
-                /* You could also try something like in:circle:top-right here from https://www.transition.style */
-                animation: 1s var(--animation-timing-function-wipe) wipe-in-down both;
-            }
-
             .js:not(.js--navIsOpen) {
-                .c-site-header__nav {
-                    animation: 1s var(--animation-timing-function-wipe) wipe-up-out both;
-                }
                 .c-site-header {
                     /* Effectively hide the .c-site-header after wipe-up has finished, thus preventing anything underneath being clicked, even if it's invisible */
                     animation: 1s var(--animation-timing-function-wipe) collapse-height 1s both;
                 }
+                .c-site-header__nav {
+                    animation: 1s var(--animation-timing-function-wipe) wipe-up-out both;
+                }
+                &:not(.js--navHasBeenOpened) .c-nav-mobile-button + nav {
+                    opacity: 0;
+                    pointer-events: none;
+                }
             }
-        }
-
-        .js--navIsOpen .js__collapsedUntilNavOpened {
-            display: block;
+            .js--navIsOpen {
+                .c-site-header__nav {
+                    /* You could also try something like in:circle:top-right here from https://www.transition.style */
+                    animation: 1s var(--animation-timing-function-wipe) wipe-in-down both;
+                }
+                .js__collapsedUntilNavOpened {
+                    display: block;
+                }
+            }
         }
     }
     /* GROUP COMPONENTS / FRAMEWORK / NAV / MOBILE / OPEN STATE / SVG ANIMATIONS
@@ -1199,33 +1059,26 @@ scope-ui;
         transition: 0.25s ease-in-out;
         transform-origin: center;
     }
-
-    .js--navIsOpen .c-nav-line--1 {
-        opacity: 0;
-        transition: 0.1s;
-    }
-
-    .js--navIsOpen .c-nav-line--2 {
-        transform: rotate(45deg) translate(0.5px);
-    }
-
     .c-nav-line--3 {
         opacity: 0;
     }
-
-    .js--navIsOpen .c-nav-line--3 {
-        opacity: 1;
-    }
-
-    .js--navIsOpen .c-nav-line--3 {
-        transform: rotate(-45deg) translate(-0.5px);
-    }
-
-    .js--navIsOpen .c-nav-line--4 {
-        opacity: 0;
+    .js--navIsOpen {
+        .c-nav-line--1 {
+            opacity: 0;
+            transition: 0.1s;
+        }
+        .c-nav-line--2 {
+            transform: rotate(45deg) translate(0.5px);
+        }
+        .c-nav-line--3 {
+            transform: rotate(-45deg) translate(-0.5px);
+            opacity: 1;
+        }
+        .c-nav-line--4 {
+            opacity: 0;
+        }
     }
 }
-
 
 
 
@@ -1244,17 +1097,15 @@ scope-ui;
             display: inline-block;
             text-align: left;
         }
-
         /* GROUP COMPONENTS / FRAMEWORK / NAV / GRID / ACCESSIBILITY
         =================================================== */
         .s-nav-grid-mq-600-up .js__u-js-hide {
             /* Cancel hiding of Skip to Content when we reach full nav break point,
             because now it's not possible to jump past the collapsed full nav */
             display: inline-block;
-        }
-
-        .s-nav-grid-mq-600-up .js__u-js-hide:focus {
-            position: relative;
+            &:focus {
+                position: relative;
+            }
         }
     }
     /* GROUP COMPONENTS / FRAMEWORK / NAV / OPEN
@@ -1267,7 +1118,6 @@ scope-ui;
             /* =JFG. Hide the toggle button now that nav is always visible */
             display: none;
         }
-
         /* Need .js to trump .js .js__collapsedUntilNavOpened selector */
         .js .s-nav-open-mq-1200-up nav {
             /* =JFG. Ensure nav is above elements when sub-menus are positioned absolutely */
@@ -1352,8 +1202,7 @@ nav ul {
 /* GROUP COMPONENTS / FRAMEWORK / SITE TITLE
 =================================================== */
 @layer objects {
-    /* */.o-site-title,
-    /* */.o-site-description {
+    .o-site-title, .o-site-description {
         /* START SCREEN READER TEXT
         --------------------------- */
         clip: rect(1px, 1px, 1px, 1px);
@@ -1369,9 +1218,16 @@ nav ul {
 
 
 
-
 /* GROUP COMPONENTS / FRAMEWORK / ENTRY / ENTRY HEADER
 =================================================== */
+/* Notes...
+
+    e.g. <header class="entry-header s-entry-header{{ title | length > 40 ?= ' s-entry-header--with-long-title' }}">
+
+*/
+/* .s-entry-header--with-long-title {
+
+} */
 @layer scope {
     .s-entry-header {
         max-width: var(--max-width-reading);
@@ -1379,23 +1235,12 @@ nav ul {
         padding-block-end: var(--spacing-s-1);
         padding-inline-end: var(--spacing-l);
         clear: both;
-    }
-
-    /* Notes...
-
-        e.g. <header class="entry-header s-entry-header{{ title | length > 40 ?= ' s-entry-header--with-long-title' }}">
-
-    */
-    /* .s-entry-header--with-long-title {
-
-    } */
-
-    .s-entry-header h1 {
-        padding-block-end: var(--spacing-m);
-    }
-
-    .s-entry-header .entry-time {
-        font-size: var(--font-size-s-x);
+        & h1 {
+            padding-block-end: var(--spacing-m);
+        }
+        .entry-time {
+            font-size: var(--font-size-s-x);
+        }
     }
 }
 /* GROUP COMPONENTS / FRAMEWORK / ENTRY / ENTRY TITLE
@@ -1424,7 +1269,6 @@ nav ul {
     .c-entry-title--with-intro {
         padding-block-end: var(--spacing-s-x-x);
     }
-
     .c-entry-title-intro {
         padding-block-end: var(--spacing-l);
         text-align: center;
@@ -1433,7 +1277,6 @@ nav ul {
         /*color: var(--colour-pink);*/
         /*@apply --t-text-style-1-strong;*/
     }
-
     .c-entry-title-intro--s {
         padding-block-end: var(--spacing-s);
         padding-block-start: var(--spacing-s);
@@ -1528,9 +1371,6 @@ nav ul {
 
     /* GROUP SCOPE / FRAMEWORK / ENTRY / ENTRY CONTENT / EXTRA OPTIONAL RULES
     =================================================== */
-
-    /* -- */
-
     /* Custom */
     @media (min-width: 768px) {
         .s-entry-content--inline-quote blockquote {
@@ -1562,7 +1402,6 @@ nav ul {
 
 
 
-
 /* GROUP COMPONENTS / FRAMEWORK / ENTRY / ENTRY CONTENT / (MODIFIERS)
 =================================================== */
 @layer scope {
@@ -1576,19 +1415,15 @@ nav ul {
         flex-direction: column;
         align-items: center;
     }
-
     .s-entry-content--with-lead > p:first-child {
         font-weight: var(--font-family-main-weight-strong);
     }
-
     .s-entry-content--hero {
         padding-block-end: var(--spacing-l);
     }
-
     .s-entry-content--compressed {
         padding-block-end: var(--spacing-m-1);
     }
-
     .s-entry-content--compressed-totally {
         /* e.g. a Perch block, where we have lots of `.s-entry-content`s stacked on top of each other */
         padding-block-end: 0;
@@ -1598,12 +1433,10 @@ nav ul {
     .s-entry-content--video .js--video {
         margin-block-end: 0;
     }
-
     .s-entry-content--video .js--video + p {
         margin-top: var(--spacing-s-1);
     }
 }
-
 
 
 
@@ -1614,12 +1447,10 @@ nav ul {
     .js .u-js-hide {
         display: none;
     }
-
     /* Hide visually and from screen readers */
     .u-hidden {
         display: none!important;
     }
-
     .u-link-style-none {
         &, * {
             text-decoration: none;
@@ -1627,18 +1458,15 @@ nav ul {
             border-bottom: 0;
         }
     }
-
     /* Needed for when you declare width and height attributes to improve loading lazy images */
     /* picture*/
     .u-full-width-image img {
         width: 100%;
     }
-
     /* Use this class when you're intentionally not adding an alt tag e.g. it's a decorational image */
     img.no-alt {
         border: initial;
     }
-
     /* GROUP UTILITIES / FRAMEWORK / LINE CLAMP
     =================================================== */
     /* e.g. <div class="u-line-clamp" style="--clamp: 3;"> */
@@ -1650,14 +1478,12 @@ nav ul {
         padding-block-end: 0;
         -webkit-line-clamp: var(--clamp, 2);
     }
-
     /* Custom */
     @media (max-width: 767px) {
         .u-line-clamp--mq-768-up {
             -webkit-line-clamp: unset;
         }
     }
-
     /* Notes...
 
         - See also https://css-tricks.com/almanac/properties/l/line-clamp/ {/ LINE CLAMP}
@@ -1688,20 +1514,17 @@ nav ul {
         </footer>
 
     */
-
     html, body {
         min-height: 100vh;
     }
-
     body:has(.u-sticky-footer) {
         display: flex;
         flex-direction: column;
+        /* This gets in the way */
+        & + grammarly-desktop-integration {
+            display: none;
+        }
     }
-    /* This gets in the way */
-    body:has(.u-sticky-footer) + grammarly-desktop-integration {
-        display: none;
-    }
-
     main {
         flex-grow: 1;
     }
@@ -1711,27 +1534,21 @@ nav ul {
     .u-icon-right-x-x {
         margin-inline-start: var(--spacing-icon-s)!important;
     }
-
     .u-icon-right-x {
         margin-inline-start: var(--spacing-icon-m)!important;
     }
-
     .u-icon-left-x {
         margin-inline-end: var(--spacing-icon-m)!important;
     }
-
     .u-icon-left {
         margin-inline-end: var(--spacing-icon-l)!important;
     }
-
     .u-icon-right {
         margin-inline-start: var(--spacing-icon-l)!important;
     }
-
     .u-icon-s {
         font-size: var(--icon-size-s);
     }
-
     .u-icon-m {
         font-size: var(--icon-size-m);
     }
@@ -2453,7 +2270,6 @@ nav ul {
     .u-px-l {
         padding-inline: var(--spacing-l);
     }
-
     .u-px-l-1 {
         padding-inline: var(--spacing-l-1);
     }
@@ -2470,15 +2286,12 @@ nav ul {
         position: relative;
         margin-inline: auto;
     }
-
     .u-mx-1 {
         max-width: var(--max-width-1);
     }
-
     .u-mx-2 {
         max-width: var(--max-width-2);
     }
-
     .u-mx--uncentered {
         margin-left: 0;
     }
