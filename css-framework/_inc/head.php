@@ -35,8 +35,7 @@
     <script>
         /* Tell the html ASAP (without JS) to prevent a flicker of DOM changes e.g. nav collapsed. */
         document.querySelector('html').classList.remove('no-js');
-        // document.querySelector('html').classList.add('js');
-        document.querySelector('html').setAttribute('data-js-enabled', '');
+        document.querySelector('html').classList.add('js');
     </script>
     <?php /* GROUP JAVASCRIPT / FRAMEWORKS USING DEFER
     =================================================== */ ?>
