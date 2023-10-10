@@ -1,0 +1,222 @@
+/*! Notes...
+
+    Author: Jay George
+    Author URI: https://jaygeorge.co.uk
+
+    ABOUT THIS CSS
+    ===================================================
+    - Class name prefixes are influenced by Namespaces article - http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+    - Class relationships are based on BEM structure
+    - For more information open readme.css at https://raw.githubusercontent.com/JayGeorge/framework_css/main/css-framework/css/readme.css
+
+*/
+
+
+
+/* GROUP LAYERS
+=================================================== */
+/* See https://raw.githubusercontent.com/JayGeorge/framework_css/main/css-framework/css/readme.css for more information */
+@layer
+base,
+elements,
+objects,
+components,
+modifiers,
+utilities,
+vendors,
+ui,
+scope;
+
+:root {
+    /* GROUP VARIABLES -- SPACING
+    =================================================== */
+    --spacing-s-x-x: 0.25rem;
+    --spacing-s-x: 0.45rem;
+    --spacing-s: 0.8rem;
+    --spacing-s-1: 1.1rem;
+    --spacing-s-2: 1.35rem;
+
+    --spacing-m: 1.5rem;
+
+    --spacing-l: 1.8rem;
+
+    --spacing-l-1: 2.5rem;
+
+    /* Smaller values for mobile */
+    --spacing-l-2: min(11.5vw, 4.2rem);
+    --spacing-l-3: min(20vw, 4.7rem);
+    --spacing-l-3-horizontal: var(--spacing-s); /* Increased later */
+    --spacing-l-4: min(22vw, 7rem);
+
+    --spacing-vh-s: min(20vw, 15vh);
+    --spacing-vh-m: min(22vw, 25vh);
+
+    --button-spacing-vertical: 1rem;
+    --button-spacing-horizontal: 1.5rem;
+    /* GROUP VARIABLES -- LAYOUT -- CONSTRAINTS -- MAX
+    =================================================== */
+    /* From lowest to highest value */
+    --max-width-reading-short: 22rem;
+    --max-width-reading: 36rem;
+    --max-width-title: 53rem;
+    --max-width-1: 75rem;
+    --max-width-2: 85rem;
+    /* GROUP VARIABLES -- LAYOUT -- Z-INDEX
+    =================================================== */
+    --z-index-above-body: 1;
+    --z-index-nav: 2;
+    --z-index-above-nav: 3;
+    /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME
+    =================================================== */
+    /* Dark to light */
+    --colour-red-legacy: red;
+    --colour-red: oklch(50% 132 35);
+
+    --colour-focus: purple;
+    /* GROUP VARIABLES -- DECORATION -- TEXT -- FONTS
+    =================================================== */
+    --font-family-main: adonis-web, serif;
+    --font-family-headline: sans-serif;
+    /* GROUP VARIABLES -- DECORATION -- TEXT -- WEIGHTS
+    =================================================== */
+    /* Or, if you are only using ONE weight by design then you should just add something like --font-family-main-weight: 500; to save confusion about which one to pick */
+    --font-family-main-weight-normal: 500;
+    --font-family-main-weight-strong: 700;
+    --font-family-headline-weight-normal: 500;
+    --font-family-headline-weight-strong: 700;
+    /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
+    =================================================== */
+    /* Optimise line-height for reading */
+    --font-size-reading-line-height: 1.5;
+
+    --font-size-s-x-x: 0.707em;
+
+    /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- OUTSIDE SCALE
+    =================================================== */
+    /* e.g. Outside scale. Sometimes I go outside scales because of my font-bump adjustmemts */
+    /* Decreased at a later root breakpoint */
+    /* --font-size-s-x: 0.9em; */
+    --font-size-s-x: 1em;
+    --font-size-s-x-line-height: 1.3;
+    --font-size-s-x-1: 1rem;
+    --font-size-s: 1.1em;
+    /* --font-size-s-2: clamp(1.3em, 7vw, 1.5em); */
+    /* --font-size-s-2-line-height: 1.3; */
+
+    /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- AUGMENTED FOURTH
+    =================================================== */
+    /* Based on Augmented Fourth - https://type-scale.com/ */
+    --font-size-s-1: clamp(1.35em, 4vw, 1.414em);
+    --font-size-s-1-line-height: 1.3;
+
+    --font-size-m: clamp(1.999em * 0.75, 6vw, 1.999em);
+    --font-size-m-line-height: 1.185;
+
+    --font-size-l: clamp(2.827em * 0.8, 9vw, 2.827em);
+    --font-size-l-line-height: 1.15;
+
+    --font-size-l-1: clamp(3.998em * 0.8, 11vw, 3.998em);
+    --font-size-l-1-line-height: 1.15;
+
+    --font-size-l-2: clamp(5.653em * 0.618, 12vw, 5.653em);
+    --font-size-l-2-line-height: 1;
+}
+/* --mq-root-variable-adjustments-1 */
+@media (min-width: 450px) {
+    :root {
+        /* GROUP VARIABLES -- SPACING
+        ===================================================  */
+        --spacing-l: 3rem;
+        --spacing-l-1: 3.5rem;
+    }
+}
+/* --mq-root-variable-adjustments-2 */
+@media (min-width: 730px) {
+    :root {
+        --spacing-l-3-horizontal: var(--spacing-l-3);
+    }
+}
+/* --mq-root-variable-adjustments-2-portrait */
+@media (min-width: 730px) and (orientation: portrait) {
+    :root {
+        /* e.g. iPad */
+        --spacing-vh-s: 10vh;
+        --spacing-vh-m: 14vh;
+    }
+}
+/* --mq-text-bump-reduce-for-lower-resolution-displays */
+/* Notes...
+
+- Bear in mind users on smaller laptops do _not_ see things how you see things at a window width of 1440px. You can check exactly how they see it by going to System Preferences > Displays > Scaled
+
+*/
+/* --mq-root-variable-adjustments-smaller-laptops-after to --mq-root-variable-adjustments-larger-laptops-before */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    :root {
+        --font-bump: -0.09em; /* Decrease */
+        /* and possibly... */
+        /* --font-size-l-4: calc(9.313em + 0.75em)!important; */
+    }
+}
+@media (min-width: 1024px) {
+    :root {
+        --spacing-vh-full: 100vmin;
+    }
+}
+/* --mq-text-bump-1-after */
+@media (min-width: 1600px) {
+    :root {
+        /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
+        =================================================== */
+        --font-size-s-x: 0.9em; /* Decrease */
+        /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- BUMPS
+        =================================================== */
+        --font-bump: 0.115vw; /* Increase */
+    }
+}
+/* --mq-text-bump-2-after */
+@media (min-width: 1800px) {
+    :root {
+        /* GROUP VARIABLES -- SPACING
+        =================================================== */
+        --spacing-vh-m: 22vh; /* Decrease */
+        /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- BUMPS
+        =================================================== */
+        --font-bump: 0.15vw; /* Increase */
+    }
+}
+/* --mq-text-bump-3-after */
+@media (min-width: 2300px) {
+    :root {
+        /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- BUMPS
+        =================================================== */
+        --font-bump: 0.25vw; /* Increase */
+    }
+}
+
+
+
+@layer base {
+    /* GROUP RESET / FRAMEWORK - Taken from html5boilerplate.com
+    =================================================== */
+    audio,canvas,iframe,img,svg,video {
+        vertical-align: middle;
+    }
+    /* GROUP RESET / FRAMEWORK / NORMALISE
+    =================================================== */
+    /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+    html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
+    /* GROUP RESET / JAY GEORGE
+    =================================================== */
+    *,
+    *::before,
+    *::after {
+        /* Prevent flickering.
+        When you click a link or a button or a div that has a click function on it,
+        usually a grey box flickers. The below prevents that. Source: http://goo.gl/MZ4Dr5 */
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        /* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+        /* Don't do *::before, *::after - this has caused me performance problems before with flickering images */
+        box-sizing: border-box;
+    }
+}

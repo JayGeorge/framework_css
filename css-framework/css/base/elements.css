@@ -1,0 +1,422 @@
+/*! Notes...
+
+    Author: Jay George
+    Author URI: https://jaygeorge.co.uk
+
+    ABOUT THIS CSS
+    ===================================================
+    - Class name prefixes are influenced by Namespaces article - http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+    - Class relationships are based on BEM structure
+    - For more information open readme.css at https://raw.githubusercontent.com/JayGeorge/framework_css/main/css-framework/css/readme.css
+
+*/
+
+
+
+/* GROUP LAYERS
+=================================================== */
+/* See https://raw.githubusercontent.com/JayGeorge/framework_css/main/css-framework/css/readme.css for more information */
+@layer
+base,
+elements,
+objects,
+components,
+modifiers,
+utilities,
+vendors,
+ui,
+scope;
+
+@layer elements {
+    /* GROUP ELEMENTS / FRAMEWORK
+    =================================================== */
+    /* ::selection {
+        background: light color;
+        color: dark color;
+    } */
+    /* https://twitter.com/bramus/status/1452572001697153029 */
+    /* html,
+    body {
+        background: ;
+    } */
+    /* =JFG. HTML default e.g. when we are separating lines with <br> like addresses in proposals */
+    html {
+        /* Consider disabling this if you have pages that require lots of cmd + f https://css-tricks.com/downsides-of-smooth-scrolling/ */
+        scroll-behavior: smooth;
+        font-size: calc(1em + var(--font-bump));
+        /* Opinion on this will differ depending on the font you choose. Do not carpet bomb line height with a * selector though */
+        line-height: 1.5;
+        /* https://web.dev/accent-color/ */
+        /* accent-color: hotpink; */
+    }
+    body {
+        /* https://app.typographychecklist.com/ - 23. Use standard ligatures but avoid using discretionary ligatures in body text */
+        font-feature-settings: "kern", "liga", "clig", "calt";
+        font-family: var(--font-family-main);
+        /* https://css-tricks.com/scrollbar-reflowing/ */
+        scrollbar-gutter: stable both-edges;
+    }
+    /* Prevent images stretching too much */
+    /* =JFG. Use display:inline-block to prevent white space (read full answers here...) http://stackoverflow.com/questions/5804256/why-an-image-inside-a-div-has-an-extra-space-below-the-image */
+    img {
+        display: inline-block;
+        /* Maintain aspect ratio */
+        max-width: 100%;
+        height: auto;
+    }
+    /* Reset */
+    h1, h2, h3, h4, h5, h6,
+    p,
+    ul, ol,
+    figure, blockquote {
+        margin-block: 0;
+    }
+    /* Reset */
+    figure {
+        margin-inline: 0;
+        & img {
+            /* Push the caption away from the image */
+            margin-block-end: var(--spacing-s);
+        }
+    }
+    ul {
+        padding-inline-start: 0;
+    }
+    /* Don't affect nav */
+    main li {
+        padding-block-end: var(--spacing-s-x);
+    }
+    dl,
+    dt,dd,
+    th,
+    td {
+        padding-block-end: var(--spacing-s);
+    }
+    p {
+        margin-block-end: var(--spacing-s-1);
+        &:last-child {
+            margin-block-end: 0;
+        }
+    }
+    /* Don't affect Statamic's lists here, which contain p tags like this:
+        <ol>
+            <li>
+                <p>Sponsor games</p>
+            </li>
+            <li>
+                <p>Promote your game</p>
+            </li>
+            <li>
+                <p>Sponsor live events</p>
+            </li>
+        </ol>
+    */
+    main :is(p:not(li p), ol, ul):not(:has(li p)) {
+        line-height: var(--font-size-reading-line-height);
+        list-style-position: inside;
+        padding-inline-start: 0;
+    }
+    /* For Statamic's lists use a different method: */
+    ol:has(li p) {
+        padding-inline-start: var(--spacing-l-1);
+    }
+    p + ul {
+        padding-block-start: var(--spacing-s);
+    }
+    strong {
+        font-weight: var(--font-family-main-weight-strong);
+    }
+    /* GROUP ELEMENTS / FRAMEWORK / HEADINGS
+    =================================================== */
+    /* https://developer.chrome.com/blog/CSS-text-wrap-balance */
+    h1, h2, h3, h4, h5, h6, blockquote, figcaption {
+        text-wrap: balance;
+    }
+    h1, .h1, h1 a, .h1 a, h2, .h2, h2 a, .h2 a, h3, .h3, h3 a, .h3 a {
+        font-family: var(--font-family-headline);
+        font-weight: var(--font-family-headline-weight-normal);
+        /* https://app.typographychecklist.com/ 91 - Use discretionary ligatures and swashes in headlines */
+        font-feature-settings: "kern", "liga", "clig", "calt", "dlig", "swsh";
+        /* Override iOS Safari's user agent stylesheet */
+        text-decoration: none;
+        color: inherit; /* If you use a link inside a heading, inherit the colour so it's not the default browser-purple */
+    }
+    h4, .h4, h4 a, .h4 a {
+        font-family: var(--font-family-headline);
+        font-weight: var(--font-family-headline-weight-normal);
+    }
+    h1, .h1 {
+        font-size: var(--font-size-l); line-height: var(--font-size-l-line-height);
+    }
+    h2, .h2 {
+        font-size: var(--font-size-m); line-height: var(--font-size-m-line-height);
+    }
+    h3, .h3 {
+        font-size: var(--font-size-s-2); line-height: var(--font-size-s-2-line-height);
+    }
+    h4, .h4 {
+        font-size: var(--font-size-s-1); line-height: var(--font-size-s-1-line-height);
+    }
+    h5, .h5 {
+        font-size: var(--font-size-s); line-height: var(--font-size-s-line-height);
+    }
+    h6, .h6 {
+        font-size: var(--font-size-s-x-1); line-height: var(--font-size-s-x-1-line-height);
+    }
+    /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / HIGH PRIORITY / VERTICAL SPACING
+    =================================================== */
+    h1, .h1, h2, .h2 {
+        padding-block-end: var(--spacing-s-1);
+    }
+    * + h1,
+    * + .h1,
+    /* e.g. Objects > Counters */
+    * > h1,
+    * > .h1,
+    * + h2,
+    * + .h2,
+    article + article {
+        padding-block-start: var(--spacing-l);
+    }
+    /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / LOW PRIORITY / VERTICAL SPACING
+    =================================================== */
+    h3, .h3 {
+        padding-block-end: var(--spacing-s-x);
+    }
+    * > :is(h2, .h2) {
+        padding-block-start: var(--spacing-m);
+    }
+    h4, .h4, h5, .h5, h6, .h6 {
+        padding-block-end: var(--spacing-s-x-x);
+    }
+    * + :is(h3, .h3),
+    /* e.g. p followed by a div followed by an h3 */
+    * > :is(h3, .h3), * + :is(h4, .h4),
+    /* e.g. p followed by a div followed by an h4 */
+    * + :is(h4, .h4) {
+        padding-block-start: var(--spacing-s);
+    }
+    /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / EXCEPTIONS / VERTICAL SPACING
+    =================================================== */
+    ul + :is(h2, .h2) {
+        padding-block-start: var(--spacing-s);
+    }
+    h1 + :is(h2, .h2)
+    .h1 + .h2,
+    h2 + h3,
+    hr + * {
+        padding-block-start: 0;
+    }
+    /* e.g. where we just have an h2 in a left column; it shouldn't have bottom padding */
+    :is(h2, h3, h4, h5, h6):only-child {
+        padding-block: 0;
+    }
+    /* GROUP ELEMENTS / FRAMEWORK / MAIN
+    =================================================== */
+    main {
+        &:focus {
+            outline: none;
+        }
+        /* Only when followed by the footer */
+        &:has(+ footer) {
+            margin-block-end: var(--spacing-l-1);
+        }
+        & > *:last-child {
+            padding-block-end: 0;
+        }
+    }
+}
+@layer components {
+    /* Put these at the component level e.g. so we make sure we override something like .c-site-footer li { padding-block-end: var(--spacing-s-x); } */
+    /* Nested lists */
+    ol ol,
+    ol ol li:last-child,
+    ul ul,
+    ul ul li:last-child {
+        padding-block-end: 0;
+    }
+}
+
+
+
+/* GROUP ELEMENTS / FRAMEWORK / NAV
+=================================================== */
+@layer elements {
+    nav {
+        clear: both;
+        display: block;
+        width: 100%;
+        & li {
+            position: relative;
+            & a {
+                /* Needed to better vertically align */
+                display: flex;
+                text-decoration: none;
+            }
+        }
+    }
+}
+@layer objects {
+    /* nav*/
+    .o-nav-flex ul {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+        list-style: none;
+        padding-inline: 0;
+        /* --mq-nav-open-after */
+        @media (min-width: 768px) {
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+    }
+}
+
+
+
+/* GROUP ELEMENTS / FRAMEWORK / SVGs
+=================================================== */
+@layer elements {
+    :is([src*="svg"], svg) {
+        width: 1em;
+        height: 1em;
+        fill: currentColor;
+    }
+    :is(h1, h2, h3, h4, h5, h6, p) svg {
+        vertical-align: baseline;
+        margin-inline-end: var(--spacing-s-x);
+    }
+    /* Notes...
+
+        - use a span to ensure first-child/last-child selector works e.g.
+
+        <div class="btn">
+            <a href="">
+                <span>Some text</span>
+                <svg />
+            </a>
+        </div>
+
+    */
+    a > :is(svg, [src*=".svg"]) {
+        &:first-child:not(:last-child) {
+            margin-inline-end: var(--spacing-s-2);
+        }
+        &:last-child:not(:first-child) {
+            margin-inline: var(--spacing-s-2) 0;
+        }
+    }
+}
+@layer components {
+    .c-btn a > :is(svg, [src*=".svg"]) {
+        &:first-child:not(:last-child) {
+            margin-inline-end: var(--spacing-s);
+        }
+        &:last-child:not(:first-child) {
+            margin-inline: var(--spacing-s) 0;
+        }
+    }
+
+    button svg,
+    .c-btn :is([src*="svg"], svg) {
+        font-size: 1.1em;
+    }
+}
+
+
+
+/* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS }
+=================================================== */
+/* Notes...
+
+    - Link styles are stored as group selectors rather than scattered, since we have multiple properties here.
+    - Do not put transitions on all links, it makes keyboard navigation feel slower. Instead, use transition animations on an individual basis e.g. skip-to-content
+
+*/
+
+/* Default */
+@layer elements {
+    a,
+    button {
+        text-decoration-skip-ink: auto;
+        color: #444;
+    }
+}
+@layer scope {
+    /* .u-link-style-1 a, */
+    /* Components > Framework > Entry > Entry Content */
+    .s-entry-content a {
+        text-decoration-line: none;
+        color: var(--colour-turquoise);
+    }
+}
+/* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS
+=================================================== */
+@layer base {
+    .c-nav-mobile-button:focus-visible svg,
+    :is(a, button, summary):focus-visible,
+    /* Elements > Framework > Forms */
+    input:focus-visible,
+    textarea:focus-visible {
+        outline: 4px solid blue;
+    }
+
+    /* ensure the focus outline is effective when a link is wrapped around a heading */
+    a:has(> h2, h3, h4, h5, h6) {
+        display: inline-block;
+    }
+}
+@layer components {
+    .c-nav-mobile-button:focus {
+        /* We'll set the outline on the SVG instead because it's neater */
+        outline: none;
+        & svg {
+            /* Increase offset for nav since we have it on the SVG instead */
+            outline-offset: 10px;
+        }
+    }
+}
+@layer elements {
+    /* Elements > Framework > Forms */
+    :is(input, textarea):focus {
+        /* Light colour here */
+        background: seashell;
+    }
+    a:focus {
+        p & {
+            /* Offset for text */
+            outline-offset: 5px;
+        }
+        :is(nav) & {
+            outline-offset: 10px; /* Increase */
+        }
+    }
+}
+/* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / HOVER
+=================================================== */
+@layer scope {
+    .s-entry-content a:hover {
+        text-decoration-color: black;
+        color: var(--colour-grey-reading);
+    }
+}
+
+
+
+/* GROUP COMPONENTS / FRAMEWORK / SKIP LINKS
+=================================================== */
+@layer components {
+    /* .u-screen-reader*/
+    .c-skip-to-content:focus {
+        position: fixed!important;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        padding: var(--spacing-s-1) var(--spacing-l);
+        font-size: var(--font-size-s-x);
+        color: var(--colour-grey);
+        outline: none;
+        /* Looks better on Skip to Content */
+        text-underline-position: auto;
+    }
+}

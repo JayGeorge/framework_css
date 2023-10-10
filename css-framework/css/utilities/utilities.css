@@ -1,0 +1,68 @@
+/*! Notes...
+
+    Author: Jay George
+    Author URI: https://jaygeorge.co.uk
+
+    ABOUT THIS CSS
+    ===================================================
+    - Class name prefixes are influenced by Namespaces article - http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+    - Class relationships are based on BEM structure
+    - For more information open readme.css at https://raw.githubusercontent.com/JayGeorge/framework_css/main/css-framework/css/readme.css
+
+*/
+
+
+
+/* GROUP LAYERS
+=================================================== */
+/* See https://raw.githubusercontent.com/JayGeorge/framework_css/main/css-framework/css/readme.css for more information */
+@layer
+base,
+elements,
+objects,
+components,
+modifiers,
+utilities,
+vendors,
+ui,
+scope;
+
+
+
+/* GROUP UTILITIES / FRAMEWORK
+=================================================== */
+@layer utilities {
+    .qa-test {
+        border: 3px solid red!important;
+    }
+    /* Images without alt tags */
+    img:not([alt]) {
+        border: 5px dashed red;
+    }
+    /* Components > Framework > Nav */
+    .no-js .u-js-only {
+        display: none!important;
+    }
+    /* Text meant only for screen readers. */
+    /* Components > Framework > Nav */
+    .u-screen-reader-text {
+        clip: rect(1px, 1px, 1px, 1px);
+
+        position: absolute!important;
+        overflow: hidden;
+        width: 1px;
+        height: 1px;
+        /* Needed if the text should be visible on keyboard focus */
+        &:focus {
+            clip: auto!important;
+
+            z-index: 100000; /* Above WP toolbar. */
+            display: block;
+            top: 0;
+            left: 0;
+
+            width: auto;
+            height: auto;
+        }
+    }
+}

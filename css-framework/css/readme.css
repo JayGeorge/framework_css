@@ -3,6 +3,7 @@
 /* This file contains detailed guide notes about CSS groups without cluttering CSS files */
 
 
+
 /* GROUP NOTES / FORMATTING / COMMENTS / DEFAULT FORMATTING
 ===================================================  */
 /* By default comments should sit vertically above code so they're easily seen when scanning the CSS file. It's tempting to add them to the end of the line to save space but this makes them harder to scan / makes CSS harder to debug, and comments are stripped from production CSS anyway. */

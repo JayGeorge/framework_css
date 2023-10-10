@@ -1,0 +1,127 @@
+/*! Notes...
+
+    Author: Jay George
+    Author URI: https://jaygeorge.co.uk
+
+    ABOUT THIS CSS
+    ===================================================
+    - Class name prefixes are influenced by Namespaces article - http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+    - Class relationships are based on BEM structure
+    - For more information open readme.css at https://raw.githubusercontent.com/JayGeorge/framework_css/main/css-framework/css/readme.css
+
+*/
+
+
+
+/* GROUP LAYERS
+=================================================== */
+/* See https://raw.githubusercontent.com/JayGeorge/framework_css/main/css-framework/css/readme.css for more information */
+@layer
+base,
+elements,
+objects,
+components,
+modifiers,
+utilities,
+vendors,
+ui,
+scope;
+
+/* GROUP COMPONENTS / FRAMEWORK / BUTTONS
+=================================================== */
+@layer components {
+    /* anchor instead of just .c-btn because the browser focusses on the a element, which is the background color we want to change should be... */
+    .c-btn a,
+    /* For when you add a button with JS and it doesn't have an anchor */
+    .js--btn,
+    /* Components > Framework > Nav */
+    button.c-btn,
+    /* Override form background default */
+    /* e.g. Components > Framework > Comments */
+    [type="submit"] {
+        display: inline-flex;
+        gap: 1rem;
+        /* I've found it more stable to use pxls rather than ems. */
+        --button-spacing: var(--button-spacing-vertical) var(--button-spacing-horizontal);
+        padding: var(--button-spacing);
+        text-decoration-line: none;
+        cursor: pointer;
+        /* =JFG. Hover states with a slight delay, but focus without any because keyboard users want quick feedback. Do not use 'all' because it resizes slowly when resizing the browser window */
+        transition: background-color 0.2s ease 0s;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .c-btn {
+        position: relative;
+        display: inline-block;
+        /* Components > Framework > Forms > Layout */
+        margin-block-end: 1.25rem;
+        & a {
+            /* e.g. icons in buttons */
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+        :is(p) + & {
+            margin-block-start: var(--spacing-s-2);
+        }
+    }
+}
+@layer elements {
+    /*
+        - Don't affect the header
+        - Not .c-btn + .c-btn in case a button is next to a different tag such as <p/>
+    */
+    main :is(.c-btn, button):not(:last-child) {
+        margin-right: 1rem;
+    }
+    button,
+    [type="search"],
+    [type="submit"] {
+        /* =JFG. Cancel default button appearance */
+        -webkit-appearance: none!important;
+        border: none;
+    }
+    button {
+        /* =JFG. Cancel default button appearance */
+        background: none;
+        /* To combat -apple-system-blueinput on iOS 15 */
+        color: initial;
+        & svg {
+            font-size: 1.3em;
+        }
+    }
+}
+/* GROUP COMPONENTS / FRAMEWORK / BUTTONS / TYPES
+=================================================== */
+@layer modifiers {
+    /* 1 */
+    /* 2 */
+    .c-btn--2 a,
+    button.c-btn--2,
+    /* e.g. Components > Framework > Forms > Layout */
+    .c-form [type="submit"] {
+        background: var(--colour-turquoise);
+        color: white;
+        border-radius: var(--border-radius-s);
+    }
+    /* 3 */
+    .c-btn--3 a {
+        background: var(--colour-grey-light-4);
+        border-radius: var(--border-radius-s);
+    }
+    /* GROUP COMPONENTS / FRAMEWORK / BUTTONS / ACCESSIBILITY / HOVER
+    =================================================== */
+    /* These should be slightly different to focus states. Subtle effects such as changing the background color from blue to darkblue are best for hover. We want to gently suggest rather than pop out (opposite of focus states).
+
+        - Consider darkening the background color slightly e.g. blue to darkblue
+        - Here is a good example...
+        https://material-components.github.io/material-components-web-catalog/#/component/button
+
+    */
+    .c-btn a:hover {
+        /* Cancel link hover effect */
+        border-bottom: 0;
+    }
+}
