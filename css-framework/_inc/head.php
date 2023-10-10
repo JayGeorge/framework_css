@@ -23,7 +23,7 @@
 
     <?php /* GROUP CSS
     =================================================== */ ?>
-    <?php $filename = 'core'; include '_inc/_stylesheet.php'; ?>
+    <?php $filename = 'style'; include '_inc/_stylesheet.php'; ?>
 
     <?php /* GROUP JAVASCRIPT
     =================================================== */ ?>

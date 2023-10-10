@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "postcss": "postcss css/core.css --output css/prod/core.min.css"
+    "postcss": "postcss css/style.css --output css/prod/style.min.css"
   },
   "devDependencies": {
     "cssnano": "^6.0.1",

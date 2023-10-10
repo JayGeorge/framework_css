@@ -1,3 +1,17 @@
+/* GROUP LAYERS
+=================================================== */
+/* See https://raw.githubusercontent.com/JayGeorge/framework_css/main/css-framework/css/readme.css for more information */
+@layer
+base,
+elements,
+objects,
+components,
+modifiers,
+utilities,
+vendors,
+ui,
+scope;
+
 @import 'base/base.css';
 @import 'base/elements.css';
 @import 'components/buttons.css';
