@@ -18,9 +18,6 @@
     include '_inc/header.php';
 ?>
 
-<?php /* for modules, use the below to link to your stylesheet */ ?>
-<?php /* <link rel="stylesheet" href="style.css"> */?>
-
 <body>
     <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>

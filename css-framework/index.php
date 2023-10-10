@@ -17,9 +17,6 @@
     include '_inc/head.php';
 ?>
 
-<?php /* for modules, use the below to link to your stylesheet */ ?>
-<?php /* <link rel="stylesheet" href="style.css"> */?>
-
 <body>
     <?php include '_inc/header.php'; ?>
     <!--[if IE]>
