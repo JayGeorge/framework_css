@@ -1026,9 +1026,7 @@ scope-ui;
                     animation-delay: calc(0.025s * 6);
                 }
             }
-        }
-        /* --mq-nav-opens-before */
-        @media (max-width: 1199px) {
+
             .js:not(.js--navIsOpen) {
                 .c-site-header {
                     /* Effectively hide the .c-site-header after wipe-up has finished, thus preventing anything underneath being clicked, even if it's invisible */
