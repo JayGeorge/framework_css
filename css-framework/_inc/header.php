@@ -7,12 +7,10 @@
 </a>
 
 <header class="c-site-header">
-    <div class="c-site-header__site-logo">
-        <div class="c-site-logo">
-            <a href="/" aria-label="Go to the home page">
-                <svg aria-labelledby="title-header-logo" role="img" class="c-jg-icon c-jg-icon--logo"><title id="title-header-logo">Site Title Here</title><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--logo"></use></svg>
-            </a>
-        </div>
+    <div class="c-site-logo">
+        <a href="/" aria-label="Go to the home page">
+            <svg><title>Home page</title></svg>
+        </a>
     </div>
 
     <!--*
@@ -31,7 +29,7 @@
     <button class="c-nav-mobile-button js__navMobileButton u-js-only">
         <?php
             /* Animate this when closed */
-            // include 'img/svg/nav.php'; <-- you can find this in my framework
+            // include 'img/nav.php'; <-- you can find this in my framework
         ?>
     </button>
 

@@ -1,8 +1,0 @@
-<svg width="100pt" height="100pt" version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-    <title>Navigation List</title>
-  <path class="c-nav-line c-nav-line--1" d="M17.5 6h-15c-0.276 0-0.5-0.224-0.5-0.5s0.224-0.5 0.5-0.5h15c0.276 0 0.5 0.224 0.5 0.5s-x.224 0.5-0.5 0.5z"></path>
-  <path class="c-nav-line c-nav-line--2" d="M17.5 11h-15c-0.276 0-0.5-0.224-0.5-0.5s0.224-0.5 0.5-0.5h15c0.276 0 0.5 0.224 0.5 0.5s-x.224 0.5-0.5 0.5z"></path>
-  <!-- This is a dummy horizontal line that's revealed on click and can more cleanly pivot with transform-origin: center; because it's in the middle of the canvas -->
-  <path class="c-nav-line c-nav-line--3" d="M17.5 11h-15c-0.276 0-0.5-0.224-0.5-0.5s0.224-0.5 0.5-0.5h15c0.276 0 0.5 0.224 0.5 0.5s-x.224 0.5-0.5 0.5z"></path>
-  <path class="c-nav-line c-nav-line--4" d="M17.5 16h-15c-0.276 0-0.5-0.224-0.5-0.5s0.224-0.5 0.5-0.5h15c0.276 0 0.5 0.224 0.5 0.5s-x.224 0.5-0.5 0.5z"></path>
-</svg>
