@@ -7,24 +7,26 @@
 </a>
 
 <header class="c-site-header">
-    <div class="c-site-logo">
-        <a href="/" aria-label="Go to the home page">
-            <svg><title>Home page</title></svg>
-        </a>
-    </div>
-
-    <!--*
-    or
-    
-
     <div class="c-site-header__site-logo">
         <div class="c-site-logo">
             <a href="/" aria-label="Go to the home page">
-                Site Title here
+                <svg><title>Home page</title></svg>
             </a>
-</div>
+        </div>
+
+        <!--*
+        or
+        
+
+        <div class="c-site-header__site-logo">
+            <div class="c-site-logo">
+                <a href="/" aria-label="Go to the home page">
+                    Site Title here
+                </a>
     </div>
-    *-->
+        </div>
+        *-->
+    </div>
 
     <button class="c-nav-mobile-button js__navMobileButton u-js-only">
         <?php
