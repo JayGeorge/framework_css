@@ -13,6 +13,6 @@
 <li<?php if (strpos(strtolower(str_replace(' ', '-', $current_nav)), strtolower(str_replace(' ', '-', $nav_name))) !== false) { echo ' class="current-menu-item"'; } ?>>
 OR
 */ ?>
-<li<?php if ($current_nav === $nav_name) { echo ' class="c-current-menu-item"'; } ?>>
+<li>
     <a href="/<?php if (isset($url)){ echo $url; } else { echo strtolower(str_replace(' ', '-', $nav_name)); } if(($GLOBALS['using_laravel']) === true && ($GLOBALS['local']) === true) { echo '.php'; } ?>"><?php echo $nav_name; ?></a>
 </li>
