@@ -31,7 +31,7 @@ var current_page = url[url.length - 1];
 for(i;i < nav_links.length; i++){
     var lb = nav_links[i].href.split("/");
     if(lb[lb.length-1] == current_page) {
-        nav_links[i].className = "current-menu-item";
+        nav_links[i].className = "o-current-menu-item";
     }
 }
 

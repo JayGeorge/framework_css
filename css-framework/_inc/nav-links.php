@@ -10,7 +10,7 @@
 */
 ?>
 <?php /*
-<li<?php if (strpos(strtolower(str_replace(' ', '-', $current_nav)), strtolower(str_replace(' ', '-', $nav_name))) !== false) { echo ' class="current-menu-item"'; } ?>>
+<li<?php if (strpos(strtolower(str_replace(' ', '-', $current_nav)), strtolower(str_replace(' ', '-', $nav_name))) !== false) { echo ' class="o-current-menu-item"'; } ?>>
 OR
 */ ?>
 <li>

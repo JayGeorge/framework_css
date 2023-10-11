@@ -137,7 +137,7 @@ ul/*o-*/.sub-menu {
 /* GROUP ORGANISMS / NAV / SUB MENUS / CURRENT PAGE
 =================================================== */
 /* Sub Categories */
-/* nav */.current-menu-item > a span {
+/* nav */.o-current-menu-item > a span {
     color: var(--colour-turquoise);
 }
 /* GROUP ORGANISMS / NAV / SUB MENUS / DECORATION

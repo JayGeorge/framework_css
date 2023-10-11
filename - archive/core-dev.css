@@ -3438,7 +3438,7 @@ body .c-search-expandable--2,
         You're using Perch
         ------------------
         Here are the main differences we make to the Perch markup by default...
-        - .current_page_item is removed in favour of just .current-menu-item
+        - .current_page_item is removed in favour of just .o-current-menu-item
         - .current-menu-parent is removed, just leaving .current-menu-ancestor. This is because (I think) Perch does not distinguish between parents and ancestors
     [] 5. Remember how to comment out the nav template in header.php for Perch, and check the nav element there for further instructions
 
@@ -3569,7 +3569,7 @@ nav {
 /* GROUP ORGANISMS / NAV / CURRENT PAGE
 =================================================== */
 /* Category #1 */
-/* nav ul o-*/.nav-menu > /* o-*/.current-menu-item > a span,
+/* nav ul o-*/.nav-menu > /* o-*/.co-urrent-menu-item > a span,
 /* -- */
 /* Sub Categories */
 /* nav */.current-menu-item > a span,

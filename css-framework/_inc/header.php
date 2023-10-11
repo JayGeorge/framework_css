@@ -39,7 +39,7 @@
     <!-- <nav aria-label="Main navigation" class="c-site-header__nav nav--centered js__collapsedUntilNavOpened"> <-- use this instead for collapsed nav (most common, you only _don't_ want to use this if you only have a few items that show all the time e.g. jaygeorge.co.uk) *-->
         <ul>
             <?php /* 
-                Here you can add the class current-menu-item by the calling the header with a variable like this:
+                Here you can add the class .o-current-menu-item by the calling the header with a variable like this:
                 $current_nav = 'catalogue';
                 include '_inc/header.php';
             */ ?>
