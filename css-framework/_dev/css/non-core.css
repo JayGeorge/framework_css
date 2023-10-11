@@ -929,7 +929,7 @@ scope-ui;
 
         <button class="c-nav-mobile-button js__navMobileButton u-js-only">
             <span class="c-nav-mobile-button__inner"> <-- this gets wrapped around the text and icon
-                <span class="c-nav-icon">Menu</span>
+                <span class="c-nav-text">Menu</span>
                 <!-- Animate this when closed -->
                 include 'img/svg/nav.php';
             </span>
@@ -1005,22 +1005,13 @@ scope-ui;
                         animation-duration: 0.9s;
                         animation-fill-mode: forwards;
                     }
-                    /* Staggered animation */
                     /* Default i.e. after 4th */
-                    animation-delay: calc(0.025s * 8);
-                    &:nth-child(1) {
-                        /* Need to give it at least a tiny bit (not 0s) otherwise blips on iOS */
-                        animation-delay: calc(0.025s * 1);
-                    }
-                    &:nth-child(2) {
-                        animation-delay: calc(0.025s * 2);
-                    }
-                    &:nth-child(3) {
-                        animation-delay: calc(0.025s * 4);
-                    }
-                    &:nth-child(4) {
-                        animation-delay: calc(0.025s * 6);
-                    }
+                    animation-delay: calc(0.1s * 5);
+                    /* Need to give it at least a tiny bit (not 0s) otherwise blips on iOS */
+                    &:nth-child(1) { animation-delay: calc(0.1s * 1); }
+                    &:nth-child(2) { animation-delay: calc(0.1s * 2); }
+                    &:nth-child(3) { animation-delay: calc(0.1s * 3); }
+                    &:nth-child(4) { animation-delay: calc(0.1s * 4); }
                 }
             }
             .js:not(.js--navIsOpen) {
@@ -1035,7 +1026,7 @@ scope-ui;
             .js--navIsOpen {
                 .c-site-header__nav {
                     /* You could also try something like in:circle:top-right here from https://www.transition.style */
-                    animation: 1s var(--animation-timing-function-wipe) wipe-in-down both;
+                    animation: 1s var(--animation-timing-function-hipster) wipe-in-down both;
                 }
                 .js__collapsedUntilNavOpened {
                     display: block;

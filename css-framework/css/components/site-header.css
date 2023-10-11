@@ -14,9 +14,8 @@
     
     /* GROUP COMPONENTS / FRAMEWORK / NAV / CURRENT PAGE
     =================================================== */
-        .c-current-menu-item > a span {
-            color: var(--colour-turquoise);
-        }
+    .c-current-menu-item > a span {
+        color: var(--colour-turquoise);
     }
 
 

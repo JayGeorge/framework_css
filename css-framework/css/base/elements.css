@@ -222,6 +222,7 @@
             & a {
                 /* Needed to better vertically align */
                 display: flex;
+                align-items: center;
                 text-decoration: none;
             }
         }
@@ -329,7 +330,7 @@
     /* Elements > Framework > Forms */
     input:focus-visible,
     textarea:focus-visible {
-        outline: 4px solid blue;
+        outline: 4px solid var(--colour-focus);
     }
 
     /* ensure the focus outline is effective when a link is wrapped around a heading */

@@ -3728,7 +3728,7 @@ ul/*o-*/.sub-menu {
 
     <button class="c-nav-mobile-button u-js-only">
         <span class="c-nav-mobile-button__inner"> <-- this gets wrapped around the text and icon
-            <span class="c-nav-icon">Menu</span>
+            <span class="c-nav-text">Menu</span>
             <svg class="c-jg-icon c-jg-icon--menu c-nav-icon"><use xlink:href="#c-jg-icon--menu"></use></svg>
             <svg class="c-jg-icon c-jg-icon--close c-nav-icon-closed"><use xlink:href="#c-jg-icon--close"></use></svg>
         </span>
