@@ -1029,6 +1029,10 @@ scope-ui;
                 }
             }
             .js:not(.js--navIsOpen) {
+                .c-site-header {
+                    /* Effectively hide the .c-site-header after wipe-up has finished, thus preventing anything underneath being clicked, even if it's invisible */
+                    animation: 1s var(--animation-timing-function-wipe) collapse-height 1s both;
+                }
                 .c-site-header__nav {
                     animation: 1s var(--animation-timing-function-hipster) wipe-up-out both;
                 }
