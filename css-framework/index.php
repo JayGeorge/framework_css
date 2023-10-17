@@ -18,9 +18,6 @@
 
 <body>
     <?php include '_inc/header.php'; ?>
-    <!--[if IE]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
 
     <?php /* Need tabindex="-1" to lock the tab focus here when using Skip to Content */?>
     <main tabindex="-1" id="main">

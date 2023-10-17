@@ -42,9 +42,7 @@
     <?php /* <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script> */ ?>
     <?php /* GROUP JAVASCRIPT / CUSTOM SCRIPTS USING DEFER
     =================================================== */ ?>
-    <?php
-        // $filename = 'script'; include '_inc/_script.php';
-    ?>
+    <?php // $filename = 'script'; include '_inc/_script.php'; ?>
     <?php /* GROUP JAVASCRIPT / THIRD PARTY ANALYTICS USING DEFER
     =================================================== */ ?>
     <?php if(($GLOBALS['production']) == true) { ?>

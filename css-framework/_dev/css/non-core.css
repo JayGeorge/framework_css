@@ -76,12 +76,15 @@ scope-ui;
     */
     /* Example of dividing more */
     --colour-purple-legacy: purple;
-    --colour-purple-hue: 132 35;
-    --colour-purple-1: oklch(50% var(--colour-purple-hue));
-    --colour-purple-2: oklch(60% var(--colour-purple-hue));
-    --colour-purple-transparent: lch(50% var(--colour-purple-hue) / 20%);
+
+    --colour-purple-lch: 50% 132 35;
+    --colour-purple-ch: 132 35;
+    --colour-purple-1: oklch(50% var(--colour-purple-ch));
+    --colour-purple-2: oklch(60% var(--colour-purple-ch));
+    --colour-purple-transparent: oklch(50% var(--colour-purple-ch) / 20%);
 
     --colour-navy: hsl(226deg 25% 14%);
+    --colour-navy-hs: 226deg 25%;
     --colour-navy-hsl: 226deg 25% 14%;
     --colour-navy-overlay: hsl(var(--colour-navy-hsl) / 20%);
     /* e.g. for icons on colour-navy background */
@@ -342,7 +345,7 @@ scope-ui;
         --spacing-m-then-spacing-l-upper-mq: var(--spacing-l);
     }
 }
-/* GROUP VARIABLES -- DECORATION -- COLOURS -- THEMING
+/* GROUP VARIABLES -- DECORATION -- COLOURS -- THEMING { / -- THEME }
 =================================================== */
 /* Notes...
 
@@ -357,6 +360,9 @@ scope-ui;
 
         --colour-secondary-text: black;
         --colour-secondary-background: white;
+
+        --colour-accent-text: var(--colour-orange);
+        --colour-accent-background: var(--colour-green);
 
         color: var(--colour-primary-text);
         background: var(--colour-primary-background);
@@ -956,6 +962,14 @@ scope-ui;
 @keyframes wipe-in-down {
     from {
         clip-path: inset(0 0 100% 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+@keyframes wipe-in-up {
+    from {
+        clip-path: inset(100% 0 0 0);
     }
     to {
         clip-path: inset(0 0 0 0);
@@ -1567,6 +1581,11 @@ nav ul {
                 transform: none;
             }
         }
+        @keyframes fade-out {
+            to {
+                opacity: 0;
+            }
+        }
         /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / SLIDES
         =================================================== */
         @keyframes slide-in-left {
@@ -1655,6 +1674,14 @@ nav ul {
                 clip-path: inset(0 0 0 0);
             }
         }
+        @keyframes wipe-out-down {
+            from {
+                clip-path: inset(0 0 0 0);
+            }
+            to {
+                clip-path: inset(100% 0 0 0);
+            }
+        }
         @keyframes wipe-out-left {
             1%, 100% { opacity: 1; }
             from {
@@ -1671,6 +1698,15 @@ nav ul {
             }
             to {
                 clip-path: inset(0 0 0 0);
+            }
+        }
+        @keyframes wipe-out-right {
+            1%, 100% { opacity: 1; }
+            from {
+                clip-path: inset(0 0 0 0);
+            }
+            to {
+                clip-path: inset(0 0 0 100%);
             }
         }
         /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / CIRCLES
@@ -1906,7 +1942,7 @@ nav ul {
     /* Notes...
 
         - My own mini framework that operates similar to [AOS](https://michalsnik.github.io/aos/) but much simpler
-        - See `script.js` under `GROUP SCROLL TRIGGER WITH INTERSECTION OBSERVER` for the script, below are CSS examples to go with this
+        - See `script-non-core.js` under `GROUP SCROLL TRIGGER WITH INTERSECTION OBSERVER` for the script, below are CSS examples to go with this
 
         Using a Hidden Trigger
         ----------------------

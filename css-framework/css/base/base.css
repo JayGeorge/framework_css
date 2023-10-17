@@ -14,16 +14,21 @@
     --spacing-l-1: 2.5rem;
 
     /* Smaller values for mobile */
-    --spacing-l-2: min(11.5vw, 4.2rem);
-    --spacing-l-3: min(20vw, 4.7rem);
+    --spacing-l-2: min(14vw, 4.2rem);
+    --spacing-l-3: min(18vw, 4.7rem);
     --spacing-l-3-horizontal: var(--spacing-s); /* Increased later */
-    --spacing-l-4: min(22vw, 7rem);
+    --spacing-l-4: min(21vw, 7rem);
 
-    --spacing-vh-s: min(20vw, 15vh);
+    --spacing-vh-s: min(21vw, 15vh);
     --spacing-vh-m: min(22vw, 25vh);
 
     --button-spacing-vertical: 1rem;
     --button-spacing-horizontal: 1.5rem;
+    /* GROUP VARIABLES -- LAYOUT
+    =================================================== */
+    /* Useful for slides */
+    --vh-s: max(28rem, 80vmin);
+    --vh-full: 100vmin;
     /* GROUP VARIABLES -- LAYOUT -- CONSTRAINTS -- MAX
     =================================================== */
     /* From lowest to highest value */
@@ -125,11 +130,6 @@
         --font-bump: -0.09em; /* Decrease */
         /* and possibly... */
         /* --font-size-l-4: calc(9.313em + 0.75em)!important; */
-    }
-}
-@media (min-width: 1024px) {
-    :root {
-        --spacing-vh-full: 100vmin;
     }
 }
 /* --mq-text-bump-1-after */
