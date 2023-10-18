@@ -30,9 +30,19 @@
 /* GROUP FRAMEWORK / NAV
 =================================================== */
 Array.from(document.querySelectorAll('.js__navMobileButton') || []).forEach(element => {
+    element.setAttribute('aria-expanded', 'false');
+    element.setAttribute('aria-pressed', 'false');
+    element.setAttribute('aria-label', 'Toggle expanded menu');
     element.onclick = function(){
         document.querySelector('html').classList.toggle('js--navIsOpen');
         document.querySelector('html').classList.add('js--navHasBeenOpened');
+        if (element.getAttribute('aria-expanded') === 'false' ) {
+            element.setAttribute('aria-expanded', 'true');
+            element.setAttribute('aria-pressed', 'true');
+        } else {
+            element.setAttribute('aria-expanded', 'false');
+            element.setAttribute('aria-pressed', 'false');
+        }
     }
 });
 /* GROUP FRAMEWORK / NAV / (OPTIONAL FOR "ALWAYS CLOSED" NAV) / RESET STATE ON ESCAPE
