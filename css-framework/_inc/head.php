@@ -30,7 +30,6 @@
     <?php /* 
         - Place all JS at the top of the head - https://csswizardry.com/2018/11/css-and-network-performance
         - All JS should use either async or defer for best performance - https://twitter.com/csswizardry/status/1078374711044788224
-        - For any other JS, load it inline using defer so we can keep 'modules' together.
     */ ?>
     <script>
         /* Tell the html ASAP (without JS) to prevent a flicker of DOM changes e.g. nav collapsed. */

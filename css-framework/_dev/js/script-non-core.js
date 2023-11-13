@@ -71,6 +71,42 @@ document.addEventListener('click', function (event) {
 
 
 
+/* GROUP NAV / SUBMENUS
+=================================================== */
+// Get all the buttons by class name
+const nav_toc_sub_buttons = document.querySelectorAll('.js__navSubButton');
+
+// Define a click event handler for each button
+nav_toc_sub_buttons.forEach(button => {
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-pressed', 'false');
+    button.setAttribute('aria-label', 'Toggle expanded menu');
+
+    button.addEventListener('click', (event) => {
+        // Get the button that was clicked
+        const clickedButton = event.currentTarget;
+
+        // Loop through all buttons and do something with each button except the one clicked
+        nav_toc_sub_buttons.forEach(otherButton => {
+            if (otherButton !== clickedButton) {
+                // Here, you can do something with the other buttons, for example, add a class
+                otherButton.setAttribute('aria-expanded', 'false');
+                otherButton.setAttribute('aria-pressed', 'false');
+            } else {
+                if (clickedButton.getAttribute('aria-expanded') === 'false' ) {
+                    clickedButton.setAttribute('aria-expanded', 'true');
+                    clickedButton.setAttribute('aria-pressed', 'true');
+                } else {
+                    clickedButton.setAttribute('aria-expanded', 'false');
+                    clickedButton.setAttribute('aria-pressed', 'false');
+                }
+            }
+        });
+    });
+});
+
+
+
 /* GROUP COMPONENTS / FRAMEWORK / (NON CORE) / NAV / MULTI LEVEL
 =================================================== */
 Array.from(document.querySelectorAll('nav li a')).forEach(element => {
@@ -148,6 +184,7 @@ function jfg_intersectionObserver() {
         entries.forEach(entry => {
             if (entry.intersectionRatio > 0) {
                 entry.target.setAttribute('data-io-seen', '');
+                entry.target.setAttribute('data-io-has-been-seen', '');
                 entry.target.setAttribute('data-io-currently-in-view', '');
             } else {
                 entry.target.removeAttribute('data-io-seen');

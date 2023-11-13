@@ -4,10 +4,10 @@
     .qa-test {
         border: 3px solid red!important;
     }
-    /* Images without alt tags */
-    img:not([alt]) {
+    /* Images without alt tags. Turn on when needed */
+    /* img:not([alt]) {
         border: 5px dashed red;
-    }
+    } */
     /* Components > Framework > Nav */
     .no-js .u-js-only {
         display: none!important;

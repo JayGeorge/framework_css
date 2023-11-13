@@ -1,4 +1,4 @@
-<a href="#main" class="skip-to-content u-screen-reader-text" title="Skip to content">
+<a href="#main" class="c-skip-to-content u-screen-reader-text" title="Skip to content">
     Skip to content
 </a>
 
@@ -38,11 +38,6 @@
     <nav aria-label="Main navigation" class="c-site-header__nav nav--centered o-nav-flex">
     <!-- <nav aria-label="Main navigation" class="c-site-header__nav nav--centered js__collapsedUntilNavOpened"> <-- use this instead for collapsed nav (most common, you only _don't_ want to use this if you only have a few items that show all the time e.g. jaygeorge.co.uk) *-->
         <ul>
-            <?php /* 
-                Here you can add the class .o-current-menu-item by the calling the header with a variable like this:
-                $current_nav = 'catalogue';
-                include '_inc/header.php';
-            */ ?>
             <?php 
                 $nav_name = 'About us'; include '_inc/nav-links.php';
                 $nav_name = 'News'; $url= 'news/index'; include '_inc/nav-links.php';

@@ -46,6 +46,7 @@ scope-ui;
     =================================================== */
     --spacing-m-2: 1.65rem;
     --spacing-m-then-spacing-l-upper-mq: var(--spacing-m);
+    --spacing-l-then-spacing-none-upper-mq: var(--spacing-l);
 
     --spacing-l-static: 1.8rem;
 
@@ -288,16 +289,6 @@ scope-ui;
     =================================================== */
     /* Molecules > Pagination > (Cross Pollinated) */
     --animation-transition-fast: all 0.15s ease-in-out 0s;
-    /* GROUP VARIABLES -- ANIMATIONS -- ANNI
-    =================================================== */
-    /* Notes...
-
-        - My own mini animation framework. Very very basic. Essentially just variables and class names.
-        - I've called it ANNI so it's easy to find it with cmd + f
-
-    */
-    --anni-duration: 1s;
-    --anni-stagger: 0.12s;
     /* GROUP VARIABLES -- ANIMATIONS -- TIMING
     =================================================== */
     --animation-timing-function-hipster: cubic-bezier(0.55, 0, 0.1, 1);
@@ -305,6 +296,7 @@ scope-ui;
     --animation-timing-function-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
     --animation-timing-function-in-cubic: cubic-bezier(0.55, 0.06, 0.68, 0.19);
     --animation-timing-function-in-quadratic: cubic-bezier(0.55, 0.09, 0.68, 0.53);
+    --animation-timing-function-in-out-quadratic: cubic-bezier(0.46, 0.03, 0.52, 0.96);
     --animation-timing-function-in-sine: cubic-bezier(0.47, 0, 0.75, 0.72);
 
     --animation-timing-function-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -345,11 +337,18 @@ scope-ui;
         --spacing-m-then-spacing-l-upper-mq: var(--spacing-l);
     }
 }
+/* --mq-text-bump-2-after */
+@media (min-width: 1800px) {
+    :root {
+        --spacing-l-then-spacing-none-upper-mq: 0;
+    }
+}
 /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEMING { / -- THEME }
 =================================================== */
 /* Notes...
 
     - An example if you're using theming, e.g. flipping colours for different pages
+    - Add this to base.css
 
 */
 @layer elements {
@@ -1753,6 +1752,26 @@ nav ul {
                 clip-path: polygon(50% 0, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0 50%);
             }
         }
+        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / SCROLL DRIVEN ANIMATIONS / WIPE UP IN SCROLL HEADER BACKGROUND
+        =================================================== */
+        /* This is used between slides, to slide up the background pseudo element. */
+        @keyframes wipe-up-in-scroll-header-background {
+            0% {
+                clip-path: inset(100% 0 0 0);
+            }
+            7.5%, 100% {
+                clip-path: inset(0 0 0 0);
+            }
+        }
+        /* Same as above but the animation ends immediately */
+        @keyframes wipe-up-in-scroll-header-background-end-immediately {
+            0% {
+                clip-path: inset(100% 0 0 0);
+            }
+            0%, 100% {
+                clip-path: inset(0 0 0 0);
+            }
+        }
     }
 }
 
@@ -1855,6 +1874,10 @@ nav ul {
 
 /* GROUP UTILITIES / FRAMEWORK / ANNI
 =================================================== */
+:root {
+    --anni-duration: 1s;
+    --anni-stagger: 0.12s;
+}
 @layer utilities {
     @media not (prefers-reduced-motion: reduce) {
         /* Notes...
@@ -1864,21 +1887,24 @@ nav ul {
             - Override defaults like this `<div class="u-anni-fade-in" style="--anni-duration: 0.9s">`
 
         */
-        [class*="u-anni-"] {
-            animation-delay: var(--anni-stagger, 0s);
-        }
         .u-anni-fade-in {
             animation: var(--anni-duration) linear fade-in both;
         }
         .u-anni-fade-in-up {
             --anni-stagger: 0.2s;
-            animation: var(--anni-duration) var(--animation-timing-function-linear-out-slow-in) fade-in-up both;
+            animation: var(--anni-duration) var(--animation-timing-function-hipster) fade-in-up both;
         }
         /* .u-anni-wipe-in-left {
             animation: var(--anni-duration) wipe-in-left both;
         } */
+        /* .u-anni-wipe-in-right {
+            animation: var(--anni-duration) wipe-in-right both;
+        } */
         /* .u-anni-rotate-in-up {
             animation: var(--anni-duration) var(--animation-timing-function-out-cubic) rotate-in-up both;
+        } */
+        /* .u-anni-rotate-in-up-reverse {
+            animation: var(--anni-duration) var(--animation-timing-function-out-cubic) rotate-in-up-reverse both;
         } */
         /* .u-anni-slide-in-right {
             animation: var(--anni-duration) var(--animation-timing-function-out-quadratic) slide-in-right both;
@@ -1886,6 +1912,9 @@ nav ul {
         /* .u-anni-slide-in-left {
             animation: var(--anni-duration) var(--animation-timing-function-out-quadratic) slide-in-left both;
         } */
+        [class*="u-anni-"] {
+            animation-delay: var(--anni-stagger, 0s);
+        }
         /* GROUP UTILITIES / FRAMEWORK / ANNI / TIMING / WIPES
         =================================================== */
         /* handy to use switch like u-anni-wipe-in-{{ switch between='right|left' }} */
@@ -1918,10 +1947,11 @@ nav ul {
     }
 }
 
+
+/* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / VIEW TRANSITIONS
+=================================================== */
 @layer utilities {
     @media not (prefers-reduced-motion: reduce) {
-        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / VIEW TRANSITIONS
-        =================================================== */
         .u-transition-wipe-out-up {
             view-transition-name: wipe-out-up;
         }
@@ -1940,24 +1970,26 @@ nav ul {
     }
 }
 
+
+
+/* GROUP UTILITIES / ANIMATION / IO FRAMEWORK (Authored by me)
+=================================================== */
+/* Notes...
+
+    - My own mini framework that operates similar to [AOS](https://michalsnik.github.io/aos/) but much simpler
+    - See `script-non-core.js` under `GROUP SCROLL TRIGGER WITH INTERSECTION OBSERVER` for the script, below are CSS examples to go with this
+
+    Using a Hidden Trigger
+    ----------------------
+    - If you need to place a hidden trigger at the bottom of the page you can use :has in combination with something like this `<div data-io-repeat data-io-hidden-trigger style="position: absolute; height:90vh;"></div>`
+        - data-io-hidden-trigger doesn't do anything; it's just an object you can test for like so: [data-io-hidden-trigger][data-io-seen]
+        see readme.css for more info
+
+*/
+
+
+/* This is needed for Live Preview hot reloading. Hot reloading conflicts with intersection observer. If we don't disable intersection observer animations then everything stays hidden since IO doesn't get triggered. */
 @layer utilities {
-    /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK (Authored by me)
-    =================================================== */
-    /* Notes...
-
-        - My own mini framework that operates similar to [AOS](https://michalsnik.github.io/aos/) but much simpler
-        - See `script-non-core.js` under `GROUP SCROLL TRIGGER WITH INTERSECTION OBSERVER` for the script, below are CSS examples to go with this
-
-        Using a Hidden Trigger
-        ----------------------
-        - If you need to place a hidden trigger at the bottom of the page you can use :has in combination with something like this `<div data-io-repeat data-io-hidden-trigger style="position: absolute; height:90vh;"></div>`
-            - data-io-hidden-trigger doesn't do anything; it's just an object you can test for like so: [data-io-hidden-trigger][data-io-seen]
-            see readme.css for more info
-
-    */
-
-
-    /* This is needed for Live Preview hot reloading. Hot reloading conflicts with intersection observer. If we don't disable intersection observer animations then everything stays hidden since IO doesn't get triggered. */
     .js--statamicLivePreview :is([data-io], [data-io-repeat]) {
         animation: unset!important;
         opacity: unset!important;
@@ -1977,7 +2009,7 @@ nav ul {
                 animation-delay: var(--io-delay);
                 animation-duration: var(--io-duration);
 
-                @media (max-width: 767px) {
+                &[style*="--io-delay-mobile"] {
                     --io-delay: var(--io-delay-mobile)!important; /* e.g. you can override for mobile like this `style="--io-delay-mobile: 0.2s; --io-delay: 0.65s"` */
                 }
             }
@@ -1986,17 +2018,11 @@ nav ul {
         /* When an item is followed by another item then add a default delay */
         [data-io][class*="__"] + [data-io][class*="__"] {
             animation-delay: calc(var(--io-delay) + var(--io-stagger));
+            &:nth-child(2) { animation-delay: calc(var(--io-delay) + var(--io-stagger) * 2); }
+            &:nth-child(3) { animation-delay: calc(var(--io-delay) + var(--io-stagger) * 3); }
+            &:nth-child(4) { animation-delay: calc(var(--io-delay) + var(--io-stagger) * 4); }
+            /* etc. */
         }
-        [data-io][class*="__"] + [data-io][class*="__"]:nth-child(2) {
-            animation-delay: calc(var(--io-delay) + var(--io-stagger) * 2);
-        }
-        [data-io][class*="__"] + [data-io][class*="__"]:nth-child(3) {
-            animation-delay: calc(var(--io-delay) + var(--io-stagger) * 3);
-        }
-        [data-io][class*="__"] + [data-io][class*="__"]:nth-child(4) {
-            animation-delay: calc(var(--io-delay) + var(--io-stagger) * 4);
-        }
-        /* etc. */
 
         /* Delays */
         [data-io--delay],

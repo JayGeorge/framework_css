@@ -28,7 +28,8 @@
     =================================================== */
     /* Useful for slides */
     --vh-s: max(28rem, 80vmin);
-    --vh-full: 100vmin;
+    /* Switched to vmin at larger MQs, so things don't get too tall */
+    --vh-full: 100vh;
     /* GROUP VARIABLES -- LAYOUT -- CONSTRAINTS -- MAX
     =================================================== */
     /* From lowest to highest value */
@@ -55,7 +56,8 @@
     --font-family-headline: sans-serif;
     /* GROUP VARIABLES -- DECORATION -- TEXT -- WEIGHTS
     =================================================== */
-    /* Or, if you are only using ONE weight by design then you should just add something like --font-family-main-weight: 500; to save confusion about which one to pick */
+    /* Or, if you are only using ONE weight by design then you should just add something like --font-family-main-weight: 500;
+    to save confusion about which one to pick */
     --font-family-main-weight-normal: 500;
     --font-family-main-weight-strong: 700;
     --font-family-headline-weight-normal: 500;
@@ -118,13 +120,21 @@
         --spacing-vh-m: 14vh;
     }
 }
-/* --mq-text-bump-reduce-for-lower-resolution-displays */
+@media (orientation: portrait) {
+    :root {
+        /* GROUP VARIABLES -- LAYOUT
+        =================================================== */
+        /* Switch to vmin at larger MQs, so things don't get too tall */
+        --vh-full: 100lvmin;
+    }
+}
 /* Notes...
 
-- Bear in mind users on smaller laptops do _not_ see things how you see things at a window width of 1440px. You can check exactly how they see it by going to System Preferences > Displays > Scaled
+    --mq-root-variable-adjustments-smaller-laptops-after to --mq-root-variable-adjustments-larger-laptops-before
+    - Bear in mind users on smaller laptops do _not_ see things how you see things at a window width of 1440px.
+    - You can check exactly how they see it by going to System Preferences > Displays > Scaled
 
 */
-/* --mq-root-variable-adjustments-smaller-laptops-after to --mq-root-variable-adjustments-larger-laptops-before */
 @media (min-width: 1025px) and (max-width: 1440px) {
     :root {
         --font-bump: -0.09em; /* Decrease */

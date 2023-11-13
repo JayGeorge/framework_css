@@ -182,6 +182,28 @@ you just need to ensure that if transitions on the actual elements is set to "al
         transform: translate3d(0, 100vh, 0);
     }
 }
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / SLIDE UP
+=================================================== */
+@keyframes slide-up {
+    0% {
+        transform: translate3d(0, 5vh, 0);
+    }
+
+    75%, 100% {
+        transform: none;
+    }
+}
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / SLIDE DOWN
+=================================================== */
+@keyframes slide-down {
+    0% {
+        transform: translate3d(0, -5vh, 0);
+    }
+
+    75%, 100% {
+        transform: none;
+    }
+}
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / FADE IN UP BIG FROM BOTTOM
 =================================================== */
 @keyframes fade-in-up-big-from-bottom {

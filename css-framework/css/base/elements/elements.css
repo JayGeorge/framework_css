@@ -10,7 +10,6 @@
     body {
         background: ;
     } */
-    /* =JFG. HTML default e.g. when we are separating lines with <br> like addresses in proposals */
     html {
         /* Consider disabling this if you have pages that require lots of cmd + f https://css-tricks.com/downsides-of-smooth-scrolling/ */
         scroll-behavior: smooth;
@@ -329,6 +328,7 @@
     :is(a, button, summary):focus-visible,
     /* Elements > Framework > Forms */
     input:focus-visible,
+    select:focus-visible,
     textarea:focus-visible {
         outline: 4px solid var(--colour-focus);
     }
