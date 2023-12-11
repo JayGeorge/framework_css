@@ -244,9 +244,9 @@ objects,
 components,
 modifiers,
 utilities,
-/* Third party e.g. Flickity. Should be higher than 'components' to override things like button rules */
+/* Third party e.g. https://plyr.io */
 vendors,
-/* Specific UI that should never be overriden, such as the layout in Alpine Components */
+/* Specific UI that should never be overridden, such as the layout in Alpine Components */
 ui,
 /* .s- classes */
 scope;

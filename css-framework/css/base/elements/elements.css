@@ -68,6 +68,12 @@
             margin-block-end: 0;
         }
     }
+    a {
+        text-decoration: inherit;
+    }
+    svg {
+        stroke: currentColor;
+    }
     /* Don't affect Statamic's lists here, which contain p tags like this:
         <ol>
             <li>
@@ -99,8 +105,11 @@
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS
     =================================================== */
     /* https://developer.chrome.com/blog/CSS-text-wrap-balance */
-    h1, h2, h3, h4, h5, h6, blockquote, figcaption {
+    h1, h2, h3, h4, h5, h6 {
         text-wrap: balance;
+    }
+    blockquote, figcaption, p {
+        text-wrap: pretty;
     }
     h1, .h1, h1 a, .h1 a, h2, .h2, h2 a, .h2 a, h3, .h3, h3 a, .h3 a {
         font-family: var(--font-family-headline);

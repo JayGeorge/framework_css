@@ -26,7 +26,7 @@ modifiers,
 utilities,
 /* Rarely needed */
 utilities-modifiers,
-vendors,
+plugins,
 ui,
 scope,
 /* Rarely needed */
@@ -892,7 +892,7 @@ scope-ui;
     =================================================== */
     /* Ancestors and Parents of Current Page */
     /* nav */
-    .c-current-menu-ancestor > a span {
+    .c-current-menu-item {
         color: rgba(var(--colour-turquoise-rgb),0.5);
     }
 }
@@ -1018,13 +1018,14 @@ scope-ui;
                         animation-duration: 0.9s;
                         animation-fill-mode: forwards;
                     }
-                    /* Default i.e. after 4th */
+                    /* Default i.e. after 5th */
                     animation-delay: calc(0.1s * 5);
                     /* Need to give it at least a tiny bit (not 0s) otherwise blips on iOS */
-                    &:nth-child(1) { animation-delay: calc(0.1s * 1); }
-                    &:nth-child(2) { animation-delay: calc(0.1s * 2); }
-                    &:nth-child(3) { animation-delay: calc(0.1s * 3); }
-                    &:nth-child(4) { animation-delay: calc(0.1s * 4); }
+                    &:nth-child(1) { animation-delay: 0.025s; }
+                    &:nth-child(2) { animation-delay: calc(0.05s * 1); }
+                    &:nth-child(3) { animation-delay: calc(0.05s * 2); }
+                    &:nth-child(4) { animation-delay: calc(0.05s * 3); }
+                    &:nth-child(5) { animation-delay: calc(0.05s * 4); }
                 }
             }
             .js:not(.js--navIsOpen) {
