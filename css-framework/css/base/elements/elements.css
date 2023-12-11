@@ -69,7 +69,7 @@
         }
     }
     a {
-        text-decoration: inherit;
+        color: inherit;
     }
     svg {
         stroke: currentColor;
@@ -231,7 +231,7 @@
                 /* Needed to better vertically align */
                 display: flex;
                 align-items: center;
-                text-decoration: none;
+                text-decoration-line: none;
             }
         }
     }
