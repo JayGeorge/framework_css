@@ -71,9 +71,6 @@
     a {
         color: inherit;
     }
-    svg {
-        stroke: currentColor;
-    }
     /* Don't affect Statamic's lists here, which contain p tags like this:
         <ol>
             <li>
@@ -119,6 +116,10 @@
         /* Override iOS Safari's user agent stylesheet */
         text-decoration: none;
         color: inherit; /* If you use a link inside a heading, inherit the colour so it's not the default browser-purple */
+    }
+    a :is(h1, h2, h3, h4, h5, h6) {
+        /* When a heading is inside a link, escape the link colour */
+        color: initial;
     }
     h4, .h4, h4 a, .h4 a {
         font-family: var(--font-family-headline);
@@ -257,10 +258,12 @@
 /* GROUP ELEMENTS / FRAMEWORK / SVGs
 =================================================== */
 @layer elements {
-    :is([src*="svg"], svg) {
+    svg {
+        stroke: currentColor;
+        fill: currentColor;
+        /* For SVG icons */
         width: 1em;
         height: 1em;
-        fill: currentColor;
     }
     :is(h1, h2, h3, h4, h5, h6, p) svg {
         vertical-align: baseline;

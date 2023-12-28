@@ -74,7 +74,7 @@
     --font-size-s-x: 1em;
     --font-size-s-x-line-height: 1.3;
     --font-size-s-x-1: 1rem;
-    --font-size-s: 1.1em;
+    --font-size-s: clamp(1.05em, 4vw, 1.1em);
     /* --font-size-s-2: clamp(1.3em, 7vw, 1.5em); */
     /* --font-size-s-2-line-height: 1.3; */
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- AUGMENTED FOURTH
@@ -84,7 +84,7 @@
     --font-size-s-1-line-height: 1.3;
 
     --font-size-m: clamp(1.999em * 0.75, 6vw, 1.999em);
-    --font-size-m-line-height: 1.185;
+    --font-size-m-line-height: 1.3;
 
     --font-size-l: clamp(2.827em * 0.8, 9vw, 2.827em);
     --font-size-l-line-height: 1.15;
@@ -193,7 +193,6 @@
         usually a grey box flickers. The below prevents that. Source: http://goo.gl/MZ4Dr5 */
         -webkit-tap-highlight-color: rgba(0,0,0,0);
         /* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
-        /* Don't do *::before, *::after - this has caused me performance problems before with flickering images */
         box-sizing: border-box;
     }
 }

@@ -542,14 +542,12 @@ scope-ui;
         text-decoration-thickness: 1px;
     }
 }
-/* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / CUSTOM
+/* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / CUSTOM
 =================================================== */
 @layer utilities {
     /* Notes...
 
-        - Use "u-link-style-custom" prefix then these are pretty much rare/1 off
-        - Example taken from Typewolf. This should probably only be used for entry content because it might negatively affect elements such as nav
-        - Still include them in this group so we can see all link styles for easy maintenance
+        - Include link styles in this group so we can see all link styles for easy maintenance
 
     */
     .u-link-style-custom-1 {
