@@ -149,40 +149,38 @@ Array.from(document.querySelectorAll('nav li a')).forEach(element => {
     }
 */
 function jfg_intersectionObserver() {
-    const options = {
-        // When at least 25% is visible
-        threshold: [0.25]
-    }
-
     /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / DEFAULT
     =================================================== */
     /* Notes...
         [1] data-io is the default, where data-io-seen is only added once, and never removed once added
         [2] However, data-io-currently-in-view is always added/removed as an extra hook
     */
-    const observe_target = document.querySelectorAll('[data-io]');
-    var my_observer = new IntersectionObserver(entries => {
+    const callback = (entries, observer) => {
         entries.forEach(entry => {
-            if (entry.intersectionRatio > 0) {
+            if (entry.isIntersecting) {
                 entry.target.setAttribute('data-io-seen', '');
                 entry.target.setAttribute('data-io-currently-in-view', '');
             } else {
                 entry.target.removeAttribute('data-io-currently-in-view');
             }
         });
-    }, {
-        options
+    };
+
+    // Create the observer with a threshold of 0.25 (at least 25% of the element is visible)
+    const observer = new IntersectionObserver(callback, {
+        threshold: 0.25
     });
-    observe_target.forEach(entry => {
-        my_observer.observe(entry);
-    });
+
+    // Start observing multiple elements
+    const observer_targets = document.querySelectorAll('[data-io]');
+    observer_targets.forEach(target => observer.observe(target));
     /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / MULTIPLE TIMES
     =================================================== */
     /* data-io-repeat can be used for multiple triggers, where it's removed once out of sight, and re-added once back on screen */
-    const observe_target_multiple_times = document.querySelectorAll('[data-io-repeat]');
-    var my_observer_multiple_times = new IntersectionObserver(entries => {
+    // Define a callback function for [data-io-repeat] elements
+    const callbackRepeat = (entries, observer) => {
         entries.forEach(entry => {
-            if (entry.intersectionRatio > 0) {
+            if (entry.isIntersecting) {
                 entry.target.setAttribute('data-io-seen', '');
                 entry.target.setAttribute('data-io-has-been-seen', '');
                 entry.target.setAttribute('data-io-currently-in-view', '');
@@ -191,12 +189,16 @@ function jfg_intersectionObserver() {
                 entry.target.removeAttribute('data-io-currently-in-view');
             }
         });
-    }, {
-        options
+    };
+
+    // Create the observer with a threshold of 0.25 for [data-io-repeat] elements
+    const observerRepeat = new IntersectionObserver(callbackRepeat, {
+        threshold: 0.25
     });
-    observe_target_multiple_times.forEach(entry => {
-        my_observer_multiple_times.observe(entry);
-    });
+
+    // Start observing [data-io-repeat] elements
+    const observer_targets_repeat = document.querySelectorAll('[data-io-repeat]');
+    observer_targets_repeat.forEach(target => observerRepeat.observe(target));
     /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / CONTROL PLYR STATE
     =================================================== */
     // Leaving this here for posterity but it doesn't work because it will pause every single video on the page rather than the current one
