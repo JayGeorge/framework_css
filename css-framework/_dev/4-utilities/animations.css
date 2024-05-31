@@ -223,6 +223,19 @@ you just need to ensure that if transitions on the actual elements is set to "al
     animation-name: fade-in-up-big-from-bottom;
     animation-duration: 0.5s;
 }
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / FADE IN DOWN
+=================================================== */
+@keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, var(--fade-in-amount, -5vh), 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / FADE IN DOWN BIG
 =================================================== */
 /* Molecules > (Non Core) > Modal > jQuery (Archive) */

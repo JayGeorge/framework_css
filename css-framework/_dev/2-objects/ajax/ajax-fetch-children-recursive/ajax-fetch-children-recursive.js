@@ -35,7 +35,7 @@
 
     .js__fetch-with-ajax-on-click[aria-expanded="true"] svg {
         transform: rotate(45deg);
-        color: var(--colour-black-off);
+        color: var(--color-black-off);
     }
 
 */

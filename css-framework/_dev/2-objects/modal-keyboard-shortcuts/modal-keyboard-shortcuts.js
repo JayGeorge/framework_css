@@ -10,7 +10,7 @@
         + Under the 'striped' heading you might want to add something like this
         .c-modal-box table > tbody > tr:nth-child(odd) > td,
         .c-modal-box table > tbody > tr:nth-child(odd) > th {
-            background: var(--colour-black-off-1);
+            background: var(--color-black-off-1);
         }
     - Finally you'll need to add some HTML to your page like this (try just before you call the footer, so you can show different shortcuts on different pages):
 

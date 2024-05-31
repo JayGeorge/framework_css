@@ -113,7 +113,7 @@
     font-size: var(--font-size-s-x-x);
     letter-spacing: var(--letter-spacing-l);
     font-weight: var(--font-family-main-weight-strong);
-    background: hsla(var(--colour-sepia-hsl),0.5);
+    background: hsla(var(--color-sepia-hsl),0.5);
 }
 
 .c-before-after__after .c-before-after__title {

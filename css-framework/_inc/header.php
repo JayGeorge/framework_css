@@ -16,14 +16,13 @@
 
         <!--*
         or
-        
 
         <div class="c-site-header__site-logo">
             <div class="c-site-logo">
                 <a href="/" aria-label="Go to the home page">
                     Site Title here
                 </a>
-    </div>
+            </div>
         </div>
         *-->
     </div>
@@ -35,7 +34,7 @@
         ?>
     </button>
 
-    <nav aria-label="Main navigation" class="c-site-header__nav nav--centered o-nav-flex">
+    <nav aria-label="Main navigation" data-js-highlight-current-nav class="c-site-header__nav nav--centered o-nav-flex">
     <!-- <nav aria-label="Main navigation" class="c-site-header__nav nav--centered js__collapsedUntilNavOpened"> <-- use this instead for collapsed nav (most common, you only _don't_ want to use this if you only have a few items that show all the time e.g. jaygeorge.co.uk) *-->
         <ul>
             <?php 

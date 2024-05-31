@@ -93,8 +93,8 @@
 
 .c-checkbox-image :checked + .c-checkbox-image__image-container svg {
     display: initial;
-    background: var(--colour-green-light);
-    color: var(--colour-green-dark);
+    background: var(--color-green-light);
+    color: var(--color-green-dark);
     border-radius: 50px;
     font-size: var(--icon-size-m);
 }

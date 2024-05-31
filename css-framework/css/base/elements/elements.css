@@ -105,12 +105,12 @@
     h1, h2, h3, h4, h5, h6 {
         text-wrap: balance;
     }
-    blockquote, figcaption, p {
+    blockquote, figcaption, main p {
         text-wrap: pretty;
     }
     h1, .h1, h1 a, .h1 a, h2, .h2, h2 a, .h2 a, h3, .h3, h3 a, .h3 a {
-        font-family: var(--font-family-headline);
-        font-weight: var(--font-family-headline-weight-normal);
+        font-family: var(--font-family-heading);
+        font-weight: var(--font-family-heading-weight-normal);
         /* https://app.typographychecklist.com/ 91 - Use discretionary ligatures and swashes in headlines */
         font-feature-settings: "kern", "liga", "clig", "calt", "dlig", "swsh";
         /* Override iOS Safari's user agent stylesheet */
@@ -122,8 +122,8 @@
         color: initial;
     }
     h4, .h4, h4 a, .h4 a {
-        font-family: var(--font-family-headline);
-        font-weight: var(--font-family-headline-weight-normal);
+        font-family: var(--font-family-heading);
+        font-weight: var(--font-family-heading-weight-normal);
     }
     h1, .h1 {
         font-size: var(--font-size-l); line-height: var(--font-size-l-line-height);
@@ -301,7 +301,7 @@
     /* Components > Framework > Entry > Entry Content */
     .s-entry-content a {
         text-decoration-line: none;
-        color: var(--colour-turquoise);
+        color: var(--color-turquoise);
     }
 }
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / FOCUS
@@ -313,7 +313,7 @@
     input:focus-visible,
     select:focus-visible,
     textarea:focus-visible {
-        outline: 4px solid var(--colour-focus);
+        outline: 4px solid var(--color-focus);
     }
 
     /* ensure the focus outline is effective when a link is wrapped around a heading */
@@ -352,7 +352,7 @@
 @layer scope {
     .s-entry-content a:hover {
         text-decoration-color: black;
-        color: var(--colour-grey-reading);
+        color: var(--color-gray-reading);
     }
 }
 
@@ -369,7 +369,7 @@
         left: 0;
         padding: var(--spacing-s-1) var(--spacing-l);
         font-size: var(--font-size-s-x);
-        color: var(--colour-grey);
+        color: var(--color-gray);
         outline: none;
         /* Looks better on Skip to Content */
         text-underline-position: auto;

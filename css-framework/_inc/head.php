@@ -32,9 +32,19 @@
         - All JS should use either async or defer for best performance - https://twitter.com/csswizardry/status/1078374711044788224
     */ ?>
     <script>
-        /* Tell the html ASAP (without JS) to prevent a flicker of DOM changes e.g. nav collapsed. */
-        document.querySelector('html').classList.remove('no-js');
-        document.querySelector('html').classList.add('js');
+        <?php /* Highlight the current page in the nav */ ?>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const navLinks = document.querySelectorAll('[data-js-highlight-current-nav] a');
+            console.log(navLinks);
+            const currentPage = window.location.pathname;
+
+            navLinks.forEach((link) => {
+                if (link.pathname === currentPage) {
+                    console.log(link.pathname);
+                    link.setAttribute('data-js-current-page', '');
+                }
+            });
+        });
     </script>
     <?php /* GROUP JAVASCRIPT / FRAMEWORKS USING DEFER
     =================================================== */ ?>

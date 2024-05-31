@@ -287,11 +287,11 @@ http://help.typekit.com/customer/portal/articles/6852-controlling-the-flash-of-u
 
 */
 .u-background-1 {
-    background: var(--colour-grey-reading);
+    background: var(--color-gray-reading);
 }
 
 .u-color-1 {
-    color: var(--colour-grey-reading);
+    color: var(--color-gray-reading);
 }
 
 
@@ -384,13 +384,13 @@ http://help.typekit.com/customer/portal/articles/6852-controlling-the-flash-of-u
     =================================================== */
     .js .js__toggle-content--1::after {
         content: " + …";
-        color: var(--colour-blue);
+        color: var(--color-blue);
         font-weight: var(--font-family-main-weight-strong);
     }
 
     .js .js__toggle-content--2::after {
         content: " … More + ";
-        color: var(--colour-blue);
+        color: var(--color-blue);
         font-weight: var(--font-family-main-weight-strong);
     }
 
@@ -405,7 +405,7 @@ http://help.typekit.com/customer/portal/articles/6852-controlling-the-flash-of-u
 }
 
 /* button*/.js__toggle-content:focus::after {
-    background: var(--colour-blue);
+    background: var(--color-blue);
     color: white;
 }
 
@@ -746,7 +746,7 @@ body {
     display: inline-block;
     content: "";
     border-bottom: 55px solid transparent;
-    border-left: 55px solid var(--colour-purple);
+    border-left: 55px solid var(--color-purple);
 }
 
 
@@ -756,7 +756,7 @@ body {
 =================================================== */
 /* tr:target {
     transform: translateX(15px);
-    border: 3px solid var(--colour-turquoise);
+    border: 3px solid var(--color-turquoise);
     font-weight: 700;
 } */
 /* GROUP ATOMS / DEMO / TEXT DECORATION SKIP { / UNDERLINE} { / LINK STYLES}
@@ -807,7 +807,7 @@ body {
 /* GROUP ATOMS / DEMO / SITCKY POSITIONING / DECORATION
 =================================================== */
 .c-sort-letter {
-    background: var(--colour-turquoise);
+    background: var(--color-turquoise);
     color: white;
 }
 
@@ -1453,7 +1453,7 @@ body,
 /* GROUP PLUGINS / ISOTOPE / DECORATION
 =================================================== */
 /* .c-isotope-grid__item { */
-/* border: 1px solid var(--colour-pink); */
+/* border: 1px solid var(--color-pink); */
 /* } */
 
 
@@ -1605,7 +1605,7 @@ body,
 
 .c-social-icons a:focus span,
 .c-social-icons a:hover span {
-    color: var(--colour-turquoise);
+    color: var(--color-turquoise);
 }
 
 
@@ -1840,7 +1840,7 @@ body,
 
 .u-reveal-on--hover .u-reveal-on__target:hover .u-reveal-on__preview-border,
 .u-reveal-on__target .u-checkbox-hack:checked ~ * .u-reveal-on__preview-border {
-    border-top: 3px solid var(--colour-turquoise);
+    border-top: 3px solid var(--color-turquoise);
 }
 /* GROUP MOLECULES / (NON CORE) / REVEAL ON WITH CHECKBOX HACK / LAYOUT
 =================================================== */
@@ -2546,14 +2546,14 @@ p + .c-price-label {
 
 .c-search__button,
 .js__c-search__button {
-    border: 1px solid var(--colour-grey-light-1);
+    border: 1px solid var(--color-gray-light-1);
     cursor: pointer;
 }
 
 .js__c-search__button .c-jg-icon--loading {
     /* Loading icon that 'Go' is replaced with when searching */
     font-size: 24px;
-    color: var(--colour-purple);
+    color: var(--color-purple);
 }
 
 .c-search__button {
@@ -2564,7 +2564,7 @@ p + .c-price-label {
 =================================================== */
 .c-search__button:focus,
 .js__c-search__button:focus {
-    border: 2px solid var(--colour-flamingo);
+    border: 2px solid var(--color-flamingo);
 }
 /* GROUP MOLECULES / (NON CORE) / SEARCH / ACCESSIBILITY / HOVER
 =================================================== */
@@ -2597,7 +2597,7 @@ p + .c-price-label {
 }
 
 .s-search-in-main-content .c-search__input:focus {
-    border-color: var(--colour-grey-reading);
+    border-color: var(--color-gray-reading);
 }
 
 
@@ -2893,8 +2893,8 @@ body .btn--search-overlay-close {
     width: 2.3em;
     height: 2.3em;
     font-size: var(--icon-size-m);
-    background: var(--colour-grey-light-4);
-    color: var(--colour-grey);
+    background: var(--color-gray-light-4);
+    color: var(--color-gray);
     border-radius: 50px;
 }
 
@@ -2904,7 +2904,7 @@ body .btn--search-overlay-close {
 
 .c-search-overlay [type="checkbox"]:checked + label {
     font-weight: var(--font-family-1-weight-strong);
-    color: var(--colour-blue);
+    color: var(--color-blue);
 }
 
 body .c-search-overlay__search-button {
@@ -2925,7 +2925,7 @@ body .c-search-overlay__search-button {
 /* GROUP MOLECULES / (NON CORE) / SEARCH OVERLAY / DECORATION / CHECKBOXES
 =================================================== */
 .c-search-overlay label:hover {
-    color: var(--colour-black-off);
+    color: var(--color-black-off);
 }
 
 .c-search-overlay [type="checkbox"]:not(:checked) {
@@ -2945,7 +2945,7 @@ body .c-search-overlay__search-button {
 .c-search-overlay [type="checkbox"]:checked + svg,
 .c-search-overlay [type="checkbox"]:checked + svg + * {
     font-weight: var(--font-family-1-weight-strong);
-    color: var(--colour-blue);
+    color: var(--color-blue);
     /* Remove opacity dim for icons */
     opacity: 1;
 }
@@ -3069,7 +3069,7 @@ body .c-search-overlay__search-button {
     margin-block-end: var(--spacing-l-4);
     text-align: center;
     font-style: italic;
-    color: hsla(var(--colour-black-off-hsl),.5)
+    color: hsla(var(--color-black-off-hsl),.5)
 }
 
 @media (min-width: 1024px) {
@@ -3092,18 +3092,18 @@ body .c-search-overlay__search-button {
     }
 
     .c-screenshot__inner {
-        border: 23px solid var(--colour-black-eigengrau)
+        border: 23px solid var(--color-black-eigengrau)
     }
 
     .c-screenshot {
         border: 3px solid #bebebe;
         border-radius: 35px;
-        box-shadow: 0 .5em 1.5em .1em hsla(var(--colour-black-off-hsl),.33)
+        box-shadow: 0 .5em 1.5em .1em hsla(var(--color-black-off-hsl),.33)
     }
 
     .c-screenshot__inner {
         position: relative;
-        background: var(--colour-vanilla-light);
+        background: var(--color-vanilla-light);
         border-radius: 32px
     }
 }
@@ -3172,13 +3172,13 @@ body .c-search-overlay__search-button {
     bottom: 0;
     left: 0;
     width: 25%;
-    border-bottom: var(--border-grey-s);
+    border-bottom: var(--border-gray-s);
 }
 
 .c-filter-form label {
     /* Override default */
     font-weight: var(--font-family-1-weight-normal);
-    color: var(--colour-slate);
+    color: var(--color-slate);
 }
 /* GROUP ORGANISMS / (NOT PART OF FRAMEWORK) / FILTER FORM / ACCESSIBILITY / HOVER
 =================================================== */
@@ -3577,12 +3577,12 @@ nav {
 /* Static Only > Genesis */
 /* Static Only > Perch */
 .js--current-page span {
-    color: var(--colour-turquoise);
+    color: var(--color-turquoise);
 }
 
 /* Ancestors and Parents of Current Page */
 /* nav */.current-menu-ancestor > a span {
-    color: rgba(var(--colour-turquoise-rgb),0.5);
+    color: rgba(var(--color-turquoise-rgb),0.5);
 }
 /* GROUP ORGANISMS / NAV / CURRENT PAGE / (CSS FRAMEWORK ONLY)
 =================================================== */
@@ -3594,7 +3594,7 @@ nav {
 =================================================== */
 nav a {
     text-decoration: none;
-    color: var(--colour-grey-reading);
+    color: var(--color-gray-reading);
 }
 /* GROUP ORGANISMS / NAV / ACCESSIBILITY / FOCUS
 =================================================== */
@@ -3623,7 +3623,7 @@ nav .skip-to-content:focus {
     /* "Underline" with a controlled position. Source - https://medium.com/design/crafting-link-underlines-on-medium-7c03a9274f9#.5sec291r0 */
     /* Needed for background height to be effective */
     /* display: inline-block; */
-    /* background-image: linear-gradient(to bottom,transparent 50%,var(--colour-grey-light-4) 50%); */
+    /* background-image: linear-gradient(to bottom,transparent 50%,var(--color-gray-light-4) 50%); */
     /* background-repeat: repeat-x; */
     /* Controls width of "underline" */
     /* background-size: 4px 4px; */
@@ -3667,7 +3667,7 @@ ul/*o-*/.sub-menu {
     padding-inline-end: var(--spacing-l-static);
     margin-top: var(--spacing-s-1);
     font-size: 1.1em;
-    color: var(--colour-grey-reading);
+    color: var(--color-gray-reading);
 }
 
 .menu-item-has-children /* button*/.js--nav-submenu-dropdown:focus {
@@ -4236,7 +4236,7 @@ figure {
     padding-block-start: 0.6rem;
     font-size: var(--font-size-s-x);
     line-height: var(--font-size-s-x);
-    color: var(--colour-grey-reading);
+    color: var(--color-gray-reading);
 }
 
 
@@ -4352,7 +4352,7 @@ figure {
         justify-content: center;
         margin-block-end: var(--spacing-l-2)!important;
         margin-top: var(--spacing-l-1)!important;
-        background: var(--colour-grey-light-6);
+        background: var(--color-gray-light-6);
 
     }
 
@@ -4707,7 +4707,7 @@ figure {
 .o-comment-meta,
 .says,
 .date {
-    color: var(--colour-grey-reading);
+    color: var(--color-gray-reading);
 }
 
 .c-avatar {
@@ -4715,7 +4715,7 @@ figure {
 }
 
 /* o-*/.required {
-    color: var(--colour-turquoise);
+    color: var(--color-turquoise);
 }
 /* GROUP ORGANISMS / COMMENTS / PERCH / CHILDREN / VERTICAL SPACING
 =================================================== */
@@ -4775,17 +4775,17 @@ figure {
 /* GROUP ORGANISMS / WORDPRESS / BREADCRUMBS / GENESIS / DECORATION
 =================================================== */
 /* c-*/.breadcrumb {
-    color: var(--colour-orange);
+    color: var(--color-orange);
 }
 
 /* c-*/.breadcrumb span {
-    color: var(--colour-grey-light-3);
+    color: var(--color-gray-light-3);
 }
 
 /* c-*/.breadcrumb a span,
 /* c-*/.breadcrumb a {
     text-decoration: none;
-    color: var(--colour-grey-reading);
+    color: var(--color-gray-reading);
 }
 /* GROUP ORGANISMS / WORDPRESS / BREADCRUMBS / GENESIS / (OPTIONAL)
 =================================================== */
@@ -4943,7 +4943,7 @@ html .woocommerce .woocommerce-breadcrumb {
     /* Cancel default */
     font-size: var(--font-size-s);
     line-height: var(--font-size-s-line-height);
-    background: var(--colour-turquoise);
+    background: var(--color-turquoise);
     color: rgba(255,255,255,0.5);
 }
 
@@ -4985,7 +4985,7 @@ body .woocommerce .woocommerce-error {
 }
 
 body .woocommerce .woocommerce-info {
-    border-top-color: var(--colour-turquoise);
+    border-top-color: var(--color-turquoise);
 }
 
 /* Errors */
@@ -5030,7 +5030,7 @@ html .woocommerce table.shop_table td.actions {
 body .woocommerce input.button:disabled,
 body .woocommerce input.button:disabled[disabled] {
     opacity: 1;
-    color: var(--colour-grey-light-4);
+    color: var(--color-gray-light-4);
 }
 
 /* - 768 / --mq-woocommerce-checkout-table-layout-change-before */
@@ -5070,7 +5070,7 @@ body .woocommerce input.button:disabled[disabled] {
 /* GROUP ORGANISMS / WORDPRESS / WOOCOMMERCE / SHOP / ORDERING / DECORATION
 =================================================== */
 .woocommerce-result-count {
-    color: var(--colour-grey-reading);
+    color: var(--color-gray-reading);
 }
 /* GROUP ORGANISMS / WORDPRESS / WOOCOMMERCE / SHOP / PRODUCTS / LAYOUT / (CROSS POLLINATED)
 =================================================== */
@@ -5136,7 +5136,7 @@ body .woocommerce input.button:disabled[disabled] {
 /* a*/.woocommerce-LoopProduct-link .price {
     font-size: var(--font-size-s);
     line-height: var(--font-size-s-line-height);
-    color: var(--colour-grey-reading);
+    color: var(--color-gray-reading);
 }
 
 
@@ -5215,7 +5215,7 @@ html .woocommerce-cart table.cart td.actions .coupon .input-text {
 /* - 768 / --mq-woocommerce-checkout-table-layout-change-before */
 @media (max-width: 48em) {
     html .woocommerce table.shop_table_responsive tbody tr td:first-child {
-        background: var(--colour-grey-light-6);
+        background: var(--color-gray-light-6);
     }
 }
 
@@ -5228,7 +5228,7 @@ html .woocommerce table.shop_table_responsive tbody tr td.actions {
 /* GROUP ORGANISMS / WORDPRESS / WOOCOMMERCE / CART / DECORATION / COLORS
 =================================================== */
 .cart_item td::before {
-    color: var(--colour-grey-reading);
+    color: var(--color-gray-reading);
     /* Lazy way of overriding ridiculous WooCommerce CSS selector */
     font-weight: 400!important;
 }
@@ -5251,7 +5251,7 @@ html .woocommerce-cart .cart-collaterals .cart_totals tr td {
 }
 
 html .woocommerce table.shop_table .cart_item {
-    border: 1px solid var(--colour-grey-light-4);
+    border: 1px solid var(--color-gray-light-4);
 }
 
 html .woocommerce table.shop_table_responsive tbody tr td:first-child {
@@ -5261,7 +5261,7 @@ html .woocommerce table.shop_table_responsive tbody tr td:first-child {
 html .woocommerce table.shop_table td,
 /* Cart totals */
 html .woocommerce-cart .cart-collaterals .cart_totals tr td {
-    border-top: 1px solid var(--colour-grey-light-4);
+    border-top: 1px solid var(--color-gray-light-4);
 }
 
 html .woocommerce table.shop_table {
@@ -5313,7 +5313,7 @@ html .woocommerce table.shop_table {
 
     /* Remove Product */
     html .woocommerce table.shop_table_responsive tbody tr td.product-remove {
-        border-top: 1px solid var(--colour-grey-light-6);
+        border-top: 1px solid var(--color-gray-light-6);
     }
 }
 
@@ -5352,7 +5352,7 @@ body .woocommerce table.woocommerce-checkout-review-order-table * {
 /* This is not an idea selector */
 .create-account p:first-child {
     font-size: 0.75em;
-    color: var(--colour-grey-reading);
+    color: var(--color-gray-reading);
 }
 
 
@@ -5373,7 +5373,7 @@ body .woocommerce table.woocommerce-checkout-review-order-table * {
 
     Used to grab attention and typically for shorter copy
     - Larger type
-    - Different color e.g. light grey
+    - Different color e.g. light gray
 
 */
      
@@ -5389,7 +5389,7 @@ body .woocommerce table.woocommerce-checkout-review-order-table * {
     @apply --u-center-horizontal;
     font-size: var(--font-size-s-1);
     line-height: var(--font-size-s-1-line-height);
-    color: var(--colour-grey-reading);
+    color: var(--color-gray-reading);
 }
 
 .c-marketing-content {
@@ -5767,7 +5767,7 @@ Windows 8               | 11        | Internet Explorer
 /* GROUP ORGANISMS / NAV / SIDEBAR / ACCESSIBILITY / FOCUS
 =================================================== */
 .c-nav-sidebar__header {
-    color: var(--colour-grey-reading);
+    color: var(--color-gray-reading);
 }
 
 .c-nav-sidebar__checkbox:focus ~ * {
@@ -6002,7 +6002,7 @@ Windows 8               | 11        | Internet Explorer
         width: 80%;
         min-width: calc(100% - 370px);
         min-height: 100vh;
-        background: var(--colour-grey-light-6);
+        background: var(--color-gray-light-6);
     }
 
     /* Hide the button because we no longer toggle it */
@@ -6356,7 +6356,7 @@ nav ul li .current-menu-item > a span {
     }
 
     .o-overlay__text {
-        /* color: var(--colour-black-faded-4); */
+        /* color: var(--color-black-faded-4); */
         font-size: 1.4em;
     }
 }

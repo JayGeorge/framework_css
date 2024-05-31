@@ -64,7 +64,7 @@ scope-ui;
     =================================================== */
     /* Used with font-variation-settings, e.g. font-variation-settings: var(--font-family-main-variation-normal); */
     --font-family-main-variation-normal: 'ital' 0, 'wdth' 100, 'wght' 400;
-    /* GROUP VARIABLES -- DECORATION -- COLOURS -- GREYSCALE
+    /* GROUP VARIABLES -- DECORATION -- COLOURS -- graySCALE
     =================================================== */
     /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME
     =================================================== */
@@ -76,39 +76,39 @@ scope-ui;
         - You can also create monochromatic harmonies easily, with one main hue and then tweaking the lightness to get different tints and shades of that hue.
     */
     /* Example of dividing more */
-    --colour-purple-legacy: purple;
+    --color-purple-legacy: purple;
 
-    --colour-purple-lch: 50% 132 35;
-    --colour-purple-ch: 132 35;
-    --colour-purple-1: oklch(50% var(--colour-purple-ch));
-    --colour-purple-2: oklch(60% var(--colour-purple-ch));
-    --colour-purple-transparent: oklch(50% var(--colour-purple-ch) / 20%);
+    --color-purple-lch: 50% 132 35;
+    --color-purple-ch: 132 35;
+    --color-purple-1: oklch(50% var(--color-purple-ch));
+    --color-purple-2: oklch(60% var(--color-purple-ch));
+    --color-purple-transparent: oklch(50% var(--color-purple-ch) / 20%);
 
-    --colour-navy: hsl(226deg 25% 14%);
-    --colour-navy-hs: 226deg 25%;
-    --colour-navy-hsl: 226deg 25% 14%;
-    --colour-navy-overlay: hsl(var(--colour-navy-hsl) / 20%);
+    --color-navy: hsl(226deg 25% 14%);
+    --color-navy-hs: 226deg 25%;
+    --color-navy-hsl: 226deg 25% 14%;
+    --color-navy-overlay: hsl(var(--color-navy-hsl) / 20%);
     /* e.g. for icons on colour-navy background */
-    --colour-navy-reversed: hsl(226deg 14% 25%);
+    --color-navy-reversed: hsl(226deg 14% 25%);
 
-    --colour-orange: hsl(25, 100%, 53%);
-    --colour-turquoise: hsl(184, 65%, 47%);
+    --color-orange: hsl(25, 100%, 53%);
+    --color-turquoise: hsl(184, 65%, 47%);
     /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME -- GRADIENTS
     =================================================== */
-    --colour-gradient-orange: radial-gradient(ellipse at bottom right, hsl(41, 100%, 69%) 0%,hsl(25, 100%, 50%) 100%);
+    --color-gradient-orange: radial-gradient(ellipse at bottom right, hsl(41, 100%, 69%) 0%,hsl(25, 100%, 50%) 100%);
     /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME -- BRANDS
     =================================================== */
     /* https://about.twitter.com/company/brand-assets */
-    --colour-brand-twitter: hsl(206, 82%, 63%);
-    --colour-brand-facebook: hsl(221, 44%, 41%);
-    --colour-brand-google-plus: hsl(7, 71%, 55%);
+    --color-brand-twitter: hsl(206, 82%, 63%);
+    --color-brand-facebook: hsl(221, 44%, 41%);
+    --color-brand-google-plus: hsl(7, 71%, 55%);
     /* https://www.youtube.com/yt/brand/en-GB/color.HTML */
-    --colour-brand-youtube: hsl(0, 74%, 46%);
+    --color-brand-youtube: hsl(0, 74%, 46%);
     /* https://business.pinterest.com/en/brand-guidelines */
-    --colour-brand-pinterest: hsl(353, 92%, 39%);
+    --color-brand-pinterest: hsl(353, 92%, 39%);
     /* https://brand.linkedin.com/visual-identity/color-palettes */
-    --colour-brand-linkedin: hsl(201, 100%, 35%);
-    --colour-brand-rss: hsl(36, 65%, 59%);
+    --color-brand-linkedin: hsl(201, 100%, 35%);
+    --color-brand-rss: hsl(36, 65%, 59%);
     /* GROUP VARIABLES -- DECORATION -- COLOURS -- PRESET - SOFT {LIGHT COLOURS}
     =================================================== */
     /* background: antiquewhite; */
@@ -125,28 +125,28 @@ scope-ui;
     /* background: snow; */
     /* GROUP VARIABLES -- DECORATION -- COLOURS -- GRAYSCALE
     =================================================== */
-    /* If you want to use a hue base for the grey... otherwise set to 0deg */
-    --colour-grey-hue: 225deg 10%;
+    /* If you want to use a hue base for the gray... otherwise set to 0deg */
+    --color-gray-hue: 225deg 10%;
 
     /* Dark to light */
-    /* --colour-black-off: hsl(0, 0%, 20%); */
+    /* --color-black-off: hsl(0, 0%, 20%); */
     /* https://twitter.com/AustinTByrd/status/1105822085362925568 */
-    /* --colour-black-off: hsl(240, 14%, 10%); */
-    --colour-black-off: hsl(var(--colour-grey-hue), 10%);
-    /* AA compliant as grey text on hsl(0, 0%, 98%) background. */
-    --colour-grey-reading-fa: hsl(var(--colour-grey-hue) 45%);
-    /* AA compliant as grey text on white background. AAA is 595959 */
-    --colour-grey-reading: hsl(var(--colour-grey-hue) 46%);
-    /* Not quite AA as grey text on white background, but you could use for less critical text such as meta or for 18pt and above text. Do not use it for a sentence. */
-    --colour-grey-reading-18pt: hsl(var(--colour-grey-hue) 58%);
-    /* For `text-decoration-color` of `color-grey-light` text */
-    --colour-grey-light-focus: hsl(var(--colour-grey-hue) 67%);
-    --colour-grey-light-1: hsl(var(--colour-grey-hue) 80%);
-    --colour-grey-light-2: hsl(var(--colour-grey-hue) 90%);
-    --colour-grey-light-3: hsl(var(--colour-grey-hue) 93%);
-    --colour-grey-light-4: whitesmoke;
-    --colour-grey-light-5: hsl(var(--colour-grey-hue) 97%);
-    --colour-grey-light-6: hsl(var(--colour-grey-hue) 99%);
+    /* --color-black-off: hsl(240, 14%, 10%); */
+    --color-black-off: hsl(var(--color-gray-hue), 10%);
+    /* AA compliant as gray text on hsl(0, 0%, 98%) background. */
+    --color-gray-reading-fa: hsl(var(--color-gray-hue) 45%);
+    /* AA compliant as gray text on white background. AAA is 595959 */
+    --color-gray-reading: hsl(var(--color-gray-hue) 46%);
+    /* Not quite AA as gray text on white background, but you could use for less critical text such as meta or for 18pt and above text. Do not use it for a sentence. */
+    --color-gray-reading-18pt: hsl(var(--color-gray-hue) 58%);
+    /* For `text-decoration-color` of `color-gray-light` text */
+    --color-gray-light-focus: hsl(var(--color-gray-hue) 67%);
+    --color-gray-light-1: hsl(var(--color-gray-hue) 80%);
+    --color-gray-light-2: hsl(var(--color-gray-hue) 90%);
+    --color-gray-light-3: hsl(var(--color-gray-hue) 93%);
+    --color-gray-light-4: whitesmoke;
+    --color-gray-light-5: hsl(var(--color-gray-hue) 97%);
+    --color-gray-light-6: hsl(var(--color-gray-hue) 99%);
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
     =================================================== */
     /* Where you may want to space the line-height slightly e.g. You may want to use -spaced because a paragraph contains short information and links, so you'd like to make it breathe a bit more. Use _sparingly_ since it exceeds the max recommended line-height of 1.5 */
@@ -240,8 +240,8 @@ scope-ui;
     --text-shadow-light: 1px 2px 5px hsla(0, 98%, 16%, 0.3);
     /* GROUP VARIABLES -- DECORATION -- SEPARATORS -- BORDERS - ordered from light to dark variants
     =================================================== */
-    --border-grey-s: 3px solid grey;
-    --border-grey-m: 5px solid grey;
+    --border-gray-s: 3px solid gray;
+    --border-gray-m: 5px solid gray;
     /* GROUP VARIABLES -- DECORATION -- BORDER RADIUS
     =================================================== */
     --border-radius-s: 3px;
@@ -279,8 +279,8 @@ scope-ui;
 
     --box-shadow-tailwind: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1);
 
-    --box-shadow-focus: 0 0 15px var(--colour-orange);
-    --box-shadow-focus: 0 0 0 3px var(--colour-blue);
+    --box-shadow-focus: 0 0 15px var(--color-orange);
+    --box-shadow-focus: 0 0 0 3px var(--color-blue);
     /* GROUP VARIABLES -- DECORATION -- OTHER
     =================================================== */
     --filter-image-boost: contrast(105%) saturate(1.08);
@@ -299,6 +299,7 @@ scope-ui;
     --animation-timing-function-in-out-quadratic: cubic-bezier(0.46, 0.03, 0.52, 0.96);
     --animation-timing-function-in-sine: cubic-bezier(0.47, 0, 0.75, 0.72);
 
+    --animation-timing-function-out: cubic-bezier(0.39, 0.58, 0.57, 1);
     --animation-timing-function-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
     --animation-timing-function-out-quadratic: cubic-bezier(0.22, 0.61, 0.36, 1);
     --animation-timing-function-wipe: cubic-bezier(.25, 1, .30, 1);
@@ -354,32 +355,32 @@ scope-ui;
 @layer elements {
     /* Defaults */
     html {
-        --colour-primary-text: white;
-        --colour-primary-background: black;
+        --color-primary-text: white;
+        --color-primary-background: black;
 
-        --colour-secondary-text: black;
-        --colour-secondary-background: white;
+        --color-secondary-text: black;
+        --color-secondary-background: white;
 
-        --colour-accent-text: var(--colour-orange);
-        --colour-accent-background: var(--colour-green);
+        --color-accent-text: var(--color-orange);
+        --color-accent-background: var(--color-green);
 
-        color: var(--colour-primary-text);
-        background: var(--colour-primary-background);
+        color: var(--color-primary-text);
+        background: var(--color-primary-background);
     }
 }
 @layer scope {
     .s-social {
-        --colour-accent-background: var(--colour-red-legacy);
+        --color-accent-background: var(--color-red-legacy);
         @supports (background: lch(0% 0 0)) {
-            --colour-accent-background: lch(var(--colour-red-lch));
+            --color-accent-background: lch(var(--color-red-lch));
         }
     }
     .s-light {
-        --colour-primary-text: black;
-        --colour-primary-background: white;
+        --color-primary-text: black;
+        --color-primary-background: white;
     
-        --colour-secondary-text: white;
-        --colour-secondary-background: black;
+        --color-secondary-text: white;
+        --color-secondary-background: black;
     }
 }
 
@@ -425,7 +426,7 @@ scope-ui;
         padding-block-end: var(--spacing-s-x);
         padding-block-start: var(--spacing-s-x);
         margin-block-end: var(--spacing-m);
-        color: var(--colour-grey-reading);
+        color: var(--color-gray-reading);
     }
     /* Notes...
 
@@ -440,7 +441,7 @@ scope-ui;
         border-left: 4px solid turquoise;
 
         & :is(p, cite) {
-            color: var(--colour-grey-reading);
+            color: var(--color-gray-reading);
         }
 
         & p {
@@ -463,7 +464,7 @@ scope-ui;
             top: -0.3em;
             left: 0.4em;
             font-size: var(--font-size-m);
-            color: var(--colour-grey-light-1);
+            color: var(--color-gray-light-1);
         }
     }
 
@@ -481,7 +482,7 @@ scope-ui;
         height: 2px;
         margin-block-end: var(--spacing-l);
         margin-top: var(--spacing-l);
-        background: var(--colour-grey-light-1);
+        background: var(--color-gray-light-1);
         border: 0;
     }
 
@@ -553,8 +554,8 @@ scope-ui;
     .u-link-style-custom-1 {
         & a {
             text-decoration-line: none;
-            border-bottom: 1px solid var(--colour-green-light);
-            box-shadow: inset 0 -7px 0 var(--colour-green-light);
+            border-bottom: 1px solid var(--color-green-light);
+            box-shadow: inset 0 -7px 0 var(--color-green-light);
             transition: background 0.3s ease-out;
         }
         &:hover a {
@@ -781,8 +782,8 @@ scope-ui;
 /* e.g.
 @layer components {
     .c-subtext {
-        color: var(--colour-grey);
-        border-bottom: 1px solid grey;
+        color: var(--color-gray);
+        border-bottom: 1px solid gray;
     }
 
     .c-eyebrow-heading {
@@ -800,7 +801,7 @@ scope-ui;
         bottom: 0;
         width: var(--width);
         left: calc((100% - var(--width)) / 2);
-        border-bottom: 1px solid var(--colour-black-off-2);
+        border-bottom: 1px solid var(--color-black-off-2);
     }
 }
 */
@@ -891,7 +892,7 @@ scope-ui;
     /* Ancestors and Parents of Current Page */
     /* nav */
     .c-current-menu-item {
-        color: rgba(var(--colour-turquoise-rgb),0.5);
+        color: rgba(var(--color-turquoise-rgb),0.5);
     }
 }
 /* GROUP COMPONENTS / FRAMEWORK / NAV / MOBILE / (CROSS POLLINATED)
@@ -1271,7 +1272,7 @@ nav ul {
         text-align: center;
         /*line-height: var(--font-size-reading-line-height);*/
         /*font-size: 1.3em;*/
-        /*color: var(--colour-pink);*/
+        /*color: var(--color-pink);*/
         /*@apply --t-text-style-1-strong;*/
     }
     .c-entry-title-intro--s {
@@ -1574,6 +1575,39 @@ nav ul {
                 transform: none;
             }
         }
+        @keyframes fade-in-down {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 5vh, 0);
+            }
+
+            75%, 100% {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        @keyframes fade-in-left {
+            0% {
+                opacity: 0;
+                transform: translate3d(0.5rem, 0, 0);
+            }
+    
+            75%, 100% {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        @keyframes fade-in-right {
+            0% {
+                opacity: 0;
+                transform: translate3d(-0.5rem, 0, 0);
+            }
+    
+            75%, 100% {
+                opacity: 1;
+                transform: none;
+            }
+        }
         @keyframes in-up {
             0% {
                 transform: translate3d(0, 5vh, 0);
@@ -1792,7 +1826,7 @@ nav ul {
                 opacity: 0;
             }
             50% {
-                opacity: var(--stagger, 50%);
+                opacity: var(--scrolly-stagger, 50%);
             }
             100% {
                 opacity: 1;
@@ -1800,12 +1834,17 @@ nav ul {
         }
         @keyframes scrolly-fade-in-up {
             0%, 30% {
-                top: var(--move-by, 5vh);
+                top: var(--scrolly-move-by, 5vh);
                 opacity: 0;
             }
             100% {
                 opacity: 1;
                 top: 0;
+            }
+        }
+        @keyframes scrolly-parallax {
+            to {
+                transform: translateY(var(--scrolly-move-by));
             }
         }
     }
@@ -1824,22 +1863,22 @@ nav ul {
         > * {
             animation-name: scrolly-fade-in;
 
-            &:nth-child(2) { --stagger: 40%; }
-            &:nth-child(3) { --stagger: 20%; }
-            &:nth-child(4) { --stagger: 10%; }
+            &:nth-child(2) { --scrolly-stagger: 40%; }
+            &:nth-child(3) { --scrolly-stagger: 20%; }
+            &:nth-child(4) { --scrolly-stagger: 10%; }
         }
         /* If has at least 5 children, spread out the stagger more */
         &:has(> :nth-child(5)) > * {
-            &:nth-child(2) { --stagger: 45%; }
-            &:nth-child(3) { --stagger: 40%; }
-            &:nth-child(4) { --stagger: 35%; }
-            &:nth-child(5) { --stagger: 30%; }
-            &:nth-child(6) { --stagger: 25%; }
-            &:nth-child(7) { --stagger: 20%; }
-            &:nth-child(8) { --stagger: 15%; }
-            &:nth-child(9) { --stagger: 10%; }
-            &:nth-child(10) { --stagger: 5%; }
-            &:nth-child(n+11) { --stagger: 0%; }
+            &:nth-child(2) { --scrolly-stagger: 45%; }
+            &:nth-child(3) { --scrolly-stagger: 40%; }
+            &:nth-child(4) { --scrolly-stagger: 35%; }
+            &:nth-child(5) { --scrolly-stagger: 30%; }
+            &:nth-child(6) { --scrolly-stagger: 25%; }
+            &:nth-child(7) { --scrolly-stagger: 20%; }
+            &:nth-child(8) { --scrolly-stagger: 15%; }
+            &:nth-child(9) { --scrolly-stagger: 10%; }
+            &:nth-child(10) { --scrolly-stagger: 5%; }
+            &:nth-child(n+11) { --scrolly-stagger: 0%; }
         }
     }
     /* GROUP UTILITIES / FRAMEWORK / SCROLLY / FADE IN UP CHILDREN
@@ -1849,22 +1888,70 @@ nav ul {
             position: relative;
             animation-name: scrolly-fade-in-up;
 
-            &:nth-child(2) { --move-by: 10vh; }
-            &:nth-child(3) { --move-by: 15vh; }
-            &:nth-child(4) { --move-by: 20vh; }
+            &:nth-child(2) { --scrolly-move-by: 10vh; }
+            &:nth-child(3) { --scrolly-move-by: 15vh; }
+            &:nth-child(4) { --scrolly-move-by: 20vh; }
         }
         /* If has at least 5 children, spread out the stagger more */
         &:has(> :nth-child(5)) > * {
-            &:nth-child(2) { --move-by: 5vh; }
-            &:nth-child(3) { --move-by: 7.5vh; }
-            &:nth-child(4) { --move-by: 10vh; }
-            &:nth-child(5) { --move-by: 12.5vh; }
-            &:nth-child(6) { --move-by: 15vh; }
-            &:nth-child(7) { --move-by: 17.5vh; }
-            &:nth-child(8) { --move-by: 20vh; }
-            &:nth-child(9) { --move-by: 22.5vh; }
-            &:nth-child(10) { --move-by: 25vh; }
-            &:nth-child(n+11) { --move-by: 27.5vh; }
+            &:nth-child(2) { --scrolly-move-by: 5vh; }
+            &:nth-child(3) { --scrolly-move-by: 7.5vh; }
+            &:nth-child(4) { --scrolly-move-by: 10vh; }
+            &:nth-child(5) { --scrolly-move-by: 12.5vh; }
+            &:nth-child(6) { --scrolly-move-by: 15vh; }
+            &:nth-child(7) { --scrolly-move-by: 17.5vh; }
+            &:nth-child(8) { --scrolly-move-by: 20vh; }
+            &:nth-child(9) { --scrolly-move-by: 22.5vh; }
+            &:nth-child(10) { --scrolly-move-by: 25vh; }
+            &:nth-child(n+11) { --scrolly-move-by: 27.5vh; }
+        }
+    }
+    /* GROUP UTILITIES / FRAMEWORK / SCROLLY / PARALLAX / VIEW
+    =================================================== */
+    /* Notes...
+
+        - This is based on the picture elements being absolutely positioned
+
+    */
+    .u-scrolly-parallax-view {
+        view-timeline-name: --scrolly-parallax;
+        --scrolly-move-by: -10vh;
+        will-change: transform;
+        animation: scrolly-parallax auto linear;
+        animation-timeline: view();
+        animation-range: cover 0% cover 100%;
+    }
+    /* GROUP UTILITIES / FRAMEWORK / SCROLLY / PARALLAX
+    =================================================== */
+    /* Notes...
+
+        - This is based on the picture elements being absolutely positioned
+
+    */
+    .u-scrolly-parallax {
+        view-timeline-name: --scrolly-parallax;
+        & picture, svg {
+            --scrolly-move-by: -10vh;
+            will-change: transform;
+            animation: scrolly-parallax auto linear;
+            animation-timeline: --scrolly-parallax;
+            animation-range: cover 40% cover 100%;
+
+            &:nth-of-type(3),
+            &:nth-of-type(4) {
+                --scrolly-move-by: -30vh;
+            }
+        }
+    }
+    /* GROUP UTILITIES / FRAMEWORK / SCROLLY / ROTATE
+    =================================================== */
+    .u-scrolly-rotate {
+        --scrolly-rotate-by: 35deg;
+        & picture, svg {
+            will-change: transform;
+            animation: scrolly-rotate auto linear;
+            animation-timeline: --scrolly-rotate;
+            animation-timeline: view();
         }
     }
 }
@@ -1918,7 +2005,7 @@ nav ul {
         =================================================== */
         /* handy to use switch like u-anni-wipe-in-{{ switch between='right|left' }} */
         /* [class*="u-anni-wipe"] {
-            animation-timing: var(--animation-timing-function-wipe);
+            animation-timing-function: var(--animation-timing-function-wipe);
         } */
         /* GROUP UTILITIES / FRAMEWORK / ANNI / ANIMATIONS / STAGGERING
         =================================================== */
@@ -1986,13 +2073,17 @@ nav ul {
 
 */
 
-
 /* This is needed for Live Preview hot reloading. Hot reloading conflicts with intersection observer. If we don't disable intersection observer animations then everything stays hidden since IO doesn't get triggered. */
 @layer utilities {
     .js--statamicLivePreview :is([data-io], [data-io-repeat]) {
-        animation: unset!important;
-        opacity: unset!important;
-        transform: unset!important;
+        /* Make sure animation inside [data-io] is also removed in case we're relying on the parent's [data-io-seen] */
+        & {
+            animation: unset!important;
+            transform: unset!important;
+        }
+        &, & * {
+            opacity: unset!important;
+        }
     }
     /* If they're ok with animation */
     @media (prefers-reduced-motion: no-preference) {
@@ -2014,12 +2105,13 @@ nav ul {
             }
         }
 
-        /* When an item is followed by another item then add a default delay */
-        [data-io][class*="__"] + [data-io][class*="__"] {
+        /* When an item is followed by another item (or you're using lists) then add a default delay */
+        [data-io]:is([class*="__"], li) + [data-io]:is([class*="__"], li) {
             animation-delay: calc(var(--io-delay) + var(--io-stagger));
             &:nth-child(2) { animation-delay: calc(var(--io-delay) + var(--io-stagger) * 2); }
             &:nth-child(3) { animation-delay: calc(var(--io-delay) + var(--io-stagger) * 3); }
             &:nth-child(4) { animation-delay: calc(var(--io-delay) + var(--io-stagger) * 4); }
+            &:nth-child(5) { animation-delay: calc(var(--io-delay) + var(--io-stagger) * 5); }
             /* etc. */
         }
 
@@ -2031,9 +2123,9 @@ nav ul {
             /* 1.5s if --io-delay is not defined */
             animation-delay: var(--io-delay, 1.5s)!important;
         }
-        /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / FADES
-        =================================================== */
-        .js {
+        @media (scripting: enabled) {
+            /* GROUP UTILITIES / ANIMATION / IO FRAMEWORK / FADES
+            =================================================== */
             :is([data-io--fade-in], [data-io--fade-in-up], [data-io--slide-up-and-fade-in]) {
             /* :is([data-io--slide-up-and-fade-in], [data-io--rotate-in-up], [data-io--slide-in-left], [data-io--slide-in-right]) { */
                 /* Start off with a 0 opacity (rather than hidden) so browsers can still "see" the element. You'll need 1%, 100% { opacity: 1; } on each keyframe to make them appear immediately, unless you're using a fade anyway */
@@ -2077,7 +2169,7 @@ nav ul {
             /* e.g. <p class="c-intro-text" data-io data-io--wipe-in-right>At Assured</p> */
             /* handy to use switch like data-io data-io--wipe-in-{{ switch between='right|left' }} */
             /* [data-io--wipe-in-right], [data-io--wipe-in-left] {
-                animation-timing: var(--animation-timing-function-wipe);
+                animation-timing-function: var(--animation-timing-function-wipe);
             }
             [data-io-seen][data-io--wipe-in-right] {
                 animation-name: wipe-in-right;
@@ -2088,12 +2180,12 @@ nav ul {
             [data-io-seen][data-io--circle-in-center] {
                 animation-duration: 1s;
                 animation-delay: 0.5s;
-                animation-timing: var(--animation-timing-function-in-cubic);
+                animation-timing-function: var(--animation-timing-function-in-cubic);
             }
             [data-io-seen][data-io--circle-in-top-right], [data-io-seen][data-io--circle-in-top-left] {
             [data-io-seen][data-io--circle-in-top-right] {
                 animation-duration: 4s;
-                animation-timing: var(--animation-timing-function-wipe);
+                animation-timing-function: var(--animation-timing-function-wipe);
             }
             [data-io-seen][data-io--circle-in-top-right] {
                 animation-name: circle-in-top-right;
@@ -2213,7 +2305,7 @@ nav ul {
 
     /* HTML Example...
 
-        <footer class="c-site-footer u-panel u-panel--dark" style="--panel-background-colour: var(--colour-purple-deep); --panel-text-colour: white;">
+        <footer class="c-site-footer u-panel u-panel--dark" style="--panel-background-colour: var(--color-purple-deep); --panel-text-colour: white;">
 
     */
     /* some-class*/
@@ -2226,7 +2318,7 @@ nav ul {
             top: 0;
     
             height: 100%;
-            background: var(--panel-background-colour, var(--colour-secondary-background));
+            background: var(--panel-background-colour, var(--color-secondary-background));
             z-index: -1;
     
             /* Object > Framework > (Non Core) > Layout > Full Width {Bust Out Of Container} */
@@ -2237,14 +2329,14 @@ nav ul {
         }
 
         & * {
-            color: var(--panel-text-colour, var(--colour-secondary-text));
+            color: var(--panel-text-colour, var(--color-secondary-text));
         }
     }
 
     /* Explicit */
-    .u-panel--grey-light {
+    .u-panel--gray-light {
         &::after {
-            background: var(--colour-grey-light);
+            background: var(--color-gray-light);
         }
         & * {
             color: black;
@@ -2263,7 +2355,7 @@ nav ul {
     .u-panel--dark ::placeholder {
         opacity: 1;
         color: white;
-        background: var(--colour-purple-transparent);
+        background: var(--color-purple-transparent);
     }
 
     /* Notes...
@@ -2287,10 +2379,10 @@ nav ul {
         - Note that it's generally better to use margin-block-end on components because for example a 90% stop will be 90% height of the component rather than 90% height of the component + it's padding below
 
         Here is an example of 1 stop:
-        <div class="c-something u-panel u-panel--split" style="--panel-background-colour-start: var(--colour-grey-light); --panel-background-colour-end: white; --panel-stop-1: 80%;">
+        <div class="c-something u-panel u-panel--split" style="--panel-background-colour-start: var(--color-gray-light); --panel-background-colour-end: white; --panel-stop-1: 80%;">
 
         Here is an example of 2 stops:
-        <div class="c-something u-panel u-panel--split" style="--panel-background-colour-start: white; --panel-background-colour-end: var(--colour-grey-light); --panel-stop-1: 10%; --panel-stop-2: 90%;">
+        <div class="c-something u-panel u-panel--split" style="--panel-background-colour-start: white; --panel-background-colour-end: var(--color-gray-light); --panel-stop-1: 10%; --panel-stop-2: 90%;">
 
     */
     /* Statamic Example...

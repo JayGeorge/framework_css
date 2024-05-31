@@ -18,7 +18,7 @@ ul/*o-*/.sub-menu {
     padding-inline-end: var(--spacing-l-static);
     margin-top: var(--spacing-s-1);
     font-size: 1.1em;
-    color: var(--colour-grey-reading);
+    color: var(--color-gray-reading);
 }
 
 .menu-item-has-children /* button*/.js--nav-submenu-dropdown:focus {
@@ -138,7 +138,7 @@ ul/*o-*/.sub-menu {
 =================================================== */
 /* Sub Categories */
 /* nav */.o-current-menu-item > a span {
-    color: var(--colour-turquoise);
+    color: var(--color-turquoise);
 }
 /* GROUP ORGANISMS / NAV / SUB MENUS / DECORATION
 =================================================== */

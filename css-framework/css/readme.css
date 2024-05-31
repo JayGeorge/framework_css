@@ -292,19 +292,19 @@ scope;
     Example 4
     ---------
     .el:focus {
-        outline: 3px solid hsla(var(--colour-turquoise-hsl),0.2);
+        outline: 3px solid hsla(var(--color-turquoise-hsl),0.2);
         text-decoration: none;
-        background: hsla(var(--colour-turquoise-hsl),0.2);
-        border-bottom: 2px solid hsla(var(--colour-turquoise-hsl),0.8);
+        background: hsla(var(--color-turquoise-hsl),0.2);
+        border-bottom: 2px solid hsla(var(--color-turquoise-hsl),0.8);
     }
 
 */
 /* .u-focus-style-1 a:focus,
 .s-entry-content a:focus {
-    outline: 3px solid hsla(var(--colour-turquoise-hsl),0.2);
+    outline: 3px solid hsla(var(--color-turquoise-hsl),0.2);
     text-decoration: none;
-    background: hsla(var(--colour-turquoise-hsl),0.2);
-    border-bottom: 2px solid hsla(var(--colour-turquoise-hsl),0.8);
+    background: hsla(var(--color-turquoise-hsl),0.2);
+    border-bottom: 2px solid hsla(var(--color-turquoise-hsl),0.8);
 } */
 
 /* Notes...
@@ -322,11 +322,11 @@ scope;
     Focus = obvious
     hover = subtle
 
-    Subtle effects such as going from light grey to black are best for hover. We want to gentle suggest rather than pop out, like we do with focus.
+    Subtle effects such as going from light gray to black are best for hover. We want to gentle suggest rather than pop out, like we do with focus.
 
     - Consider descending from p so we don't affect buttons e.g. reply button for blog comments
     - Consider darkening the underline/border-bottom color on hover, or removing the border on hover
-    - Consider going from light grey to black e.g. navigation hover events
+    - Consider going from light gray to black e.g. navigation hover events
 
     e.g. 
 
@@ -398,7 +398,7 @@ scope;
 
 /* 1 */
 /* .c-btn--background-transition-example a:hover {
-    background-color: var(--colour-brown-dark);
+    background-color: var(--color-brown-dark);
 } */
 
 /* 2 */
@@ -437,7 +437,7 @@ scope;
     Antlers:
 
     <div class="c-something u-panel{{ if panel_stop_1 }} u-panel--split" style="
-        --panel-background-colour-start: {{ panel_colour_start ?? 'var(--colour-grey-light)' }}; 
+        --panel-background-colour-start: {{ panel_colour_start ?? 'var(--color-gray-light)' }}; 
         --panel-background-colour-end: {{ panel_colour_end ?? 'white' }}; 
         {{ panel_stop_1 ?= '--panel-stop-1: {panel_stop_1}%;' }} 
         {{ panel_stop_2 ?= '--panel-stop-2: {panel_stop_2}%;' }}

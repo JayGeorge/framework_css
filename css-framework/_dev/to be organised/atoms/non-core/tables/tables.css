@@ -7,13 +7,6 @@ table + h2 {
 .js--tableWrapper {
     margin-block-end: var(--spacing-m-2);
 }
-/* GROUP PLUGIN / BOOTSTRAP / TABLES
-=================================================== */
-/*!
-* Bootstrap v3.1.1 (http://getbootstrap.com)
-* Copyright 2011-2014 Twitter, Inc.
-* Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-*/
 
 table {
     max-width: 100%;
@@ -80,7 +73,7 @@ table > thead > tr > th,
 table > thead > tr > td {
     border-bottom-width: 2px;
 }
-/* GROUP PLUGIN / BOOTSTRAP / TABLES / (JAY ADDED)
+/* GROUP ELEMENTS / TABLES / (JAY ADDED)
 =================================================== */
 /* - 768 */
 @media (max-width: 47.9375em){
@@ -123,22 +116,22 @@ table > thead > tr > td {
         white-space: nowrap;
     }
 }
-/* GROUP PLUGIN / BOOTSTRAP / TABLES / (MODIFICATIONS) / STRIPED
+/* GROUP ELEMENTS / TABLES / (MODIFICATIONS) / STRIPED
 =================================================== */
 table > tbody > tr:nth-child(odd) > td,
 table > tbody > tr:nth-child(odd) > th {
     background-color: #f8f8f8;
 }
-/* GROUP PLUGIN / BOOTSTRAP / TABLES / (MODIFICATIONS) / BORDERED
+/* GROUP ELEMENTS / TABLES / (MODIFICATIONS) / BORDERED
 =================================================== */
 table {
     border: 1px solid #eee;
 }
-/* GROUP PLUGIN / BOOTSTRAP / TABLES / (JAY ADDED) / (CROSS POLLINATED)
+/* GROUP ELEMENTS / TABLES / (JAY ADDED) / (CROSS POLLINATED)
 =================================================== */
 /* =JFG. Fix it so tabular info is easier to digest */
 table {
-    font-size: 16px;
+    font-size: 0.85rem;
 }
 
 table + h2 {
@@ -148,5 +141,5 @@ table + h2 {
 =================================================== */
 /* e.g. .js__highlight-today tr.js--today */
 .js__highlight-today .js--today {
-    border: 2px solid var(--colour-turquoise);
+    border: 2px solid var(--color-turquoise);
 }

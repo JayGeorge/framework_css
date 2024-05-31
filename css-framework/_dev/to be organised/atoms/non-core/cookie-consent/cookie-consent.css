@@ -68,7 +68,7 @@
 
 .c-cookie-consent button {
     font-size: 0.95em;
-    background: var(--colour-grey-light-4);
+    background: var(--color-gray-light-4);
     border-radius: var(--border-radius-l);
     font-weight: var(--font-family-main-weight-strong);
     cursor: pointer;

@@ -21,6 +21,6 @@ scope;
 @import 'components/buttons.css';
 @import 'components/site-header.css';
 @import 'scope/entry-content.css';
-@import 'utilities/animations.css';
+@import 'utilities/animation-keyframes.css';
 @import 'utilities/utilities.css';
 /* @import 'plugins/plyr.css'; */

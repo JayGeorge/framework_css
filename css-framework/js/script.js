@@ -42,23 +42,27 @@ for(i;i < nav_links.length; i++){
 =================================================== */
 /* Notes...
 
+- For JS I like using data attributes to hook into the DOM to keep thing separate from classes (which I use just to style things).
+- Use the syntax `data-js="something"` as a hook, and then use `toggleAttribute('data-js-added-yes')` or `addAttribute('data-js-added-yes')` to set the state.
+
 */
 /* HTML Example...
 
 */
 // Using data attributes
 
+
 // ```js
 // Array.from(document.querySelectorAll('[data-js="show-more-trigger"]') || []).forEach(element => {
 //     element.onclick = function(){
-//         document.querySelector('[data-js="show-more-target"]').toggleAttribute('data-js-yes');
+//         document.querySelector('[data-js="show-more-target"]').toggleAttribute('data-js-added-yes');
 //     }
 // });
 // ```
 
 // Then CSS...
 // ```css
-// .js [data-js="show-more-target"][data-js-yes] {
+// .js [data-js="show-more-target"][data-js-added-yes] {
 //     display: block;
 // }
 // ```

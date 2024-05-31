@@ -134,7 +134,7 @@
         padding-block-end: var(--spacing-m);
         padding-inline: var(--spacing-l);
         & p {
-            color: var(--colour-grey-reading);
+            color: var(--color-gray-reading);
         }
     }
 

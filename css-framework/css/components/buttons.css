@@ -73,13 +73,13 @@
     button.c-btn--2,
     /* e.g. Components > Framework > Forms > Layout */
     .c-form [type="submit"] {
-        background: var(--colour-turquoise);
+        background: var(--color-turquoise);
         color: white;
         border-radius: var(--border-radius-s);
     }
     /* 3 */
     .c-btn--3 a {
-        background: var(--colour-grey-light-4);
+        background: var(--color-gray-light-4);
         border-radius: var(--border-radius-s);
     }
     /* GROUP COMPONENTS / FRAMEWORK / BUTTONS / ACCESSIBILITY / HOVER

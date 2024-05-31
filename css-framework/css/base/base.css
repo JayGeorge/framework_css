@@ -26,8 +26,8 @@
     =================================================== */
     /* Useful for slides */
     --vh-s: max(28rem, 80vmin);
-    /* Switched to vmin at larger MQs, so things don't get too tall */
-    --vh-full: 100vh;
+    /* Use min things don't get too tall, e.g. consider a device at 1600 x 2560 */
+    --vh-full: min(100svh, 60rem);
     /* GROUP VARIABLES -- LAYOUT -- CONSTRAINTS -- MAX
     =================================================== */
     /* From lowest to highest value */
@@ -44,22 +44,23 @@
     /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME
     =================================================== */
     /* Dark to light */
-    --colour-red-legacy: red;
-    --colour-red: oklch(50% 132 35);
+    --color-gray-aa: #111;
+    --color-red-legacy: red;
+    --color-red: oklch(50% 132 35);
 
-    --colour-focus: purple;
+    --color-focus: purple;
     /* GROUP VARIABLES -- DECORATION -- TEXT -- FONTS
     =================================================== */
     --font-family-main: adonis-web, serif;
-    --font-family-headline: sans-serif;
+    --font-family-heading: sans-serif;
     /* GROUP VARIABLES -- DECORATION -- TEXT -- WEIGHTS
     =================================================== */
     /* Or, if you are only using ONE weight by design then you should just add something like --font-family-main-weight: 500;
     to save confusion about which one to pick */
     --font-family-main-weight-normal: 500;
     --font-family-main-weight-strong: 700;
-    --font-family-headline-weight-normal: 500;
-    --font-family-headline-weight-strong: 700;
+    --font-family-heading-weight-normal: 500;
+    --font-family-heading-weight-strong: 700;
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
     =================================================== */
     /* Optimise line-height for reading */
@@ -190,9 +191,13 @@
     *::after {
         /* Prevent flickering.
         When you click a link or a button or a div that has a click function on it,
-        usually a grey box flickers. The below prevents that. Source: http://goo.gl/MZ4Dr5 */
+        usually a gray box flickers. The below prevents that. Source: http://goo.gl/MZ4Dr5 */
         -webkit-tap-highlight-color: rgba(0,0,0,0);
         /* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
         box-sizing: border-box;
+    }
+    iframe {
+        width: 100%;
+        border: none;
     }
 }

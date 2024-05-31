@@ -33,7 +33,7 @@ div.hopscotch-bubble .hopscotch-bubble-close {
 }
 
 .hopscotch-bubble-close .c-jg-icon {
-    color: var(--colour-grey-reading);
+    color: var(--color-gray-reading);
 }
 
 .hopscotch-bubble .hopscotch-title {
@@ -86,9 +86,9 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.up {
 /* GROUP ORGANISMS / PLUGINS / HOPSCOTCH (TOUR) / ACCESSIBILITY / HOVER
 =================================================== */
 div.hopscotch-bubble .hopscotch-nav-button.next:hover {
-    background-image: linear-gradient(to bottom, var(--colour-green) 0%,var(--colour-green) 100%);
+    background-image: linear-gradient(to bottom, var(--color-green) 0%,var(--color-green) 100%);
     color: white;
-    border-color: var(--colour-green);
+    border-color: var(--color-green);
     box-shadow: none;
 }
 /* GROUP ORGANISMS / PLUGINS / HOPSCOTCH (TOUR) / ACCESSIBILITY / FOCUS
@@ -115,9 +115,9 @@ div.hopscotch-bubble {
 }
 
 .hopscotch-bubble .hopscotch-close:focus .c-jg-icon {
-    background: var(--colour-fail);
+    background: var(--color-fail);
     color: white;
-    border-color: var(--colour-fail);
+    border-color: var(--color-fail);
     border-radius: 50%;
 }
 /* stylelint-enable */
