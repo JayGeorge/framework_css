@@ -1765,6 +1765,14 @@ nav ul {
                 clip-path: circle(150% at top right);
             }
         }
+        @keyframes circle-out-top-right {
+            from {
+                clip-path: circle(125%);
+            }
+            to {
+                clip-path: circle(0% at top right);
+            }
+        }
         @keyframes circle-in-top-left {
             1%, 100% { opacity: 1; }
             from {
