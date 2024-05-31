@@ -2,14 +2,14 @@
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation */
 /* This property is a shorthand for the following CSS properties:
 
-    animation-delay
-    animation-direction
-    animation-duration
-    animation-fill-mode
-    animation-iteration-count
-    animation-name
-    animation-play-state
-    animation-timing-function
+animation-delay
+animation-direction
+animation-duration
+animation-fill-mode
+animation-iteration-count
+animation-name
+animation-play-state
+animation-timing-function
 
 */
 /* animation: 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) fade-in both; */
@@ -28,24 +28,24 @@ you just need to ensure that if transitions on the actual elements is set to "al
 =================================================== */
 /* Notes...
 
-    - All animation needs to be in core.css because of the minification process i.e. nano-css will translate/map animation names to a/b/c, etc.
-    - nano-css is not clever enough to cross reference css files
+- All animation needs to be in core.css because of the minification process i.e. nano-css will translate/map animation names to a/b/c, etc.
+- nano-css is not clever enough to cross reference css files
 
 */
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / WAIT UNTIL LOAD
 =================================================== */
 /* Notes...
 
-    https://css-tricks.com/making-animations-wait/
-    - Add the following to the top of your script.js
+https://css-tricks.com/making-animations-wait/
+- Add the following to the top of your script.js
 
-    /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / WAIT UNTIL LOAD
-    ===================================================
-    document.querySelector('body').classList.add('js-loading');
-    window.addEventListener('load', showPage, false);
-    function showPage() {
-      document.body.classList.remove('js-loading');
-    }
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / WAIT UNTIL LOAD
+===================================================
+document.querySelector('body').classList.add('js-loading');
+window.addEventListener('load', showPage, false);
+function showPage() {
+    document.body.classList.remove('js-loading');
+}
 
 */
 /* The magic here that makes animations wait */ 
@@ -71,18 +71,18 @@ you just need to ensure that if transitions on the actual elements is set to "al
 =================================================== */
 /* Notes
 
-    - Used on Big Fish Little Fish project, if you have any problems / find that a few more CSS rules are needed.
-    - Look in script.js for JS needed
-    - You need to prevent the reverse animation from firing until the element has been clicked once, otherwise the animation will take place on page load.
+- Used on Big Fish Little Fish project, if you have any problems / find that a few more CSS rules are needed.
+- Look in script.js for JS needed
+- You need to prevent the reverse animation from firing until the element has been clicked once, otherwise the animation will take place on page load.
 
 */
 
 /* HTML...
 
-    <button class="js__animate-in-or-out-on-click"> <-- Trigger. Use <button> so it's focusable
-        <span class="js__animate-in-or-out-on-click__element-to-be-animated"> <-- js--has-been-animated is added here
-        </span>
-    </button>
+<button class="js__animate-in-or-out-on-click"> <-- Trigger. Use <button> so it's focusable
+<span class="js__animate-in-or-out-on-click__element-to-be-animated"> <-- js--has-been-animated is added here
+</span>
+</button>
 
 */
 .js .js__animate-in-or-out-on-click__element-to-be-animated.js--has-been-animated,
@@ -109,7 +109,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     from {
         opacity: 0;
     }
-
+    
     to {
         opacity: 1;
     }
@@ -125,7 +125,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         opacity: 0;
         transform: translate3d(0, 100%, 0);
     }
-
+    
     to {
         opacity: 1;
         transform: translate3d(0, 0, 0);
@@ -145,7 +145,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         /* =JFG. Modified from Dan Eden's 2000px to 100% */
         transform: translate3d(0, 100%, 0);
     }
-
+    
     100% {
         opacity: 1;
         transform: none;
@@ -164,7 +164,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         opacity: 0;
         transform: translate3d(0, 100vh, 0);
     }
-
+    
     75%, 100% {
         opacity: 1;
         transform: none;
@@ -176,7 +176,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     0% {
         opacity: 1;
     }
-
+    
     100% {
         opacity: 0;
         transform: translate3d(0, 100vh, 0);
@@ -188,7 +188,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     0% {
         transform: translate3d(0, 5vh, 0);
     }
-
+    
     75%, 100% {
         transform: none;
     }
@@ -199,7 +199,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     0% {
         transform: translate3d(0, -5vh, 0);
     }
-
+    
     75%, 100% {
         transform: none;
     }
@@ -212,7 +212,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         /* =JFG. Modified from Dan Eden's 2000px to 100% */
         transform: translate3d(0, 100vh, 0);
     }
-
+    
     100% {
         opacity: 1;
         transform: none;
@@ -230,7 +230,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         opacity: 0;
         transform: translate3d(0, var(--fade-in-amount, -5vh), 0);
     }
-
+    
     100% {
         opacity: 1;
         transform: none;
@@ -245,7 +245,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         /* =JFG. Modified from Dan Eden's 2000px to 100% */
         transform: translate3d(0, -100%, 0);
     }
-
+    
     100% {
         opacity: 1;
         transform: none;
@@ -264,7 +264,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     0% {
         opacity: 1;
     }
-
+    
     100% {
         opacity: 0;
     }
@@ -282,7 +282,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         transform: translateY(0%);
         visibility: visible;
     }
-
+    
     100% {
         transform: translateY(100%);
     }
@@ -306,7 +306,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         transform: translateY(100%);
         visibility: visible;
     }
-
+    
     100% {
         transform: translateY(0%);
     }
@@ -332,7 +332,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         visibility: visible;
         opacity: 0;
     }
-
+    
     100% {
         transform: translateY(0%);
         opacity: 1;
@@ -352,7 +352,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         visibility: visible;
         opacity: 0;
     }
-
+    
     100% {
         transform: translateX(0%);
         opacity: 1;
@@ -370,7 +370,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         transform: translateX(100%);
         visibility: visible;
     }
-
+    
     100% {
         transform: translateX(0%);
     }
@@ -385,7 +385,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         /* Changed from Dan Eden. Does not use translate3D */
         transform: translateX(0%);
     }
-
+    
     100% {
         transform: translateX(100%);
     }
@@ -398,16 +398,16 @@ you just need to ensure that if transitions on the actual elements is set to "al
 =================================================== */
 @keyframes strike-through {
     from {
-		transform: scaleX(0);
-	}
-	to {
-		transform: scaleX(1);
-	}
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
 }
 
 .u-animated-strike-through {
     border: 1px solid white;
-
+    
     transform-origin: center left;
     animation-timing-function: cubic-bezier(.55, 0, .1, 1);
     animation-name: strike-through;
@@ -419,11 +419,11 @@ you just need to ensure that if transitions on the actual elements is set to "al
 
 @keyframes strike-through {
     from {
-		transform: scaleX(0);
-	}
-	to {
-		transform: scaleX(1);
-	}
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
 }
 
 .c-btn a span {
@@ -453,11 +453,11 @@ you just need to ensure that if transitions on the actual elements is set to "al
     0%, 20%, 50%, 80%, to {
         transform: translateY(0)
     }
-
+    
     40% {
         transform: translateY(-16px)
     }
-
+    
     60% {
         transform: translateY(-8px)
     }
@@ -473,16 +473,16 @@ you just need to ensure that if transitions on the actual elements is set to "al
         opacity: 0;
         transform: translateY(2000px);
     }
-
+    
     60% {
         opacity: 1;
         transform: translateY(-30px);
     }
-
+    
     80% {
         transform: translateY(10px);
     }
-
+    
     100% {
         transform: translateY(0);
     }
@@ -499,7 +499,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         opacity: 0;
         transform: scale3d(0.3, 0.3, 0.3);
     }
-
+    
     50% {
         opacity: 1;
     }
@@ -517,7 +517,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
         opacity: 1;
         transform: scale3d(0.3, 0.3, 0.3);
     }
-
+    
     50% {
         opacity: 0;
     }
@@ -534,7 +534,7 @@ you just need to ensure that if transitions on the actual elements is set to "al
     from {
         transform: rotate(0deg);
     }
-
+    
     to {
         transform: rotate(360deg);
     }
@@ -547,191 +547,191 @@ you just need to ensure that if transitions on the actual elements is set to "al
 =================================================== */
 @layer utilities {
     @keyframes blink {
-    from {
-        opacity: 0%;
+        from {
+            opacity: 0%;
+        }
+        
+        50% {
+            opacity: 100%;
+        }
+        
+        to {
+            opacity: 0%;
+        }
     }
-
-    50% {
-        opacity: 100%;
+    
+    .u-animated-blink {
+        animation-name: blink;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
     }
-
-    to {
-        opacity: 0%;
-    }
-}
-
-.u-animated-blink {
-    animation-name: blink;
-    animation-duration: 1.5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-out;
-}
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / BLINK JAGGED
-=================================================== */
-@layer utilities {
-    @keyframes blink-jagged {
-    0%, 49% {
-        opacity: 0%;
-    }
-
-    50%, 99% {
-        opacity: 100%;
-    }
-
-    100% {
-        opacity: 0%;
-    }
-}
-
-.u-animated-blink-jagged {
-    animation-name: blink-jagged;
-    animation-duration: 0.9s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-out;
-}
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / PULSE
-=================================================== */
-@keyframes pulse {
-    from {
-        transform: scale3d(1, 1, 1);
-    }
-
-    50% {
-        transform: scale3d(1.2, 1.2, 1.2);
-    }
-
-    to {
-        transform: scale3d(1, 1, 1);
-    }
-}
-
-.u-animated-pulse {
-    animation-name: pulse;
-    animation-duration: 0.9s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-out;
-}
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / MARQUEE
-=================================================== */
-/* HTML Example...
-
+    /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / BLINK JAGGED
+    =================================================== */
+    @layer utilities {
+        @keyframes blink-jagged {
+            0%, 49% {
+                opacity: 0%;
+            }
+            
+            50%, 99% {
+                opacity: 100%;
+            }
+            
+            100% {
+                opacity: 0%;
+            }
+        }
+        
+        .u-animated-blink-jagged {
+            animation-name: blink-jagged;
+            animation-duration: 0.9s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-out;
+        }
+        /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / PULSE
+        =================================================== */
+        @keyframes pulse {
+            from {
+                transform: scale3d(1, 1, 1);
+            }
+            
+            50% {
+                transform: scale3d(1.2, 1.2, 1.2);
+            }
+            
+            to {
+                transform: scale3d(1, 1, 1);
+            }
+        }
+        
+        .u-animated-pulse {
+            animation-name: pulse;
+            animation-duration: 0.9s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-out;
+        }
+        /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / MARQUEE
+        =================================================== */
+        /* HTML Example...
+        
         <div class="o-marquee-animation o-marquee-animation--1">
-            <div class="o-marquee-animation__inner">
-                <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
-            </div>
+        <div class="o-marquee-animation__inner">
+        <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
         </div>
-
+        </div>
+        
         <div class="o-marquee-animation o-marquee-animation--2">
-            <div class="o-marquee-animation__inner">
-                <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
-            </div>
+        <div class="o-marquee-animation__inner">
+        <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
         </div>
-
+        </div>
+        
         <div class="o-marquee-animation o-marquee-animation--3">
-            <div class="o-marquee-animation__inner">
-                <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
-            </div>
+        <div class="o-marquee-animation__inner">
+        <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
         </div>
-
+        </div>
+        
         <div class="o-marquee-animation o-marquee-animation--4">
-            <div class="o-marquee-animation__inner">
-                <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
-            </div>
+        <div class="o-marquee-animation__inner">
+        <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
         </div>
-
+        </div>
+        
         <div class="o-marquee-animation o-marquee-animation--5">
-            <div class="o-marquee-animation__inner">
-                <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
-            </div>
+        <div class="o-marquee-animation__inner">
+        <svg class="c-jg-icon"><use xlink:href="/svg-icons/symbol-defs.svg#c-jg-icon--cloud"></use></svg>
         </div>
-
-*/
-/* Source: https://codepen.io/Mark_Bowley/pen/xEbuI */
-@keyframes marquee-animation {
-    0% {
-        margin-left: -10%;
-    }
-
-    100% {
-        margin-left: 150%;
-    }
-}
-
-.o-marquee-animation {
-    animation-name: marquee-animation;
-    animation-timing-function: linear;
-    /* animation-iteration-count: infinite; <-- This is a nice idea but it would cripple a computer left open so it's best to limit it */
-    animation-iteration-count: 1;
-    /* Prevent marquee items from staying on screen once finished animating. Gives us more artistic control of placement */
-    animation-fill-mode: both;
-}
-
-.o-marquee-animation--1 {
-    animation-duration: 140s;
-    transform: scale(0.35);
-}
-
-.o-marquee-animation--2 {
-    animation-duration: 80s;
-    transform: scale(0.3);
-}
-
-.o-marquee-animation--3 {
-    animation-duration: 120s;
-    transform: scale(0.6);
-}
-
-.o-marquee-animation--4 {
-    animation-duration: 72s;
-    transform: scale(0.4);
-}
-
-.o-marquee-animation--5 {
-    animation-duration: 100s;
-    transform: scale(0.5);
-}
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / MARQUEE / LAYOUT
-=================================================== */
-.o-marquee-animation {
-    position: absolute;
-    height: 100%;
-}
-
-.o-marquee-animation .c-jg-icon {
-    position: absolute;
-}
-
-.o-marquee-animation .o-marquee-animation__inner {
-    position: relative;
-}
-
-.o-marquee-animation--1 .o-marquee-animation__inner {
-    top: 5rem;
-    left: -40rem;
-}
-
-.o-marquee-animation--2 .o-marquee-animation__inner {
-    top: 10rem;
-    left: 100rem;
-}
-
-.o-marquee-animation--3 .o-marquee-animation__inner {
-    top: -3rem;
-    left: -110rem;
-}
-
-.o-marquee-animation--4 .o-marquee-animation__inner {
-    top: -12rem;
-    left: 50rem;
-}
-
-.o-marquee-animation--5 .o-marquee-animation__inner {
-    top: -15rem;
-    left: -20rem;
-}
-/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / MARQUEE / DECORATION
-=================================================== */
-.o-marquee-animation .c-jg-icon {
-    font-size: 20em;
-    color: red;
-}
+        </div>
+        
+        */
+        /* Source: https://codepen.io/Mark_Bowley/pen/xEbuI */
+        @keyframes marquee-animation {
+            0% {
+                margin-left: -10%;
+            }
+            
+            100% {
+                margin-left: 150%;
+            }
+        }
+        
+        .o-marquee-animation {
+            animation-name: marquee-animation;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; <-- This is a nice idea but it would cripple a computer left open so it's best to limit it */
+            animation-iteration-count: 1;
+            /* Prevent marquee items from staying on screen once finished animating. Gives us more artistic control of placement */
+            animation-fill-mode: both;
+        }
+        
+        .o-marquee-animation--1 {
+            animation-duration: 140s;
+            transform: scale(0.35);
+        }
+        
+        .o-marquee-animation--2 {
+            animation-duration: 80s;
+            transform: scale(0.3);
+        }
+        
+        .o-marquee-animation--3 {
+            animation-duration: 120s;
+            transform: scale(0.6);
+        }
+        
+        .o-marquee-animation--4 {
+            animation-duration: 72s;
+            transform: scale(0.4);
+        }
+        
+        .o-marquee-animation--5 {
+            animation-duration: 100s;
+            transform: scale(0.5);
+        }
+        /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / MARQUEE / LAYOUT
+        =================================================== */
+        .o-marquee-animation {
+            position: absolute;
+            height: 100%;
+        }
+        
+        .o-marquee-animation .c-jg-icon {
+            position: absolute;
+        }
+        
+        .o-marquee-animation .o-marquee-animation__inner {
+            position: relative;
+        }
+        
+        .o-marquee-animation--1 .o-marquee-animation__inner {
+            top: 5rem;
+            left: -40rem;
+        }
+        
+        .o-marquee-animation--2 .o-marquee-animation__inner {
+            top: 10rem;
+            left: 100rem;
+        }
+        
+        .o-marquee-animation--3 .o-marquee-animation__inner {
+            top: -3rem;
+            left: -110rem;
+        }
+        
+        .o-marquee-animation--4 .o-marquee-animation__inner {
+            top: -12rem;
+            left: 50rem;
+        }
+        
+        .o-marquee-animation--5 .o-marquee-animation__inner {
+            top: -15rem;
+            left: -20rem;
+        }
+        /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / MARQUEE / DECORATION
+        =================================================== */
+        .o-marquee-animation .c-jg-icon {
+            font-size: 20em;
+            color: red;
+        }
