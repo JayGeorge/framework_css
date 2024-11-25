@@ -69,7 +69,7 @@
 
     /* GROUP FRAMEWORK / NON CORE / TABLE WRAPPER
     =================================================== */
-    /* Array.from(document.querySelectorAll('.s-entry-content table') || []).forEach(element => {
+    /* Array.from(document.querySelectorAll('main table') || []).forEach(element => {
         // create wrapper container
         var wrapper = document.createElement('div');
 

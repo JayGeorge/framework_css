@@ -71,10 +71,10 @@ document.addEventListener('click', function (event) {
 
 
 
-/* GROUP NAV / SUBMENUS
+/* GROUP NAV / SUBMENUS / SUBNAV
 =================================================== */
 // Get all the buttons by class name
-const nav_toc_sub_buttons = document.querySelectorAll('.js__navSubButton');
+const nav_toc_sub_buttons = document.querySelectorAll('[data-js-open-subnav]');
 
 // Define a click event handler for each button
 nav_toc_sub_buttons.forEach(button => {

@@ -973,7 +973,7 @@ scope-ui;
         clip-path: inset(0 0 0 0);
     }
 }
-@keyframes wipe-up-out {
+@keyframes wipe-out-up {
     0% {
         clip-path: inset(0 0 0 0);
     }
@@ -1033,7 +1033,7 @@ scope-ui;
                     animation: 1s var(--animation-timing-function-wipe) collapse-height 1s both;
                 }
                 .c-site-header__nav {
-                    animation: 1s var(--animation-timing-function-hipster) wipe-up-out both;
+                    animation: 1s var(--animation-timing-function-hipster) wipe-out-up both;
                 }
                 &:not(.js--navHasBeenOpened) .c-nav-mobile-button + nav {
                     opacity: 0;
@@ -1438,7 +1438,7 @@ nav ul {
 
 
 
-/* GROUP UTILTIES / FRAMEWORK
+/* GROUP UTILITIES / FRAMEWORK
 =================================================== */
 @layer utilities {
     /* For when something is revealed with JS, but if JS is not available show it */
@@ -1526,7 +1526,7 @@ nav ul {
     main {
         flex-grow: 1;
     }
-    /* GROUP UTILTIES / FRAMEWORK / ICONS / SIZING
+    /* GROUP UTILITIES / FRAMEWORK / ICONS / SIZING
     =================================================== */
     /* These is explicit, so override any automatic rules above with !important */
     .u-icon-right-x-x {
@@ -1552,7 +1552,7 @@ nav ul {
     }
     /* If they're OK with animation */
     @media (prefers-reduced-motion: no-preference) {
-        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / FADES
+        /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / FADES
         =================================================== */
         /* Components > Framework > Nav */
         @keyframes fade-in {
@@ -1622,7 +1622,7 @@ nav ul {
                 opacity: 0;
             }
         }
-        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / SLIDES
+        /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / SLIDES
         =================================================== */
         @keyframes slide-in-left {
             0% {
@@ -1646,7 +1646,7 @@ nav ul {
                 opacity: 1;
             }
         }
-        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / MOVES
+        /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / MOVES
         =================================================== */
         @keyframes pull-up {
             100% {
@@ -1683,7 +1683,7 @@ nav ul {
                 opacity: 1;
             }
         }
-        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / WIPES
+        /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / WIPES
         =================================================== */
         @keyframes wipe-out-up {
             0% {
@@ -1745,7 +1745,7 @@ nav ul {
                 clip-path: inset(0 0 0 100%);
             }
         }
-        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / CIRCLES
+        /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / CIRCLES
         =================================================== */
         @keyframes circle-in-center {
             from {
@@ -1783,7 +1783,7 @@ nav ul {
                 clip-path: circle(150% at top left);
             }
         }
-        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / MISC
+        /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / MISC
         =================================================== */
         @keyframes slit-reveal {
             0% {
@@ -1793,7 +1793,7 @@ nav ul {
                 clip-path: polygon(50% 0, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0 50%);
             }
         }
-        /* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / SCROLL DRIVEN ANIMATIONS / WIPE UP IN SCROLL HEADER BACKGROUND
+        /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / KEYFRAMES / SCROLL DRIVEN ANIMATIONS / WIPE UP IN SCROLL HEADER BACKGROUND
         =================================================== */
         /* This is used between slides, to slide up the background pseudo element. */
         @keyframes wipe-up-in-scroll-header-background {
@@ -2042,7 +2042,7 @@ nav ul {
 }
 
 
-/* GROUP UTILTIES / FRAMEWORK / ANIMATIONS / VIEW TRANSITIONS
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / VIEW TRANSITIONS
 =================================================== */
 @layer utilities {
     @media not (prefers-reduced-motion: reduce) {
@@ -2201,7 +2201,7 @@ nav ul {
             [data-io-seen][data-io--circle-in-top-left] {
                 animation-name: circle-in-top-left;
             } */
-            /* GROUP UTILTIES / ANIMATIONS / IO FRAMEWORK / MOTIF SLIT
+            /* GROUP UTILITIES / ANIMATIONS / IO FRAMEWORK / MOTIF SLIT
             =================================================== */
             /* Using my IO framework */
             /* [data-io-seen][data-io--slit-reveal] svg {
@@ -2210,7 +2210,7 @@ nav ul {
                 animation-name: slit-reveal;
                 animation-timing-function: var(--animation-timing-function-in-sine);
             } */
-            /* GROUP UTILTIES / ANIMATIONS / IO FRAMEWORK / OTHER
+            /* GROUP UTILITIES / ANIMATIONS / IO FRAMEWORK / OTHER
             =================================================== */
             /* Rotate In Up */
             /* [data-io--rotate-in-up][data-io-seen] {
@@ -2258,7 +2258,7 @@ nav ul {
                     }
                 }
             } */
-            /* GROUP UTILTIES / ANIMATIONS / IO FRAMEWORK / HIDERS
+            /* GROUP UTILITIES / ANIMATIONS / IO FRAMEWORK / HIDERS
             =================================================== */
             /* @media (max-width: 767px) {
                 [data-io--desktop-only] {

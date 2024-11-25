@@ -528,7 +528,7 @@ function showPage() {
     animation-name: zoom-out;
     animation-duration: 0.5s;
 }
-/* GROUP UTILTIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES / ROTATE
+/* GROUP UTILITIES / FRAMEWORK / (NON CORE) / ANIMATIONS / KEYFRAMES / ROTATE
 =================================================== */
 @keyframes rotate-infinite {
     from {

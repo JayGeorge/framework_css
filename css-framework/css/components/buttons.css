@@ -1,42 +1,49 @@
-/* GROUP COMPONENTS / FRAMEWORK / BUTTONS
+/* GROUP COMPONENTS / BUTTONS
 =================================================== */
+/* Notes...
+
+    - You can use a .o-btn-container object to control alignment. For example on the contact form
+
+*/
+/* HTML Example...
+
+    <div class="o-btn-container"> <-- optional object, which you could use to control alignment, e.g. .c-contact-form .o-btn-container { display: flex; justify-content: end; }
+        <div class="c-btn c-btn--1">
+            <a href="">Some button</a>
+        </div>
+    </div>
+
+*/
 @layer components {
-    /* anchor instead of just .c-btn because the browser focusses on the a element, which is the background color we want to change should be... */
-    .c-btn a,
-    /* For when you add a button with JS and it doesn't have an anchor */
-    .js--btn,
-    /* Components > Framework > Nav */
-    button.c-btn,
-    /* Override form background default */
-    /* e.g. Components > Framework > Comments */
+    .c-btn,
+    form button,
     [type="submit"] {
         display: inline-flex;
         gap: 1rem;
         /* I've found it more stable to use pxls rather than ems. */
         --button-spacing: var(--button-spacing-vertical) var(--button-spacing-horizontal);
         padding: var(--button-spacing);
+        font-size: var(--font-size-s-2);
+        font-weight: var(--font-family-main-weight-strong);
         text-decoration-line: none;
-        cursor: pointer;
-        /* =JFG. Hover states with a slight delay, but focus without any because keyboard users want quick feedback. Do not use 'all' because it resizes slowly when resizing the browser window */
+        /* Hover states with a slight delay, but focus without any because keyboard users want quick feedback. Do not use 'all' because it resizes slowly when resizing the browser window */
         transition: background-color 0.2s ease 0s;
-        &:last-child {
-            margin-right: 0;
-        }
     }
     .c-btn {
         position: relative;
-        display: inline-block;
-        /* Components > Framework > Forms > Layout */
+        /* e.g. icons in buttons */
+        display: inline-flex;
+        align-items: center;
         margin-block-end: 1.25rem;
-        & a {
-            /* e.g. icons in buttons */
-            display: flex;
-            align-items: center;
-            text-align: left;
-        }
+        text-align: left;
+
         :is(p) + & {
             margin-block-start: var(--spacing-s-2);
         }
+    }
+    button {
+        /* Improve usability */
+        cursor: pointer;
     }
 }
 @layer elements {
@@ -50,12 +57,14 @@
     button,
     [type="search"],
     [type="submit"] {
-        /* =JFG. Cancel default button appearance */
+        /* Cancel default button appearance */
         -webkit-appearance: none!important;
         border: none;
     }
     button {
-        /* =JFG. Cancel default button appearance */
+        /* Improve usability */
+        cursor: pointer;
+        /* Cancel default button appearance */
         background: none;
         /* To combat -apple-system-blueinput on iOS 15 */
         color: initial;
@@ -64,23 +73,16 @@
         }
     }
 }
-/* GROUP COMPONENTS / FRAMEWORK / BUTTONS / TYPES
+/* GROUP COMPONENTS / BUTTONS / TYPES
 =================================================== */
 @layer modifiers {
     /* 1 */
-    /* 2 */
-    .c-btn--2 a,
-    button.c-btn--2,
-    /* e.g. Components > Framework > Forms > Layout */
-    .c-form [type="submit"] {
-        background: var(--color-turquoise);
+    .c-btn--1,
+    form button,
+    [type="submit"] {
+        background: var(--color-primary-accent);
         color: white;
-        border-radius: var(--border-radius-s);
-    }
-    /* 3 */
-    .c-btn--3 a {
-        background: var(--color-gray-light-4);
-        border-radius: var(--border-radius-s);
+        border-radius: var(--border-radius-m);
     }
     /* GROUP COMPONENTS / FRAMEWORK / BUTTONS / ACCESSIBILITY / HOVER
     =================================================== */
@@ -91,8 +93,25 @@
         https://material-components.github.io/material-components-web-catalog/#/component/button
 
     */
-    .c-btn a:hover {
-        /* Cancel link hover effect */
-        border-bottom: 0;
+
+    /* 2 */
+    .c-btn--2 {
+        background: var(--color-gray-background);
+        border-radius: var(--border-radius-m);
+    }
+
+    /* Inline */
+    .c-btn--inline {
+        padding: 0;
+        text-decoration-line: underline;
+        text-decoration-thickness: 3px;
+        font-weight: var(--font-family-main-weight-strong);
+    }
+
+    /* Small */
+    .c-btn--s {
+        --button-spacing-vertical: 0.7rem;
+        --button-spacing-horizontal: 1rem;
+        font-size: 1rem;
     }
 }

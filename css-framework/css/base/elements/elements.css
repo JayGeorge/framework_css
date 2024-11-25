@@ -26,13 +26,24 @@
         /* https://css-tricks.com/scrollbar-reflowing/ */
         scrollbar-gutter: stable both-edges;
     }
+    pre,
+    code {
+        /* e.g. try <code><?php bloginfo('stylesheet_url'); ?></code> and you'll see that it overflows on smaller screens */
+        overflow-x: scroll;
+        padding-block-end: var(--spacing-s-x);
+        padding-block-start: var(--spacing-s-x);
+        margin-block-end: var(--spacing-m);
+        color: var(--color-gray-reading);
+    }
     /* Prevent images stretching too much */
-    /* =JFG. Use display:inline-block to prevent white space (read full answers here...) http://stackoverflow.com/questions/5804256/why-an-image-inside-a-div-has-an-extra-space-below-the-image */
     img {
-        display: inline-block;
         /* Maintain aspect ratio */
-        max-width: 100%;
         height: auto;
+    }
+    /* https://www.youtube.com/watch?v=2lyDv0wOQuQ */
+    img, picture, svg, video {
+        display: block;
+        max-width: 100%;
     }
     /* Reset */
     h1, h2, h3, h4, h5, h6,
@@ -49,8 +60,17 @@
             margin-block-end: var(--spacing-s);
         }
     }
-    ul {
+    /* 
+        - https://youtu.be/UWFrl79092w?si=T0cPhMFkQhdkoLiA&t=75
+        - Excluding navigation and pagination
+    */
+    ul:not([class], nav *, [class*="pagi"] *) {
         padding-inline-start: 0;
+    }
+    ul[class],
+    *[class] > ul {
+        /* Try to target components that have a list, such as .c-paging > ul, and remove default list styling */
+        list-style: none;
     }
     /* Don't affect nav */
     main li {
@@ -103,7 +123,10 @@
     =================================================== */
     /* https://developer.chrome.com/blog/CSS-text-wrap-balance */
     h1, h2, h3, h4, h5, h6 {
-        text-wrap: balance;
+        /* Not .s-entry-content headings because it feels a bit weird */
+        &:not(.s-entry-content &) {
+            text-wrap: balance;
+        }
     }
     blockquote, figcaption, main p {
         text-wrap: pretty;

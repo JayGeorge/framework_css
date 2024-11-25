@@ -82,7 +82,7 @@ table > thead > tr > td {
     /* add this to your script...
     /* GROUP FRAMEWORK / NON CORE / TABLE WRAPPER
     =================================================== */
-    /* Array.from(document.querySelectorAll('.s-entry-content table') || []).forEach(element => {
+    /* Array.from(document.querySelectorAll('main table') || []).forEach(element => {
         // create wrapper container
         var wrapper = document.createElement('div');
 
@@ -113,7 +113,11 @@ table > thead > tr > td {
     table > thead > tr > td,
     table > tbody > tr > td,
     table > tfoot > tr > td {
-        white-space: nowrap;
+        &,
+        /* Statamic adds p tags */
+        & p {
+             white-space: nowrap;   
+        }
     }
 }
 /* GROUP ELEMENTS / TABLES / (MODIFICATIONS) / STRIPED
