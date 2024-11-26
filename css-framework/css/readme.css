@@ -14,28 +14,6 @@
     /* Here is a second example of a commment, e.g. Prevent overflow on screens less than em or px value */
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 24em), 1fr));
 }
-/* GROUP NOTES / FORMATTING / COMMENTS / END OF LINE FORMATTING
-===================================================  */
-/* Comments should only be added to the end of the line when they are entirely supplementary. Examples:
-
-- Increase or Decrease <-- when you are just noting a change in value, for example on higher or lower media queries. Example:
-    ```
-        .something {
-            padding-block: 1rem;
-            @media (min-width: 768px) {
-                padding-block: 2rem; /* Increase
-            }
-        }
-    ```
-- A URL example from which the property/value pair decision is based. Example
-    ```
-        :root {
-            --font-size-s-2: 1.563em;
-            --font-size-s-2-line-height: 1.3; /* e.g. >> /blog/post-2
-        }
-    ```
-
-*/
 
 
 
@@ -56,7 +34,8 @@
             min-height: 100vh;
             min-height: 100svh;
 
-            position: relative; /* Needed for overflow: hidden; to work
+            /* Needed for overflow: hidden; to work 
+            position: relative;
 
             display: grid;
             align-content: center;
@@ -186,7 +165,7 @@
 ===================================================  */
 /* Cound be useful to use the max value for increasing spacing on hero text elements, e.g.
 
-    padding-inline-start: max(var(--spacing-l), 7vw);
+    padding-inline-start: max(var(--spacing-l-1), 7vw);
 
 */
 
@@ -230,26 +209,6 @@ font-size: var(--font-size-l-1);
 line-height: var(--font-size-height-l-1);
 
 */
-
-
-
-/* GROUP LAYERS
-=================================================== */
-/* See readme.css for more information */
-@layer
-base,
-elements,
-/* Remember - objects with a component selector (e.g. .o-something .c-btn) should be in a component layer instead */
-objects,
-components,
-modifiers,
-utilities,
-/* Third party e.g. https://plyr.io */
-vendors,
-/* Specific UI that should never be overridden, such as the layout in Alpine Components */
-ui,
-/* .s- classes */
-scope;
 
 
 
@@ -313,6 +272,7 @@ scope;
     - Still include them in this group so we can see all link styles for easy maintenance
 
 */
+
 
 
 /* GROUP ELEMENTS / FRAMEWORK / TEXT / LINK STYLES {/ LINKS} / ACCESSIBILITY / HOVER
@@ -426,111 +386,4 @@ scope;
         color: black;
     }
 }
-*/
-
-
-
-/* GROUP UTILITIES / DECORATION / PANELS
-=================================================== */
-/* Statamic Example...
-
-    Antlers:
-
-    <div class="c-something u-panel{{ if panel_stop_1 }} u-panel--split" style="
-        --panel-background-colour-start: {{ panel_colour_start ?? 'var(--color-gray-light)' }}; 
-        --panel-background-colour-end: {{ panel_colour_end ?? 'white' }}; 
-        {{ panel_stop_1 ?= '--panel-stop-1: {panel_stop_1}%;' }} 
-        {{ panel_stop_2 ?= '--panel-stop-2: {panel_stop_2}%;' }}
-    "{{ else }}"{{ /if }}>
-
-    your_blueprint.yaml:
-
-    title: 'Panel Controls'
-    fields:
-      -
-        handle: advanced
-        field:
-          mode: button
-          display: Advanced
-          type: revealer
-          icon: revealer
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-      -
-        handle: panel_colour_start
-        field:
-          swatches:
-            - 'hsl(0deg 0% 98%)'
-            - 'hsl(0deg 0% 100%)'
-          theme: nano
-          lock_opacity: true
-          default_color_mode: HSLA
-          color_modes:
-            - hex
-            - hsla
-          display: 'Panel Colour Start'
-          type: color
-          icon: color
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-          width: 25
-          if:
-            advanced: 'equals true'
-      -
-        handle: panel_stop_1
-        field:
-          input_type: text
-          antlers: false
-          display: 'Panel Stop 1 (%)'
-          type: text
-          icon: text
-          width: 75
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-          if:
-            advanced: 'equals true'
-      -
-        handle: panel_colour_end
-        field:
-          swatches:
-            - 'hsl(0deg 0% 98%)'
-            - 'hsl(0deg 0% 100%)'
-          theme: nano
-          lock_opacity: true
-          default_color_mode: HSLA
-          color_modes:
-            - hex
-            - hsla
-          display: 'Panel Colour End'
-          type: color
-          icon: color
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-          width: 25
-          if:
-            advanced: 'equals true'
-      -
-        handle: panel_stop_2
-        field:
-          input_type: text
-          antlers: false
-          display: 'Panel Stop 2 (%)'
-          type: text
-          icon: text
-          width: 75
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-          if:
-            advanced: 'equals true'
-
 */
