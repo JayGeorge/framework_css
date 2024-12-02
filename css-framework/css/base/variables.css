@@ -1,173 +1,203 @@
 :root {
     /* GROUP VARIABLES -- SPACING
     =================================================== */
-    --spacing-s-x-x: 0.25rem;
-    --spacing-s-x: 0.45rem;
-    --spacing-s: 0.8rem;
-    --spacing-s-1: 1.1rem;
-    --spacing-s-2: 1.35rem;
+    --spacing-s-5: 0.25rem;
+    --spacing-s-4: 0.5rem;
+    --spacing-s-3: 0.8rem;
+    --spacing-s-2: 1rem;
+    --spacing-s-1: 1.35rem;
 
     --spacing-m: 1.5rem;
     --spacing-l: 1.8rem;
+    --spacing-l-static: 1.8rem;
     --spacing-l-1: 2.5rem;
 
     /* Smaller values for mobile */
-    --spacing-l-2: min(14vw, 4.2rem);
+    --spacing-l-2: min(10vw, 4.2rem);
     --spacing-l-3: min(18vw, 4.7rem);
-    --spacing-l-3-horizontal: var(--spacing-s); /* Increased later */
-    --spacing-l-4: min(21vw, 7rem);
+    --spacing-l-3-horizontal: var(--spacing-s-3); /* Increased later */
+    --spacing-l-4: min(18vw, 7.5rem);
 
-    --spacing-vh-s: min(21vw, 15vh);
+    --spacing-vh-s: min(12vw, 10vh);
     --spacing-vh-m: min(22vw, 25vh);
+    --spacing-vh-l: clamp(12rem, 22vw, 29vh);
 
     --button-spacing-vertical: 1rem;
     --button-spacing-horizontal: 1.5rem;
+
     /* GROUP VARIABLES -- LAYOUT
     =================================================== */
-    /* Useful for slides */
-    --vh-s: max(28rem, 80vmin);
     /* Use min things don't get too tall, e.g. consider a device at 1600 x 2560 */
     --vh-full: min(100svh, 60rem);
+
     /* GROUP VARIABLES -- LAYOUT -- CONSTRAINTS -- MAX
     =================================================== */
     /* From lowest to highest value */
-    --max-width-reading-short: 22rem;
-    --max-width-reading: 36rem;
-    --max-width-title: 53rem;
     --max-width-1: 75rem;
-    --max-width-2: 85rem;
+    --max-width-reading: 39rem;
+    /* Increased at later MQs */
+    --max-width-title: 50rem;
+    --max-width-title-l: 60rem;
+    --max-width-form: var(--max-width-reading);
+
     /* GROUP VARIABLES -- LAYOUT -- Z-INDEX
     =================================================== */
     --z-index-above-body: 1;
     --z-index-nav: 2;
     --z-index-above-nav: 3;
+
     /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME
     =================================================== */
     /* Dark to light */
-    --color-gray-aa: #111;
-    --color-red-legacy: red;
-    --color-red: oklch(50% 132 35);
+    --color-black: hsl(217deg 53% 17%);
+    --color-black-hsl: 217deg 53% 17%;
+    --color-purple: oklch(53.24% .301 290.86);
+    --color-gray-background: hsl(217deg 23% 96%);
+    --color-gray-aa: hsl(0deg 0% 40%);
 
-    --color-focus: purple;
+    --color-primary-text: var(--color-black);
+    --color-primary-accent: var(--color-purple);
+
+    --color-focus: var(--color-primary-accent);
+    --color-link: black;
+
+    --color-form-accent: var(--color-primary-accent);
+
+    --color-alert-warning: hsl(0 75% 50%);
+    /* Any more transparent and we lose AA when used with alert-red text */
+    --color-alert-warning-background: hsl(0 75% 50% / 4%);
+
+    --color-alert-success: hsl(163deg 60% 32%);
+    --color-alert-success-background: hsl(163deg 75% 50% / 4%);
+    /* GROUP VARIABLES -- DECORATION -- COLOURS -- THEME -- GRADIENTS
+    =================================================== */
+    --color-gradient-purple: linear-gradient(to var(--gradient-direction, right), var(--color-pink),var(--color-purple));
+
     /* GROUP VARIABLES -- DECORATION -- TEXT -- FONTS
     =================================================== */
-    --font-family-main: adonis-web, serif;
-    --font-family-heading: sans-serif;
+    --font-family-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
     /* GROUP VARIABLES -- DECORATION -- TEXT -- WEIGHTS
     =================================================== */
-    /* Or, if you are only using ONE weight by design then you should just add something like --font-family-main-weight: 500;
-    to save confusion about which one to pick */
-    --font-family-main-weight-normal: 500;
+    --font-family-main-weight-normal: 350;
+    --font-family-main-weight-medium: 500;
     --font-family-main-weight-strong: 700;
-    --font-family-heading-weight-normal: 500;
-    --font-family-heading-weight-strong: 700;
+
+    --font-family-heading-weight-light: 700;
+    --font-family-heading-weight-normal: 800;
+
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
     =================================================== */
-    /* Optimise line-height for reading */
-    --font-size-reading-line-height: 1.5;
+    /*
+        -s sizes are sub 1rem
+        -m is just above 1rem
+        -l sizes are above 1rem
+    */
+    --font-size-s-2: 0.8rem;
+    --font-size-s-1: 0.9rem;
+    --font-size-s-1-line-height: 1.45;
 
-    --font-size-s-x-x: 0.707em;
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- OUTSIDE SCALE
     =================================================== */
-    /* e.g. Outside scale. Sometimes I go outside scales because of my font-bump adjustmemts */
-    /* Decreased at a later root breakpoint */
-    /* --font-size-s-x: 0.9em; */
-    --font-size-s-x: 1em;
-    --font-size-s-x-line-height: 1.3;
-    --font-size-s-x-1: 1rem;
-    --font-size-s: clamp(1.05em, 4vw, 1.1em);
-    /* --font-size-s-2: clamp(1.3em, 7vw, 1.5em); */
-    /* --font-size-s-2-line-height: 1.3; */
+    /* -m is just above 1rem */
+    --font-size-m: clamp(1.05em, 4vw, 1.1em);
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- AUGMENTED FOURTH
     =================================================== */
     /* Based on Augmented Fourth - https://type-scale.com/ */
-    --font-size-s-1: clamp(1.35em, 4vw, 1.414em);
-    --font-size-s-1-line-height: 1.3;
+    --font-size-l-1: clamp(1.35em, 4vw, 1.414em);
+    --font-size-l-1-line-height: 1.3;
 
-    --font-size-m: clamp(1.999em * 0.75, 6vw, 1.999em);
-    --font-size-m-line-height: 1.3;
+    --font-size-l-2: clamp(1.999em * 0.75, 6vw, 1.999em);
+    --font-size-l-2-line-height: 1.3;
 
-    --font-size-l: clamp(2.827em * 0.8, 9vw, 2.827em);
-    --font-size-l-line-height: 1.15;
+    --font-size-l-3: clamp(2.827em * 0.8, 9vw, 2.827em);
+    --font-size-l-3-line-height: 1.15;
 
-    --font-size-l-1: clamp(3.998em * 0.8, 11vw, 3.998em);
-    --font-size-l-1-line-height: 1.15;
+    --font-size-l-4: clamp(3.998em * 0.8, 11vw, 3.998em);
+    --font-size-l-4-line-height: 1.15;
 
-    --font-size-l-2: clamp(5.653em * 0.618, 12vw, 5.653em);
-    --font-size-l-2-line-height: 1;
-}
-/* --mq-root-variable-adjustments-1 */
-@media (min-width: 450px) {
-    :root {
+    --font-size-l-5: clamp(5.653em * 0.618, 12vw, 5.653em);
+    --font-size-l-5-line-height: 1;
+
+    /* GROUP VARIABLES -- DECORATION -- ICONS -- SIZES
+    =================================================== */
+    --icon-size-m: 2rem;
+
+    /* GROUP VARIABLES -- DECORATION -- BORDER RADIUS
+    =================================================== */
+    --border-radius-m: 6px;
+
+    /* GROUP VARIABLES -- DECORATION -- SEPARATORS -- BORDERS - ordered from light to dark variants
+    =================================================== */
+    --border-neutral: 1px solid hsl(var(--color-black-hsl) / 10%);
+    --border-form-input: 1px solid hsl(var(--color-black-hsl) / 33%);
+
+    /* GROUP VARIABLES -- DECORATION -- SEPARATORS -- BOX SHADOWS - ordered from light to dark variants
+    =================================================== */
+    --box-shadow-light: 0px 0px 15px rgba(0,0,0,0.125);
+    --box-shadow-not-t: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    /* GROUP VARIABLES -- ANIMATIONS -- TIMING
+    =================================================== */
+    --animation-timing-function-fast-out-slow-in: cubic-bezier(.4,0,.2,1);
+
+    /* GROUP VARIABLES -- ANIMATIONS -- TRANSITIONS
+    =================================================== */
+    --transition-transform: transform 0.3s var(--animation-timing-function-fast-out-slow-in);
+
+    /* GROUP VARIABLES -- OTHER
+    =================================================== */
+    --focus-offset-width: 4px;
+    --focus-width: 3px;
+
+    /* --mq-root-variable-adjustments-1 */
+    @media (min-width: 450px) {
         /* GROUP VARIABLES -- SPACING
         ===================================================  */
-        --spacing-l: 3rem;
+        --spacing-l: 2.3rem;
         --spacing-l-1: 3.5rem;
     }
-}
-/* --mq-root-variable-adjustments-2 */
-@media (min-width: 730px) {
-    :root {
+    /* --mq-root-variable-adjustments-2 */
+    @media (min-width: 730px) {
         --spacing-l-3-horizontal: var(--spacing-l-3);
     }
-}
-/* --mq-root-variable-adjustments-2-portrait */
-@media (min-width: 730px) and (orientation: portrait) {
-    :root {
+    /* --mq-root-variable-adjustments-2-portrait */
+    @media (min-width: 730px) and (orientation: portrait) {
         /* e.g. iPad */
-        --spacing-vh-s: 10vh;
-        --spacing-vh-m: 14vh;
+        --spacing-l-4: 5rem;
     }
-}
-@media (orientation: portrait) {
-    :root {
-        /* GROUP VARIABLES -- LAYOUT
-        =================================================== */
-        /* Switch to vmin at larger MQs, so things don't get too tall */
-        --vh-full: 100lvmin;
+    @media (min-width: 1024px) {
+        --max-width-form: 50rem;
     }
-}
-/* Notes...
+    /* Notes...
 
-    --mq-root-variable-adjustments-smaller-laptops-after to --mq-root-variable-adjustments-larger-laptops-before
-    - Bear in mind users on smaller laptops do _not_ see things how you see things at a window width of 1440px.
-    - You can check exactly how they see it by going to System Preferences > Displays > Scaled
+        --mq-root-variable-adjustments-smaller-laptops-after to --mq-root-variable-adjustments-larger-laptops-before
+        - Bear in mind users on smaller laptops do _not_ see things how you see things at a window width of 1440px.
+        - You can check exactly how they see it by going to System Preferences > Displays > Scaled
 
-*/
-@media (min-width: 1025px) and (max-width: 1440px) {
-    :root {
+    */
+    @media (min-width: 1025px) and (max-width: 1440px) {
         --font-bump: -0.09em; /* Decrease */
-        /* and possibly... */
-        /* --font-size-l-4: calc(9.313em + 0.75em)!important; */
     }
-}
-/* --mq-text-bump-1-after */
-@media (min-width: 1600px) {
-    :root {
-        /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
-        =================================================== */
-        --font-size-s-x: 0.9em; /* Decrease */
+    /* --mq-text-bump-1-after */
+    @media (min-width: 1600px) {
         /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- BUMPS
         =================================================== */
-        --font-bump: 0.115vw; /* Increase */
+        --font-bump: 0.05vw; /* Increase */
     }
-}
-/* --mq-text-bump-2-after */
-@media (min-width: 1800px) {
-    :root {
+    /* --mq-text-bump-2-after */
+    @media (min-width: 1800px) {
         /* GROUP VARIABLES -- SPACING
         =================================================== */
         --spacing-vh-m: 22vh; /* Decrease */
         /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- BUMPS
         =================================================== */
-        --font-bump: 0.15vw; /* Increase */
+        --font-bump: 0.05vw; /* Increase */
     }
-}
-/* --mq-text-bump-3-after */
-@media (min-width: 2300px) {
-    :root {
+    /* --mq-text-bump-3-after */
+    @media (min-width: 2300px) {
         /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- BUMPS
         =================================================== */
-        --font-bump: 0.25vw; /* Increase */
+        --font-bump: 0.1vw; /* Increase */
     }
 }
