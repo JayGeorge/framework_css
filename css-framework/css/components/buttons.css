@@ -68,9 +68,11 @@
         background: none;
         /* To combat -apple-system-blueinput on iOS 15 */
         color: initial;
-        & svg {
-            font-size: 1.3em;
-        }
+    }
+}
+@layer components {
+    button svg {
+        font-size: 1.3em;
     }
 }
 /* GROUP COMPONENTS / BUTTONS / TYPES
