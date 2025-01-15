@@ -1,0 +1,69 @@
+/* GROUP OBJECTS / FRAMEWORK / HERO BUTTONS { / BUTTON HERO}
+=================================================== */
+/* Notes...
+
+    What does it do?
+    ----------------
+    - Put some space around a group of buttons
+    - Center the buttons
+
+*/
+
+/* HTML Example...
+
+    <div class="o-hero-buttons">
+        <a href="" class="c-btn">
+            Some button
+        </a>
+        <a href="" class="c-btn">
+            Some button
+        </a>
+    </div>
+
+*/
+
+/* Modifiers...
+
+    .o-hero-buttons--left <- align left e.g. you might use this for hero buttons below a map
+
+*/
+@layer objects {
+    .o-hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-m);
+
+        padding: var(--spacing-l-1);
+        text-align: center;
+        &:last-child {
+            padding-block-end: 0;
+        }
+        /* --mq-max-width-reading-before */
+        @media (max-width: 599px) {
+            text-align: left;
+            padding-inline-start: var(--spacing-l);
+        }
+        /* GROUP OBJECTS / FRAMEWORK / HERO BUTTONS { / BUTTON HERO} / SPACING MODIFICATIONS
+        =================================================== */
+        & + h2 {
+            padding-block-start: var(--spacing-s);
+        }
+
+        :where(h2) + & {
+            padding-block-start: var(--spacing-s-1);
+        }
+    }
+}
+@layer components {
+    /* Needs to be at the component levElements to override .c-btn defaults */
+    .o-hero-buttons :is(.c-btn, [type="submit"]) {
+        /* Since spacing is now controlled with flex */
+        margin: unset;
+    }
+}
+@layer modifiers {
+    .o-hero-buttons--left {
+        justify-content: flex-start;
+    }
+}

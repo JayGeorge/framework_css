@@ -51,6 +51,8 @@
         padding-block-start: var(--spacing-s-x);
         margin-block-end: var(--spacing-m);
         color: var(--color-gray-reading);
+        /* https://dbushell.com/2024/11/05/webkit-font-smoothing/ */
+        -webkit-font-smoothing: antialiased;
     }
     /* Prevent images stretching too much */
     img {
