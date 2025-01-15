@@ -15,7 +15,7 @@
     /* Smaller values for mobile */
     --spacing-l-2: min(10vw, 4.2rem);
     --spacing-l-3: min(18vw, 4.7rem);
-    --spacing-l-3-horizontal: var(--spacing-s-3); /* Increased later */
+    --spacing-l-3-inline: var(--spacing-s-3); /* Increased later */
     --spacing-l-4: min(18vw, 7.5rem);
 
     --spacing-vh-s: min(12vw, 10vh);
@@ -23,7 +23,7 @@
     --spacing-vh-l: clamp(12rem, 22vw, 29vh);
 
     --button-spacing-vertical: 1rem;
-    --button-spacing-horizontal: 1.5rem;
+    --button-spacing-inline: 1.5rem;
 
     /* GROUP VARIABLES -- LAYOUT
     =================================================== */
@@ -159,7 +159,7 @@
     }
     /* --mq-root-variable-adjustments-2 */
     @media (min-width: 730px) {
-        --spacing-l-3-horizontal: var(--spacing-l-3);
+        --spacing-l-3-inline: var(--spacing-l-3);
     }
     /* --mq-root-variable-adjustments-2-portrait */
     @media (min-width: 730px) and (orientation: portrait) {

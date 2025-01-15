@@ -21,7 +21,7 @@
         display: inline-flex;
         gap: 1rem;
         /* I've found it more stable to use pxls rather than ems. */
-        --button-spacing: var(--button-spacing-vertical) var(--button-spacing-horizontal);
+        --button-spacing: var(--button-spacing-vertical) var(--button-spacing-inline);
         padding: var(--button-spacing);
         font-size: var(--font-size-s-2);
         font-weight: var(--font-family-main-weight-strong);
@@ -113,7 +113,7 @@
     /* Small */
     .c-btn--s {
         --button-spacing-vertical: 0.7rem;
-        --button-spacing-horizontal: 1rem;
+        --button-spacing-inline: 1rem;
         font-size: 1rem;
     }
 }

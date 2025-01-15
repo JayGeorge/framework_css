@@ -17,16 +17,16 @@ header + .entry-content::first-letter {
     - Centering is handled through CSS @apply rules where possible
 
 */
-.u-center-horizontal {
-    @apply --u-center-horizontal;
+.u-center-inline {
+    @apply --u-center-inline;
 }
 
-.u-center-horizontal-2 {
+.u-center-inline-2 {
     margin-left: auto;
     margin-right: auto;
 }
 
-.u-center-horizontal-3 {
+.u-center-inline-3 {
     /* Distribute evenly */
     display: flex;
     justify-content: space-between;
@@ -34,19 +34,19 @@ header + .entry-content::first-letter {
     align-items: baseline;
 }
 
-.u-center-horizontal-absolute: {
+.u-center-inline-absolute: {
     position: absolute;
     left: 0;
     right: 0;
 }
 
-.u-center-horizontal-absolute-2: {
+.u-center-inline-absolute-2: {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0%);
 }
 
-.u-center-horizontal-text: {
+.u-center-inline-text: {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,13 +54,13 @@ header + .entry-content::first-letter {
 
 /* GROUP ATOMS -- UTILITIES -- CENTERING -- HORIZONTAL AND VERTICAL
 =================================================== */
-.u-center-horizontal-and-vertical-2: {
+.u-center-inline-and-vertical-2: {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.u-center-horizontal-and-vertical: {
+.u-center-inline-and-vertical: {
     position: absolute!important;
     top: 50%;
     left: 50%;
@@ -68,7 +68,7 @@ header + .entry-content::first-letter {
     width: 100%;
 }
 
-.u-center-horizontal-and-vertical-3: {
+.u-center-inline-and-vertical-3: {
     position: absolute!important;
     top: 50%;
     left: 50%;
@@ -93,22 +93,22 @@ header + .entry-content::first-letter {
     Useful on items like menus
 
 */
-.u-center-horizontal-blocks {
+.u-center-inline-blocks {
     text-align: center;
 }
 
-.u-center-horizontal-blocks__block {
+.u-center-inline-blocks__block {
     display: inline-block;
     /* Apparently this is ignored because of display: inline-block: so might not be needed. Need to confirm */
     /* float: none; */
 }
 /* HTML Example...
 
-    <div class="u-center-horizontal-blocks">
-        <div class="u-center-horizontal-blocks__block">
+    <div class="u-center-inline-blocks">
+        <div class="u-center-inline-blocks__block">
             Some block that you want to float in the middle
         </div>
-        <div class="u-center-horizontal-blocks__block">
+        <div class="u-center-inline-blocks__block">
             Another block that you want to float in the middle
         </div>
     </div>
