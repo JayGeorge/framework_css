@@ -447,6 +447,29 @@ function showPage() {
 }
 
 */
+/* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / WIGGLE
+=================================================== */
+@keyframes wiggle {
+    20% {
+        transform: rotate(-7deg);
+    }
+    40% {
+        transform: rotate(7deg);
+    }
+    60% {
+        transform: rotate(-4deg);
+    }
+    80% {
+        transform: rotate(4deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.u-animated-wiggle {
+    animation: wiggle 0.5s linear;
+}
 /* GROUP UTILITIES / FRAMEWORK / ANIMATIONS / BOUNCE
 =================================================== */
 @keyframes bounce {

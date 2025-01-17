@@ -1,110 +1,30 @@
 /* GROUP ELEMENTS / TABLES
 =================================================== */
-table + h2 {
-    padding-block-start: var(--spacing-s-1);
-}
+/* Notes...
 
-.js--tableWrapper {
-    margin-block-end: var(--spacing-m-2);
-}
+    - .c-table should be the wrapper
+    - table should be the actual table
+    - If you can't wrap the table in a .c-table then you should add the script demo in this file.
 
-table {
-    max-width: 100%;
-    background-color: transparent;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-th {
-    text-align: left;
-}
-
-table {
-    width: 100%;
-}
-
-table > thead > tr > th,
-table > tbody > tr > th,
-table > tfoot > tr > th,
-table > thead > tr > td,
-table > tbody > tr > td,
-table > tfoot > tr > td {
-    padding: 11px;
-    /* =JFG Added */
-    padding-inline-end: 20px;
-    /* -- */
-    line-height: 1.43;
-    vertical-align: top;
-    border-top: 1px solid #eee;
-}
-
-table > thead > tr > th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #eee;
-}
-
-table > caption + thead > tr:first-child > th,
-table > colgroup + thead > tr:first-child > th,
-table > thead:first-child > tr:first-child > th,
-table > caption + thead > tr:first-child > td,
-table > colgroup + thead > tr:first-child > td,
-table > thead:first-child > tr:first-child > td {
-    border-top: 0;
-}
-
-table > tbody + tbody {
-    border-top: 2px solid #eee;
-}
-
-table table {
-    background: white;
-}
-
-table > thead > tr > th,
-table > tbody > tr > th,
-table > tfoot > tr > th,
-table > thead > tr > td,
-table > tbody > tr > td,
-table > tfoot > tr > td {
-    border: 1px solid #eee;
-}
-
-table > thead > tr > th,
-table > thead > tr > td {
-    border-bottom-width: 2px;
-}
-/* GROUP ELEMENTS / TABLES / (JAY ADDED)
-=================================================== */
-/* - 768 */
-@media (max-width: 47.9375em){
-    /* =JFG. Need to wrap something around tables for overflow.
-    Without JS tables just behave as normal i.e. you wouldn't be able to see big tables. */
-    /* add this to your script...
-    /* GROUP FRAMEWORK / NON CORE / TABLE WRAPPER
-    =================================================== */
-    /* Array.from(document.querySelectorAll('main table') || []).forEach(element => {
-        // create wrapper container
-        var wrapper = document.createElement('div');
-
-        // insert wrapper before el in the DOM tree
-        element.parentNode.insertBefore(wrapper, element);
-
-        // move el into wrapper
-        wrapper.appendChild(element);
-        wrapper.classList.add('js--tableWrapper');
-    }); */
-
-    .js--tableWrapper {
-        overflow-y: hidden;
-        overflow-x: scroll;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-        -webkit-overflow-scrolling: touch;
-        width: 100%;
-        box-shadow: var(--box-shadow-s-inset-right);
+*/
+@layer elements {
+    .c-table {
+        margin-block-end: var(--spacing-m-2);
     }
 
     table {
-        margin-block-end: 0;
+        max-width: 100%;
+        background-color: transparent;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    th {
+        text-align: left;
+    }
+
+    table {
+        width: 100%;
     }
 
     table > thead > tr > th,
@@ -113,37 +33,117 @@ table > thead > tr > td {
     table > thead > tr > td,
     table > tbody > tr > td,
     table > tfoot > tr > td {
-        &,
-        /* Statamic adds p tags */
-        & p {
-             white-space: nowrap;   
+        padding: 11px;
+        /* =JFG Added */
+        padding-inline-end: 20px;
+        /* -- */
+        line-height: 1.43;
+        vertical-align: top;
+        border-top: 1px solid #eee;
+    }
+
+    table > thead > tr > th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #eee;
+    }
+
+    table > caption + thead > tr:first-child > th,
+    table > colgroup + thead > tr:first-child > th,
+    table > thead:first-child > tr:first-child > th,
+    table > caption + thead > tr:first-child > td,
+    table > colgroup + thead > tr:first-child > td,
+    table > thead:first-child > tr:first-child > td {
+        border-top: 0;
+    }
+
+    table > tbody + tbody {
+        border-top: 2px solid #eee;
+    }
+
+    table table {
+        background: white;
+    }
+
+    table > thead > tr > th,
+    table > tbody > tr > th,
+    table > tfoot > tr > th,
+    table > thead > tr > td,
+    table > tbody > tr > td,
+    table > tfoot > tr > td {
+        border: 1px solid #eee;
+    }
+
+    table > thead > tr > th,
+    table > thead > tr > td {
+        border-bottom-width: 2px;
+    }
+    /* GROUP ELEMENTS / TABLES / (JAY ADDED)
+    =================================================== */
+    @media (width < 768px) {
+        /* =JFG. Need to wrap something around tables for overflow.
+        Without JS tables just behave as normal i.e. you wouldn't be able to see big tables. */
+        /* add this to your script...
+        /* GROUP FRAMEWORK / NON CORE / TABLE WRAPPER
+        =================================================== */
+        /* Array.from(document.querySelectorAll('main table') || []).forEach(element => {
+            // create wrapper container
+            var wrapper = document.createElement('div');
+
+            // insert wrapper before el in the DOM tree
+            element.parentNode.insertBefore(wrapper, element);
+
+            // move el into wrapper
+            wrapper.appendChild(element);
+            wrapper.classList.add('js--tableWrapper');
+        }); */
+
+        .js--tableWrapper {
+            overflow-y: hidden;
+            overflow-x: scroll;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
+            box-shadow: var(--box-shadow-s-inset-right);
+        }
+
+        table {
+            margin-block-end: 0;
+        }
+
+        table > thead > tr > th,
+        table > tbody > tr > th,
+        table > tfoot > tr > th,
+        table > thead > tr > td,
+        table > tbody > tr > td,
+        table > tfoot > tr > td {
+            &,
+            /* Statamic adds p tags */
+            & p {
+                white-space: nowrap;   
+            }
         }
     }
-}
-/* GROUP ELEMENTS / TABLES / (MODIFICATIONS) / STRIPED
-=================================================== */
-table > tbody > tr:nth-child(odd) > td,
-table > tbody > tr:nth-child(odd) > th {
-    background-color: #f8f8f8;
-}
-/* GROUP ELEMENTS / TABLES / (MODIFICATIONS) / BORDERED
-=================================================== */
-table {
-    border: 1px solid #eee;
-}
-/* GROUP ELEMENTS / TABLES / (JAY ADDED) / (CROSS POLLINATED)
-=================================================== */
-/* =JFG. Fix it so tabular info is easier to digest */
-table {
-    font-size: 0.85rem;
-}
-
-table + h2 {
-    padding-block-start: var(--spacing-s-1);
-}
-/* GROUP MOLECULES / TABLES / BOOTSTRAP / (JAY ADDED) / HIGHLIGHT TODAYS DATE
-=================================================== */
-/* e.g. .js__highlight-today tr.js--today */
-.js__highlight-today .js--today {
-    border: 2px solid var(--color-turquoise);
+    /* GROUP ELEMENTS / TABLES / (MODIFICATIONS) / STRIPED
+    =================================================== */
+    table > tbody > tr:nth-child(odd) > td,
+    table > tbody > tr:nth-child(odd) > th {
+        background-color: #f8f8f8;
+    }
+    /* GROUP ELEMENTS / TABLES / (MODIFICATIONS) / BORDERED
+    =================================================== */
+    table {
+        border: 1px solid #eee;
+    }
+    /* GROUP ELEMENTS / TABLES / (JAY ADDED) / (CROSS POLLINATED)
+    =================================================== */
+    /* =JFG. Fix it so tabular info is easier to digest */
+    table {
+        font-size: 0.85rem;
+    }
+    /* GROUP MOLECULES / TABLES / BOOTSTRAP / (JAY ADDED) / HIGHLIGHT TODAYS DATE
+    =================================================== */
+    /* e.g. .js__highlight-today tr.js--today */
+    .js__highlight-today .js--today {
+        border: 2px solid var(--color-turquoise);
+    }
 }
