@@ -15,14 +15,9 @@
         https://use.typekit.net & https://p.typekit.net is the font file origin (Lighthouse required both links from Adobe)
         It may not have the same origin as the CSS file (https://use.typekit.net/pgd3inh.css)
     */ ?>
-    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
-    <link rel="preconnect" href="https://p.typekit.net" crossorigin />
-    <?php /* We use the full link to the CSS file in the rest of the tags */ ?>
-    <link rel="preload" as="style" href="https://use.typekit.net/wyy0pka.css" />
-    <link rel="stylesheet" href="https://use.typekit.net/wyy0pka.css" media="print" onload="this.media='all'" />
-    <noscript>
-        <link rel="stylesheet" href="https://use.typekit.net/wyy0pka.css" />
-    </noscript>
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="preconnect" href="https://p.typekit.net" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/wyy0pka.css"/>
 
     <!-- OR -->
 
