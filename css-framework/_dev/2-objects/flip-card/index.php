@@ -27,7 +27,7 @@
     <![endif]-->
 
     <?php /* Need tabindex="-1" to lock the tab focus here when using Skip to Content */?>
-    <main tabindex="-1" id="main">
+    <main tabindex="-1" id="main" class="s-main">
         <!-- Add your site or application content here -->
         <div class="js__o-flip o-flip">
             <div class="o-flip__front" style="background-image: url(https://images.pexels.com/photos/540518/pexels-photo-540518.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb)">

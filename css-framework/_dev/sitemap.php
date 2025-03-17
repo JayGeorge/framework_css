@@ -24,7 +24,7 @@
     <![endif]-->
 
     <?php /* Need tabindex="-1" to lock the tab focus here when using Skip to Content */?>
-    <main tabindex="-1" id="main">
+    <main tabindex="-1" id="main" class="s-main">
         <?php $filename = 'sitemap'; include '_inc/_stylesheet.php'; ?>
         <ul class="c-sitemap">
             <li>

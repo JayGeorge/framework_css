@@ -20,7 +20,7 @@
     <?php include '_inc/header.php'; ?>
 
     <?php /* Need tabindex="-1" to lock the tab focus here when using Skip to Content */?>
-    <main tabindex="-1" id="main">
+    <main tabindex="-1" id="main" class="s-main">
         <!-- Add your site or application content here -->
         <p>Hello world!</p>
     </main>

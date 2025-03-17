@@ -2,7 +2,7 @@
     Skip to content
 </a>
 
-<a href="#footer" class="skip-to-content u-screen-reader-text" title="Skip to footer navigation">
+<a href="#footer" class="c-skip-to-content u-screen-reader-text" title="Skip to footer navigation">
     Skip to footer navigation
 </a>
 

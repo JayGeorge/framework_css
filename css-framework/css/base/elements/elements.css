@@ -111,7 +111,7 @@
         list-style: none;
     }
     /* Don't affect nav */
-    main li:not(:last-child) {
+    .s-main li:not(:last-child) {
         padding-block-end: var(--spacing-s-2);
     }
     dl,
@@ -145,7 +145,7 @@
             </li>
         </ol>
     */
-    main :is(p:not(li p), ol, ul):not(:has(li p)) {
+    .s-main :is(p:not(li p), ol, ul):not(:has(li p)) {
         line-height: var(--font-size-reading-line-height);
         list-style-position: inside;
         padding-inline-start: 0;
@@ -160,7 +160,8 @@
     strong {
         font-weight: var(--font-family-main-weight-strong);
     }
-    svg {
+    /* Only target our own name-spaced components so that we don't affect plugins */
+    :is([class^="c-"], [class^="o-"]) svg {
         fill: currentColor;
         /* For SVG icons */
         width: 1em;
@@ -172,7 +173,8 @@
     }
     /* GROUP ELEMENTS / FRAMEWORK / MAIN
     =================================================== */
-    main {
+    /* Target the main element with a class rather than the main tag, because the main tag can still be used elsewhere e.g. Meilisearch uses it for its modal */
+    .s-main {
         &:focus {
             outline: none;
         }
@@ -193,7 +195,7 @@
             text-wrap: balance;
         }
     }
-    blockquote, figcaption, main p {
+    blockquote, figcaption, .s-main p {
         text-wrap: pretty;
     }
     h1, .h1, h1 a, .h1 a, h2, .h2, h2 a, .h2 a, h3, .h3, h3 a, .h3 a {
