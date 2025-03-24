@@ -179,7 +179,7 @@
     /* Custom */
     @media (width >= 1025px) and (width < 1441px) {
         /* Decrease */
-        --font-bump: -0.165em;
+        --font-bump: -0.085em;
     }
     /* --mq-text-bump-1-after */
     @media (min-width: 1600px) {
