@@ -178,6 +178,8 @@
     */
     /* Custom */
     @media (width >= 1025px) and (width < 1441px) {
+        /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- BUMPS
+        =================================================== */
         /* Decrease */
         --font-bump: -0.085em;
     }
