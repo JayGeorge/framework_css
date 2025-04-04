@@ -178,17 +178,14 @@
     */
     /* Custom */
     @media (width >= 1025px) and (width < 1441px) {
-        /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- BUMPS
-        =================================================== */
         /* Decrease */
-        --base-font-size: 0.915em;
+        --font-bump: -0.085em;
     }
     /* --mq-text-bump-1-after */
     @media (min-width: 1600px) {
         /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- BUMPS
         =================================================== */
-        /* Decrease */
-        --base-font-size: 0.98em;
+        --font-bump: 0.05vw; /* Increase */
     }
     /* --mq-text-bump-2-after */
     @media (min-width: 1800px) {
@@ -197,14 +194,12 @@
         --spacing-vh-m: 22vh; /* Decrease */
         /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- BUMPS
         =================================================== */
-        /* Increase */
-        --base-font-size: 0.656vw;
+        --font-bump: 0.05vw; /* Increase */
     }
     /* --mq-text-bump-3-after */
     @media (min-width: 2300px) {
         /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- BUMPS
         =================================================== */
-        /* Increase */
-        --base-font-size: 0.7vw;
+        --font-bump: 0.1vw; /* Increase */
     }
 }
