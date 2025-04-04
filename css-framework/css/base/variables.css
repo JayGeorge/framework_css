@@ -185,7 +185,7 @@
     @media (min-width: 1600px) {
         /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- BUMPS
         =================================================== */
-        --font-bump: 0.05vw; /* Increase */
+        --font-bump: 0.01em;
     }
     /* --mq-text-bump-2-after */
     @media (min-width: 1800px) {
@@ -194,12 +194,14 @@
         --spacing-vh-m: 22vh; /* Decrease */
         /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- BUMPS
         =================================================== */
-        --font-bump: 0.05vw; /* Increase */
+        /* Increase */
+        --font-bump: 0.02em;
     }
     /* --mq-text-bump-3-after */
     @media (min-width: 2300px) {
         /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES -- BUMPS
         =================================================== */
-        --font-bump: 0.1vw; /* Increase */
+        /* Increase */
+        --font-bump: 0.05em;
     }
 }
