@@ -53,6 +53,16 @@
         color: var(--color-gray-reading);
         /* https://dbushell.com/2024/11/05/webkit-font-smoothing/ */
         -webkit-font-smoothing: antialiased;
+        + p {
+            padding-block-start: var(--spacing-s-1);
+        }
+        p:has(+ &) {
+            padding-block-end: var(--spacing-s-1);
+        }
+    }
+    code {
+        /* Stop code elements with a long path in causing overflow. Source: https://stackoverflow.com/questions/1165497/how-to-prevent-text-from-overflowing-in-css#3791058 */
+         word-wrap: break-word;
     }
     /* Prevent images stretching too much */
     img {
