@@ -41,10 +41,6 @@
             margin-block-start: var(--spacing-s-2);
         }
     }
-    button {
-        /* Improve usability */
-        cursor: pointer;
-    }
 }
 @layer elements {
     /*
@@ -62,8 +58,6 @@
         border: none;
     }
     button {
-        /* Improve usability */
-        cursor: pointer;
         /* Cancel default button appearance */
         background: none;
         /* To combat -apple-system-blueinput on iOS 15 */
