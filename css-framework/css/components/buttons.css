@@ -23,7 +23,7 @@
         /* I've found it more stable to use pxls rather than ems. */
         --button-spacing: var(--button-spacing-vertical) var(--button-spacing-inline);
         padding: var(--button-spacing);
-        font-size: var(--font-size-s-1);
+        font-size: var(--font-size-s);
         font-weight: var(--font-family-main-weight-strong);
         text-decoration-line: none;
         /* Hover states with a slight delay, but focus without any because keyboard users want quick feedback. Do not use 'all' because it resizes slowly when resizing the browser window */
