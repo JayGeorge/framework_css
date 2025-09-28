@@ -145,6 +145,8 @@
     }
     a {
         color: inherit;
+        /* https://ux.stackexchange.com/questions/105024/why-dont-button-html-elements-have-a-css-cursor-pointer-by-default - One of the main tenets of UX is "don't make me think" ... if you don't have a hand pointer over a button then you have to think "is this a button?" ... so you are breaking this main principle and making the UX worse. This is probably why Apple and Microsoft both use this on their websites. */
+        cursor: pointer;
     }
     /* Don't affect Statamic's lists here, which contain p tags like this:
         <ol>
