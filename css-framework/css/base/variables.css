@@ -89,9 +89,9 @@
     /* GROUP VARIABLES -- DECORATION -- TEXT -- SIZES
     =================================================== */
     /*
-        -s sizes are sub 1rem
-        -m is just above 1rem
-        -l sizes are above 1rem
+        -sm sizes are sub 1rem
+        -md is just above 1rem
+        -lg and xl sizes are above 1rem
     */
     --font-size-xs: 0.8rem;
     --font-size-s: 0.9rem;
